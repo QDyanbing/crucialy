@@ -119,4 +119,4 @@ chore: 更新依赖版本
 
 - `.lintstagedrc` - lint-staged 配置
 
-如果需要自定义提交信息验证规则，需要 fork 本包并修改 `scripts/verifyCommit.js` 中的正则表达式。
+如果需要自定义提交信息验证规则，需要 fork 本包并修改 `commands/verify-commit.js` 中的正则表达式。

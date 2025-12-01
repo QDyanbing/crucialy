@@ -4,14 +4,14 @@
   "description": "Git hooks configuration for Crucialy projects",
   "files": [
     "husky",
-    "scripts",
     "templates",
+    "commands",
     "crucialy.js",
-    "setup.js",
     "README.md"
   ],
   "bin": {
-    "crucialy": "./crucialy.js"
+    "crucialy": "./crucialy.js",
+    "crucialy-verify-commit": "./commands/verify-commit.js"
   },
   "keywords": [
     "husky",
@@ -35,6 +35,9 @@
     "lint-staged": {
       "optional": false
     }
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
   }
 }
 

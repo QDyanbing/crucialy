@@ -26,6 +26,9 @@ importers:
 
   packages/git-hooks:
     dependencies:
+      chalk:
+        specifier: ^4.1.2
+        version: 4.1.2
       husky:
         specifier: ^9.0.0
         version: 9.1.7

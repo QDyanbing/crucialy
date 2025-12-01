@@ -20,11 +20,12 @@ function generateHookContent(hook) {
   
   // 如果是 commit-msg，需要替换脚本路径
   if (hook === 'commit-msg') {
-    // 使用绝对路径更可靠（通过 node -e 执行）
+    // 使用独立的 verify-commit 可执行文件，参考 umi 的实现方式
+    // 使用 pnpm exec 确保在 monorepo 中正确工作
     content = `#!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
-node "$(node -e "console.log(require.resolve('@crucialy/git-hooks/scripts/verifyCommit.js'))")" "$1"
+pnpm exec crucialy-verify-commit "$1"
 `;
   }
   
