@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 这个文件会在安装时被替换为正确的路径
+node "$(dirname "$0")/../scripts/verifyCommit.js" "$1"
+

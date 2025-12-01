@@ -1,0 +1,42 @@
+{
+  "name": "@crucialy/git-hooks",
+  "version": "0.0.0",
+  "description": "Git hooks configuration for Crucialy projects",
+  "files": [
+    "husky",
+    "scripts",
+    "templates",
+    "install.js",
+    "README.md"
+  ],
+  "bin": {
+    "crucialy-git-hooks-install": "./install.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "husky",
+    "lint-staged",
+    "git-hooks",
+    "git",
+    "hooks",
+    "commit-msg",
+    "pre-commit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "husky": "^9.0.0",
+    "lint-staged": "^16.0.0"
+  },
+  "peerDependenciesMeta": {
+    "husky": {
+      "optional": false
+    },
+    "lint-staged": {
+      "optional": false
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+node_modules
+.husky
+.lintstagedrc
+.commitlintrc
+功能清单.md
+CHANGELOG.md
+

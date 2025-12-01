@@ -5,6 +5,7 @@ Crucialy 包的 Monorepo 仓库。
 ## 包列表
 
 - [`@crucialy/lint`](./packages/lint) - ESLint、Stylelint 和 Prettier 的 lint 配置
+- [`@crucialy/git-hooks`](./packages/git-hooks) - Git hooks 配置（Husky、lint-staged、提交信息验证）
 
 ## 开发
 
