@@ -16,37 +16,15 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 
 **注意**：需要同时安装 `husky` 和 `lint-staged` 作为 peerDependencies。
 
-### 2. 配置 package.json
+### 2. 自动安装
 
-确保你的 `package.json` 包含以下脚本：
+安装包后，`postinstall` 脚本会自动执行，自动生成以下文件：
 
-```json
-{
-  "scripts": {
-    "prepare": "husky install"
-  }
-}
-```
+- `.husky/pre-commit` - 提交前运行 lint-staged
+- `.husky/commit-msg` - 提交时验证提交信息格式
+- `.lintstagedrc` - lint-staged 配置文件（如果不存在则创建）
 
-### 3. 初始化
-
-安装后会自动运行安装脚本，如果没有自动运行，可以手动执行：
-
-```bash
-pnpm exec crucialy-git-hooks-install
-```
-
-或者重新安装：
-
-```bash
-pnpm install
-```
-
-安装后会自动：
-
-- 设置 `.husky/pre-commit` 和 `.husky/commit-msg` hooks
-- 创建 `.lintstagedrc` 配置文件（如果不存在）
-- 初始化 husky（如果项目是 git 仓库）
+**无需手动运行任何命令！** 每次 `pnpm install` 后都会自动更新这些文件。
 
 **注意**：
 
