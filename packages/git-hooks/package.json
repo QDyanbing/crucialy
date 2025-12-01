@@ -6,14 +6,12 @@
     "husky",
     "scripts",
     "templates",
-    "install.js",
+    "crucialy.js",
+    "setup.js",
     "README.md"
   ],
   "bin": {
-    "crucialy-git-hooks-install": "./install.js"
-  },
-  "scripts": {
-    "postinstall": "node install.js"
+    "crucialy": "./crucialy.js"
   },
   "keywords": [
     "husky",

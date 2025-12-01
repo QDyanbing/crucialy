@@ -16,20 +16,65 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 
 **注意**：需要同时安装 `husky` 和 `lint-staged` 作为 peerDependencies。
 
-### 2. 自动安装
+### 2. 配置 package.json
 
-安装包后，`postinstall` 脚本会自动执行，自动生成以下文件：
+在项目的 `package.json` 中添加以下脚本：
+
+#### Husky 9.x
+
+```json
+{
+  "scripts": {
+    "postinstall": "crucialy setup",
+    "prepare": "husky"
+  }
+}
+```
+
+#### Husky 8.x
+
+```json
+{
+  "scripts": {
+    "postinstall": "crucialy setup",
+    "prepare": "husky install"
+  }
+}
+```
+
+**说明**：
+- `postinstall`: 每次 `pnpm install` 后自动运行 setup，确保 git hooks 文件是最新的
+- `prepare`: husky 初始化命令
+  - **Husky 9.x**: 使用 `husky`（不带参数）
+  - **Husky 8.x**: 使用 `husky install`（已废弃，但 husky 8 仍支持）
+
+**如何确认版本**：
+
+```bash
+pnpm list husky
+```
+
+本包要求 `husky >= 9.0.0`，建议使用 Husky 9.x。
+
+### 3. 运行 setup
+
+运行以下命令初始化 git hooks：
+
+```bash
+pnpm exec crucialy setup
+```
+
+或者直接运行：
+
+```bash
+crucialy setup
+```
+
+setup 命令会在项目根目录生成以下文件：
 
 - `.husky/pre-commit` - 提交前运行 lint-staged
 - `.husky/commit-msg` - 提交时验证提交信息格式
 - `.lintstagedrc` - lint-staged 配置文件（如果不存在则创建）
-
-**无需手动运行任何命令！** 每次 `pnpm install` 后都会自动更新这些文件。
-
-**注意**：
-
-- 不需要安装 commitlint，使用自定义脚本验证提交信息
-- `husky` 和 `lint-staged` 需要作为 peerDependencies 安装
 
 ## 使用
 
@@ -75,11 +120,3 @@ chore: 更新依赖版本
 - `.lintstagedrc` - lint-staged 配置
 
 如果需要自定义提交信息验证规则，需要 fork 本包并修改 `scripts/verifyCommit.js` 中的正则表达式。
-
-## 手动安装
-
-如果自动安装失败，可以手动运行：
-
-```bash
-pnpm exec crucialy-git-hooks-install
-```

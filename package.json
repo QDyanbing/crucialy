@@ -5,6 +5,8 @@
   "description": "Crucialy monorepo",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "crucialy setup",
+    "prepare": "husky",
     "lint": "pnpm -r lint",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
