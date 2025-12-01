@@ -5,7 +5,8 @@ const path = require('path');
 
 // 项目根目录（当前工作目录）
 const projectRoot = process.cwd();
-const gitHooksPackageRoot = __dirname;
+// 包根目录（setup.js 在 commands/ 目录下，需要向上一级）
+const gitHooksPackageRoot = path.join(__dirname, '..');
 
 // 生成 hook 内容
 function generateHookContent(hook) {
