@@ -22,11 +22,20 @@ function generateHookContent(hook) {
   // 如果是 commit-msg，需要替换脚本路径
   if (hook === 'commit-msg') {
     // 使用独立的 verify-commit 可执行文件，参考 umi 的实现方式
-    // 使用 pnpm exec 确保在 monorepo 中正确工作
+    // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
     content = `#!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm exec crucialy-verify-commit "$1"
+npx --no-install crucialy-verify-commit "$1"
+`;
+  }
+  
+  // 如果是 pre-commit，使用 npx --no-install
+  if (hook === 'pre-commit') {
+    content = `#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install lint-staged --quiet
 `;
   }
   
