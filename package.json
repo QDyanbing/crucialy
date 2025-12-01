@@ -4,6 +4,7 @@
   "private": true,
   "description": "Crucialy monorepo",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "pnpm -r lint",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
