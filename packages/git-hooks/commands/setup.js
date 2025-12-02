@@ -15,7 +15,7 @@ function generateHookContent(hook) {
   
   if (hook === 'commit-msg') {
     return `#!/usr/bin/env sh
-npx --no-install crucialy-verify-commit "$1"
+npx --no-install crucialy verify-commit "$1"
 `;
   }
   

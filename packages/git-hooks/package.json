@@ -8,8 +8,7 @@
     "README.md"
   ],
   "bin": {
-    "crucialy": "./crucialy.js",
-    "crucialy-verify-commit": "./commands/verify-commit.js"
+    "crucialy": "./crucialy.js"
   },
   "keywords": [
     "husky",
