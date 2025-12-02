@@ -10,34 +10,22 @@ const gitHooksPackageRoot = path.join(__dirname, '..');
 
 // 生成 hook 内容
 function generateHookContent(hook) {
-  const huskyTemplatesDir = path.join(gitHooksPackageRoot, 'husky');
-  const source = path.join(huskyTemplatesDir, hook);
+  // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
+  // Husky 9.x 格式：不需要 husky.sh
   
-  if (!fs.existsSync(source)) {
-    return null;
-  }
-  
-  let content = fs.readFileSync(source, 'utf-8');
-  
-  // 如果是 commit-msg，需要替换脚本路径
   if (hook === 'commit-msg') {
-    // 使用独立的 verify-commit 可执行文件，参考 umi 的实现方式
-    // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
-    // Husky 9.x 格式：不需要 husky.sh
-    content = `#!/usr/bin/env sh
+    return `#!/usr/bin/env sh
 npx --no-install crucialy-verify-commit "$1"
 `;
   }
   
-  // 如果是 pre-commit，使用 npx --no-install
   if (hook === 'pre-commit') {
-    // Husky 9.x 格式：不需要 husky.sh
-    content = `#!/usr/bin/env sh
+    return `#!/usr/bin/env sh
 npx --no-install lint-staged --quiet
 `;
   }
   
-  return content;
+  return null;
 }
 
 // 安装 husky hooks
@@ -86,24 +74,24 @@ function installHuskyHooks() {
 
 // 安装配置文件
 function installConfigFiles() {
-  const templatesDir = path.join(gitHooksPackageRoot, 'husky');
-  const configFiles = ['.lintstagedrc'];
-  let hasChanges = false;
-
-  configFiles.forEach((file) => {
-    const source = path.join(templatesDir, file);
-    const target = path.join(projectRoot, file);
-
-    if (fs.existsSync(source) && !fs.existsSync(target)) {
-      fs.copyFileSync(source, target);
-      console.log(`✓ Installed ${file}`);
-      hasChanges = true;
-    } else if (fs.existsSync(target)) {
-      console.log(`⚠ ${file} already exists, skipping`);
-    }
-  });
+  const lintstagedrcPath = path.join(projectRoot, '.lintstagedrc');
   
-  return hasChanges;
+  // 如果文件已存在，跳过
+  if (fs.existsSync(lintstagedrcPath)) {
+    console.log('⚠ .lintstagedrc already exists, skipping');
+    return false;
+  }
+  
+  // 生成 .lintstagedrc 配置
+  const lintstagedConfig = {
+    "*.{js,ts,jsx,tsx}": ["eslint --max-warnings=0 --fix", "prettier --cache --write"],
+    "*.{css,scss,less}": ["stylelint --fix", "prettier --cache --write"],
+    "*.{json,md,yaml,yml}": ["prettier --cache --write"]
+  };
+  
+  fs.writeFileSync(lintstagedrcPath, JSON.stringify(lintstagedConfig, null, 2) + '\n');
+  console.log('✓ Installed .lintstagedrc');
+  return true;
 }
 
 // 主函数

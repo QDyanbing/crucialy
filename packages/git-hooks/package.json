@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Git hooks configuration for Crucialy projects",
   "files": [
-    "husky",
     "commands",
     "crucialy.js",
     "README.md"
