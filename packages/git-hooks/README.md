@@ -39,21 +39,47 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 pnpm add -D husky@^9.0.0
 ```
 
-### 3. 运行 setup
+### 3. 自动安装
 
-运行以下命令初始化 git hooks：
+`postinstall` 脚本会自动运行 `crucialy setup`，在项目根目录生成以下文件：
+
+如需手动运行，可以使用以下命令：
 
 ```bash
+# 使用 pnpm
 pnpm exec crucialy setup
-```
 
-或者直接运行：
+# 使用 npx
+npx crucialy setup
 
-```bash
+# 如果已全局安装
 crucialy setup
 ```
 
-setup 命令会在项目根目录生成以下文件：
+### 可用命令
+
+```bash
+# 安装 git hooks 和配置文件（默认：两个都启用）
+pnpm exec crucialy setup
+
+# 只启用提交信息验证，跳过代码检查
+pnpm exec crucialy setup --skip-lint
+
+# 只启用代码检查，跳过提交信息验证
+pnpm exec crucialy setup --skip-commit-msg
+```
+
+也可以通过环境变量配置：
+
+```json
+{
+  "scripts": {
+    "postinstall": "SKIP_LINT=true crucialy setup"
+  }
+}
+```
+
+生成的文件：
 
 - `.husky/pre-commit` - 提交前运行 lint-staged
 - `.husky/commit-msg` - 提交时验证提交信息格式

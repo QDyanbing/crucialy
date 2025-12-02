@@ -38,8 +38,15 @@ function installHuskyHooks() {
     console.log('✓ Created .husky directory');
   }
 
-  // 安装 husky hooks
-  const hooks = ['pre-commit', 'commit-msg'];
+  // 根据配置决定安装哪些 hooks
+  const args = process.argv.slice(2);
+  const skipLint = args.includes('--skip-lint') || process.env.SKIP_LINT === 'true';
+  const skipCommitMsg = args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
+  
+  const hooks = [];
+  if (!skipLint) hooks.push('pre-commit');
+  if (!skipCommitMsg) hooks.push('commit-msg');
+  
   let hasChanges = false;
   
   hooks.forEach((hook) => {
@@ -98,11 +105,27 @@ function installConfigFiles() {
 function main() {
   console.log('Setting up @crucialy/git-hooks...\n');
 
+  // 支持通过环境变量或命令行参数配置
+  const args = process.argv.slice(2);
+  const skipLint = args.includes('--skip-lint') || process.env.SKIP_LINT === 'true';
+  const skipCommitMsg = args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
+  
+  if (skipLint && skipCommitMsg) {
+    console.log('⚠ All hooks are disabled. Nothing to setup.');
+    return;
+  }
+
   const hooksChanged = installHuskyHooks();
-  const configChanged = installConfigFiles();
+  const configChanged = skipLint ? false : installConfigFiles();
   
   if (hooksChanged || configChanged) {
     console.log('\n✓ @crucialy/git-hooks setup complete!');
+    if (skipLint) {
+      console.log('  (lint-staged disabled)');
+    }
+    if (skipCommitMsg) {
+      console.log('  (commit-msg verification disabled)');
+    }
   } else {
     console.log('\n✓ All files are up to date.');
   }
