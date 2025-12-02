@@ -4,7 +4,6 @@
   "description": "Git hooks configuration for Crucialy projects",
   "files": [
     "husky",
-    "templates",
     "commands",
     "crucialy.js",
     "README.md"

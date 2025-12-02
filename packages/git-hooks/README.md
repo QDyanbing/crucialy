@@ -20,8 +20,6 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 
 在项目的 `package.json` 中添加以下脚本：
 
-#### Husky 9.x
-
 ```json
 {
   "scripts": {
@@ -31,30 +29,15 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 }
 ```
 
-#### Husky 8.x
-
-```json
-{
-  "scripts": {
-    "postinstall": "crucialy setup",
-    "prepare": "husky install"
-  }
-}
-```
-
 **说明**：
 - `postinstall`: 每次 `pnpm install` 后自动运行 setup，确保 git hooks 文件是最新的
-- `prepare`: husky 初始化命令
-  - **Husky 9.x**: 使用 `husky`（不带参数）
-  - **Husky 8.x**: 使用 `husky install`（已废弃，但 husky 8 仍支持）
+- `prepare`: husky 初始化命令（Husky 9.x）
 
-**如何确认版本**：
+**注意**：本包仅支持 Husky 9.x，如果你使用的是 Husky 8.x，请升级到 9.x：
 
 ```bash
-pnpm list husky
+pnpm add -D husky@^9.0.0
 ```
-
-本包要求 `husky >= 9.0.0`，建议使用 Husky 9.x。
 
 ### 3. 运行 setup
 

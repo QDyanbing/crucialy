@@ -79,18 +79,38 @@ const commitRE = new RegExp(
  */
 function printError() {
   console.log();
-  console.log(`Error: ${chalk.red('提交信息不符合约定格式')}`);
-  console.log();
-  console.log(
-    '约定式提交格式用于自动生成 changelog，请使用正确的格式。',
+  console.error(
+    `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red('提交信息不符合约定格式')}\n\n` +
+      `  ${chalk.red('请使用格式：')} <type>(<scope>): <subject>\n\n` +
+      `  ${chalk.yellow('type 说明：')}\n` +
+      `    feat      新功能\n` +
+      `    fix       bug 修复\n` +
+      `    chore     构建/脚本/依赖\n` +
+      `    docs      文档或注释\n` +
+      `    style     代码格式、样式调整\n` +
+      `    refactor  代码重构（无新特性或修复）\n` +
+      `    perf      性能优化\n` +
+      `    test      测试用例\n` +
+      `    build     构建系统或外部依赖\n` +
+      `    ci        CI/CD 配置\n` +
+      `    revert    回滚提交\n` +
+      `    workflow  工作流相关\n` +
+      `    types     类型定义\n` +
+      `    wip       进行中的工作\n` +
+      `    release   发布相关\n` +
+      `    dep/deps  依赖相关\n` +
+      `    example   示例\n` +
+      `    merge     合并提交\n\n` +
+      `  ${chalk.yellow('特殊提交：')}\n` +
+      `    Merge xxx   合并提交\n` +
+      `    Revert xxx  回滚提交\n` +
+      `    Version xxx 版本提交\n\n` +
+      `  ${chalk.yellow('例如：')}\n` +
+      `    ${chalk.green('feat: 新增功能')}\n` +
+      `    ${chalk.green('fix(lint): 修复配置问题')}\n` +
+      `    ${chalk.green('chore: 更新依赖版本')}\n` +
+      `    ${chalk.green("Merge branch 'main' into dev")}\n`,
   );
-  console.log(chalk.yellow('Examples:'));
-  console.log();
-  console.log(chalk.green('  feat: 新增功能'));
-  console.log(chalk.green('  fix(lint): 修复配置问题'));
-  console.log(chalk.green('  chore: 更新依赖版本'));
-  console.log(chalk.green("  Merge branch 'main' into dev"));
-  console.log();
 }
 
 /**

@@ -23,18 +23,16 @@ function generateHookContent(hook) {
   if (hook === 'commit-msg') {
     // 使用独立的 verify-commit 可执行文件，参考 umi 的实现方式
     // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
+    // Husky 9.x 格式：不需要 husky.sh
     content = `#!/usr/bin/env sh
-. "$(dirname "$0")/_/husky.sh"
-
 npx --no-install crucialy-verify-commit "$1"
 `;
   }
   
   // 如果是 pre-commit，使用 npx --no-install
   if (hook === 'pre-commit') {
+    // Husky 9.x 格式：不需要 husky.sh
     content = `#!/usr/bin/env sh
-. "$(dirname "$0")/_/husky.sh"
-
 npx --no-install lint-staged --quiet
 `;
   }
@@ -88,7 +86,7 @@ function installHuskyHooks() {
 
 // 安装配置文件
 function installConfigFiles() {
-  const templatesDir = path.join(gitHooksPackageRoot, 'templates');
+  const templatesDir = path.join(gitHooksPackageRoot, 'husky');
   const configFiles = ['.lintstagedrc'];
   let hasChanges = false;
 
