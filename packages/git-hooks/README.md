@@ -1,10 +1,13 @@
 # @crucialy/git-hooks
 
+开箱即用的 Git hooks 配置包，提供统一的代码质量检查和提交规范。
+
 ## 功能
 
-- **Husky**: Git hooks 管理
-- **lint-staged**: 提交前自动 lint 和格式化
-- **提交信息验证**: 自定义脚本验证提交信息格式（无需 commitlint）
+- **Husky 9.x**: Git hooks 管理
+- **lint-staged**: 提交前自动 lint 和格式化代码
+- **提交信息验证**: 约定式提交格式验证（无需 commitlint）
+- **支持 Vue 和 React**: 统一配置，自动处理 `.vue` 文件
 
 ## 安装
 
@@ -30,6 +33,7 @@ pnpm add -D @crucialy/git-hooks husky lint-staged
 ```
 
 **说明**：
+
 - `postinstall`: 每次 `pnpm install` 后自动运行 setup，确保 git hooks 文件是最新的
 - `prepare`: husky 初始化命令（Husky 9.x）
 
@@ -79,11 +83,22 @@ pnpm exec crucialy setup --skip-commit-msg
 }
 ```
 
-生成的文件：
+### 生成的文件
 
 - `.husky/pre-commit` - 提交前运行 lint-staged
 - `.husky/commit-msg` - 提交时验证提交信息格式
-- `.lintstagedrc` - lint-staged 配置文件（如果不存在则创建）
+- `.lintstagedrc` - lint-staged 配置文件（支持 Vue 和 React）
+
+**`.lintstagedrc` 默认配置**：
+
+```json
+{
+  "*.{js,ts,jsx,tsx}": ["eslint --max-warnings=0 --fix", "prettier --cache --write"],
+  "*.vue": ["eslint --max-warnings=0 --fix", "stylelint --fix", "prettier --cache --write"],
+  "*.{css,scss,less}": ["stylelint --fix", "prettier --cache --write"],
+  "*.{json,md,yaml,yml}": ["prettier --cache --write"]
+}
+```
 
 ## 使用
 
@@ -124,8 +139,48 @@ chore: 更新依赖版本
 
 ## 自定义配置
 
-如果需要自定义配置，可以直接修改项目根目录下的配置文件：
+### 修改 lint-staged 配置
 
-- `.lintstagedrc` - lint-staged 配置
+直接编辑项目根目录下的 `.lintstagedrc` 文件：
 
-如果需要自定义提交信息验证规则，需要 fork 本包并修改 `commands/verify-commit.js` 中的正则表达式。
+```json
+{
+  "*.{js,ts}": ["eslint --fix", "prettier --write"],
+  "*.css": ["stylelint --fix"]
+}
+```
+
+### 自定义提交信息规则
+
+如需自定义提交信息验证规则，可以：
+
+1. 不使用本包的 commit-msg hook：`crucialy setup --skip-commit-msg`
+2. 手动配置 commitlint 或其他工具
+
+## 常见问题
+
+### 如何跳过 hook？
+
+```bash
+# 跳过 pre-commit（不推荐）
+git commit --no-verify
+
+# 临时禁用某个 hook
+rm .husky/pre-commit  # 删除后重新运行 crucialy setup 恢复
+```
+
+### 如何在 CI 中使用？
+
+CI 环境通常不需要 git hooks，可以在 CI 配置中跳过：
+
+```json
+{
+  "scripts": {
+    "postinstall": "[ -n \"$CI\" ] || crucialy setup"
+  }
+}
+```
+
+## License
+
+MIT
