@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const assert = require('assert');
 const chalk = require('chalk');
 
 /**
@@ -23,9 +22,6 @@ const msgPath = process.argv[2] || process.env.GIT_PARAMS;
 if (!msgPath) {
   process.exit(0);
 }
-
-// 使用 assert 明确断言，确保文件路径存在
-assert(msgPath, 'msgPath is required');
 
 /**
  * 读取并处理 commit message
@@ -79,38 +75,29 @@ const commitRE = new RegExp(
  */
 function printError() {
   console.log();
-  console.error(
-    `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red('提交信息不符合约定格式')}\n\n` +
-      `  ${chalk.red('请使用格式：')} <type>(<scope>): <subject>\n\n` +
-      `  ${chalk.yellow('type 说明：')}\n` +
-      `    feat      新功能\n` +
-      `    fix       bug 修复\n` +
-      `    chore     构建/脚本/依赖\n` +
-      `    docs      文档或注释\n` +
-      `    style     代码格式、样式调整\n` +
-      `    refactor  代码重构（无新特性或修复）\n` +
-      `    perf      性能优化\n` +
-      `    test      测试用例\n` +
-      `    build     构建系统或外部依赖\n` +
-      `    ci        CI/CD 配置\n` +
-      `    revert    回滚提交\n` +
-      `    workflow  工作流相关\n` +
-      `    types     类型定义\n` +
-      `    wip       进行中的工作\n` +
-      `    release   发布相关\n` +
-      `    dep/deps  依赖相关\n` +
-      `    example   示例\n` +
-      `    merge     合并提交\n\n` +
-      `  ${chalk.yellow('特殊提交：')}\n` +
-      `    Merge xxx   合并提交\n` +
-      `    Revert xxx  回滚提交\n` +
-      `    Version xxx 版本提交\n\n` +
-      `  ${chalk.yellow('例如：')}\n` +
-      `    ${chalk.green('feat: 新增功能')}\n` +
-      `    ${chalk.green('fix(lint): 修复配置问题')}\n` +
-      `    ${chalk.green('chore: 更新依赖版本')}\n` +
-      `    ${chalk.green("Merge branch 'main' into dev")}\n`,
-  );
+  console.error(`  ${chalk.bgRed.white(' ERROR ')} ${chalk.red('提交信息不符合约定格式')}`);
+  console.log();
+  console.error(`  ${chalk.red('请使用格式：')} <type>(<scope>): <subject>`);
+  console.log();
+  console.error(`  ${chalk.yellow('type 说明：')}`);
+  console.error(`    feat      新功能`);
+  console.error(`    fix       bug 修复`);
+  console.error(`    chore     构建/脚本/依赖`);
+  console.error(`    docs      文档或注释`);
+  console.error(`    style     代码格式、样式调整`);
+  console.error(`    refactor  代码重构（无新特性或修复）`);
+  console.error(`    perf      性能优化`);
+  console.error(`    test      测试用例`);
+  console.error(`    build     构建系统或外部依赖`);
+  console.error(`    ci        CI/CD 配置`);
+  console.error(`    revert    回滚提交`);
+  console.log();
+  console.error(`  ${chalk.yellow('例如：')}`);
+  console.error(`    ${chalk.green('feat: 新增功能')}`);
+  console.error(`    ${chalk.green('fix(lint): 修复配置问题')}`);
+  console.error(`    ${chalk.green('chore: 更新依赖版本')}`);
+  console.error(`    ${chalk.green("Merge branch 'main' into dev")}`);
+  console.log();
 }
 
 /**

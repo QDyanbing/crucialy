@@ -38,7 +38,7 @@ function installHuskyHooks() {
     console.log('✓ Created .husky directory');
   }
 
-  // 复制 husky hooks
+  // 安装 husky hooks
   const hooks = ['pre-commit', 'commit-msg'];
   let hasChanges = false;
   
