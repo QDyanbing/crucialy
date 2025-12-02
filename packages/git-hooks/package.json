@@ -23,20 +23,18 @@
   ],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "peerDependencies": {
     "husky": "^9.0.0",
     "lint-staged": "^16.0.0"
   },
-  "peerDependenciesMeta": {
-    "husky": {
-      "optional": false
-    },
-    "lint-staged": {
-      "optional": false
-    }
-  },
   "dependencies": {
     "chalk": "^4.1.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
 
