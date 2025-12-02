@@ -89,9 +89,10 @@ function installConfigFiles() {
     return false;
   }
   
-  // 生成 .lintstagedrc 配置
+  // 生成通用 .lintstagedrc 配置（支持 Vue 和 React）
   const lintstagedConfig = {
     "*.{js,ts,jsx,tsx}": ["eslint --max-warnings=0 --fix", "prettier --cache --write"],
+    "*.vue": ["eslint --max-warnings=0 --fix", "stylelint --fix", "prettier --cache --write"],
     "*.{css,scss,less}": ["stylelint --fix", "prettier --cache --write"],
     "*.{json,md,yaml,yml}": ["prettier --cache --write"]
   };
