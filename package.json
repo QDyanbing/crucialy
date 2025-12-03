@@ -4,22 +4,28 @@
   "private": true,
   "description": "Crucialy monorepo",
   "scripts": {
+    "build": "pnpm -r build",
+    "changeset": "changeset",
+    "format": "prettier --cache --write .",
+    "format:check": "prettier --cache --check .",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "crucialy setup",
-    "prepare": "husky",
     "lint": "pnpm -r lint",
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "changeset": "changeset",
+    "prepare": "husky",
+    "release": "pnpm build && changeset publish && git push origin master --follow-tags",
     "release:prepare": "changeset version",
-    "release": "pnpm build && changeset publish && git push origin master --follow-tags"
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.29.7",
     "@crucialy/git-hooks": "workspace:*",
+    "@crucialy/lint": "workspace:^",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7"
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.20"
   },
   "engines": {
     "node": ">=18.0.0",

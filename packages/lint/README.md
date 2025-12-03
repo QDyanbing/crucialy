@@ -109,4 +109,3 @@ module.exports = {
 - `prettier-plugin-organize-attributes` - 自动排序 HTML/JSX 属性
 
 如果不需要某些插件，可以不安装，Prettier 会自动跳过。
-

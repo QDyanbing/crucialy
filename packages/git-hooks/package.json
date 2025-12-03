@@ -30,6 +30,9 @@
     "name": "gaoyanbing",
     "email": "yanbing.gao@aliyun.com"
   },
+  "bin": {
+    "crucialy": "./crucialy.js"
+  },
   "files": [
     "commands",
     "crucialy.js",
@@ -38,12 +41,9 @@
     "LICENSE",
     "!test"
   ],
-  "bin": {
-    "crucialy": "./crucialy.js"
-  },
   "scripts": {
-    "test": "node test/test.js",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test",
+    "test": "node test/test.js"
   },
   "dependencies": {
     "chalk": "^4.1.2"
@@ -61,4 +61,3 @@
     "registry": "https://registry.npmjs.org/"
   }
 }
-

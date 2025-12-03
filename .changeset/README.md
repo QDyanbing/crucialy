@@ -5,4 +5,3 @@
 你可以在 [changesets 仓库](https://github.com/changesets/changesets) 找到完整文档。
 
 常见问题请查看 [文档](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)。
-

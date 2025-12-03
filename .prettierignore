@@ -1,0 +1,22 @@
+# 依赖目录
+node_modules
+.git
+
+# 构建产物
+dist
+build
+coverage
+
+# 包含 __dirname 的 CommonJS 文件（与 prettier-plugin-tailwindcss 不兼容）
+packages/git-hooks/**/*.js
+packages/lint/**/*.js
+*.cjs
+
+# Prettier 配置文件本身
+.prettierrc.js
+
+# 锁文件
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
