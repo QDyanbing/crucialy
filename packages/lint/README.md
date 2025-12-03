@@ -99,7 +99,19 @@ module.exports = {
 }
 ```
 
-#### 4. 插件说明
+#### 4. 配置忽略文件（可选）
+
+```
+// .prettierignore
+node_modules
+dist
+build
+coverage
+*.min.js
+pnpm-lock.yaml
+```
+
+#### 5. 插件说明
 
 配置中包含以下插件（可选安装）：
 
