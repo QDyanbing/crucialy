@@ -50,6 +50,18 @@ module.exports = {
 
 ### Stylelint
 
+#### 1. 安装依赖
+
+```bash
+# 安装 stylelint
+pnpm add -D stylelint
+
+# 可选：安装插件（按需选择）
+pnpm add -D postcss-html stylelint-order
+```
+
+#### 2. 配置文件
+
 ```js
 // .stylelintrc.js
 module.exports = {
@@ -62,6 +74,37 @@ module.exports = {
   },
 };
 ```
+
+#### 3. 添加脚本
+
+```json
+// package.json
+{
+  "scripts": {
+    "lint:css": "stylelint \"**/*.{css,scss,less,vue}\" --fix"
+  }
+}
+```
+
+#### 4. 插件说明
+
+配置中包含以下插件（可选安装）：
+
+- `postcss-html` - 支持 Vue/HTML 文件中的 CSS
+- `stylelint-order` - CSS 属性排序插件
+
+配置特性：
+- ✅ **189 条 Stylelint 规则**（接近全量覆盖）
+- ✅ **170+ 个 CSS 属性**的排序规则（从定位 → 布局 → 盒模型 → 样式 → 动画）
+- ✅ 支持 CSS Modules（`:global`、`:local`、`:export`）
+- ✅ 支持 Vue deep selectors（`:deep`、`::v-deep`）
+- ✅ 支持 Tailwind CSS（`@tailwind`、`@apply`、`theme()`）
+- ✅ 支持 SCSS（`@mixin`、`@include`、`@extend` 等）
+- ✅ 支持小程序标签（`page`、`view`）
+- ✅ 强制 kebab-case 类名和 ID 格式
+- ✅ 禁止使用 ID 选择器
+- ✅ 限制选择器复杂度和特异性
+- ✅ 统一代码风格（缩进、空格、换行、引号等）
 
 ### Prettier
 
