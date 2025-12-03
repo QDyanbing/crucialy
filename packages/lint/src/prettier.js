@@ -18,4 +18,18 @@ module.exports = {
     'prettier-plugin-packagejson', // 格式化和排序 package.json
     'prettier-plugin-organize-attributes', // 自动排序 HTML/JSX 属性
   ],
+  // 针对特定文件类型启用 Tailwind CSS 插件（避免与 CommonJS 文件冲突）
+  overrides: [
+    {
+      files: ['*.jsx', '*.tsx', '*.vue', '*.html', '*.svelte'],
+      options: {
+        plugins: [
+          'prettier-plugin-organize-imports',
+          'prettier-plugin-packagejson',
+          'prettier-plugin-organize-attributes',
+          'prettier-plugin-tailwindcss', // 仅在组件文件中启用
+        ],
+      },
+    },
+  ],
 };
