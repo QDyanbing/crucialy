@@ -1,42 +1,56 @@
 {
   "name": "@crucialy/lint",
   "version": "0.0.0",
-  "description": "Lint configurations for ESLint, Stylelint, and Prettier",
+  "description": "Opinionated lint configurations for ESLint, Stylelint, and Prettier",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "stylelint",
+    "stylelint-config",
+    "prettier",
+    "prettier-config",
+    "lint",
+    "config",
+    "react",
+    "vue"
+  ],
+  "homepage": "https://github.com/crucialy/crucialy/tree/master/packages/lint#readme",
+  "bugs": {
+    "url": "https://github.com/crucialy/crucialy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crucialy/crucialy.git",
+    "directory": "packages/lint"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "gaoyanbing",
+    "email": "yanbing.gao@aliyun.com"
+  },
   "main": "index.js",
   "files": [
     "src",
-    "index.js"
+    "index.js",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "scripts": {
     "lint": "echo 'lint check'"
   },
-  "keywords": [
-    "eslint",
-    "stylelint",
-    "prettier",
-    "lint",
-    "config"
-  ],
-  "author": "",
-  "license": "MIT",
   "peerDependencies": {
     "eslint": ">=8.0.0",
-    "stylelint": ">=15.0.0",
     "prettier": ">=3.0.0",
+    "prettier-plugin-organize-attributes": ">=1.0.0",
     "prettier-plugin-organize-imports": ">=3.0.0",
     "prettier-plugin-packagejson": ">=2.0.0",
     "prettier-plugin-tailwindcss": ">=0.5.0",
-    "prettier-plugin-organize-attributes": ">=1.0.0"
+    "stylelint": ">=15.0.0"
   },
   "peerDependenciesMeta": {
-    "eslint": {
-      "optional": false
-    },
-    "stylelint": {
-      "optional": false
-    },
-    "prettier": {
-      "optional": false
+    "prettier-plugin-organize-attributes": {
+      "optional": true
     },
     "prettier-plugin-organize-imports": {
       "optional": true
@@ -46,10 +60,15 @@
     },
     "prettier-plugin-tailwindcss": {
       "optional": true
-    },
-    "prettier-plugin-organize-attributes": {
-      "optional": true
     }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
 
