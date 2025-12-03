@@ -13,7 +13,6 @@ module.exports = {
   endOfLine: 'lf', // 行尾符：使用 LF（Unix 风格）
   proseWrap: 'never', // Markdown 文本换行：不自动换行，保持原始长度
   htmlWhitespaceSensitivity: 'ignore', // HTML 空白敏感性：忽略空白，允许更激进的格式化
-  overrides: [{ files: '.prettierrc', options: { parser: 'json' } }], // 特定文件的配置覆盖
   plugins: [
     'prettier-plugin-organize-imports', // 自动排序 import 语句
     'prettier-plugin-packagejson', // 格式化和排序 package.json
