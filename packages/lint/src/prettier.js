@@ -16,8 +16,6 @@ module.exports = {
   plugins: [
     'prettier-plugin-organize-imports', // 自动排序 import 语句
     'prettier-plugin-packagejson', // 格式化和排序 package.json
-    'prettier-plugin-tailwindcss', // 自动排序 Tailwind CSS 类名
     'prettier-plugin-organize-attributes', // 自动排序 HTML/JSX 属性
-  ]
+  ],
 };
-

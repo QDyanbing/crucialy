@@ -29,4 +29,3 @@ if (command === 'setup') {
   console.log('  verify-commit - Verify commit message format');
   process.exit(0);
 }
-

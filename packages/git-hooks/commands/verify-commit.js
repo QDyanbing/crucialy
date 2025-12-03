@@ -109,4 +109,3 @@ if (!commitRE.test(msg)) {
 }
 
 process.exit(0);
-

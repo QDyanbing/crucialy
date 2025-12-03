@@ -5,4 +5,3 @@ module.exports = {
   stylelint: require('./src/stylelint'),
   prettier: require('./src/prettier'),
 };
-

@@ -12,19 +12,19 @@ const gitHooksPackageRoot = path.join(__dirname, '..');
 function generateHookContent(hook) {
   // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
   // Husky 9.x 格式：不需要 husky.sh
-  
+
   if (hook === 'commit-msg') {
     return `#!/usr/bin/env sh
 npx --no-install crucialy verify-commit "$1"
 `;
   }
-  
+
   if (hook === 'pre-commit') {
     return `#!/usr/bin/env sh
 npx --no-install lint-staged --quiet
 `;
   }
-  
+
   return null;
 }
 
@@ -41,22 +41,23 @@ function installHuskyHooks() {
   // 根据配置决定安装哪些 hooks
   const args = process.argv.slice(2);
   const skipLint = args.includes('--skip-lint') || process.env.SKIP_LINT === 'true';
-  const skipCommitMsg = args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
-  
+  const skipCommitMsg =
+    args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
+
   const hooks = [];
   if (!skipLint) hooks.push('pre-commit');
   if (!skipCommitMsg) hooks.push('commit-msg');
-  
+
   let hasChanges = false;
-  
-  hooks.forEach((hook) => {
+
+  hooks.forEach(hook => {
     const target = path.join(huskyDir, hook);
     const expectedContent = generateHookContent(hook);
-    
+
     if (!expectedContent) {
       return;
     }
-    
+
     // 检查文件是否存在且内容是否匹配
     if (fs.existsSync(target)) {
       const existingContent = fs.readFileSync(target, 'utf-8');
@@ -65,7 +66,7 @@ function installHuskyHooks() {
         return;
       }
     }
-    
+
     // 文件不存在或内容不匹配，需要更新
     fs.writeFileSync(target, expectedContent);
     // 设置执行权限
@@ -75,28 +76,28 @@ function installHuskyHooks() {
     console.log(`✓ Installed .husky/${hook}`);
     hasChanges = true;
   });
-  
+
   return hasChanges;
 }
 
 // 安装配置文件
 function installConfigFiles() {
   const lintstagedrcPath = path.join(projectRoot, '.lintstagedrc');
-  
+
   // 如果文件已存在，跳过
   if (fs.existsSync(lintstagedrcPath)) {
     console.log('⚠ .lintstagedrc already exists, skipping');
     return false;
   }
-  
+
   // 生成通用 .lintstagedrc 配置（支持 Vue 和 React）
   const lintstagedConfig = {
-    "*.{js,ts,jsx,tsx}": ["eslint --max-warnings=0 --fix", "prettier --cache --write"],
-    "*.vue": ["eslint --max-warnings=0 --fix", "stylelint --fix", "prettier --cache --write"],
-    "*.{css,scss,less}": ["stylelint --fix", "prettier --cache --write"],
-    "*.{json,md,yaml,yml}": ["prettier --cache --write"]
+    '*.{js,ts,jsx,tsx}': ['eslint --max-warnings=0 --fix', 'prettier --cache --write'],
+    '*.vue': ['eslint --max-warnings=0 --fix', 'stylelint --fix', 'prettier --cache --write'],
+    '*.{css,scss,less}': ['stylelint --fix', 'prettier --cache --write'],
+    '*.{json,md,yaml,yml}': ['prettier --cache --write'],
   };
-  
+
   fs.writeFileSync(lintstagedrcPath, JSON.stringify(lintstagedConfig, null, 2) + '\n');
   console.log('✓ Installed .lintstagedrc');
   return true;
@@ -109,8 +110,9 @@ function main() {
   // 支持通过环境变量或命令行参数配置
   const args = process.argv.slice(2);
   const skipLint = args.includes('--skip-lint') || process.env.SKIP_LINT === 'true';
-  const skipCommitMsg = args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
-  
+  const skipCommitMsg =
+    args.includes('--skip-commit-msg') || process.env.SKIP_COMMIT_MSG === 'true';
+
   if (skipLint && skipCommitMsg) {
     console.log('⚠ All hooks are disabled. Nothing to setup.');
     return;
@@ -118,7 +120,7 @@ function main() {
 
   const hooksChanged = installHuskyHooks();
   const configChanged = skipLint ? false : installConfigFiles();
-  
+
   if (hooksChanged || configChanged) {
     console.log('\n✓ @crucialy/git-hooks setup complete!');
     if (skipLint) {
@@ -133,4 +135,3 @@ function main() {
 }
 
 main();
-

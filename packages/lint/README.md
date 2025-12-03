@@ -72,7 +72,7 @@ module.exports = {
 pnpm add -D prettier
 
 # 可选：安装插件（按需选择）
-pnpm add -D prettier-plugin-organize-imports prettier-plugin-packagejson prettier-plugin-tailwindcss prettier-plugin-organize-attributes
+pnpm add -D prettier-plugin-organize-imports prettier-plugin-packagejson prettier-plugin-organize-attributes
 ```
 
 #### 2. 配置文件
@@ -117,7 +117,6 @@ pnpm-lock.yaml
 
 - `prettier-plugin-organize-imports` - 自动排序 import 语句
 - `prettier-plugin-packagejson` - 格式化和排序 package.json
-- `prettier-plugin-tailwindcss` - 自动排序 Tailwind CSS 类名
 - `prettier-plugin-organize-attributes` - 自动排序 HTML/JSX 属性
 
 如果不需要某些插件，可以不安装，Prettier 会自动跳过。

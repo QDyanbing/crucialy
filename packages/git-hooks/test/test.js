@@ -23,7 +23,13 @@ function test(name, fn) {
 
 // Test 1: 检查必需文件存在
 test('Required files exist', () => {
-  const files = ['crucialy.js', 'commands/setup.js', 'commands/verify-commit.js', 'README.md', 'LICENSE'];
+  const files = [
+    'crucialy.js',
+    'commands/setup.js',
+    'commands/verify-commit.js',
+    'README.md',
+    'LICENSE',
+  ];
   files.forEach(file => {
     assert(fs.existsSync(path.join(__dirname, '..', file)), `${file} should exist`);
   });
@@ -78,4 +84,3 @@ if (failed > 0) {
 }
 
 console.log('\n✓ All tests passed!');
-
