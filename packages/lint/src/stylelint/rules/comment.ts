@@ -1,5 +1,12 @@
 /**
- * Comment rules
+ * Comment 相关规则
+ * 
+ * 包含注释格式相关规则（5条）
+ * - 注释前空行
+ * - 禁止空注释
+ * - 注释内容模式
+ * - 注释内部空格
+ * - 注释词黑名单
  */
 
 export const commentRules = {

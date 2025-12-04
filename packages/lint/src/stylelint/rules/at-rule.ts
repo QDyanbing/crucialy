@@ -1,5 +1,12 @@
 /**
- * At-rule rules
+ * At-rule 相关规则
+ * 
+ * 包含 @规则相关规则（10条）
+ * - @规则验证（未知、已弃用）
+ * - vendor prefix
+ * - 空行要求
+ * - @规则 descriptor 验证
+ * - 白名单/黑名单
  */
 
 export const atruleRules = {

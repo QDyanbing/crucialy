@@ -1,5 +1,9 @@
 /**
- * Block rules
+ * Block 相关规则
+ * 
+ * 包含代码块相关规则（2条）
+ * - 禁止空块
+ * - 禁止冗余嵌套
  */
 
 export const blockRules = {

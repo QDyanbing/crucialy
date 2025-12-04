@@ -1,5 +1,8 @@
 /**
- * Length rules
+ * Length 相关规则
+ * 
+ * 包含长度值相关规则（1条）
+ * - 零值不带单位（margin: 0 而非 0px）
  */
 
 export const lengthRules = {

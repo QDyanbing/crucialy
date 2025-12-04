@@ -1,5 +1,9 @@
 /**
- * Notation rules
+ * Notation 表示法规则
+ * 
+ * 包含值表示法相关规则（2条）
+ * - 色相角度表示法（angle/number）
+ * - 亮度表示法（percentage）
  */
 
 export const notationRules = {

@@ -1,5 +1,10 @@
 /**
- * Property rules
+ * Property 相关规则
+ * 
+ * 包含 CSS 属性相关规则（5条）
+ * - 禁止未知/已弃用属性
+ * - vendor prefix
+ * - 属性白名单/黑名单
  */
 
 export const propertyRules = {

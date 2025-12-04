@@ -1,5 +1,12 @@
 /**
- * Color rules
+ * Color 相关规则
+ * 
+ * 包含颜色表示法、格式、验证等规则（8条）
+ * - alpha 值表示法
+ * - 颜色函数表示法（modern/legacy）
+ * - hex 颜色长度和格式
+ * - 命名颜色
+ * - 颜色验证
  */
 
 export const colorRules = {

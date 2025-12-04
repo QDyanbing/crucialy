@@ -1,5 +1,10 @@
 /**
- * Pattern rules
+ * Naming Pattern 命名模式规则
+ * 
+ * 包含各种命名模式规则（3条）
+ * - container 名称模式（CSS Container Queries）
+ * - 自定义 media 名称模式
+ * - CSS layer 名称模式
  */
 
 export const patternRules = {

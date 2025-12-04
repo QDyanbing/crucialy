@@ -1,5 +1,11 @@
 /**
- * Keyframe rules
+ * Keyframe 相关规则
+ * 
+ * 包含 @keyframes 动画相关规则（4条）
+ * - keyframe 选择器表示法（百分比/关键字）
+ * - 禁止重复选择器
+ * - 禁止 !important
+ * - keyframes 命名模式
  */
 
 export const keyframeRules = {

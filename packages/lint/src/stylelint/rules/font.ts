@@ -1,5 +1,11 @@
 /**
- * Font rules
+ * Font 相关规则
+ * 
+ * 包含字体族、字重等规则（4条）
+ * - 字体名称引号
+ * - 禁止重复字体名
+ * - 通用字体族要求
+ * - font-weight 表示法
  */
 
 export const fontRules = {

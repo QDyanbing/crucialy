@@ -1,5 +1,12 @@
 /**
- * Number-unit rules
+ * Number / Unit 相关规则
+ * 
+ * 包含数字和单位相关规则（6条）
+ * - 数字精度
+ * - 单位验证
+ * - 单位白名单/黑名单
+ * - 字符串换行
+ * - 时间最小值
  */
 
 export const numberunitRules = {

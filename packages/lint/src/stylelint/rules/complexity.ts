@@ -1,5 +1,8 @@
 /**
- * Complexity rules
+ * Complexity 复杂度规则
+ * 
+ * 包含代码复杂度限制规则（1条）
+ * - 最大嵌套深度（Base 不限制，Strict 限制3层）
  */
 
 export const complexityRules = {

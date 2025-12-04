@@ -1,5 +1,13 @@
 /**
- * Stylistic rules
+ * Stylistic 格式化规则
+ * 
+ * 来自 @stylistic/stylelint-plugin 插件（38条）
+ * - 基础格式：缩进、换行符、空行、行长度
+ * - 大小写：hex、属性、伪类、伪元素、单位
+ * - 引号：字符串引号
+ * - 空格规则：各种位置的空格要求（11条）
+ * - 换行规则：各种位置的换行要求（7条）
+ * - 其他：前导零、尾随零、BOM 等
  */
 
 export const stylisticRules = {

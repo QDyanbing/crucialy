@@ -1,5 +1,13 @@
 /**
- * Declaration rules
+ * Declaration 相关规则
+ * 
+ * 包含声明块和属性声明相关规则（13条）
+ * - 禁止重复声明
+ * - 禁止简写属性冲突
+ * - 单行声明限制
+ * - 声明空行
+ * - 属性值验证
+ * - 属性单位和值的限制
  */
 
 export const declarationRules = {

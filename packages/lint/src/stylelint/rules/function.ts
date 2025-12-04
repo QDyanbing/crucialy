@@ -1,5 +1,12 @@
 /**
- * Function rules
+ * Function 相关规则
+ * 
+ * 包含 CSS 函数相关规则（11条）
+ * - calc() 运算符空格
+ * - 线性渐变方向
+ * - 函数名大小写
+ * - URL 引号和 scheme
+ * - 函数白名单/黑名单
  */
 
 export const functionRules = {

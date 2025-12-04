@@ -1,5 +1,10 @@
 /**
- * Custom-property rules
+ * Custom Property 相关规则
+ * 
+ * 包含 CSS 自定义属性（CSS 变量）相关规则（3条）
+ * - 命名模式
+ * - 空行要求
+ * - 必须用 var() 包裹
  */
 
 export const custompropertyRules = {

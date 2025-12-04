@@ -1,5 +1,10 @@
 /**
- * Order rules
+ * Order 顺序规则
+ * 
+ * 来自 stylelint-order 插件（3条）
+ * - 声明块内容顺序（custom-properties → declarations → rules）
+ * - 属性顺序（在 strict 模式中配置）
+ * - 属性字母顺序
  */
 
 export const orderRules = {

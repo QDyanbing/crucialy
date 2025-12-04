@@ -1,5 +1,9 @@
 /**
- * Value rules
+ * Value 相关规则
+ * 
+ * 包含值格式相关规则（2条）
+ * - 值关键字大小写
+ * - vendor prefix
  */
 
 export const valueRules = {

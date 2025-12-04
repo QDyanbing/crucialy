@@ -1,5 +1,8 @@
 /**
- * Grid rules
+ * Grid 相关规则
+ * 
+ * 包含 CSS Grid 相关规则（1条）
+ * - 禁止无效的命名网格区域
  */
 
 export const gridRules = {

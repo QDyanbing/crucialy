@@ -1,5 +1,11 @@
 /**
- * Media rules
+ * Media 相关规则
+ * 
+ * 包含媒体查询相关规则（10条）
+ * - media feature 验证
+ * - media feature 白名单/黑名单
+ * - media feature range 表示法
+ * - media type 验证
  */
 
 export const mediaRules = {
