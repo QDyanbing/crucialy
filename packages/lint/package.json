@@ -1,7 +1,6 @@
 {
   "name": "@crucialy/lint",
   "version": "0.0.0",
-  "type": "module",
   "description": "Opinionated lint configurations for ESLint, Stylelint, and Prettier",
   "keywords": [
     "eslint",
@@ -78,8 +77,11 @@
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf dist",
+
+
+    
+    "generate:stylelint-rule-sets": "node scripts/generate-stylelint-rule-sets.js",
     "lint": "tsc --noEmit",
-    "generate:stylelint-rule-sets": "node scripts/generate-stylelint-rule-sets.mts",
     "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "devDependencies": {
