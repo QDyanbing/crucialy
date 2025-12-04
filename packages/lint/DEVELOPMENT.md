@@ -51,12 +51,14 @@
    - 生成 source maps
 
 **技术栈：**
+
 - TypeScript 5.x (100% TypeScript)
 - Node.js >=18.0.0
 - CommonJS 模块系统
 - 零 JavaScript 文件，纯 TypeScript 实现
 
 **文件结构：**
+
 ```
 packages/lint/
 ├── src/
@@ -96,6 +98,7 @@ packages/lint/
 ### ⏳ M2: 收集完整规则清单
 
 **待完成项目：**
+
 - [ ] 创建 `src/rule-sets/` 目录
 - [ ] 收集所有 Stylelint core rules
 - [ ] 收集 stylistic rules
@@ -110,6 +113,7 @@ packages/lint/
 ### ⏳ M3: 实现 base.ts
 
 **待完成项目：**
+
 - [ ] 配置所有 Stylelint core rules
 - [ ] 添加 stylistic rules
 - [ ] 添加 order rules
@@ -156,4 +160,3 @@ pnpm run clean && pnpm run build
 - 编译后的文件在 `dist/` 目录
 - 发布前会自动清理和重新编译
 - 类型定义会自动生成
-

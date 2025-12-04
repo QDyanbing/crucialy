@@ -12,4 +12,3 @@ export const scss: StylelintConfig = {
     // TODO: M5 - Implement SCSS rules
   },
 };
-

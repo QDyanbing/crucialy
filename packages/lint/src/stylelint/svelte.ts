@@ -11,4 +11,3 @@ export const svelte: StylelintConfig = {
     // TODO: M11 - Implement Svelte rules
   },
 };
-

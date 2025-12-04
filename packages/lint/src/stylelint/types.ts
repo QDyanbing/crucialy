@@ -12,9 +12,7 @@ export type StylelintRuleValue =
   | Array<string | number>
   | Record<string, unknown>;
 
-export type StylelintRule =
-  | StylelintRuleValue
-  | [StylelintRuleValue, Record<string, unknown>];
+export type StylelintRule = StylelintRuleValue | [StylelintRuleValue, Record<string, unknown>];
 
 export interface StylelintConfig {
   rules?: Record<string, StylelintRule>;
@@ -28,4 +26,3 @@ export interface StylelintConfig {
     rules?: Record<string, StylelintRule>;
   }>;
 }
-

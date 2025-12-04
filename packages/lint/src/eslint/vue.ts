@@ -14,4 +14,3 @@ const config: ESLintConfig = {
 };
 
 export default config;
-

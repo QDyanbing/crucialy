@@ -11,4 +11,3 @@ export const vue: StylelintConfig = {
     // TODO: M10 - Implement Vue rules
   },
 };
-

@@ -10,4 +10,3 @@ export const strict: StylelintConfig = {
     // TODO: M4 - Implement strict mode rules
   },
 };
-

@@ -11,4 +11,3 @@ export { default as prettier } from './prettier';
 
 // Export ESLint configurations
 export * as eslint from './eslint';
-

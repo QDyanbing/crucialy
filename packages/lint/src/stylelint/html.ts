@@ -11,4 +11,3 @@ export const html: StylelintConfig = {
     // TODO: M9 - Implement HTML rules
   },
 };
-

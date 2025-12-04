@@ -10,4 +10,3 @@ export const angular: StylelintConfig = {
     // TODO: M13 - Implement Angular rules
   },
 };
-

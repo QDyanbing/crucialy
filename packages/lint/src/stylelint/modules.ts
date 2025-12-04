@@ -10,4 +10,3 @@ export const modules: StylelintConfig = {
     // TODO: M8 - Implement CSS Modules rules
   },
 };
-

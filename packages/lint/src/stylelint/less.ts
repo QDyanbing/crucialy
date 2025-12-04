@@ -11,4 +11,3 @@ export const less: StylelintConfig = {
     // TODO: M6 - Implement Less rules
   },
 };
-

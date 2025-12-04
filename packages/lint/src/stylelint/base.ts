@@ -12,4 +12,3 @@ export const base: StylelintConfig = {
     // This will be implemented in M3 milestone
   },
 };
-

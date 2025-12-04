@@ -91,28 +91,26 @@ module.exports = require('@crucialy/lint/dist/eslint/vue.js');
 ```js
 // .stylelintrc.js
 module.exports = {
-  extends: [
-    '@crucialy/lint/dist/stylelint/base',
-  ],
+  extends: ['@crucialy/lint/dist/stylelint/base'],
 };
 ```
 
 ### 支持的配置
 
-| 配置 | 说明 | 状态 |
-|------|------|------|
-| `base` | 基础配置，包含所有核心规则 | 🚧 开发中 |
-| `strict` | 严格模式（BEM 命名等） | 🚧 开发中 |
-| `scss` | SCSS 支持 | 🚧 开发中 |
-| `less` | Less 支持 | 🚧 开发中 |
-| `stylus` | Stylus 支持 | 🚧 开发中 |
-| `modules` | CSS Modules 支持 | 🚧 开发中 |
-| `html` | HTML `<style>` 支持 | 🚧 开发中 |
-| `vue` | Vue SFC 支持 | 🚧 开发中 |
-| `svelte` | Svelte 组件支持 | 🚧 开发中 |
-| `astro` | Astro 组件支持 | 🚧 开发中 |
-| `angular` | Angular 组件支持 | 🚧 开发中 |
-| `cssInJs` | CSS-in-JS 支持 | 🚧 开发中 |
+| 配置      | 说明                       | 状态      |
+| --------- | -------------------------- | --------- |
+| `base`    | 基础配置，包含所有核心规则 | 🚧 开发中 |
+| `strict`  | 严格模式（BEM 命名等）     | 🚧 开发中 |
+| `scss`    | SCSS 支持                  | 🚧 开发中 |
+| `less`    | Less 支持                  | 🚧 开发中 |
+| `stylus`  | Stylus 支持                | 🚧 开发中 |
+| `modules` | CSS Modules 支持           | 🚧 开发中 |
+| `html`    | HTML `<style>` 支持        | 🚧 开发中 |
+| `vue`     | Vue SFC 支持               | 🚧 开发中 |
+| `svelte`  | Svelte 组件支持            | 🚧 开发中 |
+| `astro`   | Astro 组件支持             | 🚧 开发中 |
+| `angular` | Angular 组件支持           | 🚧 开发中 |
+| `cssInJs` | CSS-in-JS 支持             | 🚧 开发中 |
 
 ## 设计原则
 

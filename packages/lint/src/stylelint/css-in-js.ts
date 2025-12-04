@@ -11,4 +11,3 @@ export const cssInJs: StylelintConfig = {
     // TODO: M14 - Implement CSS-in-JS rules
   },
 };
-

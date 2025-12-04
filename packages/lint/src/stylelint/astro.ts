@@ -10,4 +10,3 @@ export const astro: StylelintConfig = {
     // TODO: M12 - Implement Astro rules
   },
 };
-

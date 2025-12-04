@@ -9,4 +9,3 @@ export const stylus: StylelintConfig = {
     // TODO: M7 - Implement Stylus rules
   },
 };
-
