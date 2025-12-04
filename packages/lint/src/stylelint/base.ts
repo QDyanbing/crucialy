@@ -1321,6 +1321,15 @@ export const base: StylelintConfig = {
     /** 最大行长度 | null: 不限制 */
     '@stylistic/max-line-length': null,
     
+    /** 选择器中最多空行数 | null: 不限制 */
+    '@stylistic/selector-max-empty-lines': null,
+    
+    /** 值列表中最多空行数 | null: 不限制 */
+    '@stylistic/value-list-max-empty-lines': null,
+    
+    /** 函数中最多空行数 | null: 不限制 */
+    '@stylistic/function-max-empty-lines': null,
+    
     /** 首行不能为空 | ✅ a {} ❌ \na {} */
     '@stylistic/no-empty-first-line': true,
     
