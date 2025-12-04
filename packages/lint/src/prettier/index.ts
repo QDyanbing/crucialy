@@ -1,4 +1,34 @@
-module.exports = {
+/**
+ * Prettier configuration
+ * Opinionated code formatter config
+ */
+
+export interface PrettierConfig {
+  printWidth: number;
+  tabWidth: number;
+  useTabs: boolean;
+  semi: boolean;
+  singleQuote: boolean;
+  quoteProps: 'as-needed' | 'consistent' | 'preserve';
+  jsxSingleQuote: boolean;
+  trailingComma: 'none' | 'es5' | 'all';
+  bracketSpacing: boolean;
+  bracketSameLine: boolean;
+  arrowParens: 'always' | 'avoid';
+  endOfLine: 'lf' | 'crlf' | 'cr' | 'auto';
+  proseWrap: 'always' | 'never' | 'preserve';
+  htmlWhitespaceSensitivity: 'css' | 'strict' | 'ignore';
+  plugins: string[];
+  overrides?: Array<{
+    files: string | string[];
+    options: {
+      plugins: string[];
+      [key: string]: unknown;
+    };
+  }>;
+}
+
+const config: PrettierConfig = {
   printWidth: 100, // 每行最大字符数
   tabWidth: 2, // 缩进空格数
   useTabs: false, // 使用空格缩进而非 Tab
@@ -33,3 +63,6 @@ module.exports = {
     },
   ],
 };
+
+export default config;
+

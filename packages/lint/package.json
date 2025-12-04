@@ -28,16 +28,19 @@
     "name": "gaoyanbing",
     "email": "yanbing.gao@aliyun.com"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "src",
-    "index.js",
+    "dist",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {
-    "lint": "echo 'lint check'"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "peerDependencies": {
     "@stylelint/postcss-css-in-js": ">=0.38.0",
@@ -50,10 +53,10 @@
     "prettier-plugin-organize-imports": ">=3.0.0",
     "prettier-plugin-packagejson": ">=2.0.0",
     "prettier-plugin-tailwindcss": ">=0.5.0",
-    "stylelint": ">=15.0.0",
+    "stylelint": ">=14.0.0",
     "stylelint-declaration-block-no-ignored-properties": ">=2.0.0",
     "stylelint-order": ">=6.0.0",
-    "stylelint-scss": ">=6.0.0"
+    "stylelint-scss": ">=5.0.0 || >=6.0.0"
   },
   "peerDependenciesMeta": {
     "@stylelint/postcss-css-in-js": {

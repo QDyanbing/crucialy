@@ -1,14 +1,16 @@
 # @crucialy/lint
 
-ESLint、Stylelint 和 Prettier 的开箱即用配置。
+> Opinionated lint configurations for ESLint, Stylelint, and Prettier
 
 ## 特性
 
-- 🎯 预设合理的默认配置
-- 📦 支持 React 和 Vue 项目
-- 🎨 集成 Prettier 代码格式化
-- 🔧 支持 Stylelint CSS 规范
-- 🚀 开箱即用，零配置起步
+- 🚫 **零 preset** - 不使用任何预设配置
+- 📝 **全规则显式配置** - 所有规则都明确配置
+- 🎯 **按类型拆分** - 每种语法独立成文件
+- 🔧 **100% TypeScript** - 纯 TypeScript 编写，完整类型支持
+- 🌐 **多框架支持** - Vue / React / Svelte / Astro / Angular
+- 📦 **Monorepo 友好** - 可在 monorepo 中使用
+- 📐 **三大目录** - ESLint / Stylelint / Prettier 独立组织
 
 ## 安装
 
@@ -16,227 +18,165 @@ ESLint、Stylelint 和 Prettier 的开箱即用配置。
 pnpm add -D @crucialy/lint
 ```
 
-## 使用方式
-
-### React ESLint
-
-```js
-// .eslintrc.js
-module.exports = {
-  extends: [
-    require.resolve('@crucialy/lint/eslint-react'),
-    // 可以在这里追加自己的配置
-  ],
-  rules: {
-    // 可以覆盖或添加规则
-  },
-};
-```
-
-### Vue ESLint
-
-```js
-// .eslintrc.js
-module.exports = {
-  extends: [
-    require.resolve('@crucialy/lint/eslint-vue'),
-    // 可以在这里追加自己的配置
-  ],
-  rules: {
-    // 可以覆盖或添加规则
-  },
-};
-```
-
-### Stylelint
-
-`@crucialy/lint` 提供了多种 Stylelint 配置，可以根据项目技术栈选择：
-
-| 配置 | 说明 | 适用场景 |
-|------|------|----------|
-| `stylelint/base` | 纯 CSS 通用配置 | 所有项目（默认） |
-| `stylelint/scss` | SCSS / Sass 配置 | SCSS 项目 |
-| `stylelint/less` | Less 配置 | Less 项目 |
-| `stylelint/css-modules` | CSS Modules 配置 | CSS Modules 项目 |
-| `stylelint/vue` | Vue SFC 配置 | Vue 项目 |
-| `stylelint/css-in-js` | CSS-in-JS 配置 | styled-components、emotion 等 |
-| `stylelint/all` | 全开大合集 | 混合技术栈项目 |
-
-#### 1. 基础使用（纯 CSS）
+需要同时安装对应的 peer dependencies：
 
 ```bash
-# 安装依赖
-pnpm add -D stylelint stylelint-order stylelint-declaration-block-no-ignored-properties
+# Stylelint
+pnpm add -D stylelint
+
+# 可选依赖（按需安装）
+pnpm add -D postcss-scss postcss-less postcss-html
+pnpm add -D stylelint-scss stylelint-order
+pnpm add -D @stylelint/postcss-css-in-js
 ```
 
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/base')],
-};
-```
+## 使用方法
 
-#### 2. SCSS 项目
-
-```bash
-# 安装依赖
-pnpm add -D stylelint postcss-scss stylelint-scss stylelint-order stylelint-declaration-block-no-ignored-properties
-```
-
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/scss')],
-};
-```
-
-#### 3. Less 项目
-
-```bash
-# 安装依赖
-pnpm add -D stylelint postcss-less stylelint-order stylelint-declaration-block-no-ignored-properties
-```
-
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/less')],
-};
-```
-
-#### 4. Vue 项目
-
-```bash
-# 安装依赖
-pnpm add -D stylelint postcss-html stylelint-order stylelint-declaration-block-no-ignored-properties
-```
-
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/vue')],
-};
-```
-
-#### 5. CSS-in-JS 项目
-
-```bash
-# 安装依赖
-pnpm add -D stylelint @stylelint/postcss-css-in-js stylelint-order stylelint-declaration-block-no-ignored-properties
-```
-
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/css-in-js')],
-};
-```
-
-#### 6. 混合技术栈（全开）
-
-```bash
-# 安装所有依赖
-pnpm add -D stylelint postcss-html postcss-scss postcss-less @stylelint/postcss-css-in-js stylelint-scss stylelint-order stylelint-declaration-block-no-ignored-properties
-```
-
-```js
-// .stylelintrc.js
-module.exports = {
-  extends: [require.resolve('@crucialy/lint/stylelint/all')],
-};
-```
-
-#### 7. 添加脚本
-
-```json
-// package.json
-{
-  "scripts": {
-    "lint:css": "stylelint \"**/*.{css,scss,less,vue}\" --fix"
-  }
-}
-```
-
-#### 8. 配置特性
-
-**规则覆盖：**
-- `base` / `less` / `css-modules` / `vue` / `css-in-js`: **190 条规则**（189 条内置 + 1 条插件）
-- `scss`: **249 条规则**（189 条内置 + 40 条 SCSS + 1 条插件）
-- `all`: **249 条规则**（支持所有技术栈）
-
-**技术栈支持：**
-- ✅ 纯 CSS
-- ✅ SCSS / Sass（`$变量`、`@mixin`、`@function`、`%占位符` 等）
-- ✅ Less（`@变量`、嵌套、混合等）
-- ✅ CSS-in-JS（styled-components、emotion、Linaria 等）
-- ✅ CSS Modules（`:global`、`:local`、`:export`、`composes`）
-- ✅ Vue SFC（`<style>`、`:deep`、`::v-deep`）
-- ✅ Tailwind CSS（`@tailwind`、`@apply`、`theme()`）
-- ✅ 小程序（rpx 单位、自定义标签）
-
-**其他特性：**
-- ✅ **170+ 个 CSS 属性**的逻辑排序（定位 → 布局 → 盒模型 → 样式 → 动画）
-- ✅ 检测被忽略的属性（如 `display: inline` 时的 `width`）
-- ✅ 类名支持 kebab-case 和 lowerCamelCase
-- ✅ 禁止使用 ID 选择器
-- ✅ 限制选择器复杂度和特异性
-- ✅ 每条规则都有详细注释和 ✅ ❌ 示例
-
-### Prettier
-
-#### 1. 安装依赖
-
-```bash
-# 安装 prettier
-pnpm add -D prettier
-
-# 可选：安装插件（按需选择）
-pnpm add -D prettier-plugin-organize-imports prettier-plugin-packagejson prettier-plugin-organize-attributes prettier-plugin-tailwindcss
-```
-
-#### 2. 配置文件
+### Prettier 配置
 
 ```js
 // .prettierrc.js
-// Prettier 不支持 extends，需要直接导入并扩展
-module.exports = {
-  ...require('@crucialy/lint/prettier'),
-  // 可以在这里追加自己的配置
-  // printWidth: 120,
-};
+module.exports = require('@crucialy/lint').prettier;
 ```
 
-#### 3. 添加脚本
+或者在 `package.json` 中：
 
 ```json
-// package.json
 {
-  "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  }
+  "prettier": "@crucialy/lint/dist/prettier/index.js"
 }
 ```
 
-#### 4. 配置忽略文件（可选）
+### ESLint 配置
+
+```js
+// .eslintrc.js - React 项目
+const { eslint } = require('@crucialy/lint');
+module.exports = {
+  ...eslint.react,
+};
+
+// .eslintrc.js - Vue 项目
+const { eslint } = require('@crucialy/lint');
+module.exports = {
+  ...eslint.vue,
+};
+```
+
+或者直接引用：
+
+```js
+// React
+module.exports = require('@crucialy/lint/dist/eslint/react.js');
+
+// Vue
+module.exports = require('@crucialy/lint/dist/eslint/vue.js');
+```
+
+## Stylelint 配置
+
+### 当前状态
+
+项目处于开发阶段，正在按照以下里程碑推进：
+
+- ✅ **M1**: 项目初始化 + TypeScript 基础设施
+- ⏳ **M2**: 收集完整规则清单
+- ⏳ **M3**: 实现 base.ts（核心规则）
+- ⏳ **M4-M15**: 其他配置文件
+
+### 使用方法
+
+项目完成后可以这样使用：
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [
+    '@crucialy/lint/dist/stylelint/base',
+  ],
+};
+```
+
+### 支持的配置
+
+| 配置 | 说明 | 状态 |
+|------|------|------|
+| `base` | 基础配置，包含所有核心规则 | 🚧 开发中 |
+| `strict` | 严格模式（BEM 命名等） | 🚧 开发中 |
+| `scss` | SCSS 支持 | 🚧 开发中 |
+| `less` | Less 支持 | 🚧 开发中 |
+| `stylus` | Stylus 支持 | 🚧 开发中 |
+| `modules` | CSS Modules 支持 | 🚧 开发中 |
+| `html` | HTML `<style>` 支持 | 🚧 开发中 |
+| `vue` | Vue SFC 支持 | 🚧 开发中 |
+| `svelte` | Svelte 组件支持 | 🚧 开发中 |
+| `astro` | Astro 组件支持 | 🚧 开发中 |
+| `angular` | Angular 组件支持 | 🚧 开发中 |
+| `cssInJs` | CSS-in-JS 支持 | 🚧 开发中 |
+
+## 设计原则
+
+1. **不使用任何 preset** - 所有规则在本仓库显式配置
+2. **全规则显式配置** - 不依赖默认值
+3. **按类型拆分配置** - 每种语法独立文件
+4. **插件只提供规则** - 不使用插件的 preset
+5. **全面支持 multi-syntax** - 支持各种 customSyntax
+6. **未来 CSS 友好** - 支持 nesting 等新特性
+7. **提供 strict 模式** - 更严格的代码规范
+8. **支持所有现代框架** - 多框架覆盖
+
+## 开发
+
+```bash
+# 安装依赖
+pnpm install
+
+# 编译
+pnpm run build
+
+# 类型检查
+pnpm run lint
+
+# 清理
+pnpm run clean
+```
+
+## 项目结构
 
 ```
-// .prettierignore
-node_modules
-dist
-build
-coverage
-*.min.js
-pnpm-lock.yaml
+packages/lint/
+├── src/
+│   ├── stylelint/           # Stylelint 配置目录 (TypeScript)
+│   │   ├── index.ts         # 导出所有配置
+│   │   ├── types.ts         # TypeScript 类型定义
+│   │   ├── base.ts          # 基础配置
+│   │   ├── strict.ts        # 严格模式
+│   │   ├── scss.ts          # SCSS 配置
+│   │   ├── less.ts          # Less 配置
+│   │   ├── stylus.ts        # Stylus 配置
+│   │   ├── modules.ts       # CSS Modules 配置
+│   │   ├── html.ts          # HTML 配置
+│   │   ├── vue.ts           # Vue 配置
+│   │   ├── svelte.ts        # Svelte 配置
+│   │   ├── astro.ts         # Astro 配置
+│   │   ├── angular.ts       # Angular 配置
+│   │   └── css-in-js.ts     # CSS-in-JS 配置
+│   ├── prettier/            # Prettier 配置目录 (TypeScript)
+│   │   └── index.ts         # Prettier 配置 + 类型定义
+│   ├── eslint/              # ESLint 配置目录 (TypeScript)
+│   │   ├── index.ts         # 导出所有配置
+│   │   ├── react.ts         # React 配置 + 类型定义
+│   │   └── vue.ts           # Vue 配置 + 类型定义
+│   └── index.ts             # 主入口
+├── dist/                    # 编译输出
+│   ├── stylelint/           # Stylelint 编译后文件
+│   ├── prettier/            # Prettier 配置文件
+│   └── eslint/              # ESLint 配置文件
+├── tsconfig.json            # TypeScript 配置
+└── package.json
+
 ```
 
-#### 5. 插件说明
+## License
 
-配置中包含以下插件（可选安装）：
-
-- `prettier-plugin-organize-imports` - 自动排序 import 语句
-- `prettier-plugin-packagejson` - 格式化和排序 package.json
-- `prettier-plugin-organize-attributes` - 自动排序 HTML/JSX 属性
-- `prettier-plugin-tailwindcss` - 自动排序 Tailwind CSS 类名（仅在 JSX/TSX/Vue 等文件中启用）
-
-如果不需要某些插件，可以不安装，Prettier 会自动跳过。
+MIT © [gaoyanbing](https://github.com/gaoyanbing)
