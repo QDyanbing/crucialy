@@ -9,7 +9,7 @@
  * - 白名单/黑名单
  */
 
-export const atruleRules = {
+export const atRuleRules = {
   /**
    * at-rule-no-unknown
    * 禁止未知的 @规则

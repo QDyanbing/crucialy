@@ -11,9 +11,9 @@ import { colorRules } from './rules/color';
 import { lengthRules } from './rules/length';
 import { fontRules } from './rules/font';
 import { functionRules } from './rules/function';
-import { numberunitRules } from './rules/number-unit';
+import { numberUnitRules } from './rules/number-unit';
 import { valueRules } from './rules/value';
-import { custompropertyRules } from './rules/custom-property';
+import { customPropertyRules } from './rules/custom-property';
 import { shorthandRules } from './rules/shorthand';
 import { propertyRules } from './rules/property';
 import { keyframeRules } from './rules/keyframe';
@@ -21,7 +21,7 @@ import { declarationRules } from './rules/declaration';
 import { blockRules } from './rules/block';
 import { selectorRules } from './rules/selector';
 import { mediaRules } from './rules/media';
-import { atruleRules } from './rules/at-rule';
+import { atRuleRules } from './rules/at-rule';
 import { commentRules } from './rules/comment';
 import { generalRules } from './rules/general';
 import { notationRules } from './rules/notation';
@@ -47,9 +47,9 @@ export const base: StylelintConfig = {
     ...lengthRules,
     ...fontRules,
     ...functionRules,
-    ...numberunitRules,
+    ...numberUnitRules,
     ...valueRules,
-    ...custompropertyRules,
+    ...customPropertyRules,
     ...shorthandRules,
     ...propertyRules,
     ...keyframeRules,
@@ -57,7 +57,7 @@ export const base: StylelintConfig = {
     ...blockRules,
     ...selectorRules,
     ...mediaRules,
-    ...atruleRules,
+    ...atRuleRules,
     ...commentRules,
     ...generalRules,
     ...notationRules,

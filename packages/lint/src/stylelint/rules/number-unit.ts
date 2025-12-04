@@ -9,7 +9,7 @@
  * - 时间最小值
  */
 
-export const numberunitRules = {
+export const numberUnitRules = {
   /**
    * number-max-precision
    * 数字最大小数位数

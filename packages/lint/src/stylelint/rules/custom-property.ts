@@ -7,7 +7,7 @@
  * - 必须用 var() 包裹
  */
 
-export const custompropertyRules = {
+export const customPropertyRules = {
   /**
    * custom-property-pattern
    * 自定义属性命名模式（正则）
