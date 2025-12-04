@@ -38,9 +38,9 @@
       "types": "./dist/index.d.ts"
     },
     "./prettier": {
-      "require": "./dist/prettier.js",
-      "import": "./dist/prettier.mjs",
-      "types": "./dist/prettier.d.ts"
+      "require": "./dist/prettier/index.js",
+      "import": "./dist/prettier/index.mjs",
+      "types": "./dist/prettier/index.d.ts"
     },
     "./eslint": {
       "require": "./dist/eslint/index.js",

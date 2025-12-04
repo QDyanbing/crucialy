@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
-    prettier: 'src/prettier/index.ts',
+    'prettier/index': 'src/prettier/index.ts',
     'eslint/index': 'src/eslint/index.ts',
     'eslint/react': 'src/eslint/react.ts',
     'eslint/vue': 'src/eslint/vue.ts',
