@@ -31,10 +31,11 @@ export const base: StylelintConfig = {
      * color-function-notation
      * 指定颜色函数的表示法
      * modern: rgb(0 0 0 / 50%) | legacy: rgba(0, 0, 0, 0.5)
-     * ✅ rgb(0 0 0 / 50%)
-     * ❌ rgba(0, 0, 0, 0.5)
+     * null: 不限制（Base 设为 null 以兼容 Less 等预处理器）
+     * ✅ rgb(0 0 0 / 50%) (null 时允许)
+     * ✅ rgba(0, 0, 0, 0.5) (null 时允许)
      */
-    'color-function-notation': 'modern',
+    'color-function-notation': null,
     
     /**
      * color-function-alias-notation
@@ -125,10 +126,11 @@ export const base: StylelintConfig = {
     /**
      * font-family-no-missing-generic-family-keyword
      * 禁止缺少通用字体族关键字（serif/sans-serif/monospace 等）
-     * ✅ font-family: Arial, sans-serif;
-     * ❌ font-family: Arial;
+     * null: 不要求（Base 设为 null 以支持 iconfont 等特殊字体）
+     * ✅ font-family: Arial, sans-serif; (null 时允许)
+     * ✅ font-family: 'iconfont'; (null 时允许)
      */
-    'font-family-no-missing-generic-family-keyword': true,
+    'font-family-no-missing-generic-family-keyword': null,
     
     /**
      * font-weight-notation
@@ -734,10 +736,12 @@ export const base: StylelintConfig = {
     /**
      * selector-type-no-unknown
      * 禁止未知类型选择器
+     * ignore: ['custom-elements'] - 允许 Web Components 自定义元素
      * ✅ div {}
-     * ❌ unknown-element {}
+     * ✅ my-component {} (Web Components)
+     * ❌ unknown-typo-element {}
      */
-    'selector-type-no-unknown': true,
+    'selector-type-no-unknown': [true, { ignore: ['custom-elements'] }],
     
     /**
      * selector-attribute-name-disallowed-list

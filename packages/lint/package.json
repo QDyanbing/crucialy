@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@stylistic/stylelint-plugin": "^3.0.0",
-    "stylelint": "^16.0.0",
+    "stylelint": "^16.26.1",
     "stylelint-less": "^3.0.0",
     "stylelint-order": "^6.0.0",
     "stylelint-scss": "^6.0.0",
