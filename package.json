@@ -19,7 +19,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.29.7",
-    "@crucialy/git-hooks": "workspace:*",
+    "@crucialy/git-hooks": "workspace:^",
     "@crucialy/lint": "workspace:^",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
