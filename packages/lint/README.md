@@ -50,32 +50,103 @@ module.exports = {
 
 ### Stylelint
 
-#### 1. 安装依赖
+`@crucialy/lint` 提供了多种 Stylelint 配置，可以根据项目技术栈选择：
+
+| 配置 | 说明 | 适用场景 |
+|------|------|----------|
+| `stylelint/base` | 纯 CSS 通用配置 | 所有项目（默认） |
+| `stylelint/scss` | SCSS / Sass 配置 | SCSS 项目 |
+| `stylelint/less` | Less 配置 | Less 项目 |
+| `stylelint/css-modules` | CSS Modules 配置 | CSS Modules 项目 |
+| `stylelint/vue` | Vue SFC 配置 | Vue 项目 |
+| `stylelint/css-in-js` | CSS-in-JS 配置 | styled-components、emotion 等 |
+| `stylelint/all` | 全开大合集 | 混合技术栈项目 |
+
+#### 1. 基础使用（纯 CSS）
 
 ```bash
-# 安装 stylelint
-pnpm add -D stylelint
-
-# 可选：安装插件（按需选择）
-pnpm add -D postcss-html stylelint-order
+# 安装依赖
+pnpm add -D stylelint stylelint-order stylelint-declaration-block-no-ignored-properties
 ```
-
-#### 2. 配置文件
 
 ```js
 // .stylelintrc.js
 module.exports = {
-  extends: [
-    require.resolve('@crucialy/lint/stylelint'),
-    // 可以在这里追加自己的配置
-  ],
-  rules: {
-    // 可以覆盖或添加规则
-  },
+  extends: [require.resolve('@crucialy/lint/stylelint/base')],
 };
 ```
 
-#### 3. 添加脚本
+#### 2. SCSS 项目
+
+```bash
+# 安装依赖
+pnpm add -D stylelint postcss-scss stylelint-scss stylelint-order stylelint-declaration-block-no-ignored-properties
+```
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [require.resolve('@crucialy/lint/stylelint/scss')],
+};
+```
+
+#### 3. Less 项目
+
+```bash
+# 安装依赖
+pnpm add -D stylelint postcss-less stylelint-order stylelint-declaration-block-no-ignored-properties
+```
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [require.resolve('@crucialy/lint/stylelint/less')],
+};
+```
+
+#### 4. Vue 项目
+
+```bash
+# 安装依赖
+pnpm add -D stylelint postcss-html stylelint-order stylelint-declaration-block-no-ignored-properties
+```
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [require.resolve('@crucialy/lint/stylelint/vue')],
+};
+```
+
+#### 5. CSS-in-JS 项目
+
+```bash
+# 安装依赖
+pnpm add -D stylelint @stylelint/postcss-css-in-js stylelint-order stylelint-declaration-block-no-ignored-properties
+```
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [require.resolve('@crucialy/lint/stylelint/css-in-js')],
+};
+```
+
+#### 6. 混合技术栈（全开）
+
+```bash
+# 安装所有依赖
+pnpm add -D stylelint postcss-html postcss-scss postcss-less @stylelint/postcss-css-in-js stylelint-scss stylelint-order stylelint-declaration-block-no-ignored-properties
+```
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [require.resolve('@crucialy/lint/stylelint/all')],
+};
+```
+
+#### 7. 添加脚本
 
 ```json
 // package.json
@@ -86,25 +157,30 @@ module.exports = {
 }
 ```
 
-#### 4. 插件说明
+#### 8. 配置特性
 
-配置中包含以下插件（可选安装）：
+**规则覆盖：**
+- `base` / `less` / `css-modules` / `vue` / `css-in-js`: **190 条规则**（189 条内置 + 1 条插件）
+- `scss`: **249 条规则**（189 条内置 + 40 条 SCSS + 1 条插件）
+- `all`: **249 条规则**（支持所有技术栈）
 
-- `postcss-html` - 支持 Vue/HTML 文件中的 CSS
-- `stylelint-order` - CSS 属性排序插件
+**技术栈支持：**
+- ✅ 纯 CSS
+- ✅ SCSS / Sass（`$变量`、`@mixin`、`@function`、`%占位符` 等）
+- ✅ Less（`@变量`、嵌套、混合等）
+- ✅ CSS-in-JS（styled-components、emotion、Linaria 等）
+- ✅ CSS Modules（`:global`、`:local`、`:export`、`composes`）
+- ✅ Vue SFC（`<style>`、`:deep`、`::v-deep`）
+- ✅ Tailwind CSS（`@tailwind`、`@apply`、`theme()`）
+- ✅ 小程序（rpx 单位、自定义标签）
 
-配置特性：
-- ✅ **189 条 Stylelint 规则**（接近全量覆盖）
-- ✅ **170+ 个 CSS 属性**的排序规则（从定位 → 布局 → 盒模型 → 样式 → 动画）
-- ✅ 支持 CSS Modules（`:global`、`:local`、`:export`）
-- ✅ 支持 Vue deep selectors（`:deep`、`::v-deep`）
-- ✅ 支持 Tailwind CSS（`@tailwind`、`@apply`、`theme()`）
-- ✅ 支持 SCSS（`@mixin`、`@include`、`@extend` 等）
-- ✅ 支持小程序标签（`page`、`view`）
-- ✅ 强制 kebab-case 类名和 ID 格式
+**其他特性：**
+- ✅ **170+ 个 CSS 属性**的逻辑排序（定位 → 布局 → 盒模型 → 样式 → 动画）
+- ✅ 检测被忽略的属性（如 `display: inline` 时的 `width`）
+- ✅ 类名支持 kebab-case 和 lowerCamelCase
 - ✅ 禁止使用 ID 选择器
 - ✅ 限制选择器复杂度和特异性
-- ✅ 统一代码风格（缩进、空格、换行、引号等）
+- ✅ 每条规则都有详细注释和 ✅ ❌ 示例
 
 ### Prettier
 
