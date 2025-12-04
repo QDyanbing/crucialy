@@ -45,9 +45,6 @@
     "prepublishOnly": "npm test",
     "test": "node test/test.js"
   },
-  "dependencies": {
-    "chalk": "^4.1.2"
-  },
   "peerDependencies": {
     "husky": "^9.0.0",
     "lint-staged": "^16.0.0"

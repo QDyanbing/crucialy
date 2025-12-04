@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const chalk = require('chalk');
+
+// 简单的颜色工具（替代 chalk）
+const colors = {
+  red: (text) => `\x1b[31m${text}\x1b[0m`,
+  green: (text) => `\x1b[32m${text}\x1b[0m`,
+  yellow: (text) => `\x1b[33m${text}\x1b[0m`,
+  bgRed: { white: (text) => `\x1b[41m\x1b[97m${text}\x1b[0m` },
+};
 
 /**
  * 移除 commit message 中的注释行
@@ -30,7 +37,7 @@ let msg;
 try {
   msg = removeComment(fs.readFileSync(msgPath, 'utf-8').trim());
 } catch (error) {
-  console.error(chalk.red(`Error reading commit message file: ${msgPath}`));
+  console.error(colors.red(`Error reading commit message file: ${msgPath}`));
   process.exit(1);
 }
 
@@ -75,11 +82,11 @@ const commitRE = new RegExp(
  */
 function printError() {
   console.log();
-  console.error(`  ${chalk.bgRed.white(' ERROR ')} ${chalk.red('提交信息不符合约定格式')}`);
+  console.error(`  ${colors.bgRed.white(' ERROR ')} ${colors.red('提交信息不符合约定格式')}`);
   console.log();
-  console.error(`  ${chalk.red('请使用格式：')} <type>(<scope>): <subject>`);
+  console.error(`  ${colors.red('请使用格式：')} <type>(<scope>): <subject>`);
   console.log();
-  console.error(`  ${chalk.yellow('type 说明：')}`);
+  console.error(`  ${colors.yellow('type 说明：')}`);
   console.error(`    feat      新功能`);
   console.error(`    fix       bug 修复`);
   console.error(`    chore     构建/脚本/依赖`);
@@ -92,11 +99,11 @@ function printError() {
   console.error(`    ci        CI/CD 配置`);
   console.error(`    revert    回滚提交`);
   console.log();
-  console.error(`  ${chalk.yellow('例如：')}`);
-  console.error(`    ${chalk.green('feat: 新增功能')}`);
-  console.error(`    ${chalk.green('fix(lint): 修复配置问题')}`);
-  console.error(`    ${chalk.green('chore: 更新依赖版本')}`);
-  console.error(`    ${chalk.green("Merge branch 'main' into dev")}`);
+  console.error(`  ${colors.yellow('例如：')}`);
+  console.error(`    ${colors.green('feat: 新增功能')}`);
+  console.error(`    ${colors.green('fix(lint): 修复配置问题')}`);
+  console.error(`    ${colors.green('chore: 更新依赖版本')}`);
+  console.error(`    ${colors.green("Merge branch 'main' into dev")}`);
   console.log();
 }
 
