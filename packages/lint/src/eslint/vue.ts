@@ -3,7 +3,7 @@
  * All rules defined in this package, no external config inheritance
  */
 
-export interface ESLintConfig {
+interface ESLintConfig {
   // TODO: Add proper ESLint config types
   [key: string]: unknown;
 }

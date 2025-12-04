@@ -29,7 +29,15 @@
     "email": "yanbing.gao@aliyun.com"
   },
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist",
     "README.md",
@@ -37,10 +45,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0"
   },
   "peerDependencies": {
     "@stylelint/postcss-css-in-js": ">=0.38.0",
