@@ -36,6 +36,36 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
+    },
+    "./prettier": {
+      "require": "./dist/prettier.js",
+      "import": "./dist/prettier.mjs",
+      "types": "./dist/prettier.d.ts"
+    },
+    "./eslint": {
+      "require": "./dist/eslint/index.js",
+      "import": "./dist/eslint/index.mjs",
+      "types": "./dist/eslint/index.d.ts"
+    },
+    "./eslint/react": {
+      "require": "./dist/eslint/react.js",
+      "import": "./dist/eslint/react.mjs",
+      "types": "./dist/eslint/react.d.ts"
+    },
+    "./eslint/vue": {
+      "require": "./dist/eslint/vue.js",
+      "import": "./dist/eslint/vue.mjs",
+      "types": "./dist/eslint/vue.d.ts"
+    },
+    "./stylelint": {
+      "require": "./dist/stylelint/index.js",
+      "import": "./dist/stylelint/index.mjs",
+      "types": "./dist/stylelint/index.d.ts"
+    },
+    "./stylelint/*": {
+      "require": "./dist/stylelint/*.js",
+      "import": "./dist/stylelint/*.mjs",
+      "types": "./dist/stylelint/*.d.ts"
     }
   },
   "files": [
