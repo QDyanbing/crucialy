@@ -8,7 +8,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictNamingRules: Config['rules'] = {
+export const namingRules: Config['rules'] = {
   /**
    * selector-class-pattern
    * 强制 BEM 命名规范（Block__Element--Modifier）

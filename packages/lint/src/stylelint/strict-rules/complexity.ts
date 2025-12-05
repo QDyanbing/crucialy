@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictComplexityRules: Config['rules'] = {
+export const complexityRules: Config['rules'] = {
   /**
    * max-nesting-depth
    * 最大嵌套深度 3 层

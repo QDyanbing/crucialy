@@ -8,7 +8,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictSpacingRules: Config['rules'] = {
+export const spacingRules: Config['rules'] = {
   /**
    * declaration-empty-line-before
    * 声明前需要空行（提高可读性）

@@ -14,27 +14,27 @@ import type { Config } from 'stylelint';
 import { base } from './base';
 
 // 导入 Strict 规则分组
-import { strictComplexityRules } from './strict-rules/complexity';
-import { strictNamingRules } from './strict-rules/naming';
-import { strictOrderRules } from './strict-rules/order';
-import { strictRestrictionsRules } from './strict-rules/restrictions';
-import { strictSelectorRules } from './strict-rules/selector';
-import { strictSpacingRules } from './strict-rules/spacing';
-import { strictStyleRules } from './strict-rules/style';
+import { complexityRules } from './strict-rules/complexity';
+import { namingRules } from './strict-rules/naming';
+import { orderRules } from './strict-rules/order';
+import { restrictionsRules } from './strict-rules/restrictions';
+import { selectorRules } from './strict-rules/selector';
+import { spacingRules } from './strict-rules/spacing';
+import { styleRules } from './strict-rules/style';
 
 /**
  * Strict 配置 = Base 配置 + 严格限制
  */
 export const strict: Config = {
-  plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
+  plugins: base.plugins,
   rules: {
     ...base.rules,
-    ...strictComplexityRules,
-    ...strictNamingRules,
-    ...strictOrderRules,
-    ...strictRestrictionsRules,
-    ...strictSelectorRules,
-    ...strictSpacingRules,
-    ...strictStyleRules,
+    ...complexityRules,
+    ...namingRules,
+    ...orderRules,
+    ...restrictionsRules,
+    ...selectorRules,
+    ...spacingRules,
+    ...styleRules,
   },
 };

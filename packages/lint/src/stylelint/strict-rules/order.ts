@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictOrderRules: Config['rules'] = {
+export const orderRules: Config['rules'] = {
   /**
    * order/properties-order
    * 强制属性按功能分组排序

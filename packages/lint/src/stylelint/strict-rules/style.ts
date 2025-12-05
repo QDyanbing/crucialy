@@ -10,7 +10,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictStyleRules: Config['rules'] = {
+export const styleRules: Config['rules'] = {
   /**
    * color-function-notation
    * 禁用（因为 Strict 只允许 hex 颜色）

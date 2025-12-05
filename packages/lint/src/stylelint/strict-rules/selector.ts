@@ -10,7 +10,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictSelectorRules: Config['rules'] = {
+export const selectorRules: Config['rules'] = {
   /**
    * selector-max-combinators
    * 限制组合器数量（最多 3 个）

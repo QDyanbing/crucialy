@@ -11,7 +11,7 @@
 
 import type { Config } from 'stylelint';
 
-export const strictRestrictionsRules: Config['rules'] = {
+export const restrictionsRules: Config['rules'] = {
   /**
    * function-disallowed-list
    * 禁止颜色函数（只允许 hex 表示颜色）
