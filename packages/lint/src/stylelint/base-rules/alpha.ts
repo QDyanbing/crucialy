@@ -24,5 +24,5 @@ export const alphaRules: Config['rules'] = {
    *  - opacity: 50%;                   (应使用 0.5)
    *  - color: hsla(120, 100%, 50%, 80%); (应使用 0.8)
    */
-  'alpha-value-notation': 'number',
+  'alpha-value-notation': ['number'],
 };

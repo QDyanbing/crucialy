@@ -20,5 +20,5 @@ export const annotationRules: Config['rules'] = {
    *  - color: red !default;              (Sass 注解，需在 ignoreAnnotations 中配置)
    *  - $variable: value !global;         (Sass 注解，需在 ignoreAnnotations 中配置)
    */
-  'annotation-no-unknown': true,
+  'annotation-no-unknown': [true],
 };
