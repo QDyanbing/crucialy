@@ -85,8 +85,8 @@ export const atRuleRules: Config['rules'] = {
    * @description 要求 @规则前有空行，提高代码可读性
    * @value 'always' - 总是要求空行
    * @value 'never' - 不要求空行
-   * @secondary except（例外情况）、
-   * @secondary ignore（忽略情况）
+   * @secondary except: ['blockless-after-same-name-blockless', 'first-nested'] - 连续的同名无块 @规则 和 作为第一个嵌套规则时不需要空行
+   * @secondary ignore: ['after-comment'] - 忽略注释后的 @规则
    * @example ✅ 正确示例：
    *  - .foo { color: red; }
    *
