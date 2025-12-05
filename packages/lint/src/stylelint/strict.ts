@@ -14,7 +14,6 @@ import type { Config } from 'stylelint';
 import { base } from './base';
 
 // 导入 Strict 规则分组（与 base-rules 结构对应）
-import { colorRules } from './strict-rules/color';
 import { complexityRules } from './strict-rules/complexity';
 import { customPropertyRules } from './strict-rules/custom-property';
 import { declarationRules } from './strict-rules/declaration';
@@ -36,7 +35,6 @@ export const strict: Config = {
   plugins: base.plugins,
   rules: {
     ...base.rules,
-    ...colorRules,
     ...complexityRules,
     ...customPropertyRules,
     ...declarationRules,
