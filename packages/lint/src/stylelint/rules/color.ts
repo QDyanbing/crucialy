@@ -23,14 +23,15 @@ export const colorRules: Config['rules'] = {
    *
    * 使用百分比更直观易懂，与其他 CSS 百分比值保持一致
    *
-   * 配置：Base 使用 percentage
+   * 配置：
+   * - Base：null（不限制，允许两种方式）
+   * - Strict：'percentage'（强制使用百分比）
    *
-   * ✅ 正确示例：rgba(0, 0, 0, 50%)
-   * ✅ 正确示例：rgb(255 255 255 / 80%)
-   * ❌ 错误示例：rgba(0, 0, 0, 0.5)
-   * ❌ 错误示例：rgb(255 255 255 / 0.8)
+   * ✅ 正确示例（null 时）：rgba(0, 0, 0, 50%)
+   * ✅ 正确示例（null 时）：rgba(0, 0, 0, 0.5)
+   * ❌ 错误示例（percentage 时）：rgba(0, 0, 0, 0.5)
    */
-  'alpha-value-notation': 'percentage',
+  'alpha-value-notation': null,
   
   /**
    * color-function-notation
@@ -116,25 +117,28 @@ export const colorRules: Config['rules'] = {
   
   /**
    * color-named
-   * 控制是否使用命名颜色
+   * 禁止使用命名颜色
    *
    * 说明：CSS 支持使用颜色名称（如 red、blue、black）
    * - never：禁止使用命名颜色，要求使用 hex 或 rgb
    * - always-where-possible：尽可能使用命名颜色
    * - null：不限制
    *
-   * Base 配置不限制的原因：
-   * - 命名颜色直观易读（black 比 #000 更清晰）
-   * - 但命名颜色数量有限，无法覆盖所有需求
+   * Base 配置设为 never 的原因：
+   * - hex 值更精确、可控（#000 vs black）
+   * - 命名颜色容易产生歧义（red 到底是哪个红？）
+   * - 命名颜色数量有限，无法覆盖所有设计需求
+   * - hex 值可以直接复制自设计稿，保持一致性
+   * - 统一使用 hex 让代码更规范
    *
-   * Strict 配置可以设为 never 以保持一致性
-   *
-   * ✅ 正确示例（null 时）：color: #000;
-   * ✅ 正确示例（null 时）：color: black;
-   * ❌ 错误示例（never 时）：color: black;
-   * ❌ 错误示例（always-where-possible 时）：color: #000; (应用 black)
+   * ✅ 正确示例：color: #000;
+   * ✅ 正确示例：color: #f00;
+   * ✅ 正确示例：background: transparent; (transparent 不受此规则限制)
+   * ❌ 错误示例：color: black;
+   * ❌ 错误示例：color: red;
+   * ❌ 错误示例：border-color: blue;
    */
-  'color-named': null,
+  'color-named': 'never',
   
   /**
    * color-no-hex

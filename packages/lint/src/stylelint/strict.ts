@@ -4,7 +4,7 @@
  * - BEM 命名规范
  * - 限制复杂度和嵌套
  * - 更严格的代码风格
- * 
+ *
  * 使用方式：
  * 1. 对象方式：const config = require('@crucialy/lint').stylelint.strict;
  * 2. Extends 方式：extends: ['@crucialy/lint/stylelint/base']，然后覆盖规则
@@ -38,8 +38,7 @@ export const strict: Config = {
     'selector-class-pattern': [
       '^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$',
       {
-        message:
-          'Expected class selector to follow BEM naming (block__element--modifier)',
+        message: 'Expected class selector to follow BEM naming (block__element--modifier)',
       },
     ],
 
@@ -265,10 +264,10 @@ export const strict: Config = {
     /**
      * declaration-empty-line-before
      * 声明前需要空行（提高可读性）
-     * ✅ 
+     * ✅
      * .a {
      *   color: red;
-     * 
+     *
      *   background: blue;
      * }
      */
@@ -295,14 +294,6 @@ export const strict: Config = {
     // ============================================
     // 禁止不推荐的用法
     // ============================================
-
-    /**
-     * color-named
-     * 禁止命名颜色（只允许 hex）
-     * ✅ color: #000;
-     * ❌ color: black;
-     */
-    'color-named': 'never',
 
     /**
      * function-disallowed-list
@@ -344,7 +335,7 @@ export const strict: Config = {
      * 选择器中禁止空行
      * ✅ .a, .b {}
      * ❌ .a,
-     * 
+     *
      *    .b {}
      */
     '@stylistic/selector-max-empty-lines': 0,
@@ -376,7 +367,7 @@ export const strict: Config = {
      * 强制属性按功能分组排序
      * 顺序：定位 → 盒模型 → 排版 → 视觉 → 其他
      */
-    'order/properties-order': ([
+    'order/properties-order': [
       [
         // 1. 定位相关
         {
@@ -543,6 +534,6 @@ export const strict: Config = {
       {
         unspecified: 'bottomAlphabetical',
       },
-    ] as any),
+    ] as any,
   },
 };
