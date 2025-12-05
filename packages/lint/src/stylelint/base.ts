@@ -10,6 +10,7 @@ import type { Config } from 'stylelint';
 import { annotationRules } from './base-rules/annotation';
 import { atRuleRules } from './base-rules/at-rule';
 import { blockRules } from './base-rules/block';
+import { alphaRules } from './base-rules/alpha';
 import { colorRules } from './base-rules/color';
 import { commentRules } from './base-rules/comment';
 import { complexityRules } from './base-rules/complexity';
@@ -24,16 +25,18 @@ import { keyframeRules } from './base-rules/keyframe';
 import { lengthRules } from './base-rules/length';
 import { mediaRules } from './base-rules/media';
 import { nestingRules } from './base-rules/nesting';
-import { notationRules } from './base-rules/notation';
-import { numberUnitRules } from './base-rules/number-unit';
+import { numberRules } from './base-rules/number';
 import { orderRules } from './base-rules/order';
 import { patternRules } from './base-rules/pattern';
 import { propertyRules } from './base-rules/property';
 import { ruleRules } from './base-rules/rule';
 import { selectorRules } from './base-rules/selector';
 import { shorthandRules } from './base-rules/shorthand';
+import { stringRules } from './base-rules/string';
 import { stylisticRules } from './base-rules/stylistic';
 import { syntaxRules } from './base-rules/syntax';
+import { timeRules } from './base-rules/time';
+import { unitRules } from './base-rules/unit';
 import { valueRules } from './base-rules/value';
 
 /**
@@ -46,6 +49,7 @@ export const base: Config = {
     ...annotationRules,
     ...atRuleRules,
     ...blockRules,
+    ...alphaRules,
     ...colorRules,
     ...commentRules,
     ...complexityRules,
@@ -60,16 +64,18 @@ export const base: Config = {
     ...lengthRules,
     ...mediaRules,
     ...nestingRules,
-    ...notationRules,
-    ...numberUnitRules,
+    ...numberRules,
     ...orderRules,
     ...patternRules,
     ...propertyRules,
     ...ruleRules,
     ...selectorRules,
     ...shorthandRules,
+    ...stringRules,
     ...stylisticRules,
     ...syntaxRules,
+    ...timeRules,
+    ...unitRules,
     ...valueRules,
   },
 };

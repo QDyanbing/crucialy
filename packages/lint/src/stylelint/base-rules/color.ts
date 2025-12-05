@@ -1,38 +1,22 @@
 /**
  * Color 相关规则
- * 
- * 包含颜色表示法、格式、验证等规则（8条）
- * - alpha 值表示法
+ *
+ * 包含颜色表示法、格式、验证等规则（9条）
  * - 颜色函数表示法（modern/legacy）
+ * - 颜色函数别名
+ * - 色相角度表示法
+ * - 亮度值表示法
+ * - hex 颜色 alpha 通道使用
  * - hex 颜色长度和格式
  * - 命名颜色
- * - 颜色验证
+ * - hex 使用限制
+ * - hex 合法性校验
  */
 
 import type { Config } from 'stylelint';
 
 export const colorRules: Config['rules'] = {
-  
-  /**
-   * alpha-value-notation
-   * 指定透明度值的表示法
-   *
-   * 说明：CSS 中透明度可以用两种方式表示：
-   * - percentage：百分比形式（50%）
-   * - number：数字形式（0.5）
-   *
-   * 使用百分比更直观易懂，与其他 CSS 百分比值保持一致
-   *
-   * 配置：
-   * - Base：null（不限制，允许两种方式）
-   * - Strict：'percentage'（强制使用百分比）
-   *
-   * ✅ 正确示例（null 时）：rgba(0, 0, 0, 50%)
-   * ✅ 正确示例（null 时）：rgba(0, 0, 0, 0.5)
-   * ❌ 错误示例（percentage 时）：rgba(0, 0, 0, 0.5)
-   */
-  'alpha-value-notation': null,
-  
+
   /**
    * color-function-notation
    * 指定颜色函数的表示法
@@ -45,12 +29,13 @@ export const colorRules: Config['rules'] = {
    * - Less 等预处理器可能不完全支持 modern 语法
    * - 保持向后兼容性
    *
-   * Strict 配置可以启用 modern 以使用最新标准
+   * 某些项目可以将此规则设置为 'modern' 或 'legacy'，
+   * 用于强制团队统一使用现代或传统颜色函数写法。
    *
    * ✅ 正确示例（null 时）：rgb(0 0 0 / 50%)
    * ✅ 正确示例（null 时）：rgba(0, 0, 0, 0.5)
-   * ❌ 错误示例（modern 时）：rgba(0, 0, 0, 0.5)
-   * ❌ 错误示例（legacy 时）：rgb(0 0 0 / 50%)
+   * ❌ 错误示例（当配置为 'modern' 时）：rgba(0, 0, 0, 0.5)
+   * ❌ 错误示例（当配置为 'legacy' 时）：rgb(0 0 0 / 50%)
    */
   'color-function-notation': null,
   
@@ -73,6 +58,44 @@ export const colorRules: Config['rules'] = {
    * ✅ 正确示例（null 时）：hsla(120, 100%, 50%, 0.5)
    */
   'color-function-alias-notation': null,
+  
+  /**
+   * hue-degree-notation
+   * 指定 HSL 颜色函数中色相（hue）的表示法
+   *
+   * 说明：HSL/HWB 颜色函数中的色相值有两种表示方式：
+   * - angle：使用角度单位（如 180deg、0.5turn、3.14rad）
+   * - number：纯数字（如 180，表示 180度）
+   *
+   * 使用角度单位更明确，避免歧义，也是 CSS 规范推荐的方式
+   *
+   * Base 配置使用 angle（带单位）
+   *
+   * ✅ 正确示例：hsl(180deg 50% 50%)
+   * ✅ 正确示例：hsl(0.5turn 50% 50%)
+   * ✅ 正确示例：hwb(180deg 30% 40%)
+   * ❌ 错误示例：hsl(180 50% 50%) (缺少角度单位)
+   */
+  'hue-degree-notation': 'angle',
+  
+  /**
+   * lightness-notation
+   * 指定 HSL 颜色函数中亮度（lightness）和饱和度（saturation）的表示法
+   *
+   * 说明：HSL 颜色函数中的饱和度和亮度值有两种表示方式：
+   * - percentage：百分比形式（如 50%）
+   * - number：数字形式（如 0.5）
+   *
+   * 百分比形式更符合 HSL 的直观理解（0%-100% 的范围）
+   * 也是 CSS 规范推荐和广泛使用的方式
+   *
+   * Base 配置使用 percentage（百分比）
+   *
+   * ✅ 正确示例：hsl(180deg 50% 50%)
+   * ✅ 正确示例：hsl(0deg 100% 50%)
+   * ❌ 错误示例：hsl(180deg 0.5 0.5) (应使用百分比)
+   */
+  'lightness-notation': 'percentage',
   
   /**
    * color-hex-alpha
