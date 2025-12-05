@@ -11,74 +11,54 @@ import type { Config } from 'stylelint';
 
 export const customPropertyRules: Config['rules'] = {
   /**
-   * custom-property-pattern
-   * 指定自定义属性（CSS 变量）的命名模式
-   *
-   * 说明：规范 CSS 自定义属性的命名风格
-   * - null：不限制命名
-   * - 正则表达式：自定义属性名必须匹配该模式
-   *
-   * Base 配置不限制，常见使用场景：
-   * - kebab-case：--my-color, --font-size-base
-   * - 带前缀：--theme-primary, --layout-spacing
-   *
-   * 配置示例：'^[a-z]+(-[a-z]+)*$' (强制 kebab-case)
-   * ✅ 正确示例（null 时）：--myColor: red;
-   * ✅ 正确示例（null 时）：--my-color: red;
-   * ✅ 正确示例（kebab-case 配置后）：--my-custom-color: red;
-   * ❌ 错误示例（kebab-case 配置后）：--myColor: red;
+   * @name custom-property-pattern
+   * @description 指定自定义属性（CSS 变量）的命名模式；规范 CSS 自定义属性的命名风格
+   * @value null - 不限制命名
+   * @value regex - 正则表达式字符串（如：'^[a-z]+(-[a-z]+)*$' 强制 kebab-case）
+   * @example ✅ 正确示例（null 时）：
+   *  - --myColor: red;
+   *  - --my-color: red;
+   * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
+   *  - --myColor: red;                        (应使用 kebab-case：--my-color)
    */
-  'custom-property-pattern': null,
+  'custom-property-pattern': [null],
 
   /**
-   * custom-property-empty-line-before
-   * 要求或禁止自定义属性前有空行
+   * @name custom-property-empty-line-before
+   * @description 要求或禁止自定义属性前有空行；控制自定义属性前的空行，提高可读性
+   * @value null - 不限制
+   * @value 'always' - 总是要求空行
+   * @value 'never' - 禁止空行
+   * @example ✅ 正确示例（null 时）：
+   *  - :root {
+   *      --color: red;
+   *      --size: 10px;
+   *    }
+   *  - :root {
+   *      --color: red;
    *
-   * 说明：控制自定义属性前的空行，提高可读性
-   * - null：不限制
-   * - always：总是要求空行
-   * - never：禁止空行
-   *
-   * Base 配置不限制，允许灵活排版
-   *
-   * ✅ 正确示例（null 时）：
-   * :root {
-   *   --color: red;
-   *   --size: 10px;
-   * }
-   *
-   * ✅ 正确示例（null 时，有空行）：
-   * :root {
-   *   --color: red;
-   *
-   *   --size: 10px;
-   * }
+   *      --size: 10px;
+   *    }
+   * @example ❌ 错误示例（假设配置为 'always'）：
+   *  - :root {
+   *      --color: red;
+   *      --size: 10px;
+   *    }                                      (缺少空行)
    */
-  'custom-property-empty-line-before': null,
+  'custom-property-empty-line-before': [null],
 
   /**
-   * custom-property-no-missing-var-function
-   * 禁止直接使用自定义属性，必须用 var() 包裹
-   *
-   * 说明：CSS 自定义属性的值必须通过 var() 函数访问
-   * - --my-color 定义变量
-   * - var(--my-color) 使用变量
-   * - 直接使用 --my-color 作为值是无效的
-   *
-   * 这是 CSS 语法错误，必须禁止
-   *
-   * ✅ 正确示例：
-   * :root { --primary: #000; }
-   * .button { color: var(--primary); }
-   *
-   * ✅ 正确示例（带默认值）：
-   * .button { color: var(--primary, #000); }
-   *
-   * ❌ 错误示例：
-   * .button { color: --primary; } (缺少 var())
-   *
-   * ❌ 错误示例：
-   * .button { background: --bg-color; } (应使用 var(--bg-color))
+   * @name custom-property-no-missing-var-function
+   * @description 禁止直接使用自定义属性，必须用 var() 包裹；CSS 自定义属性的值必须通过 var() 函数访问，直接使用是无效的 CSS 语法
+   * @value true - 启用，禁止缺少 var() 函数
+   * @value false - 禁用此规则
+   * @example ✅ 正确示例：
+   *  - :root { --primary: #000; }
+   *    .button { color: var(--primary); }
+   *  - .button { color: var(--primary, #000); }
+   * @example ❌ 错误示例：
+   *  - .button { color: --primary; }          (缺少 var()，应使用 var(--primary))
+   *  - .button { background: --bg-color; }    (应使用 var(--bg-color))
    */
-  'custom-property-no-missing-var-function': true,
+  'custom-property-no-missing-var-function': [true],
 };
