@@ -18,9 +18,9 @@ export const annotationRules: Config['rules'] = {
    *
    * 如果你使用 Sass，需要在 ignoreAnnotations 中配置允许的注解
    *
-   * 正确示例：color: red !important; (标准 CSS，Stylelint 认识)
-   * 错误示例：color: red !unknown; (不存在的注解)
-   * 错误示例：在纯 CSS 项目中使用 Sass 的 !default 等注解
+   * ✅ 正确示例：color: red !important; (标准 CSS，Stylelint 认识)
+   * ❌ 错误示例：color: red !unknown; (不存在的注解)
+   * ❌ 错误示例：在纯 CSS 项目中使用 Sass 的 !default 等注解
    */
   'annotation-no-unknown': true,
 };
