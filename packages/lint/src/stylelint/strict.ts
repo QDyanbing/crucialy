@@ -13,14 +13,21 @@
 import type { Config } from 'stylelint';
 import { base } from './base';
 
-// 导入 Strict 规则分组
+// 导入 Strict 规则分组（与 base-rules 结构对应）
+import { colorRules } from './strict-rules/color';
 import { complexityRules } from './strict-rules/complexity';
-import { namingRules } from './strict-rules/naming';
+import { customPropertyRules } from './strict-rules/custom-property';
+import { declarationRules } from './strict-rules/declaration';
+import { fontRules } from './strict-rules/font';
+import { functionRules } from './strict-rules/function';
+import { generalRules } from './strict-rules/general';
+import { keyframeRules } from './strict-rules/keyframe';
+import { nestingRules } from './strict-rules/nesting';
+import { numberUnitRules } from './strict-rules/number-unit';
 import { orderRules } from './strict-rules/order';
-import { restrictionsRules } from './strict-rules/restrictions';
+import { patternRules } from './strict-rules/pattern';
 import { selectorRules } from './strict-rules/selector';
-import { spacingRules } from './strict-rules/spacing';
-import { styleRules } from './strict-rules/style';
+import { stylisticRules } from './strict-rules/stylistic';
 
 /**
  * Strict 配置 = Base 配置 + 严格限制
@@ -29,12 +36,19 @@ export const strict: Config = {
   plugins: base.plugins,
   rules: {
     ...base.rules,
+    ...colorRules,
     ...complexityRules,
-    ...namingRules,
+    ...customPropertyRules,
+    ...declarationRules,
+    ...fontRules,
+    ...functionRules,
+    ...generalRules,
+    ...keyframeRules,
+    ...nestingRules,
+    ...numberUnitRules,
     ...orderRules,
-    ...restrictionsRules,
+    ...patternRules,
     ...selectorRules,
-    ...spacingRules,
-    ...styleRules,
+    ...stylisticRules,
   },
 };

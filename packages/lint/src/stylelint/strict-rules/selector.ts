@@ -1,76 +1,108 @@
 /**
- * Strict 选择器限制规则
+ * Strict 选择器相关规则
  *
- * 包含选择器使用限制规则（4条）
- * - 组合器限制
- * - 伪类限制
- * - 属性选择器限制
- * - 嵌套模式
+ * 覆盖选择器相关规则（13条）
  */
 
 import type { Config } from 'stylelint';
 
 export const selectorRules: Config['rules'] = {
   /**
+   * selector-class-pattern
+   * 强制 BEM 命名规范
+   */
+  'selector-class-pattern': [
+    '^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$',
+    {
+      message: 'Expected class selector to follow BEM naming (block__element--modifier)',
+    },
+  ],
+
+  /**
+   * selector-id-pattern
+   * ID 使用 kebab-case
+   */
+  'selector-id-pattern': [
+    '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
+    {
+      message: 'Expected id selector to be kebab-case',
+    },
+  ],
+
+  /**
+   * selector-max-id
+   * 禁止 ID 选择器
+   */
+  'selector-max-id': 0,
+
+  /**
+   * selector-max-specificity
+   * 限制选择器特异性
+   */
+  'selector-max-specificity': '0,3,0',
+
+  /**
+   * selector-max-compound-selectors
+   * 限制复合选择器数量
+   */
+  'selector-max-compound-selectors': 3,
+
+  /**
+   * selector-max-type
+   * 限制类型选择器数量
+   */
+  'selector-max-type': [2, { ignore: ['child', 'descendant', 'compounded'] }],
+
+  /**
+   * selector-max-universal
+   * 禁止通配符选择器
+   */
+  'selector-max-universal': 0,
+
+  /**
+   * selector-no-qualifying-type
+   * 禁止选择器限定类型
+   */
+  'selector-no-qualifying-type': [
+    true,
+    {
+      ignore: ['attribute', 'class'],
+    },
+  ],
+
+  /**
+   * selector-max-class
+   * 限制类选择器数量
+   */
+  'selector-max-class': 4,
+
+  /**
    * selector-max-combinators
-   * 限制组合器数量（最多 3 个）
-   *
-   * 说明：组合器用于连接选择器
-   * - 后代选择器（空格）：.a .b
-   * - 子选择器（>）：.a > .b
-   * - 相邻兄弟（+）：.a + .b
-   * - 通用兄弟（~）：.a ~ .b
-   *
-   * ✅ 正确示例：.a > .b + .c {}
-   * ❌ 错误示例：.a > .b + .c ~ .d {}
+   * 限制组合器数量
    */
   'selector-max-combinators': 3,
 
   /**
    * selector-max-pseudo-class
-   * 限制伪类数量（最多 3 个）
-   *
-   * 说明：伪类用于定义元素的特殊状态
-   * - :hover、:focus、:active 等
-   *
-   * ✅ 正确示例：a:hover:focus:active {}
-   * ❌ 错误示例：a:hover:focus:active:visited {}
+   * 限制伪类数量
    */
   'selector-max-pseudo-class': 3,
 
   /**
    * selector-max-attribute
-   * 限制属性选择器数量（最多 2 个）
-   *
-   * 说明：属性选择器用于选择具有特定属性的元素
-   * - [type="text"]
-   * - [disabled]
-   * - [data-*="value"]
-   *
-   * ✅ 正确示例：[type="text"][disabled] {}
-   * ❌ 错误示例：[type="text"][disabled][required] {}
+   * 限制属性选择器数量
    */
   'selector-max-attribute': 2,
 
   /**
-   * selector-nested-pattern
-   * 嵌套选择器必须以 & 开头
-   *
-   * 说明：强制使用 BEM 风格的嵌套
-   * - & 表示父选择器的引用
-   * - 确保嵌套选择器与父选择器有明确关联
-   *
-   * ✅ 正确示例：
-   * .block {
-   *   &__element {}
-   *   &--modifier {}
-   * }
-   *
-   * ❌ 错误示例：
-   * .block {
-   *   .element {} (缺少 &)
-   * }
+   * selector-type-no-unknown
+   * 完全禁止未知类型选择器
    */
-  'selector-nested-pattern': '^&',
-};
+  'selector-type-no-unknown': true,
 
+  /**
+   * selector-disallowed-list
+   * 禁止通配符选择器
+   */
+  'selector-disallowed-list': ['/^\\*/'],
+};
