@@ -22,26 +22,25 @@ export const alphaRules: Config['rules'] = {
    * - number：数字形式（0.5）
    *
    * Base 配置：
-   * - Base：null（不限制，允许两种方式并存）
+   * - Base：'number'（强制使用数字形式）
    *
-   * 如果项目希望统一使用百分比表示法，可以这样配置：
-   * - ['percentage', { exceptProperties: ['opacity'] }]
-   *   - 对颜色函数强制使用百分比
-   *   - 对 `opacity` 属性保留数字写法（符合 CSS 直观习惯）
+   * 选择 'number' 的原因：
+   * - 数字形式（0.5）在 CSS 中更常见且历史更悠久
+   * - 与传统 `opacity` 属性习惯保持一致
+   * - 更简洁直观，范围 0-1 易于理解
    *
-   * ✅ 正确示例（Base 为 null 时，均允许）：
+   * ✅ 正确示例：
    * - 颜色函数：
-   *   ✅ color: rgba(0, 0, 0, 50%);
    *   ✅ color: rgba(0, 0, 0, 0.5);
+   *   ✅ color: hsla(120, 100%, 50%, 0.8);
    * - opacity 属性：
    *   ✅ opacity: 0.5;
-   *   ✅ opacity: 50%;
+   *   ✅ opacity: 1;
    *
-   * ❌ 错误示例（当配置为 'percentage' 且未对 opacity 做例外时）：
-   *   ❌ opacity: 0.5;   (要求写成 50%)
-   *   ❌ color: rgba(0, 0, 0, 0.5); (要求写成 50%)
+   * ❌ 错误示例：
+   *   ❌ color: rgba(0, 0, 0, 50%);     (应使用 0.5)
+   *   ❌ opacity: 50%;                   (应使用 0.5)
+   *   ❌ color: hsla(120, 100%, 50%, 80%); (应使用 0.8)
    */
-  'alpha-value-notation': null,
+  'alpha-value-notation': 'number',
 };
-
-
