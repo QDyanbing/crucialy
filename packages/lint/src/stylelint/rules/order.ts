@@ -7,7 +7,9 @@
  * - 属性字母顺序
  */
 
-export const orderRules = {
+import type { Config } from 'stylelint';
+
+export const orderRules: Config['rules'] = {
   
   /**
    * order/order

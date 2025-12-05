@@ -5,7 +5,9 @@
  * - import 表示法（string/url）
  */
 
-export const importRules = {
+import type { Config } from 'stylelint';
+
+export const importRules: Config['rules'] = {
   /**
    * import-notation
    * import 表示法

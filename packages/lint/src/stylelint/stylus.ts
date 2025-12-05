@@ -2,9 +2,9 @@
  * Stylus Stylelint configuration
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const stylus: StylelintConfig = {
+export const stylus: Config = {
   rules: {
     // TODO: M7 - Implement Stylus rules
   },

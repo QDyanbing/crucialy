@@ -5,7 +5,9 @@
  * - 嵌套选择器禁止缺少作用域根（& 符号）
  */
 
-export const nestingRules = {
+import type { Config } from 'stylelint';
+
+export const nestingRules: Config['rules'] = {
   /**
    * nesting-selector-no-missing-scoping-root
    * 嵌套选择器禁止缺少作用域根

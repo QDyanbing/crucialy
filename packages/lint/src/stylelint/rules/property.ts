@@ -7,7 +7,9 @@
  * - 属性白名单/黑名单
  */
 
-export const propertyRules = {
+import type { Config } from 'stylelint';
+
+export const propertyRules: Config['rules'] = {
   /**
    * property-no-unknown
    * 禁止未知属性

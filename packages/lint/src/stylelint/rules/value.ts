@@ -6,7 +6,9 @@
  * - vendor prefix
  */
 
-export const valueRules = {
+import type { Config } from 'stylelint';
+
+export const valueRules: Config['rules'] = {
   /**
    * value-keyword-case
    * 值关键字使用小写

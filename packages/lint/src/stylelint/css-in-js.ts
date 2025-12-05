@@ -3,9 +3,9 @@
  * For styled-components, emotion, etc.
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const cssInJs: StylelintConfig = {
+export const cssInJs: Config = {
   customSyntax: '@stylelint/postcss-css-in-js',
   rules: {
     // TODO: M14 - Implement CSS-in-JS rules

@@ -9,7 +9,9 @@
  * - 函数白名单/黑名单
  */
 
-export const functionRules = {
+import type { Config } from 'stylelint';
+
+export const functionRules: Config['rules'] = {
   /**
    * function-calc-no-unspaced-operator
    * calc() 函数运算符周围必须有空格

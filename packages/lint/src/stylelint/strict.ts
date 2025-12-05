@@ -10,14 +10,14 @@
  * 2. Extends 方式：extends: ['@crucialy/lint/stylelint/base']，然后覆盖规则
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 import { base } from './base';
 
 /**
  * Strict 配置 = Base 配置 + 严格限制
  */
-export const strict: StylelintConfig = {
-  plugins: base.plugins,
+export const strict: Config = {
+  plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
     ...base.rules,
 

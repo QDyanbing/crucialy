@@ -3,9 +3,9 @@
  * Uses postcss-less
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const less: StylelintConfig = {
+export const less: Config = {
   customSyntax: 'postcss-less',
   rules: {
     // TODO: M6 - Implement Less rules

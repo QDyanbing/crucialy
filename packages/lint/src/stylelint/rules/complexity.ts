@@ -5,7 +5,9 @@
  * - 最大嵌套深度（Base 不限制，Strict 限制3层）
  */
 
-export const complexityRules = {
+import type { Config } from 'stylelint';
+
+export const complexityRules: Config['rules'] = {
   /**
    * max-nesting-depth
    * 最大嵌套深度

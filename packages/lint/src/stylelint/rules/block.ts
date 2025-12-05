@@ -6,7 +6,9 @@
  * - 禁止冗余嵌套
  */
 
-export const blockRules = {
+import type { Config } from 'stylelint';
+
+export const blockRules: Config['rules'] = {
   /**
    * block-no-empty
    * 禁止空块

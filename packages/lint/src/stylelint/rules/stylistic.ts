@@ -10,7 +10,9 @@
  * - 其他：前导零、尾随零、BOM 等
  */
 
-export const stylisticRules = {
+import type { Config } from 'stylelint';
+
+export const stylisticRules: Config['rules'] = {
   // Stylistic 规则（@stylistic/stylelint-plugin）
   
   /** hex 颜色小写 | ✅ #fff ❌ #FFF */

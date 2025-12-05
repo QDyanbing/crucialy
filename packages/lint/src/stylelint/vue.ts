@@ -3,9 +3,9 @@
  * For <style> blocks in Vue SFC
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const vue: StylelintConfig = {
+export const vue: Config = {
   customSyntax: 'postcss-html',
   rules: {
     // TODO: M10 - Implement Vue rules

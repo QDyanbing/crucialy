@@ -8,7 +8,9 @@
  * - keyframes 命名模式
  */
 
-export const keyframeRules = {
+import type { Config } from 'stylelint';
+
+export const keyframeRules: Config['rules'] = {
   /**
    * keyframe-selector-notation
    * keyframe 选择器表示法

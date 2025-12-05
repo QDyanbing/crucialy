@@ -10,7 +10,9 @@
  * - 属性单位和值的限制
  */
 
-export const declarationRules = {
+import type { Config } from 'stylelint';
+
+export const declarationRules: Config['rules'] = {
   /**
    * declaration-block-no-duplicate-custom-properties
    * 声明块禁止重复自定义属性

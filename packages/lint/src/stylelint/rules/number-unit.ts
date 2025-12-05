@@ -9,7 +9,9 @@
  * - 时间最小值
  */
 
-export const numberUnitRules = {
+import type { Config } from 'stylelint';
+
+export const numberUnitRules: Config['rules'] = {
   /**
    * number-max-precision
    * 数字最大小数位数

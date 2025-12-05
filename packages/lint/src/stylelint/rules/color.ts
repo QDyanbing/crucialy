@@ -9,7 +9,9 @@
  * - 颜色验证
  */
 
-export const colorRules = {
+import type { Config } from 'stylelint';
+
+export const colorRules: Config['rules'] = {
   
   /**
    * alpha-value-notation

@@ -9,7 +9,9 @@
  * - 白名单/黑名单
  */
 
-export const atRuleRules = {
+import type { Config } from 'stylelint';
+
+export const atRuleRules: Config['rules'] = {
   /**
    * at-rule-no-unknown
    * 禁止未知的 @规则

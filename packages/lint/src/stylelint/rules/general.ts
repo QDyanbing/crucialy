@@ -10,7 +10,9 @@
  * - 未知定义检查（动画、自定义属性等）
  */
 
-export const generalRules = {
+import type { Config } from 'stylelint';
+
+export const generalRules: Config['rules'] = {
   /**
    * no-empty-source
    * 禁止空源文件

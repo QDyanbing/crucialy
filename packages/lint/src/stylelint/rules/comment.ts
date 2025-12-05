@@ -9,7 +9,9 @@
  * - 注释词黑名单
  */
 
-export const commentRules = {
+import type { Config } from 'stylelint';
+
+export const commentRules: Config['rules'] = {
   /**
    * comment-empty-line-before
    * 注释前需要空行

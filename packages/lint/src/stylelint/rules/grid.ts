@@ -5,7 +5,9 @@
  * - 禁止无效的命名网格区域
  */
 
-export const gridRules = {
+import type { Config } from 'stylelint';
+
+export const gridRules: Config['rules'] = {
   /**
    * named-grid-areas-no-invalid
    * 禁止无效的命名网格区域

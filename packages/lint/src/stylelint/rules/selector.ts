@@ -9,7 +9,9 @@
  * - 选择器白名单/黑名单
  */
 
-export const selectorRules = {
+import type { Config } from 'stylelint';
+
+export const selectorRules: Config['rules'] = {
   /**
    * selector-attribute-quotes
    * 选择器属性值必须使用引号

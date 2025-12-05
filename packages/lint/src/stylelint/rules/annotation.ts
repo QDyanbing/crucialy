@@ -5,7 +5,9 @@
  * - 禁止未知注解（如 Sass 的 !default）
  */
 
-export const annotationRules = {
+import type { Config } from 'stylelint';
+
+export const annotationRules: Config['rules'] = {
   /**
    * annotation-no-unknown
    * 禁止使用 Stylelint 无法识别的注解关键字

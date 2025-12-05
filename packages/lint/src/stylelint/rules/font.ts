@@ -8,7 +8,9 @@
  * - font-weight 表示法
  */
 
-export const fontRules = {
+import type { Config } from 'stylelint';
+
+export const fontRules: Config['rules'] = {
   /**
    * font-family-name-quotes
    * 要求字体名称使用引号

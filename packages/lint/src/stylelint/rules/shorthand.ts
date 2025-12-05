@@ -5,7 +5,9 @@
  * - 禁止简写属性的冗余值（如 margin: 10px 20px 10px 20px）
  */
 
-export const shorthandRules = {
+import type { Config } from 'stylelint';
+
+export const shorthandRules: Config['rules'] = {
   /**
    * shorthand-property-no-redundant-values
    * 禁止简写属性的冗余值

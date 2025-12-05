@@ -5,7 +5,9 @@
  * - 禁止无效的语法字符串（如 @supports 中的语法错误）
  */
 
-export const syntaxRules = {
+import type { Config } from 'stylelint';
+
+export const syntaxRules: Config['rules'] = {
   /**
    * syntax-string-no-invalid
    * 禁止无效的语法字符串

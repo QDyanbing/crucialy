@@ -8,7 +8,9 @@
  * - media type 验证
  */
 
-export const mediaRules = {
+import type { Config } from 'stylelint';
+
+export const mediaRules: Config['rules'] = {
   /**
    * media-feature-name-no-unknown
    * 禁止未知的 media feature 名称

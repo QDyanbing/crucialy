@@ -3,9 +3,9 @@
  * For .component.css/scss/less files
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const angular: StylelintConfig = {
+export const angular: Config = {
   rules: {
     // TODO: M13 - Implement Angular rules
   },

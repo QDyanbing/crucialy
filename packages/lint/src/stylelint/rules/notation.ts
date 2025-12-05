@@ -6,7 +6,9 @@
  * - 亮度表示法（percentage）
  */
 
-export const notationRules = {
+import type { Config } from 'stylelint';
+
+export const notationRules: Config['rules'] = {
   /**
    * hue-degree-notation
    * 色相角度表示法

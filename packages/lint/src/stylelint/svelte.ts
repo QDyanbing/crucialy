@@ -3,9 +3,9 @@
  * For <style> blocks in Svelte components
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const svelte: StylelintConfig = {
+export const svelte: Config = {
   customSyntax: 'postcss-html',
   rules: {
     // TODO: M11 - Implement Svelte rules

@@ -7,7 +7,9 @@
  * - CSS layer 名称模式
  */
 
-export const patternRules = {
+import type { Config } from 'stylelint';
+
+export const patternRules: Config['rules'] = {
   /**
    * container-name-pattern
    * 容器名称模式（CSS Container Queries）

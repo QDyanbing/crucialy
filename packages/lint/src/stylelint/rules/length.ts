@@ -5,7 +5,9 @@
  * - 零值不带单位（margin: 0 而非 0px）
  */
 
-export const lengthRules = {
+import type { Config } from 'stylelint';
+
+export const lengthRules: Config['rules'] = {
   /**
    * length-zero-no-unit
    * 禁止零值长度带单位

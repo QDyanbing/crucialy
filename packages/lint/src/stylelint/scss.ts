@@ -3,9 +3,9 @@
  * Uses postcss-scss + stylelint-scss
  */
 
-import type { StylelintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const scss: StylelintConfig = {
+export const scss: Config = {
   customSyntax: 'postcss-scss',
   plugins: ['stylelint-scss'],
   rules: {

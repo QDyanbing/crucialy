@@ -7,7 +7,9 @@
  * - 特定选择器禁止特定属性
  */
 
-export const ruleRules = {
+import type { Config } from 'stylelint';
+
+export const ruleRules: Config['rules'] = {
   /**
    * rule-empty-line-before
    * 规则前需要空行
