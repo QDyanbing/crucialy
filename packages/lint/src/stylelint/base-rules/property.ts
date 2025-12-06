@@ -11,120 +11,68 @@ import type { Config } from 'stylelint';
 
 export const propertyRules: Config['rules'] = {
   /**
-   * property-no-unknown
-   * 禁止使用未知的 CSS 属性
-   *
-   * 说明：检查属性名是否为标准的 CSS 属性
-   * - 标准属性：display, color, margin 等
-   * - 拼写错误或不存在的属性会导致样式失效
-   * - 帮助发现代码中的错误
-   *
-   * ✅ 正确示例：
-   * a { display: flex; }
-   *
-   * ✅ 正确示例：
-   * a { transform: rotate(45deg); }
-   *
-   * ❌ 错误示例：
-   * a { unknown-prop: value; }
-   *
-   * ❌ 错误示例：
-   * a { dislay: block; } (拼写错误)
+   * @name property-no-unknown
+   * @description 禁止使用未知的 CSS 属性；检查属性名是否为标准的 CSS 属性，拼写错误或不存在的属性会导致样式失效
+   * @value true - 启用，禁止未知属性
+   * @value false - 禁用此规则
+   * @example ✅ 正确示例：
+   *  - a { display: flex; }
+   *  - a { transform: rotate(45deg); }
+   * @example ❌ 错误示例：
+   *  - a { unknown-prop: value; }            (不存在的属性)
+   *  - a { dislay: block; }                  (拼写错误，应为 display)
    */
-  'property-no-unknown': true,
+  'property-no-unknown': [true],
 
   /**
-   * property-no-deprecated
-   * 禁止使用已弃用的 CSS 属性
-   *
-   * 说明：某些属性已被 CSS 规范废弃
-   * - 已弃用的属性在新浏览器中可能不支持
-   * - 应该使用标准的替代属性
-   * - 提高代码的向前兼容性
-   *
-   * ✅ 正确示例：
-   * a { overflow: hidden; }
-   *
-   * ✅ 正确示例：
-   * a { user-select: none; }
-   *
-   * ❌ 错误示例：
-   * a { overflow-x: -moz-hidden-unscrollable; } (已弃用)
-   *
-   * ❌ 错误示例：
-   * a { clip: rect(0, 0, 0, 0); } (推荐使用 clip-path)
+   * @name property-no-deprecated
+   * @description 禁止使用已弃用的 CSS 属性；某些属性已被 CSS 规范废弃，在新浏览器中可能不支持，应该使用标准的替代属性
+   * @value true - 启用，禁止已弃用的属性
+   * @value false - 禁用此规则
+   * @example ✅ 正确示例：
+   *  - a { overflow: hidden; }
+   *  - a { user-select: none; }
+   * @example ❌ 错误示例：
+   *  - a { overflow-x: -moz-hidden-unscrollable; }  (已弃用)
+   *  - a { clip: rect(0, 0, 0, 0); }                (已弃用，推荐使用 clip-path)
    */
-  'property-no-deprecated': true,
+  'property-no-deprecated': [true],
 
   /**
-   * property-no-vendor-prefix
-   * 禁止属性使用浏览器厂商前缀
-   *
-   * 说明：现代开发不应手动添加 vendor prefix
-   * - -webkit-, -moz-, -ms-, -o- 等前缀
-   * - 应该使用 Autoprefixer 等工具自动添加
-   * - 工具会根据 browserslist 配置自动处理兼容性
-   *
-   * 手动添加前缀的问题：
-   * - 代码冗余
-   * - 难以维护
-   * - 可能遗漏某些浏览器
-   *
-   * ✅ 正确示例：
-   * a { transform: scale(1); }
-   *
-   * ✅ 正确示例：
-   * a { user-select: none; }
-   *
-   * ❌ 错误示例：
-   * a { -webkit-transform: scale(1); }
-   *
-   * ❌ 错误示例：
-   * a { -moz-user-select: none; }
+   * @name property-no-vendor-prefix
+   * @description 禁止属性使用浏览器厂商前缀；应该使用 Autoprefixer 等工具自动添加，工具会根据 browserslist 配置自动处理兼容性
+   * @value true - 启用，禁止厂商前缀
+   * @value false - 禁用此规则
+   * @example ✅ 正确示例：
+   *  - a { transform: scale(1); }
+   *  - a { user-select: none; }
+   * @example ❌ 错误示例：
+   *  - a { -webkit-transform: scale(1); }    (应使用工具自动添加)
+   *  - a { -moz-user-select: none; }         (应使用工具自动添加)
    */
-  'property-no-vendor-prefix': true,
+  'property-no-vendor-prefix': [true],
 
   /**
-   * property-allowed-list
-   * 指定允许使用的属性白名单
-   *
-   * 说明：限制项目中只能使用特定的属性
-   * - null：允许所有属性
-   * - 数组：只允许列表中的属性
-   *
-   * Base 配置不限制，常见使用场景：
-   * - 限制只使用特定的样式属性
-   * - 教学项目中限制学生使用的属性
-   * - 特定场景下的样式规范
-   *
-   * 配置示例：['display', 'color', 'background']
-   * ✅ 正确示例（null 时）：
-   * a { margin: 10px; }
-   *
-   * ❌ 错误示例（配置后）：
-   * a { margin: 10px; } (margin 不在白名单中)
+   * @name property-allowed-list
+   * @description 指定允许使用的属性白名单；限制项目中只能使用特定的属性
+   * @value null - 不限制，允许所有属性
+   * @value array - 字符串数组，只允许列表中的属性（如：['display', 'color', 'background']）
+   * @example ✅ 正确示例（null 时）：
+   *  - a { margin: 10px; }
+   * @example ❌ 错误示例（假设配置为 ['display', 'color']）：
+   *  - a { margin: 10px; }                   (margin 不在白名单中)
    */
-  'property-allowed-list': null,
+  'property-allowed-list': [null],
 
   /**
-   * property-disallowed-list
-   * 指定禁止使用的属性黑名单
-   *
-   * 说明：禁止项目中使用特定的属性
-   * - null：不禁止任何属性
-   * - 数组：禁止列表中的属性
-   *
-   * Base 配置不限制，常见使用场景：
-   * - 禁止 float（推荐使用 Flexbox/Grid）
-   * - 禁止 position: fixed（移动端性能问题）
-   * - 禁止某些过时的属性
-   *
-   * 配置示例：['float']
-   * ✅ 正确示例（null 时）：
-   * a { float: left; }
-   *
-   * ❌ 错误示例（配置后）：
-   * a { float: left; } (float 在黑名单中)
+   * @name property-disallowed-list
+   * @description 指定禁止使用的属性黑名单；禁止项目中使用特定的属性
+   * @value null - 不限制，不禁止任何属性
+   * @value array - 字符串数组，禁止列表中的属性（如：['float']）
+   * @example ✅ 正确示例（null 时）：
+   *  - a { float: left; }
+   * @example ❌ 错误示例（假设配置为 ['float']）：
+   *  - a { float: left; }                    (float 在黑名单中，推荐使用 Flexbox/Grid)
    */
-  'property-disallowed-list': null,
+  'property-disallowed-list': [null],
 };
