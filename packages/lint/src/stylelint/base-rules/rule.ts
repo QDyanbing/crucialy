@@ -11,40 +11,31 @@ import type { Config } from 'stylelint';
 
 export const ruleRules: Config['rules'] = {
   /**
-   * rule-empty-line-before
-   * 要求规则前有空行
+   * @name rule-empty-line-before
+   * @description 要求规则前有空行；在规则前添加空行，提高可读性
+   * @value 'always' - 总是要求空行
+   * @value 'always-multi-line' - 多行规则前需要空行
+   * @value 'never' - 不要求空行
+   * @secondary except: ['first-nested'] - 作为第一个嵌套规则时不需要空行
+   * @secondary ignore: ['after-comment'] - 注释后的规则可以不加空行
+   * @example ✅ 正确示例：
+   *  - a { color: red; }
    *
-   * 说明：在规则前添加空行，提高可读性
-   * - always-multi-line：多行规则前需要空行
-   * - 单行规则可以不加空行
-   *
-   * 例外情况：
-   * - first-nested：作为第一个嵌套规则时不需要空行
-   *
-   * 忽略情况：
-   * - after-comment：注释后的规则可以不加空行
-   *
-   * ✅ 正确示例：
-   * a { color: red; }
-   *
-   * b {
-   *   color: blue;
-   *   background: white;
-   * }
-   *
-   * ✅ 正确示例（first-nested 例外）：
-   * .parent {
-   *   .child {
-   *     color: red;
-   *   }
-   * }
-   *
-   * ❌ 错误示例（多行规则缺少空行）：
-   * a { color: red; }
-   * b {
-   *   color: blue;
-   *   background: white;
-   * }
+   *    b {
+   *      color: blue;
+   *      background: white;
+   *    }
+   *  - .parent {
+   *      .child {
+   *        color: red;
+   *      }
+   *    }
+   * @example ❌ 错误示例：
+   *  - a { color: red; }
+   *    b {
+   *      color: blue;
+   *      background: white;
+   *    }                                      (多行规则前缺少空行)
    */
   'rule-empty-line-before': [
     'always-multi-line',
@@ -52,53 +43,30 @@ export const ruleRules: Config['rules'] = {
   ],
 
   /**
-   * rule-nesting-at-rule-required-list
-   * 指定规则嵌套时必须使用的 @规则列表
-   *
-   * 说明：要求嵌套规则必须在特定的 @规则内
-   * - null：不限制
-   * - 数组：必须在列表中的 @规则内嵌套
-   *
-   * Base 配置不限制，常见使用场景：
-   * - 要求嵌套必须在 @nest 内（CSS Nesting 规范）
-   * - 限制只在 @media 等特定 @规则中嵌套
-   *
-   * 配置示例：['nest']
-   * ✅ 正确示例（null 时）：
-   * .parent {
-   *   .child { color: red; }
-   * }
-   *
-   * ✅ 正确示例（配置后）：
-   * .parent {
-   *   @nest .child { color: red; }
-   * }
-   *
-   * ❌ 错误示例（配置后）：
-   * .parent {
-   *   .child { color: red; } (缺少 @nest)
-   * }
+   * @name rule-nesting-at-rule-required-list
+   * @description 指定规则嵌套时必须使用的 \@规则列表；要求嵌套规则必须在特定的 \@规则内，Base 配置不限制
+   * @value null - 不限制
+   * @value array - 字符串数组，必须在列表中的 \@规则内嵌套（如：['nest']）
+   * @example ✅ 正确示例（null 时）：
+   *  - .parent {
+   *      .child { color: red; }
+   *    }
+   * @example ❌ 错误示例（假设配置为 ['nest']）：
+   *  - .parent {
+   *      .child { color: red; }
+   *    }                                      (缺少 \@nest)
    */
-  'rule-nesting-at-rule-required-list': null,
+  'rule-nesting-at-rule-required-list': [null],
 
   /**
-   * rule-selector-property-disallowed-list
-   * 指定特定选择器禁止使用的属性
-   *
-   * 说明：为不同类型的选择器设置属性限制
-   * - null：不限制
-   * - 对象：为匹配的选择器指定禁止的属性
-   *
-   * Base 配置不限制，常见使用场景：
-   * - 类选择器禁止 position（强制使用 ID 或标签）
-   * - 特定选择器禁止特定布局属性
-   *
-   * 配置示例：{ '/^\\./'：['position'] }
-   * ✅ 正确示例（null 时）：
-   * .box { position: absolute; }
-   *
-   * ❌ 错误示例（配置后）：
-   * .box { position: absolute; } (类选择器禁止 position)
+   * @name rule-selector-property-disallowed-list
+   * @description 指定特定选择器禁止使用的属性；为不同类型的选择器设置属性限制，Base 配置不限制
+   * @value null - 不限制
+   * @value object - 对象，为匹配的选择器指定禁止的属性（如：{ '/^\\./': ['position'] }）
+   * @example ✅ 正确示例（null 时）：
+   *  - .box { position: absolute; }
+   * @example ❌ 错误示例（假设配置为 { '/^\\./': ['position'] }）：
+   *  - .box { position: absolute; }          (类选择器禁止 position)
    */
-  'rule-selector-property-disallowed-list': null,
+  'rule-selector-property-disallowed-list': [null],
 };
