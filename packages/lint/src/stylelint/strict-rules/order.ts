@@ -9,23 +9,38 @@ import type { Config } from 'stylelint';
 
 export const orderRules: Config['rules'] = {
   /**
-   * order/properties-order
-   * 强制属性按功能分组排序
+   * @name order/properties-order
+   * @description 指定属性的排列顺序；Strict 模式强制属性按功能分组排序，提高代码可读性和可维护性
+   * @value array - 属性顺序数组（Strict 配置，覆盖 Base 的 null）
+   * @secondary unspecified: 'bottomAlphabetical' - 未指定的属性按字母顺序放在最后
+   * @example ✅ 正确示例：
+   *  - .button {
+   *      position: relative;
+   *      display: flex;
+   *      width: 100px;
+   *      margin: 10px;
+   *      color: #000;
+   *      font-size: 14px;
+   *      background: #fff;
+   *      border: 1px solid #ccc;
+   *      transition: all 0.3s;
+   *      cursor: pointer;
+   *    }
+   * @example ❌ 错误示例：
+   *  - .button {
+   *      color: #000;
+   *      position: relative;
+   *      background: #fff;
+   *      display: flex;
+   *    }                                      (顺序不符合功能分组)
    *
-   * 说明：将 CSS 属性按功能分为 6 大类，每类内部按字母排序
-   * - 1. 定位（position, top, z-index...）
-   * - 2. 盒模型（display, flex, grid, width, margin, padding...）
-   * - 3. 排版（color, font, text-align...）
-   * - 4. 视觉效果（background, border, box-shadow...）
-   * - 5. 动画过渡（transition, animation, transform...）
-   * - 6. 其他（cursor, pointer-events...）
-   *
-   * 优势：
-   * - 提高代码可读性
-   * - 便于查找和维护
-   * - 团队统一规范
-   *
-   * 顺序：定位 → 盒模型 → 排版 → 视觉 → 动画 → 其他
+   * 属性分组顺序：
+   * 1. 定位（position, top, right, bottom, left, z-index, inset...）
+   * 2. 盒模型（display, flex, grid, width, height, margin, padding, overflow...）
+   * 3. 排版（color, font, line-height, text-align, vertical-align...）
+   * 4. 视觉效果（background, border, box-shadow, opacity, filter...）
+   * 5. 动画过渡（transition, animation, transform...）
+   * 6. 其他（cursor, pointer-events, user-select...）
    */
   'order/properties-order': [
     [
@@ -194,5 +209,5 @@ export const orderRules: Config['rules'] = {
     {
       unspecified: 'bottomAlphabetical',
     },
-  ] as any,
+  ],
 };
