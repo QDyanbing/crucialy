@@ -49,7 +49,7 @@ export const commentRules: Config['rules'] = {
    *  - /* *\/                                  (完全空白)
    *  - /*  *\/                                 (只有空格)
    */
-  'comment-no-empty': [true],
+  'comment-no-empty': true,
 
   /**
    * @name comment-pattern
@@ -61,7 +61,7 @@ export const commentRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[A-Z]'）：
    *  - /* this is wrong *\/                   (应以大写字母开头)
    */
-  'comment-pattern': [null],
+  'comment-pattern': null,
 
   /**
    * @name comment-whitespace-inside
@@ -76,7 +76,7 @@ export const commentRules: Config['rules'] = {
    *  - /*comment*\/                           (缺少空格)
    *  - /*comment *\/                          (缺少开头空格)
    */
-  'comment-whitespace-inside': ['always'],
+  'comment-whitespace-inside': 'always',
 
   /**
    * @name comment-word-disallowed-list
@@ -89,5 +89,5 @@ export const commentRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['/^TODO:/']）：
    *  - /* TODO: fix this *\/                  (禁止使用 TODO:)
    */
-  'comment-word-disallowed-list': [null],
+  'comment-word-disallowed-list': null,
 };

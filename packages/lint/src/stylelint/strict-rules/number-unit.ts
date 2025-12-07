@@ -20,5 +20,5 @@ export const numberUnitRules: Config['rules'] = {
    *  - transition-duration: 50ms;             (小于 100ms)
    *  - animation-duration: 0.05s;             (50ms，小于 100ms)
    */
-  'time-min-milliseconds': [100],
+  'time-min-milliseconds': 100,
 };

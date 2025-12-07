@@ -22,5 +22,5 @@ export const syntaxRules: Config['rules'] = {
    *  - \@supports (display) { }              (缺少值)
    *  - \@supports display: grid { }          (缺少括号)
    */
-  'syntax-string-no-invalid': [true],
+  'syntax-string-no-invalid': true,
 };

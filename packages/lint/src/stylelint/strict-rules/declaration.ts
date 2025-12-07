@@ -20,7 +20,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red !important; }           (应通过提高选择器特异性来解决)
    */
-  'declaration-no-important': [true],
+  'declaration-no-important': true,
 
   /**
    * @name declaration-empty-line-before

@@ -25,7 +25,7 @@ export const atRuleRules: Config['rules'] = {
    *  - \@unknown-rule { ... }                    (不存在的 @规则)
    *  - \@mixin button { ... }                    (预处理器专用，需在 ignoreAtRules 中配置)
    */
-  'at-rule-no-unknown': [true],
+  'at-rule-no-unknown': true,
 
   /**
    * @name at-rule-no-deprecated
@@ -38,7 +38,7 @@ export const atRuleRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - \@document url(http://example.com/) { ... }     (已从规范中移除)
    */
-  'at-rule-no-deprecated': [true],
+  'at-rule-no-deprecated': true,
 
   /**
    * @name at-rule-no-vendor-prefix
@@ -51,7 +51,7 @@ export const atRuleRules: Config['rules'] = {
    *  - \@-webkit-keyframes slideIn { ... }        (应使用工具自动添加)
    *  - \@-moz-keyframes slideIn { ... }           (应使用工具自动添加)
    */
-  'at-rule-no-vendor-prefix': [true],
+  'at-rule-no-vendor-prefix': true,
 
   /**
    * @name at-rule-allowed-list
@@ -64,7 +64,7 @@ export const atRuleRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['media', 'import']）：
    *  - \@keyframes slideIn { ... }               (不在白名单中)
    */
-  'at-rule-allowed-list': [null],
+  'at-rule-allowed-list': null,
 
   /**
    * @name at-rule-disallowed-list
@@ -78,7 +78,7 @@ export const atRuleRules: Config['rules'] = {
    *  - \@extend .base-class;                     (在黑名单中，推荐使用 mixin)
    *  - \@debug "value: #{$value}";               (在黑名单中，生产环境不应有调试代码)
    */
-  'at-rule-disallowed-list': [null],
+  'at-rule-disallowed-list': null,
 
   /**
    * @name at-rule-empty-line-before
@@ -118,7 +118,7 @@ export const atRuleRules: Config['rules'] = {
    *      font-family: 'MyFont';
    *    }                                      (缺少必填属性 src)
    */
-  'at-rule-property-required-list': [null],
+  'at-rule-property-required-list': null,
 
   /**
    * @name at-rule-prelude-no-invalid
@@ -133,7 +133,7 @@ export const atRuleRules: Config['rules'] = {
    *  - \@media (width >>> 600px) { ... }         (无效的运算符)
    *  - \@keyframes 123invalid { ... }            (名称不能以数字开头)
    */
-  'at-rule-prelude-no-invalid': [true],
+  'at-rule-prelude-no-invalid': true,
 
   /**
    * @name at-rule-descriptor-no-unknown
@@ -152,7 +152,7 @@ export const atRuleRules: Config['rules'] = {
    *      unknown-descriptor: value;
    *    }                                      (不存在的 descriptor)
    */
-  'at-rule-descriptor-no-unknown': [true],
+  'at-rule-descriptor-no-unknown': true,
 
   /**
    * @name at-rule-descriptor-value-no-unknown
@@ -170,5 +170,5 @@ export const atRuleRules: Config['rules'] = {
    *      font-display: unknown;
    *    }                                      (无效值，有效值：auto/block/swap/fallback/optional)
    */
-  'at-rule-descriptor-value-no-unknown': [true],
+  'at-rule-descriptor-value-no-unknown': true,
 };

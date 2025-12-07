@@ -20,7 +20,7 @@ export const patternRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - \@container cardWrapper (width > 300px) { }  (不是 kebab-case，应使用 card-wrapper)
    */
-  'container-name-pattern': [null],
+  'container-name-pattern': null,
 
   /**
    * @name custom-media-pattern
@@ -33,7 +33,7 @@ export const patternRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^--[a-z]+(-[a-z]+)*$'）：
    *  - \@custom-media --mobileScreen (width < 480px);  (不是 kebab-case，应使用 --mobile-screen)
    */
-  'custom-media-pattern': [null],
+  'custom-media-pattern': null,
 
   /**
    * @name layer-name-pattern
@@ -46,5 +46,5 @@ export const patternRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - \@layer baseReset, componentStyles;   (不是 kebab-case，应使用 base-reset, component-styles)
    */
-  'layer-name-pattern': [null],
+  'layer-name-pattern': null,
 };

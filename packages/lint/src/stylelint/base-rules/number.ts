@@ -20,5 +20,5 @@ export const numberRules: Config['rules'] = {
    *  - width: 1.23456%;                       (超过4位小数)
    *  - opacity: 0.123456;                     (超过4位小数)
    */
-  'number-max-precision': [4],
+  'number-max-precision': 4,
 };

@@ -19,5 +19,5 @@ export const timeRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 100）：
    *  - transition-duration: 50ms;             (小于 100ms)
    */
-  'time-min-milliseconds': [null],
+  'time-min-milliseconds': null,
 };

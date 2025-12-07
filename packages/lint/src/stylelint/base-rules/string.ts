@@ -21,5 +21,5 @@ export const stringRules: Config['rules'] = {
    *  - content: 'hello\nworld';               (包含未转义的换行符)
    *  - --text: 'multi\nline';                 (包含未转义的换行符)
    */
-  'string-no-newline': [true],
+  'string-no-newline': true,
 };

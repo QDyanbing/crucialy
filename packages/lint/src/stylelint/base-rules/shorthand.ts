@@ -22,5 +22,5 @@ export const shorthandRules: Config['rules'] = {
    *  - padding: 10px 10px 10px 10px;          (应简写为 10px)
    *  - margin: 10px 20px 10px;                (应简写为 10px 20px)
    */
-  'shorthand-property-no-redundant-values': [true],
+  'shorthand-property-no-redundant-values': true,
 };

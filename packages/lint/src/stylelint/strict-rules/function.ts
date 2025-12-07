@@ -21,5 +21,5 @@ export const functionRules: Config['rules'] = {
    *  - color: rgba(0, 0, 0, 0.5);            (rgba 在黑名单中，应使用 hex + opacity)
    *  - color: hsl(0, 100%, 50%);             (hsl 在黑名单中)
    */
-  'function-disallowed-list': [['rgb', 'rgba', 'hsl', 'hsla']],
+  'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hsla'],
 };

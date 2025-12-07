@@ -56,7 +56,7 @@ export const ruleRules: Config['rules'] = {
    *      .child { color: red; }
    *    }                                      (缺少 \@nest)
    */
-  'rule-nesting-at-rule-required-list': [null],
+  'rule-nesting-at-rule-required-list': null,
 
   /**
    * @name rule-selector-property-disallowed-list
@@ -68,5 +68,5 @@ export const ruleRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { '/^\\./': ['position'] }）：
    *  - .box { position: absolute; }          (类选择器禁止 position)
    */
-  'rule-selector-property-disallowed-list': [null],
+  'rule-selector-property-disallowed-list': null,
 };

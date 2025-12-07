@@ -21,7 +21,7 @@ export const customPropertyRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - --myColor: red;                        (应使用 kebab-case：--my-color)
    */
-  'custom-property-pattern': [null],
+  'custom-property-pattern': null,
 
   /**
    * @name custom-property-empty-line-before
@@ -45,7 +45,7 @@ export const customPropertyRules: Config['rules'] = {
    *      --size: 10px;
    *    }                                      (缺少空行)
    */
-  'custom-property-empty-line-before': [null],
+  'custom-property-empty-line-before': null,
 
   /**
    * @name custom-property-no-missing-var-function
@@ -60,5 +60,5 @@ export const customPropertyRules: Config['rules'] = {
    *  - .button { color: --primary; }          (缺少 var()，应使用 var(--primary))
    *  - .button { background: --bg-color; }    (应使用 var(--bg-color))
    */
-  'custom-property-no-missing-var-function': [true],
+  'custom-property-no-missing-var-function': true,
 };

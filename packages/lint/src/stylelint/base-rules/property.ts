@@ -22,7 +22,7 @@ export const propertyRules: Config['rules'] = {
    *  - a { unknown-prop: value; }            (不存在的属性)
    *  - a { dislay: block; }                  (拼写错误，应为 display)
    */
-  'property-no-unknown': [true],
+  'property-no-unknown': true,
 
   /**
    * @name property-no-deprecated
@@ -36,7 +36,7 @@ export const propertyRules: Config['rules'] = {
    *  - a { overflow-x: -moz-hidden-unscrollable; }  (已弃用)
    *  - a { clip: rect(0, 0, 0, 0); }                (已弃用，推荐使用 clip-path)
    */
-  'property-no-deprecated': [true],
+  'property-no-deprecated': true,
 
   /**
    * @name property-no-vendor-prefix
@@ -50,7 +50,7 @@ export const propertyRules: Config['rules'] = {
    *  - a { -webkit-transform: scale(1); }    (应使用工具自动添加)
    *  - a { -moz-user-select: none; }         (应使用工具自动添加)
    */
-  'property-no-vendor-prefix': [true],
+  'property-no-vendor-prefix': true,
 
   /**
    * @name property-allowed-list
@@ -62,7 +62,7 @@ export const propertyRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['display', 'color']）：
    *  - a { margin: 10px; }                   (margin 不在白名单中)
    */
-  'property-allowed-list': [null],
+  'property-allowed-list': null,
 
   /**
    * @name property-disallowed-list
@@ -74,5 +74,5 @@ export const propertyRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['float']）：
    *  - a { float: left; }                    (float 在黑名单中，推荐使用 Flexbox/Grid)
    */
-  'property-disallowed-list': [null],
+  'property-disallowed-list': null,
 };

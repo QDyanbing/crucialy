@@ -59,7 +59,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - #id {}                                   (不应使用 ID 选择器)
    */
-  'selector-max-id': [0],
+  'selector-max-id': 0,
 
   /**
    * @name selector-max-specificity
@@ -70,7 +70,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - .a.b.c.d {}                              (特异性超过 0,3,0)
    */
-  'selector-max-specificity': ['0,3,0'],
+  'selector-max-specificity': '0,3,0',
 
   /**
    * @name selector-max-compound-selectors
@@ -81,7 +81,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - .a .b .c .d {}                           (超过限制)
    */
-  'selector-max-compound-selectors': [3],
+  'selector-max-compound-selectors': 3,
 
   /**
    * @name selector-max-type
@@ -108,7 +108,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - * {}                                     (不应使用通配符)
    */
-  'selector-max-universal': [0],
+  'selector-max-universal': 0,
 
   /**
    * @name selector-no-qualifying-type
@@ -138,7 +138,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - .a.b.c.d.e {}                            (超过限制)
    */
-  'selector-max-class': [4],
+  'selector-max-class': 4,
 
   /**
    * @name selector-max-combinators
@@ -149,7 +149,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a > b + c ~ d {}                         (超过限制)
    */
-  'selector-max-combinators': [3],
+  'selector-max-combinators': 3,
 
   /**
    * @name selector-max-pseudo-class
@@ -160,7 +160,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a:hover:focus:active:visited {}          (超过限制)
    */
-  'selector-max-pseudo-class': [3],
+  'selector-max-pseudo-class': 3,
 
   /**
    * @name selector-max-attribute
@@ -171,7 +171,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - [type='text'][required][disabled] {}     (超过限制)
    */
-  'selector-max-attribute': [2],
+  'selector-max-attribute': 2,
 
   /**
    * @name selector-type-no-unknown
@@ -184,7 +184,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - unknown-element {}                       (不存在的元素)
    */
-  'selector-type-no-unknown': [true],
+  'selector-type-no-unknown': true,
 
   /**
    * @name selector-disallowed-list
@@ -197,5 +197,5 @@ export const selectorRules: Config['rules'] = {
    *  - * {}                                     (通配符在黑名单中)
    *  - * .class {}                              (包含通配符)
    */
-  'selector-disallowed-list': [['/^\\*/']],
+  'selector-disallowed-list': ['/^\\*/'],
 };

@@ -23,7 +23,7 @@ export const mediaRules: Config['rules'] = {
    *  - \@media (unknown-feature: value) { }   (不存在的 feature)
    *  - \@media (widht > 600px) { }            (拼写错误，应为 width)
    */
-  'media-feature-name-no-unknown': [true],
+  'media-feature-name-no-unknown': true,
 
   /**
    * @name media-feature-name-no-vendor-prefix
@@ -37,7 +37,7 @@ export const mediaRules: Config['rules'] = {
    *  - \@media (-webkit-min-device-pixel-ratio: 2) { }  (应使用标准语法)
    *  - \@media (-moz-min-device-pixel-ratio: 2) { }     (应使用标准语法)
    */
-  'media-feature-name-no-vendor-prefix': [true],
+  'media-feature-name-no-vendor-prefix': true,
 
   /**
    * @name media-feature-name-allowed-list
@@ -49,7 +49,7 @@ export const mediaRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['width', 'min-width']）：
    *  - \@media (orientation: portrait) { }    (orientation 不在白名单中)
    */
-  'media-feature-name-allowed-list': [null],
+  'media-feature-name-allowed-list': null,
 
   /**
    * @name media-feature-name-disallowed-list
@@ -61,7 +61,7 @@ export const mediaRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['max-width']）：
    *  - \@media (max-width: 768px) { }         (max-width 在黑名单中)
    */
-  'media-feature-name-disallowed-list': [null],
+  'media-feature-name-disallowed-list': null,
 
   /**
    * @name media-feature-name-unit-allowed-list
@@ -73,7 +73,7 @@ export const mediaRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { 'width': ['px', 'em'] }）：
    *  - \@media (width: 48rem) { }             (rem 不在白名单中)
    */
-  'media-feature-name-unit-allowed-list': [null],
+  'media-feature-name-unit-allowed-list': null,
 
   /**
    * @name media-feature-name-value-allowed-list
@@ -85,7 +85,7 @@ export const mediaRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { 'orientation': ['portrait'] }）：
    *  - \@media (orientation: landscape) { }   (landscape 不在白名单中)
    */
-  'media-feature-name-value-allowed-list': [null],
+  'media-feature-name-value-allowed-list': null,
 
   /**
    * @name media-feature-name-value-no-unknown
@@ -99,7 +99,7 @@ export const mediaRules: Config['rules'] = {
    *  - \@media (orientation: unknown) { }     (不存在的值)
    *  - \@media (orientation: vertical) { }    (应该是 portrait)
    */
-  'media-feature-name-value-no-unknown': [true],
+  'media-feature-name-value-no-unknown': true,
 
   /**
    * @name media-feature-range-notation
@@ -113,7 +113,7 @@ export const mediaRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'prefix'）：
    *  - \@media (width >= 600px) { }           (应使用传统语法 min-width: 600px)
    */
-  'media-feature-range-notation': ['context'],
+  'media-feature-range-notation': 'context',
 
   /**
    * @name media-query-no-invalid
@@ -127,7 +127,7 @@ export const mediaRules: Config['rules'] = {
    *  - \@media (width >>600px) { }            (运算符错误)
    *  - \@media (width > 600px { }             (括号不匹配)
    */
-  'media-query-no-invalid': [true],
+  'media-query-no-invalid': true,
 
   /**
    * @name media-type-no-deprecated
@@ -141,5 +141,5 @@ export const mediaRules: Config['rules'] = {
    *  - \@media aural { }                      (已弃用)
    *  - \@media handheld { }                   (已弃用，应使用 screen)
    */
-  'media-type-no-deprecated': [true],
+  'media-type-no-deprecated': true,
 };

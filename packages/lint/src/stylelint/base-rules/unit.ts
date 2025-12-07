@@ -23,7 +23,7 @@ export const unitRules: Config['rules'] = {
    *  - width: 100unknown;                     (不存在的单位)
    *  - margin: 10pixels;                      (应为 pixels -> px)
    */
-  'unit-no-unknown': [true],
+  'unit-no-unknown': true,
 
   /**
    * @name unit-allowed-list
@@ -36,7 +36,7 @@ export const unitRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['px', 'em', 'rem', '%']）：
    *  - width: 100vw;                          (vw 不在白名单中)
    */
-  'unit-allowed-list': [null],
+  'unit-allowed-list': null,
 
   /**
    * @name unit-disallowed-list
@@ -48,5 +48,5 @@ export const unitRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['pt']）：
    *  - font-size: 12pt;                       (pt 在黑名单中，Web 开发中不推荐使用)
    */
-  'unit-disallowed-list': [null],
+  'unit-disallowed-list': null,
 };

@@ -33,7 +33,7 @@ export const keyframeRules: Config['rules'] = {
    *      to { opacity: 1; }
    *    }                                      (混用了关键字和百分比)
    */
-  'keyframe-selector-notation': ['percentage-unless-within-keyword-only-block'],
+  'keyframe-selector-notation': 'percentage-unless-within-keyword-only-block',
 
   /**
    * @name keyframe-block-no-duplicate-selectors
@@ -53,7 +53,7 @@ export const keyframeRules: Config['rules'] = {
    *      50% { transform: translateX(60px); }
    *    }                                      (重复的 50%)
    */
-  'keyframe-block-no-duplicate-selectors': [true],
+  'keyframe-block-no-duplicate-selectors': true,
 
   /**
    * @name keyframe-declaration-no-important
@@ -71,7 +71,7 @@ export const keyframeRules: Config['rules'] = {
    *      100% { opacity: 1 !important; }
    *    }                                      (!important 在动画中无效)
    */
-  'keyframe-declaration-no-important': [true],
+  'keyframe-declaration-no-important': true,
 
   /**
    * @name keyframes-name-pattern
@@ -84,5 +84,5 @@ export const keyframeRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - \@keyframes fadeIn { }                 (不是 kebab-case，应使用 fade-in)
    */
-  'keyframes-name-pattern': [null],
+  'keyframes-name-pattern': null,
 };

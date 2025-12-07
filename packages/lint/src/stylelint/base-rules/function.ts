@@ -25,7 +25,7 @@ export const functionRules: Config['rules'] = {
    *  - width: calc(100%-20px);                (运算符周围缺少空格)
    *  - margin: calc(10px+5px);                (运算符周围缺少空格)
    */
-  'function-calc-no-unspaced-operator': [true],
+  'function-calc-no-unspaced-operator': true,
 
   /**
    * @name function-linear-gradient-no-nonstandard-direction
@@ -40,7 +40,7 @@ export const functionRules: Config['rules'] = {
    *  - background: linear-gradient(left, #fff, #000);     (应使用 to right)
    *  - background: linear-gradient(top, red, blue);       (应使用 to bottom)
    */
-  'function-linear-gradient-no-nonstandard-direction': [true],
+  'function-linear-gradient-no-nonstandard-direction': true,
 
   /**
    * @name function-name-case
@@ -54,7 +54,7 @@ export const functionRules: Config['rules'] = {
    *  - width: CALC(100% - 20px);              (应使用小写 calc)
    *  - color: RGBA(0, 0, 0, 0.5);             (应使用小写 rgba)
    */
-  'function-name-case': ['lower'],
+  'function-name-case': 'lower',
 
   /**
    * @name function-no-unknown
@@ -69,7 +69,7 @@ export const functionRules: Config['rules'] = {
    *  - width: unknown-function(100px);        (不存在的函数)
    *  - color: rgbaa(255, 0, 0, 0.5);          (拼写错误，应为 rgba)
    */
-  'function-no-unknown': [true],
+  'function-no-unknown': true,
 
   /**
    * @name function-url-quotes
@@ -83,7 +83,7 @@ export const functionRules: Config['rules'] = {
    *  - background: url(image.png);            (缺少引号)
    *  - background: url(https://example.com/bg.jpg);  (缺少引号)
    */
-  'function-url-quotes': ['always'],
+  'function-url-quotes': 'always',
 
   /**
    * @name function-url-no-scheme-relative
@@ -96,7 +96,7 @@ export const functionRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - background: url('//example.com/image.png');    (应使用完整 URL)
    */
-  'function-url-no-scheme-relative': [null],
+  'function-url-no-scheme-relative': null,
 
   /**
    * @name function-url-scheme-allowed-list
@@ -108,7 +108,7 @@ export const functionRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['https', 'data']）：
    *  - background: url('http://example.com/bg.jpg');  (http 不在白名单中)
    */
-  'function-url-scheme-allowed-list': [null],
+  'function-url-scheme-allowed-list': null,
 
   /**
    * @name function-url-scheme-disallowed-list
@@ -120,7 +120,7 @@ export const functionRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['http']）：
    *  - background: url('http://example.com/bg.jpg');  (http 在黑名单中)
    */
-  'function-url-scheme-disallowed-list': [null],
+  'function-url-scheme-disallowed-list': null,
 
   /**
    * @name function-allowed-list
@@ -132,7 +132,7 @@ export const functionRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['calc', 'var']）：
    *  - width: min(100%, 500px);               (min 不在白名单中)
    */
-  'function-allowed-list': [null],
+  'function-allowed-list': null,
 
   /**
    * @name function-disallowed-list
@@ -144,5 +144,5 @@ export const functionRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['rgb', 'rgba']）：
    *  - color: rgb(255, 0, 0);                 (rgb 在黑名单中)
    */
-  'function-disallowed-list': [null],
+  'function-disallowed-list': null,
 };

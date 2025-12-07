@@ -24,5 +24,5 @@ export const nestingRules: Config['rules'] = {
    *      :hover { color: blue; }               (缺少 &，应为 &:hover)
    *    }
    */
-  'selector-nested-pattern': ['^&'],
+  'selector-nested-pattern': '^&',
 };

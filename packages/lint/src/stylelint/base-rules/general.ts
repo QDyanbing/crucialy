@@ -24,7 +24,7 @@ export const generalRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - (空文件)                               (不允许空文件)
    */
-  'no-empty-source': [true],
+  'no-empty-source': true,
 
   /**
    * @name no-invalid-double-slash-comments
@@ -38,7 +38,7 @@ export const generalRules: Config['rules'] = {
    *  - // 这是注释
    *    a { color: red; }                      (CSS 中无效，应使用 /* *\/)
    */
-  'no-invalid-double-slash-comments': [true],
+  'no-invalid-double-slash-comments': true,
 
   /**
    * @name no-irregular-whitespace
@@ -50,7 +50,7 @@ export const generalRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color:​red; }                       (包含零宽字符)
    */
-  'no-irregular-whitespace': [true],
+  'no-irregular-whitespace': true,
 
   /**
    * @name no-descending-specificity
@@ -64,7 +64,7 @@ export const generalRules: Config['rules'] = {
    *  - #id .class { color: red; }
    *    .class { color: blue; }                (特异性降低：1-1-0 -> 0-1-0)
    */
-  'no-descending-specificity': [null],
+  'no-descending-specificity': null,
 
   /**
    * @name no-duplicate-at-import-rules
@@ -79,7 +79,7 @@ export const generalRules: Config['rules'] = {
    *    \@import 'base.css';
    *    \@import 'reset.css';                  (重复导入)
    */
-  'no-duplicate-at-import-rules': [true],
+  'no-duplicate-at-import-rules': true,
 
   /**
    * @name no-duplicate-selectors
@@ -94,7 +94,7 @@ export const generalRules: Config['rules'] = {
    *    b { color: blue; }
    *    a { background: white; }               (重复的选择器 a)
    */
-  'no-duplicate-selectors': [true],
+  'no-duplicate-selectors': true,
 
   /**
    * @name no-unknown-animations
@@ -107,7 +107,7 @@ export const generalRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { animation: slideIn 1s; }           (没有定义 slideIn)
    */
-  'no-unknown-animations': [true],
+  'no-unknown-animations': true,
 
   /**
    * @name no-unknown-custom-media
@@ -120,7 +120,7 @@ export const generalRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - \@media (--unknown) { }                (没有定义 --unknown)
    */
-  'no-unknown-custom-media': [true],
+  'no-unknown-custom-media': true,
 
   /**
    * @name no-unknown-custom-properties
@@ -132,7 +132,7 @@ export const generalRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - a { color: var(--undefined); }         (未定义的变量)
    */
-  'no-unknown-custom-properties': [null],
+  'no-unknown-custom-properties': null,
 
   /**
    * @name no-invalid-position-at-import-rule
@@ -147,7 +147,7 @@ export const generalRules: Config['rules'] = {
    *  - a { color: red; }
    *    \@import 'base.css';                   (位置错误，会被忽略)
    */
-  'no-invalid-position-at-import-rule': [true],
+  'no-invalid-position-at-import-rule': true,
 
   /**
    * @name no-invalid-position-declaration
@@ -163,5 +163,5 @@ export const generalRules: Config['rules'] = {
    *  - \@import { color: red; }               (声明不能在 \@import 中)
    *  - color: red;                            (顶层不能直接写声明)
    */
-  'no-invalid-position-declaration': [true],
+  'no-invalid-position-declaration': true,
 };

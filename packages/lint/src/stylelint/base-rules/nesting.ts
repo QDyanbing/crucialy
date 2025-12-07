@@ -22,5 +22,5 @@ export const nestingRules: Config['rules'] = {
    *  - & .child { }                           (缺少父选择器上下文)
    *  - &:hover { }                            (没有父选择器可引用)
    */
-  'nesting-selector-no-missing-scoping-root': [true],
+  'nesting-selector-no-missing-scoping-root': true,
 };

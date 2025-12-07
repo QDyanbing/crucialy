@@ -21,7 +21,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    .b {}                                  (选择器中不应有空行)
    */
-  '@stylistic/selector-max-empty-lines': [0],
+  '@stylistic/selector-max-empty-lines': 0,
 
   /**
    * @name @stylistic/value-list-max-empty-lines
@@ -35,7 +35,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    20px;                                  (值列表中不应有空行)
    */
-  '@stylistic/value-list-max-empty-lines': [0],
+  '@stylistic/value-list-max-empty-lines': 0,
 
   /**
    * @name @stylistic/function-max-empty-lines
@@ -49,7 +49,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    0, 0)                                  (函数中不应有空行)
    */
-  '@stylistic/function-max-empty-lines': [0],
+  '@stylistic/function-max-empty-lines': 0,
 
   /**
    * @name @stylistic/max-line-length
@@ -60,5 +60,5 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; background: blue; border: 1px solid black; padding: 10px 20px 30px 40px; } (超过 120 字符)
    */
-  '@stylistic/max-line-length': [120],
+  '@stylistic/max-line-length': 120,
 };

@@ -22,7 +22,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - [type=text]                            (缺少引号)
    */
-  'selector-attribute-quotes': ['always'],
+  'selector-attribute-quotes': 'always',
 
   /**
    * @name selector-class-pattern
@@ -35,7 +35,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - .myClass {}                            (不是 kebab-case，应使用 .my-class)
    */
-  'selector-class-pattern': [null],
+  'selector-class-pattern': null,
 
   /**
    * @name selector-id-pattern
@@ -47,7 +47,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
    *  - #myId {}                               (不是 kebab-case，应使用 #my-id)
    */
-  'selector-id-pattern': [null],
+  'selector-id-pattern': null,
 
   /**
    * @name selector-nested-pattern
@@ -57,7 +57,7 @@ export const selectorRules: Config['rules'] = {
    * @example ✅ 正确示例（null 时）：
    *  - .parent { .child { } }
    */
-  'selector-nested-pattern': [null],
+  'selector-nested-pattern': null,
 
   /**
    * @name selector-max-attribute
@@ -69,7 +69,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 1）：
    *  - [type='text'][required]                (超过限制)
    */
-  'selector-max-attribute': [null],
+  'selector-max-attribute': null,
 
   /**
    * @name selector-max-class
@@ -81,7 +81,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 2）：
    *  - .a.b.c {}                              (超过限制)
    */
-  'selector-max-class': [null],
+  'selector-max-class': null,
 
   /**
    * @name selector-max-combinators
@@ -93,7 +93,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 2）：
    *  - a > b + c {}                           (超过限制)
    */
-  'selector-max-combinators': [null],
+  'selector-max-combinators': null,
 
   /**
    * @name selector-max-compound-selectors
@@ -105,7 +105,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 2）：
    *  - .a .b .c {}                            (超过限制)
    */
-  'selector-max-compound-selectors': [null],
+  'selector-max-compound-selectors': null,
 
   /**
    * @name selector-max-id
@@ -117,7 +117,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 0）：
    *  - #id {}                                 (不应使用 ID 选择器)
    */
-  'selector-max-id': [null],
+  'selector-max-id': null,
 
   /**
    * @name selector-max-pseudo-class
@@ -129,7 +129,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 1）：
    *  - a:hover:focus {}                       (超过限制)
    */
-  'selector-max-pseudo-class': [null],
+  'selector-max-pseudo-class': null,
 
   /**
    * @name selector-max-specificity
@@ -141,7 +141,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 '0,2,0'）：
    *  - .a.b.c {}                              (特异性超过限制)
    */
-  'selector-max-specificity': [null],
+  'selector-max-specificity': null,
 
   /**
    * @name selector-max-type
@@ -153,7 +153,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 2）：
    *  - div span p {}                          (超过限制)
    */
-  'selector-max-type': [null],
+  'selector-max-type': null,
 
   /**
    * @name selector-max-universal
@@ -165,7 +165,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 0）：
    *  - * {}                                   (不应使用通配符)
    */
-  'selector-max-universal': [null],
+  'selector-max-universal': null,
 
   /**
    * @name selector-no-qualifying-type
@@ -178,7 +178,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - div.class {}                           (应只用 .class)
    */
-  'selector-no-qualifying-type': [null],
+  'selector-no-qualifying-type': null,
 
   /**
    * @name selector-no-vendor-prefix
@@ -190,7 +190,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - ::-webkit-input-placeholder {}         (应使用标准语法)
    */
-  'selector-no-vendor-prefix': [true],
+  'selector-no-vendor-prefix': true,
 
   /**
    * @name selector-not-notation
@@ -202,7 +202,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'complex'）：
    *  - :not(.a):not(.b) {}                    (应合并为 :not(.a, .b))
    */
-  'selector-not-notation': ['complex'],
+  'selector-not-notation': 'complex',
 
   /**
    * @name selector-pseudo-class-no-unknown
@@ -214,7 +214,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a:unknown {}                           (不存在的伪类)
    */
-  'selector-pseudo-class-no-unknown': [true],
+  'selector-pseudo-class-no-unknown': true,
 
   /**
    * @name selector-pseudo-element-colon-notation
@@ -226,7 +226,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'double'）：
    *  - :before {}                             (应使用双冒号 ::before)
    */
-  'selector-pseudo-element-colon-notation': ['double'],
+  'selector-pseudo-element-colon-notation': 'double',
 
   /**
    * @name selector-pseudo-element-no-unknown
@@ -238,7 +238,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - ::unknown {}                           (不存在的伪元素)
    */
-  'selector-pseudo-element-no-unknown': [true],
+  'selector-pseudo-element-no-unknown': true,
 
   /**
    * @name selector-type-case
@@ -250,7 +250,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - DIV {}                                 (应使用小写 div)
    */
-  'selector-type-case': ['lower'],
+  'selector-type-case': 'lower',
 
   /**
    * @name selector-type-no-unknown
@@ -276,7 +276,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['id']）：
    *  - [id='foo']                             (id 在黑名单中)
    */
-  'selector-attribute-name-disallowed-list': [null],
+  'selector-attribute-name-disallowed-list': null,
 
   /**
    * @name selector-attribute-operator-allowed-list
@@ -288,7 +288,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['=']）：
    *  - [type^='text']                         (^= 不在白名单中)
    */
-  'selector-attribute-operator-allowed-list': [null],
+  'selector-attribute-operator-allowed-list': null,
 
   /**
    * @name selector-attribute-operator-disallowed-list
@@ -300,7 +300,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['*=']）：
    *  - [type*='text']                         (*= 在黑名单中)
    */
-  'selector-attribute-operator-disallowed-list': [null],
+  'selector-attribute-operator-disallowed-list': null,
 
   /**
    * @name selector-combinator-allowed-list
@@ -312,7 +312,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['>', ' ']）：
    *  - a + b {}                               (+ 不在白名单中)
    */
-  'selector-combinator-allowed-list': [null],
+  'selector-combinator-allowed-list': null,
 
   /**
    * @name selector-combinator-disallowed-list
@@ -324,7 +324,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['~']）：
    *  - a ~ b {}                               (~ 在黑名单中)
    */
-  'selector-combinator-disallowed-list': [null],
+  'selector-combinator-disallowed-list': null,
 
   /**
    * @name selector-disallowed-list
@@ -336,7 +336,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['/^#/']）：
    *  - #id {}                                 (ID 选择器在黑名单中)
    */
-  'selector-disallowed-list': [null],
+  'selector-disallowed-list': null,
 
   /**
    * @name selector-pseudo-class-allowed-list
@@ -348,7 +348,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['hover', 'focus']）：
    *  - a:active {}                            (active 不在白名单中)
    */
-  'selector-pseudo-class-allowed-list': [null],
+  'selector-pseudo-class-allowed-list': null,
 
   /**
    * @name selector-pseudo-class-disallowed-list
@@ -360,7 +360,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['nth-child']）：
    *  - li:nth-child(2) {}                     (nth-child 在黑名单中)
    */
-  'selector-pseudo-class-disallowed-list': [null],
+  'selector-pseudo-class-disallowed-list': null,
 
   /**
    * @name selector-pseudo-element-allowed-list
@@ -372,7 +372,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['before', 'after']）：
    *  - ::placeholder {}                       (placeholder 不在白名单中)
    */
-  'selector-pseudo-element-allowed-list': [null],
+  'selector-pseudo-element-allowed-list': null,
 
   /**
    * @name selector-pseudo-element-disallowed-list
@@ -384,7 +384,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 ['selection']）：
    *  - ::selection {}                         (selection 在黑名单中)
    */
-  'selector-pseudo-element-disallowed-list': [null],
+  'selector-pseudo-element-disallowed-list': null,
 
   /**
    * @name selector-anb-no-unmatchable
@@ -396,5 +396,5 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - :nth-child(0n+0) {}                    (永远不匹配任何元素)
    */
-  'selector-anb-no-unmatchable': [true],
+  'selector-anb-no-unmatchable': true,
 };

@@ -28,7 +28,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'modern'）：
    *  - rgba(0, 0, 0, 0.5)                     (应使用 modern 语法：rgb(0 0 0 / 0.5))
    */
-  'color-function-notation': [null],
+  'color-function-notation': null,
 
   /**
    * @name color-function-alias-notation
@@ -44,7 +44,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'short'）：
    *  - rgba(255, 0, 0, 0.5)                   (应使用 rgb(255, 0, 0, 0.5))
    */
-  'color-function-alias-notation': [null],
+  'color-function-alias-notation': null,
 
   /**
    * @name hue-degree-notation
@@ -58,7 +58,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - hsl(180 50% 50%)                       (缺少角度单位，应为 180deg)
    */
-  'hue-degree-notation': ['angle'],
+  'hue-degree-notation': 'angle',
 
   /**
    * @name lightness-notation
@@ -71,7 +71,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - hsl(180deg 0.5 0.5)                    (应使用百分比：50% 50%)
    */
-  'lightness-notation': ['percentage'],
+  'lightness-notation': 'percentage',
 
   /**
    * @name color-hex-alpha
@@ -85,7 +85,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'never'）：
    *  - color: #ffffff80;                      (应使用 rgba(255, 255, 255, 0.5))
    */
-  'color-hex-alpha': [null],
+  'color-hex-alpha': null,
 
   /**
    * @name color-hex-length
@@ -99,7 +99,7 @@ export const colorRules: Config['rules'] = {
    *  - color: #ffffff;                        (可以简写为 #fff)
    *  - color: #000000;                        (可以简写为 #000)
    */
-  'color-hex-length': ['short'],
+  'color-hex-length': 'short',
 
   /**
    * @name color-named
@@ -116,7 +116,7 @@ export const colorRules: Config['rules'] = {
    *  - color: red;                             (应使用 #f00)
    *  - border-color: blue;                     (应使用 #00f)
    */
-  'color-named': ['never'],
+  'color-named': 'never',
 
   /**
    * @name color-no-hex
@@ -129,7 +129,7 @@ export const colorRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - color: #fff;                            (应使用 rgb(255, 255, 255))
    */
-  'color-no-hex': [null],
+  'color-no-hex': null,
 
   /**
    * @name color-no-invalid-hex
@@ -144,5 +144,5 @@ export const colorRules: Config['rules'] = {
    *  - color: #fffffffff;                     (位数错误，hex 只能是 3/4/6/8 位)
    *  - color: #gggggg;                        (包含非法字符 g)
    */
-  'color-no-invalid-hex': [true],
+  'color-no-invalid-hex': true,
 };

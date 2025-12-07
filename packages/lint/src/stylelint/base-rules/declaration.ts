@@ -26,7 +26,7 @@ export const declarationRules: Config['rules'] = {
    *      --color: blue;
    *    }                                      (重复定义，后面的会覆盖前面的)
    */
-  'declaration-block-no-duplicate-custom-properties': [true],
+  'declaration-block-no-duplicate-custom-properties': true,
 
   /**
    * @name declaration-block-no-duplicate-properties
@@ -68,7 +68,7 @@ export const declarationRules: Config['rules'] = {
    *      margin-left: 20px;
    *    }                                      (应使用 margin: 10px 20px)
    */
-  'declaration-block-no-redundant-longhand-properties': [true],
+  'declaration-block-no-redundant-longhand-properties': true,
 
   /**
    * @name declaration-block-no-shorthand-property-overrides
@@ -90,7 +90,7 @@ export const declarationRules: Config['rules'] = {
    *      padding: 10px;
    *    }                                      (padding-top 被覆盖)
    */
-  'declaration-block-no-shorthand-property-overrides': [true],
+  'declaration-block-no-shorthand-property-overrides': true,
 
   /**
    * @name declaration-block-single-line-max-declarations
@@ -105,7 +105,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; background: blue; }    (单行有 2 个声明，超过限制)
    */
-  'declaration-block-single-line-max-declarations': [1],
+  'declaration-block-single-line-max-declarations': 1,
 
   /**
    * @name declaration-empty-line-before
@@ -125,7 +125,7 @@ export const declarationRules: Config['rules'] = {
    *      background: blue;
    *    }                                      (不应有空行)
    */
-  'declaration-empty-line-before': ['never'],
+  'declaration-empty-line-before': 'never',
 
   /**
    * @name declaration-no-important
@@ -137,7 +137,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - a { color: red !important; }           (应通过提高选择器特异性来解决)
    */
-  'declaration-no-important': [null],
+  'declaration-no-important': null,
 
   /**
    * @name declaration-property-max-values
@@ -149,7 +149,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { '/^border/': 1 }）：
    *  - a { border: 1px solid red; }           (3个值，超过限制)
    */
-  'declaration-property-max-values': [null],
+  'declaration-property-max-values': null,
 
   /**
    * @name declaration-property-unit-allowed-list
@@ -161,7 +161,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { 'font-size': ['px', 'em', 'rem'] }）：
    *  - a { font-size: 12pt; }                 (pt 不在白名单中)
    */
-  'declaration-property-unit-allowed-list': [null],
+  'declaration-property-unit-allowed-list': null,
 
   /**
    * @name declaration-property-unit-disallowed-list
@@ -173,7 +173,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { 'font-size': ['pt'] }）：
    *  - a { font-size: 12pt; }                 (pt 在黑名单中)
    */
-  'declaration-property-unit-disallowed-list': [null],
+  'declaration-property-unit-disallowed-list': null,
 
   /**
    * @name declaration-property-value-allowed-list
@@ -185,7 +185,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { 'display': ['block', 'flex', 'none'] }）：
    *  - a { display: inline-block; }           (inline-block 不在白名单中)
    */
-  'declaration-property-value-allowed-list': [null],
+  'declaration-property-value-allowed-list': null,
 
   /**
    * @name declaration-property-value-disallowed-list
@@ -197,7 +197,7 @@ export const declarationRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 { '/^border/': ['none'] }）：
    *  - a { border: none; }                    (none 在黑名单中，应使用 0)
    */
-  'declaration-property-value-disallowed-list': [null],
+  'declaration-property-value-disallowed-list': null,
 
   /**
    * @name declaration-property-value-keyword-no-deprecated
@@ -211,7 +211,7 @@ export const declarationRules: Config['rules'] = {
    *  - a { overflow: -moz-scrollbars-none; }  (已弃用)
    *  - a { display: -webkit-box; }            (已弃用，应使用 flex)
    */
-  'declaration-property-value-keyword-no-deprecated': [true],
+  'declaration-property-value-keyword-no-deprecated': true,
 
   /**
    * @name declaration-property-value-no-unknown
@@ -225,5 +225,5 @@ export const declarationRules: Config['rules'] = {
    *  - a { display: unknown-value; }          (拼写错误或不存在的值)
    *  - a { position: center; }                (position 没有 center 值)
    */
-  'declaration-property-value-no-unknown': [true],
+  'declaration-property-value-no-unknown': true,
 };

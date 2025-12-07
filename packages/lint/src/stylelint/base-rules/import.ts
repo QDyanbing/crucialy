@@ -20,5 +20,5 @@ export const importRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 'string'）：
    *  - \@import url('styles.css');            (应使用字符串形式)
    */
-  'import-notation': [null],
+  'import-notation': null,
 };

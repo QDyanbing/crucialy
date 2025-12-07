@@ -20,5 +20,5 @@ export const fontRules: Config['rules'] = {
    *  - font-family: Arial, Helvetica;         (缺少通用字体族 fallback)
    *  - font-family: 'My Custom Font';         (缺少通用字体族 fallback)
    */
-  'font-family-no-missing-generic-family-keyword': [true],
+  'font-family-no-missing-generic-family-keyword': true,
 };

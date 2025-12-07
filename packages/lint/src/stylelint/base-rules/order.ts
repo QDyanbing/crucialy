@@ -53,7 +53,7 @@ export const orderRules: Config['rules'] = {
    *      display: block;
    *    }                                      (顺序不符合配置)
    */
-  'order/properties-order': [null],
+  'order/properties-order': null,
 
   /**
    * @name order/properties-alphabetical-order
@@ -73,5 +73,5 @@ export const orderRules: Config['rules'] = {
    *      display: block;
    *    }                                      (不是字母顺序，应为 color → display → position)
    */
-  'order/properties-alphabetical-order': [null],
+  'order/properties-alphabetical-order': null,
 };

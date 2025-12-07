@@ -34,5 +34,5 @@ export const complexityRules: Config['rules'] = {
    *      }
    *    }                                      (第4层，超过限制)
    */
-  'max-nesting-depth': [null],
+  'max-nesting-depth': null,
 };

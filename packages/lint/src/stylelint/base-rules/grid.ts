@@ -30,5 +30,5 @@ export const gridRules: Config['rules'] = {
    *      'header sidebar header'
    *      'content content content';            (header 区域不连续)
    */
-  'named-grid-areas-no-invalid': [true],
+  'named-grid-areas-no-invalid': true,
 };

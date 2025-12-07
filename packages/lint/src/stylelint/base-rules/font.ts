@@ -25,7 +25,7 @@ export const fontRules: Config['rules'] = {
    *  - font-family: Times New Roman, serif;   (缺少引号)
    *  - font-family: Arial, sans-serif;        (假设配置为 always-unless-keyword 时，Arial 也需要引号)
    */
-  'font-family-name-quotes': ['always-where-recommended'],
+  'font-family-name-quotes': 'always-where-recommended',
 
   /**
    * @name font-family-no-duplicate-names
@@ -39,7 +39,7 @@ export const fontRules: Config['rules'] = {
    *  - font-family: Arial, Arial, sans-serif;                      (重复的 Arial)
    *  - font-family: 'PingFang SC', 'PingFang SC', sans-serif;      (重复的 PingFang SC)
    */
-  'font-family-no-duplicate-names': [true],
+  'font-family-no-duplicate-names': true,
 
   /**
    * @name font-family-no-missing-generic-family-keyword
@@ -53,7 +53,7 @@ export const fontRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 true）：
    *  - font-family: Arial, Helvetica;         (缺少通用字体族 fallback)
    */
-  'font-family-no-missing-generic-family-keyword': [null],
+  'font-family-no-missing-generic-family-keyword': null,
 
   /**
    * @name font-weight-notation

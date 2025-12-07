@@ -21,7 +21,7 @@ export const blockRules: Config['rules'] = {
    *  - a { }                                  (空块，应删除或填写样式)
    *  - .empty-class { }                       (空块，应删除或填写样式)
    */
-  'block-no-empty': [true],
+  'block-no-empty': true,
 
   /**
    * @name block-no-redundant-nested-style-rules
@@ -43,5 +43,5 @@ export const blockRules: Config['rules'] = {
    *      }
    *    }                                      (冗余嵌套，应直接写在父级)
    */
-  'block-no-redundant-nested-style-rules': [true],
+  'block-no-redundant-nested-style-rules': true,
 };

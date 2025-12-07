@@ -24,5 +24,5 @@ export const generalRules: Config['rules'] = {
    *  - .a.b { color: red; }
    *    .a { color: blue; }                    (特异性降低：0-2-0 -> 0-1-0)
    */
-  'no-descending-specificity': [true],
+  'no-descending-specificity': true,
 };

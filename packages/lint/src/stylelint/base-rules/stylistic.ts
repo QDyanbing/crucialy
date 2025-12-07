@@ -23,7 +23,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - #FFF                                (应使用小写)
    */
-  '@stylistic/color-hex-case': ['lower'],
+  '@stylistic/color-hex-case': 'lower',
 
   /**
    * @name @stylistic/indentation
@@ -38,7 +38,7 @@ export const stylisticRules: Config['rules'] = {
    *    color: red;                          (缩进不正确，应为 2 个空格)
    *    }
    */
-  '@stylistic/indentation': [2],
+  '@stylistic/indentation': 2,
 
   /**
    * @name @stylistic/linebreaks
@@ -48,7 +48,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ✅ 正确示例：使用 LF 换行符
    * @example ❌ 错误示例：使用 CRLF 换行符（应使用 Unix 换行符）
    */
-  '@stylistic/linebreaks': ['unix'],
+  '@stylistic/linebreaks': 'unix',
 
   /**
    * @name @stylistic/max-empty-lines
@@ -64,7 +64,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    b {}                                 (超过最大空行数)
    */
-  '@stylistic/max-empty-lines': [1],
+  '@stylistic/max-empty-lines': 1,
 
   /**
    * @name @stylistic/max-line-length
@@ -76,7 +76,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例（假设配置为 80）：
    *  - a { color: red; background: blue; border: 1px solid black; } (超过最大行长度)
    */
-  '@stylistic/max-line-length': [null],
+  '@stylistic/max-line-length': null,
 
   /**
    * @name @stylistic/selector-max-empty-lines
@@ -90,7 +90,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    .b {}                                (选择器中超过最大空行数)
    */
-  '@stylistic/selector-max-empty-lines': [null],
+  '@stylistic/selector-max-empty-lines': null,
 
   /**
    * @name @stylistic/value-list-max-empty-lines
@@ -104,7 +104,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    20px;                                (值列表中超过最大空行数)
    */
-  '@stylistic/value-list-max-empty-lines': [null],
+  '@stylistic/value-list-max-empty-lines': null,
 
   /**
    * @name @stylistic/function-max-empty-lines
@@ -118,7 +118,7 @@ export const stylisticRules: Config['rules'] = {
    *
    *    0, 0)                                (函数中超过最大空行数)
    */
-  '@stylistic/function-max-empty-lines': [null],
+  '@stylistic/function-max-empty-lines': null,
 
   /**
    * @name @stylistic/no-empty-first-line
@@ -131,7 +131,7 @@ export const stylisticRules: Config['rules'] = {
    *  - (空行)
    *    a {}                                 (首行为空)
    */
-  '@stylistic/no-empty-first-line': [true],
+  '@stylistic/no-empty-first-line': true,
 
   /**
    * @name @stylistic/no-eol-whitespace
@@ -143,7 +143,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a {}                                 (行尾有空格)
    */
-  '@stylistic/no-eol-whitespace': [true],
+  '@stylistic/no-eol-whitespace': true,
 
   /**
    * @name @stylistic/no-extra-semicolons
@@ -155,7 +155,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red;; }                  (多余的分号)
    */
-  '@stylistic/no-extra-semicolons': [true],
+  '@stylistic/no-extra-semicolons': true,
 
   /**
    * @name @stylistic/no-missing-end-of-source-newline
@@ -168,7 +168,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a {}                                  (文件末尾缺少换行符)
    */
-  '@stylistic/no-missing-end-of-source-newline': [true],
+  '@stylistic/no-missing-end-of-source-newline': true,
 
   /**
    * @name @stylistic/number-leading-zero
@@ -180,7 +180,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - .5                                  (缺少前导零)
    */
-  '@stylistic/number-leading-zero': ['always'],
+  '@stylistic/number-leading-zero': 'always',
 
   /**
    * @name @stylistic/number-no-trailing-zeros
@@ -192,7 +192,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - 1.50                                (有尾随零)
    */
-  '@stylistic/number-no-trailing-zeros': [true],
+  '@stylistic/number-no-trailing-zeros': true,
 
   /**
    * @name @stylistic/property-case
@@ -204,7 +204,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - COLOR: red;                         (应使用小写)
    */
-  '@stylistic/property-case': ['lower'],
+  '@stylistic/property-case': 'lower',
 
   /**
    * @name @stylistic/selector-pseudo-class-case
@@ -216,7 +216,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - :HOVER {}                           (应使用小写)
    */
-  '@stylistic/selector-pseudo-class-case': ['lower'],
+  '@stylistic/selector-pseudo-class-case': 'lower',
 
   /**
    * @name @stylistic/selector-pseudo-element-case
@@ -228,7 +228,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - ::BEFORE {}                         (应使用小写)
    */
-  '@stylistic/selector-pseudo-element-case': ['lower'],
+  '@stylistic/selector-pseudo-element-case': 'lower',
 
   /**
    * @name @stylistic/string-quotes
@@ -240,7 +240,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - content: "x";                       (应使用单引号)
    */
-  '@stylistic/string-quotes': ['single'],
+  '@stylistic/string-quotes': 'single',
 
   /**
    * @name @stylistic/unicode-bom
@@ -250,7 +250,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ✅ 正确示例：文件开头无 BOM
    * @example ❌ 错误示例：文件开头有 BOM（应移除）
    */
-  '@stylistic/unicode-bom': ['never'],
+  '@stylistic/unicode-bom': 'never',
 
   /**
    * @name @stylistic/unit-case
@@ -262,7 +262,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - 10PX                               (应使用小写)
    */
-  '@stylistic/unit-case': ['lower'],
+  '@stylistic/unit-case': 'lower',
 
   // Stylistic 空格规则
 
@@ -276,7 +276,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - \@media(width > 600px) {}            (缺少空格)
    */
-  '@stylistic/at-rule-name-space-after': ['always'],
+  '@stylistic/at-rule-name-space-after': 'always',
 
   /**
    * @name @stylistic/block-opening-brace-space-before
@@ -288,7 +288,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a{ color: red; }                     (缺少空格)
    */
-  '@stylistic/block-opening-brace-space-before': ['always'],
+  '@stylistic/block-opening-brace-space-before': 'always',
 
   /**
    * @name @stylistic/declaration-colon-space-after
@@ -301,7 +301,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - color:red;                           (缺少空格)
    */
-  '@stylistic/declaration-colon-space-after': ['always-single-line'],
+  '@stylistic/declaration-colon-space-after': 'always-single-line',
 
   /**
    * @name @stylistic/declaration-colon-space-before
@@ -313,7 +313,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - color : red;                         (冒号前不应有空格)
    */
-  '@stylistic/declaration-colon-space-before': ['never'],
+  '@stylistic/declaration-colon-space-before': 'never',
 
   /**
    * @name @stylistic/function-comma-space-after
@@ -326,7 +326,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - rgb(0,0, 0)                          (逗号后缺少空格)
    */
-  '@stylistic/function-comma-space-after': ['always-single-line'],
+  '@stylistic/function-comma-space-after': 'always-single-line',
 
   /**
    * @name @stylistic/function-comma-space-before
@@ -338,7 +338,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - rgb(0 , 0, 0)                        (逗号前不应有空格)
    */
-  '@stylistic/function-comma-space-before': ['never'],
+  '@stylistic/function-comma-space-before': 'never',
 
   /**
    * @name @stylistic/function-parentheses-space-inside
@@ -351,7 +351,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - calc( 100% - 20px )                 (括号内不应有空格)
    */
-  '@stylistic/function-parentheses-space-inside': ['never-single-line'],
+  '@stylistic/function-parentheses-space-inside': 'never-single-line',
 
   /**
    * @name @stylistic/selector-combinator-space-after
@@ -364,7 +364,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a>b {}                               (组合器后缺少空格)
    */
-  '@stylistic/selector-combinator-space-after': ['always'],
+  '@stylistic/selector-combinator-space-after': 'always',
 
   /**
    * @name @stylistic/selector-combinator-space-before
@@ -376,7 +376,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a> b {}                              (组合器前缺少空格)
    */
-  '@stylistic/selector-combinator-space-before': ['always'],
+  '@stylistic/selector-combinator-space-before': 'always',
 
   /**
    * @name @stylistic/value-list-comma-space-after
@@ -389,7 +389,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - margin: 10px,20px, 30px;             (逗号后缺少空格)
    */
-  '@stylistic/value-list-comma-space-after': ['always-single-line'],
+  '@stylistic/value-list-comma-space-after': 'always-single-line',
 
   /**
    * @name @stylistic/value-list-comma-space-before
@@ -401,7 +401,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - margin: 10px , 20px;                 (逗号前不应有空格)
    */
-  '@stylistic/value-list-comma-space-before': ['never'],
+  '@stylistic/value-list-comma-space-before': 'never',
 
   // Stylistic 换行规则
 
@@ -416,7 +416,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - \@import 'a.css'; a {}              (分号后缺少换行)
    */
-  '@stylistic/at-rule-semicolon-newline-after': ['always'],
+  '@stylistic/at-rule-semicolon-newline-after': 'always',
 
   /**
    * @name @stylistic/block-closing-brace-newline-after
@@ -429,7 +429,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; } b {}              (闭括号后缺少换行)
    */
-  '@stylistic/block-closing-brace-newline-after': ['always'],
+  '@stylistic/block-closing-brace-newline-after': 'always',
 
   /**
    * @name @stylistic/block-closing-brace-newline-before
@@ -444,7 +444,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; }                   (单行块无需换行)
    */
-  '@stylistic/block-closing-brace-newline-before': ['always-multi-line'],
+  '@stylistic/block-closing-brace-newline-before': 'always-multi-line',
 
   /**
    * @name @stylistic/block-opening-brace-newline-after
@@ -459,7 +459,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; }                   (单行块无需换行)
    */
-  '@stylistic/block-opening-brace-newline-after': ['always-multi-line'],
+  '@stylistic/block-opening-brace-newline-after': 'always-multi-line',
 
   /**
    * @name @stylistic/declaration-block-semicolon-newline-after
@@ -475,7 +475,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red; background: blue; } (单行时无需换行)
    */
-  '@stylistic/declaration-block-semicolon-newline-after': ['always-multi-line'],
+  '@stylistic/declaration-block-semicolon-newline-after': 'always-multi-line',
 
   /**
    * @name @stylistic/declaration-block-trailing-semicolon
@@ -487,7 +487,7 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a { color: red }                    (缺少末尾分号)
    */
-  '@stylistic/declaration-block-trailing-semicolon': ['always'],
+  '@stylistic/declaration-block-trailing-semicolon': 'always',
 
   /**
    * @name @stylistic/selector-list-comma-newline-after
@@ -500,5 +500,5 @@ export const stylisticRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - a, b {}                             (逗号后缺少换行)
    */
-  '@stylistic/selector-list-comma-newline-after': ['always'],
+  '@stylistic/selector-list-comma-newline-after': 'always',
 };
