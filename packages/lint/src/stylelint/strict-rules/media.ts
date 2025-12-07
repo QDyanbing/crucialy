@@ -23,4 +23,3 @@ export const mediaRules: Config['rules'] = {
    */
   'media-feature-range-notation': 'context',
 };
-

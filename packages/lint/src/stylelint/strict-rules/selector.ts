@@ -94,10 +94,7 @@ export const selectorRules: Config['rules'] = {
    * @example ❌ 错误示例：
    *  - div span p {}                            (超过限制)
    */
-  'selector-max-type': [
-    2,
-    { ignore: ['child', 'descendant', 'compounded'] },
-  ],
+  'selector-max-type': [2, { ignore: ['child', 'descendant', 'compounded'] }],
 
   /**
    * @name selector-max-universal
