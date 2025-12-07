@@ -12,18 +12,24 @@ export const orderRules: Config['rules'] = {
    * @name order/properties-order
    * @description 指定属性的排列顺序；Strict 模式强制属性按功能分组排序，提高代码可读性和可维护性
    * @value array - 属性顺序数组（Strict 配置，覆盖 Base 的 null）
+   * @secondary emptyLineBefore: 'always' - 每个属性分组前自动添加空行，提升代码可读性
    * @secondary unspecified: 'bottomAlphabetical' - 未指定的属性按字母顺序放在最后
    * @example ✅ 正确示例：
    *  - .button {
    *      position: relative;
+   *
    *      display: flex;
    *      width: 100px;
    *      margin: 10px;
+   *
    *      color: #000;
    *      font-size: 14px;
+   *
    *      background: #fff;
    *      border: 1px solid #ccc;
+   *
    *      transition: all 0.3s;
+   *
    *      cursor: pointer;
    *    }
    * @example ❌ 错误示例：
@@ -47,6 +53,7 @@ export const orderRules: Config['rules'] = {
       // 1. 定位相关
       {
         groupName: 'positioning',
+        emptyLineBefore: 'always',
         properties: [
           'position',
           'top',
@@ -66,6 +73,7 @@ export const orderRules: Config['rules'] = {
       // 2. 盒模型
       {
         groupName: 'box-model',
+        emptyLineBefore: 'always',
         properties: [
           'display',
           'flex',
@@ -134,6 +142,7 @@ export const orderRules: Config['rules'] = {
       // 3. 排版相关
       {
         groupName: 'typography',
+        emptyLineBefore: 'always',
         properties: [
           'color',
           'font',
@@ -165,6 +174,7 @@ export const orderRules: Config['rules'] = {
       // 4. 视觉效果
       {
         groupName: 'visual',
+        emptyLineBefore: 'always',
         properties: [
           'background',
           'background-color',
@@ -215,6 +225,7 @@ export const orderRules: Config['rules'] = {
       // 5. 动画和过渡
       {
         groupName: 'animation',
+        emptyLineBefore: 'always',
         properties: [
           'transition',
           'transition-property',
@@ -240,6 +251,7 @@ export const orderRules: Config['rules'] = {
       // 6. 其他
       {
         groupName: 'misc',
+        emptyLineBefore: 'always',
         properties: [
           'appearance',
           'content',

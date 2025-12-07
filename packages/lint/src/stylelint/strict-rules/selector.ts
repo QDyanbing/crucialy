@@ -14,6 +14,7 @@ export const selectorRules: Config['rules'] = {
    * @name selector-class-pattern
    * @description 选择器类名命名模式；Strict 模式强制使用 BEM 命名规范
    * @value regex - 正则表达式字符串（Strict 配置为 BEM，覆盖 Base 的 null）
+   * @secondary resolveNestedSelectors: true - 解析嵌套选择器，确保嵌套中的类名也符合规范
    * @secondary message: 'Expected class selector to follow BEM naming (block__element--modifier)' - 自定义错误提示信息
    * @example ✅ 正确示例：
    *  - .block {}
@@ -27,6 +28,7 @@ export const selectorRules: Config['rules'] = {
   'selector-class-pattern': [
     '^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$',
     {
+      resolveNestedSelectors: true,
       message: 'Expected class selector to follow BEM naming (block__element--modifier)',
     },
   ],
