@@ -91,7 +91,7 @@ export const stylisticRules: Config['rules'] = {
    *    .b {}                                (选择器中超过最大空行数)
    */
   '@stylistic/selector-max-empty-lines': [null],
-  
+
   /**
    * @name @stylistic/value-list-max-empty-lines
    * @description 限制值列表中最多连续空行数
@@ -105,7 +105,7 @@ export const stylisticRules: Config['rules'] = {
    *    20px;                                (值列表中超过最大空行数)
    */
   '@stylistic/value-list-max-empty-lines': [null],
-  
+
   /**
    * @name @stylistic/function-max-empty-lines
    * @description 限制函数中最多连续空行数
@@ -445,7 +445,7 @@ export const stylisticRules: Config['rules'] = {
    *  - a { color: red; }                   (单行块无需换行)
    */
   '@stylistic/block-closing-brace-newline-before': ['always-multi-line'],
-  
+
   /**
    * @name @stylistic/block-opening-brace-newline-after
    * @description 限制块开括号后的换行
@@ -460,7 +460,7 @@ export const stylisticRules: Config['rules'] = {
    *  - a { color: red; }                   (单行块无需换行)
    */
   '@stylistic/block-opening-brace-newline-after': ['always-multi-line'],
-  
+
   /**
    * @name @stylistic/declaration-block-semicolon-newline-after
    * @description 限制声明块分号后的换行

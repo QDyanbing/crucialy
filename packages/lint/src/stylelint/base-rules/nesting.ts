@@ -24,4 +24,3 @@ export const nestingRules: Config['rules'] = {
    */
   'nesting-selector-no-missing-scoping-root': [true],
 };
-

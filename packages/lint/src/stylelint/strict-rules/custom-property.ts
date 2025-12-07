@@ -30,4 +30,3 @@ export const customPropertyRules: Config['rules'] = {
     },
   ],
 };
-

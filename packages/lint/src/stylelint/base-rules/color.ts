@@ -16,7 +16,6 @@
 import type { Config } from 'stylelint';
 
 export const colorRules: Config['rules'] = {
-
   /**
    * @name color-function-notation
    * @description 指定颜色函数的表示法；Less 等预处理器可能不完全支持 modern 语法，Base 配置不限制以保持向后兼容性
@@ -30,7 +29,7 @@ export const colorRules: Config['rules'] = {
    *  - rgba(0, 0, 0, 0.5)                     (应使用 modern 语法：rgb(0 0 0 / 0.5))
    */
   'color-function-notation': [null],
-  
+
   /**
    * @name color-function-alias-notation
    * @description 指定颜色函数别名的使用方式；在 modern 语法中，rgb 和 rgba 实际上是一样的
@@ -46,7 +45,7 @@ export const colorRules: Config['rules'] = {
    *  - rgba(255, 0, 0, 0.5)                   (应使用 rgb(255, 0, 0, 0.5))
    */
   'color-function-alias-notation': [null],
-  
+
   /**
    * @name hue-degree-notation
    * @description 指定 HSL/HWB 颜色函数中色相的表示法；使用角度单位更明确，避免歧义，也是 CSS 规范推荐的方式
@@ -60,7 +59,7 @@ export const colorRules: Config['rules'] = {
    *  - hsl(180 50% 50%)                       (缺少角度单位，应为 180deg)
    */
   'hue-degree-notation': ['angle'],
-  
+
   /**
    * @name lightness-notation
    * @description 指定 HSL 颜色函数中亮度和饱和度的表示法；百分比形式更符合 HSL 的直观理解（0%-100%），也是 CSS 规范推荐的方式
@@ -73,7 +72,7 @@ export const colorRules: Config['rules'] = {
    *  - hsl(180deg 0.5 0.5)                    (应使用百分比：50% 50%)
    */
   'lightness-notation': ['percentage'],
-  
+
   /**
    * @name color-hex-alpha
    * @description 控制 hex 颜色是否使用 alpha 通道；Base 配置不限制，因为两种方式都有适用场景
@@ -87,7 +86,7 @@ export const colorRules: Config['rules'] = {
    *  - color: #ffffff80;                      (应使用 rgba(255, 255, 255, 0.5))
    */
   'color-hex-alpha': [null],
-  
+
   /**
    * @name color-hex-length
    * @description 指定 hex 颜色的长度格式；短格式更简洁，是业界常见做法
@@ -101,7 +100,7 @@ export const colorRules: Config['rules'] = {
    *  - color: #000000;                        (可以简写为 #000)
    */
   'color-hex-length': ['short'],
-  
+
   /**
    * @name color-named
    * @description 禁止使用命名颜色；hex 值更精确可控，命名颜色容易产生歧义，统一使用 hex 让代码更规范
@@ -118,7 +117,7 @@ export const colorRules: Config['rules'] = {
    *  - border-color: blue;                     (应使用 #00f)
    */
   'color-named': ['never'],
-  
+
   /**
    * @name color-no-hex
    * @description 禁止使用 hex 颜色；Base 配置不限制，因为 hex 是最常用且简洁的颜色格式
@@ -131,7 +130,7 @@ export const colorRules: Config['rules'] = {
    *  - color: #fff;                            (应使用 rgb(255, 255, 255))
    */
   'color-no-hex': [null],
-  
+
   /**
    * @name color-no-invalid-hex
    * @description 禁止无效的 hex 颜色；检查 hex 颜色格式是否正确，无效的 hex 颜色会导致样式失效
@@ -146,5 +145,4 @@ export const colorRules: Config['rules'] = {
    *  - color: #gggggg;                        (包含非法字符 g)
    */
   'color-no-invalid-hex': [true],
-  
 };

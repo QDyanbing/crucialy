@@ -22,4 +22,3 @@ export const importRules: Config['rules'] = {
    */
   'import-notation': [null],
 };
-

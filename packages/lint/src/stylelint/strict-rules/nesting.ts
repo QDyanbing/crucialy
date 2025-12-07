@@ -13,4 +13,3 @@ export const nestingRules: Config['rules'] = {
    */
   'selector-nested-pattern': '^&',
 };
-

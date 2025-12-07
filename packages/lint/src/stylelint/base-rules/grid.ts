@@ -32,4 +32,3 @@ export const gridRules: Config['rules'] = {
    */
   'named-grid-areas-no-invalid': [true],
 };
-

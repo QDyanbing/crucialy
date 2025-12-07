@@ -33,13 +33,7 @@ export const orderRules: Config['rules'] = {
    *      color: red;
    *    }                                      (顺序错误)
    */
-  'order/order': [
-    'custom-properties',
-    'dollar-variables',
-    'declarations',
-    'at-rules',
-    'rules',
-  ],
+  'order/order': ['custom-properties', 'dollar-variables', 'declarations', 'at-rules', 'rules'],
 
   /**
    * @name order/properties-order

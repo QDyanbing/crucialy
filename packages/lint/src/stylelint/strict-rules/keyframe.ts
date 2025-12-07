@@ -18,4 +18,3 @@ export const keyframeRules: Config['rules'] = {
     },
   ],
 };
-

@@ -196,4 +196,3 @@ export const orderRules: Config['rules'] = {
     },
   ] as any,
 };
-

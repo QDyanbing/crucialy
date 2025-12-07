@@ -13,4 +13,3 @@ export const generalRules: Config['rules'] = {
    */
   'no-descending-specificity': true,
 };
-

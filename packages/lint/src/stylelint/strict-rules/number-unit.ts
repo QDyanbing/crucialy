@@ -13,4 +13,3 @@ export const numberUnitRules: Config['rules'] = {
    */
   'time-min-milliseconds': 100,
 };
-

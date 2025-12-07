@@ -26,4 +26,3 @@ export const lengthRules: Config['rules'] = {
    */
   'length-zero-no-unit': [true, { ignore: ['custom-properties'] }],
 };
-

@@ -36,4 +36,3 @@ export const complexityRules: Config['rules'] = {
    */
   'max-nesting-depth': [null],
 };
-

@@ -1,15 +1,15 @@
 // scripts/generate-stylelint-rule-sets.js
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
+import fs from 'node:fs';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const require = createRequire(import.meta.url);
 
 // 输出目录
-const OUT_DIR = path.resolve(__dirname, "../src/stylelint-rule-sets");
+const OUT_DIR = path.resolve(__dirname, '../src/stylelint-rule-sets');
 
 if (!fs.existsSync(OUT_DIR)) {
   fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -34,14 +34,7 @@ function getPackageRoot(pkgName) {
 function findRulesDir(pkgName) {
   const root = getPackageRoot(pkgName);
 
-  const candidates = [
-    "rules",
-    "lib/rules",
-    "dist/rules",
-    "src/rules",
-    "lib",
-    "dist",
-  ];
+  const candidates = ['rules', 'lib/rules', 'dist/rules', 'src/rules', 'lib', 'dist'];
 
   for (const rel of candidates) {
     const full = path.join(root, rel);
@@ -55,7 +48,7 @@ function findRulesDir(pkgName) {
 
 // 递归扫描规则（基于文件路径推测规则名）
 // 适用于“一个 rule 一个文件/目录”的插件，比如 stylelint、scss、stylus、order、stylistic
-function scanRulesFromFs(pkgName, prefix = "") {
+function scanRulesFromFs(pkgName, prefix = '') {
   const dir = findRulesDir(pkgName);
 
   if (!dir) {
@@ -63,7 +56,7 @@ function scanRulesFromFs(pkgName, prefix = "") {
     return [];
   }
 
-  const exts = new Set([".js", ".cjs", ".mjs"]);
+  const exts = new Set(['.js', '.cjs', '.mjs']);
   const ruleNames = new Set();
 
   function walk(currentDir, relDir) {
@@ -83,18 +76,16 @@ function scanRulesFromFs(pkgName, prefix = "") {
       const basename = path.basename(entry.name, path.extname(entry.name));
       let ruleName;
 
-      if (basename === "index" && relDir) {
+      if (basename === 'index' && relDir) {
         // rules/foo-bar/index.js → foo-bar
-        ruleName = relDir.replace(/\\/g, "/");
+        ruleName = relDir.replace(/\\/g, '/');
       } else if (!relDir) {
         // rules/no-descending-specificity.js → no-descending-specificity
         ruleName = basename;
       } else {
         // 兜底：rules/foo/bar.js → foo/bar
         const dirPart = path.dirname(nextRel);
-        ruleName = path
-          .join(dirPart === "." ? "" : dirPart, basename)
-          .replace(/\\/g, "/");
+        ruleName = path.join(dirPart === '.' ? '' : dirPart, basename).replace(/\\/g, '/');
       }
 
       if (ruleName) {
@@ -103,13 +94,13 @@ function scanRulesFromFs(pkgName, prefix = "") {
     }
   }
 
-  walk(dir, "");
+  walk(dir, '');
 
   return Array.from(ruleNames).sort();
 }
 
 // 通用：从 exports.rules 拿
-function scanRulesFromExport(pkgName, prefix = "") {
+function scanRulesFromExport(pkgName, prefix = '') {
   let mod;
   try {
     mod = require(pkgName);
@@ -122,7 +113,7 @@ function scanRulesFromExport(pkgName, prefix = "") {
   if (!rulesObj) return [];
 
   return Object.keys(rulesObj)
-    .map((name) => (prefix ? `${prefix}/${name}` : name))
+    .map(name => (prefix ? `${prefix}/${name}` : name))
     .sort();
 }
 
@@ -134,7 +125,7 @@ function writeRuleSet(fileName, exportName, rules) {
     `// DO NOT EDIT MANUALLY.\n\n` +
     `export const ${exportName} = ${JSON.stringify(rules, null, 2)};\n`;
 
-  fs.writeFileSync(fullPath, content, "utf8");
+  fs.writeFileSync(fullPath, content, 'utf8');
   console.log(`[ok] Generated ${fileName} (${rules.length} rules)`);
 }
 
@@ -142,17 +133,17 @@ function writeRuleSet(fileName, exportName, rules) {
 function getCoreRulesFromStylelint() {
   let stylelint;
   try {
-    stylelint = require("stylelint");
+    stylelint = require('stylelint');
   } catch (e) {
-    console.warn("[warn] Cannot require stylelint:", e.message);
+    console.warn('[warn] Cannot require stylelint:', e.message);
     return [];
   }
 
   const rulesExport = stylelint.rules || stylelint.default?.rules;
 
   if (!rulesExport) {
-    console.warn("[warn] stylelint.rules missing, fallback to FS scan");
-    return scanRulesFromFs("stylelint");
+    console.warn('[warn] stylelint.rules missing, fallback to FS scan');
+    return scanRulesFromFs('stylelint');
   }
 
   if (rulesExport instanceof Map) {
@@ -165,10 +156,10 @@ function getCoreRulesFromStylelint() {
 // ---------- 特殊：less 规则（静态列表 + 检查） ----------
 
 const KNOWN_LESS_RULES = [
-  "less/color-hex-case",
-  "less/color-no-hex",
-  "less/color-no-invalid-hex",
-  "less/no-duplicate-variables",
+  'less/color-hex-case',
+  'less/color-no-hex',
+  'less/color-no-invalid-hex',
+  'less/no-duplicate-variables',
 ];
 
 // ---------- 主流程 ----------
@@ -177,55 +168,51 @@ function main() {
   // 1) core
   let coreRules = getCoreRulesFromStylelint();
   if (!coreRules.length) {
-    coreRules = scanRulesFromFs("stylelint");
+    coreRules = scanRulesFromFs('stylelint');
   }
-  writeRuleSet("core.ts", "coreRules", coreRules);
+  writeRuleSet('core.ts', 'coreRules', coreRules);
 
   // 2) @stylistic/stylelint-plugin
   // 先看 exports.rules，将来如果官方暴露了就直接用
-  let stylisticRules =
-    scanRulesFromExport("@stylistic/stylelint-plugin", "@stylistic");
+  let stylisticRules = scanRulesFromExport('@stylistic/stylelint-plugin', '@stylistic');
   // 没有的话，用 FS 递归扫
   if (!stylisticRules.length) {
-    stylisticRules = scanRulesFromFs(
-      "@stylistic/stylelint-plugin",
-      "@stylistic",
-    );
+    stylisticRules = scanRulesFromFs('@stylistic/stylelint-plugin', '@stylistic');
   }
-  writeRuleSet("stylistic.ts", "stylisticRules", stylisticRules);
+  writeRuleSet('stylistic.ts', 'stylisticRules', stylisticRules);
 
   // 3) stylelint-order
-  let orderRules = scanRulesFromExport("stylelint-order", "order");
+  let orderRules = scanRulesFromExport('stylelint-order', 'order');
   if (!orderRules.length) {
-    orderRules = scanRulesFromFs("stylelint-order", "order");
+    orderRules = scanRulesFromFs('stylelint-order', 'order');
   }
-  writeRuleSet("order.ts", "orderRules", orderRules);
+  writeRuleSet('order.ts', 'orderRules', orderRules);
 
   // 4) stylelint-scss
-  let scssRules = scanRulesFromExport("stylelint-scss", "scss");
+  let scssRules = scanRulesFromExport('stylelint-scss', 'scss');
   if (!scssRules.length) {
-    scssRules = scanRulesFromFs("stylelint-scss", "scss");
+    scssRules = scanRulesFromFs('stylelint-scss', 'scss');
   }
-  writeRuleSet("scss.ts", "scssRules", scssRules);
+  writeRuleSet('scss.ts', 'scssRules', scssRules);
 
   // 5) stylelint-less（静态列表 + FS 检查）
-  const lessGuessed = scanRulesFromFs("stylelint-less", "less");
+  const lessGuessed = scanRulesFromFs('stylelint-less', 'less');
   if (lessGuessed.length && lessGuessed.length !== KNOWN_LESS_RULES.length) {
     console.warn(
       `[warn] stylelint-less: KNOWN_LESS_RULES(${KNOWN_LESS_RULES.length}) != FS guessed (${lessGuessed.length}). Please check upstream docs / changelog.`,
     );
     console.warn(`       FS guessed rules: ${JSON.stringify(lessGuessed)}`);
   }
-  writeRuleSet("less.ts", "lessRules", KNOWN_LESS_RULES);
+  writeRuleSet('less.ts', 'lessRules', KNOWN_LESS_RULES);
 
   // 6) stylelint-stylus
-  let stylusRules = scanRulesFromExport("stylelint-stylus", "stylus");
+  let stylusRules = scanRulesFromExport('stylelint-stylus', 'stylus');
   if (!stylusRules.length) {
-    stylusRules = scanRulesFromFs("stylelint-stylus", "stylus");
+    stylusRules = scanRulesFromFs('stylelint-stylus', 'stylus');
   }
-  writeRuleSet("stylus.ts", "stylusRules", stylusRules);
+  writeRuleSet('stylus.ts', 'stylusRules', stylusRules);
 
-  console.log("✨ All stylelint-rule-sets generated!");
+  console.log('✨ All stylelint-rule-sets generated!');
 }
 
 main();

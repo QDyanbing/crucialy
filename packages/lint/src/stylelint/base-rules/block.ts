@@ -1,6 +1,6 @@
 /**
  * Block 相关规则
- * 
+ *
  * 包含代码块相关规则（2条）
  * - 禁止空块
  * - 禁止冗余嵌套
@@ -44,5 +44,4 @@ export const blockRules: Config['rules'] = {
    *    }                                      (冗余嵌套，应直接写在父级)
    */
   'block-no-redundant-nested-style-rules': [true],
-
 };

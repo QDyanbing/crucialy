@@ -7,10 +7,10 @@
 import type { Config } from 'stylelint';
 
 // 导入各分组规则
+import { alphaRules } from './base-rules/alpha';
 import { annotationRules } from './base-rules/annotation';
 import { atRuleRules } from './base-rules/at-rule';
 import { blockRules } from './base-rules/block';
-import { alphaRules } from './base-rules/alpha';
 import { colorRules } from './base-rules/color';
 import { commentRules } from './base-rules/comment';
 import { complexityRules } from './base-rules/complexity';

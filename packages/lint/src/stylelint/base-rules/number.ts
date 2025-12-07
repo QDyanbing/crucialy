@@ -22,4 +22,3 @@ export const numberRules: Config['rules'] = {
    */
   'number-max-precision': [4],
 };
-

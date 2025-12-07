@@ -13,4 +13,3 @@ export const fontRules: Config['rules'] = {
    */
   'font-family-no-missing-generic-family-keyword': true,
 };
-

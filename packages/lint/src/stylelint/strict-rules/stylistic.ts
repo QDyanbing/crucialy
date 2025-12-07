@@ -31,4 +31,3 @@ export const stylisticRules: Config['rules'] = {
    */
   '@stylistic/max-line-length': 120,
 };
-

@@ -13,4 +13,3 @@ export const functionRules: Config['rules'] = {
    */
   'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hsla'],
 };
-

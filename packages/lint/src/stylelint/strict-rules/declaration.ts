@@ -34,4 +34,3 @@ export const declarationRules: Config['rules'] = {
     '/^animation/': ['ms'],
   },
 };
-
