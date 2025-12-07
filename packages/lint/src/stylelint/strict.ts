@@ -20,7 +20,9 @@ import { declarationRules } from './strict-rules/declaration';
 import { fontRules } from './strict-rules/font';
 import { functionRules } from './strict-rules/function';
 import { generalRules } from './strict-rules/general';
+import { importRules } from './strict-rules/import';
 import { keyframeRules } from './strict-rules/keyframe';
+import { mediaRules } from './strict-rules/media';
 import { nestingRules } from './strict-rules/nesting';
 import { numberUnitRules } from './strict-rules/number-unit';
 import { orderRules } from './strict-rules/order';
@@ -41,7 +43,9 @@ export const strict: Config = {
     ...fontRules,
     ...functionRules,
     ...generalRules,
+    ...importRules,
     ...keyframeRules,
+    ...mediaRules,
     ...nestingRules,
     ...numberUnitRules,
     ...orderRules,
