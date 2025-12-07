@@ -2,24 +2,35 @@
  * Strict 复杂度限制规则
  *
  * 覆盖复杂度相关规则（1条）
+ * - 更严格的嵌套深度限制
  */
 
 import type { Config } from 'stylelint';
 
 export const complexityRules: Config['rules'] = {
   /**
-   * max-nesting-depth
-   * 最大嵌套深度 3 层
-   *
-   * 说明：限制 CSS 嵌套层数，防止选择器过于复杂
-   * - 过深的嵌套会增加特异性，难以覆盖
-   * - 降低代码可读性和可维护性
-   *
-   * Base 配置：null（不限制）
-   * Strict 配置：3（最多 3 层嵌套）
-   *
-   * ✅ 正确示例：.a { .b { .c {} } }
-   * ❌ 错误示例：.a { .b { .c { .d {} } } }
+   * @name max-nesting-depth
+   * @description 限制选择器的最大嵌套深度；Strict 模式限制为 3 层，防止选择器过于复杂
+   * @value number - 最大嵌套层数（Strict 配置为 3，覆盖 Base 的 null）
+   * @secondary ignore: ['blockless-at-rules', 'pseudo-classes'] - 忽略无块级 @规则和伪类选择器
+   * @example ✅ 正确示例：
+   *  - .a {
+   *      .b {
+   *        .c {
+   *          color: red;
+   *        }
+   *      }
+   *    }
+   * @example ❌ 错误示例：
+   *  - .a {
+   *      .b {
+   *        .c {
+   *          .d {
+   *            color: red;
+   *          }
+   *        }
+   *      }
+   *    }                                      (第4层，超过限制)
    */
   'max-nesting-depth': [
     3,
