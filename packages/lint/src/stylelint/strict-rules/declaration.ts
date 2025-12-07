@@ -1,10 +1,9 @@
 /**
  * Strict 声明相关规则
  *
- * 覆盖声明相关规则（3条）
+ * 覆盖声明相关规则（2条）
  * - 禁止使用 !important
  * - 声明前需要空行
- * - 禁止某些属性使用某些单位
  */
 
 import type { Config } from 'stylelint';
@@ -46,24 +45,6 @@ export const declarationRules: Config['rules'] = {
     {
       except: ['first-nested', 'after-comment', 'after-declaration'],
       ignore: ['inside-single-line-block'],
-    },
-  ],
-
-  /**
-   * @name declaration-property-unit-disallowed-list
-   * @description 指定属性禁止使用的单位黑名单；Strict 模式禁止特定属性使用特定单位
-   * @value object - 对象，为不同属性指定禁止的单位（Strict 配置，覆盖 Base 的 null）
-   * @example ✅ 正确示例：
-   *  - a { font-size: 1rem; }
-   *  - a { animation-duration: 1s; }
-   * @example ❌ 错误示例：
-   *  - a { font-size: 12px; }                (px 在黑名单中，应使用 rem/em)
-   *  - a { animation-duration: 200ms; }      (ms 在黑名单中，应使用 s)
-   */
-  'declaration-property-unit-disallowed-list': [
-    {
-      'font-size': ['px'],
-      '/^animation/': ['ms'],
     },
   ],
 };
