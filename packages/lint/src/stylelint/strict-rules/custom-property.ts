@@ -1,9 +1,8 @@
 /**
  * Strict 自定义属性相关规则
  *
- * 覆盖自定义属性相关规则（2条）
+ * 覆盖自定义属性相关规则（1条）
  * - 更严格的命名规范（kebab-case）
- * - 自定义属性前需要空行
  */
 
 import type { Config } from 'stylelint';
@@ -25,33 +24,6 @@ export const customPropertyRules: Config['rules'] = {
     '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
     {
       message: 'Expected custom property to be kebab-case',
-    },
-  ],
-
-  /**
-   * @name custom-property-empty-line-before
-   * @description 要求自定义属性前有空行；Strict 模式总是要求空行，提高可读性
-   * @value 'always' - 总是要求空行（Strict 配置，覆盖 Base 的 null）
-   * @value 'never' - 禁止空行
-   * @secondary except: ['after-custom-property', 'first-nested'] - 连续自定义属性之间或第一个嵌套属性前不需要空行
-   * @secondary ignore: ['after-comment', 'inside-single-line-block'] - 注释后或单行块内可以不加空行
-   * @example ✅ 正确示例：
-   *  - :root {
-   *      --color: red;
-   *
-   *      --size: 10px;
-   *    }
-   * @example ❌ 错误示例：
-   *  - :root {
-   *      --color: red;
-   *      --size: 10px;
-   *    }                                      (缺少空行)
-   */
-  'custom-property-empty-line-before': [
-    'always',
-    {
-      except: ['after-custom-property', 'first-nested'],
-      ignore: ['after-comment', 'inside-single-line-block'],
     },
   ],
 };
