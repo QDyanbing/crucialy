@@ -46,10 +46,10 @@ import { valueRules } from './base-rules/value';
 export const base: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
+    ...alphaRules,
     ...annotationRules,
     ...atRuleRules,
     ...blockRules,
-    ...alphaRules,
     ...colorRules,
     ...commentRules,
     ...complexityRules,
