@@ -1,8 +1,3 @@
-/**
- * Stylelint configurations
- * Zero preset, all rules explicitly configured
- */
-
 export { default as angular } from './angular';
 export { default as astro } from './astro';
 export { default as core } from './core';
