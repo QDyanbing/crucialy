@@ -8,7 +8,7 @@
 
 import type { Config } from 'stylelint';
 
-export const blockRules: Config['rules'] = {
+const blockRules: Config['rules'] = {
   /**
    * @name block-no-empty
    * @description 禁止空的代码块；空块会增加 CSS 文件大小，且没有任何作用
@@ -45,3 +45,5 @@ export const blockRules: Config['rules'] = {
    */
   'block-no-redundant-nested-style-rules': true,
 };
+
+export default blockRules;

@@ -15,7 +15,7 @@
 
 import type { Config } from 'stylelint';
 
-export const colorRules: Config['rules'] = {
+const colorRules: Config['rules'] = {
   /**
    * @name color-function-notation
    * @description 指定颜色函数的表示法；Less 等预处理器可能不完全支持 modern 语法，Base 配置不限制以保持向后兼容性
@@ -146,3 +146,5 @@ export const colorRules: Config['rules'] = {
    */
   'color-no-invalid-hex': true,
 };
+
+export default colorRules;

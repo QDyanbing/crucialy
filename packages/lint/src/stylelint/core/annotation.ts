@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const annotationRules: Config['rules'] = {
+const annotationRules: Config['rules'] = {
   /**
    * @name annotation-no-unknown
    * @description 禁止使用 Stylelint 无法识别的注解关键字；CSS 中 annotation 指的是声明后面的 ! 关键字（如 !important）；如果使用 Sass，需要在 ignoreAnnotations 中配置允许的注解
@@ -22,3 +22,5 @@ export const annotationRules: Config['rules'] = {
    */
   'annotation-no-unknown': true,
 };
+
+export default annotationRules;

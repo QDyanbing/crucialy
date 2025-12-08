@@ -12,7 +12,7 @@
 
 import type { Config } from 'stylelint';
 
-export const stylisticRules: Config['rules'] = {
+const stylisticRules: Config['rules'] = {
   /**
    * @name @stylistic/color-hex-case
    * @description 限制 hex 颜色的大小写格式
@@ -501,3 +501,5 @@ export const stylisticRules: Config['rules'] = {
    */
   '@stylistic/selector-list-comma-newline-after': 'always',
 };
+
+export default stylisticRules;

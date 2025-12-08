@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const patternRules: Config['rules'] = {
+const patternRules: Config['rules'] = {
   /**
    * @name layer-name-pattern
    * @description 指定 @layer 的命名模式；Strict 模式强制使用 kebab-case 命名规范
@@ -69,3 +69,5 @@ export const patternRules: Config['rules'] = {
     },
   ],
 };
+
+export default patternRules;

@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const customPropertyRules: Config['rules'] = {
+const customPropertyRules: Config['rules'] = {
   /**
    * @name custom-property-pattern
    * @description 指定自定义属性（CSS 变量）的命名模式；Strict 模式强制使用 --kebab-case 命名规范
@@ -68,3 +68,5 @@ export const customPropertyRules: Config['rules'] = {
    */
   'custom-property-no-missing-var-function': true,
 };
+
+export default customPropertyRules;

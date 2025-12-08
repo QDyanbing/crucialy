@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const unitRules: Config['rules'] = {
+const unitRules: Config['rules'] = {
   /**
    * @name unit-no-unknown
    * @description 禁止使用未知的单位；检查 CSS 单位是否为标准的有效单位（长度、时间、角度等），无效的单位会导致样式失效
@@ -53,3 +53,5 @@ export const unitRules: Config['rules'] = {
    */
   'unit-disallowed-list': ['cm', 'mm', 'in', 'pt', 'pc'],
 };
+
+export default unitRules;

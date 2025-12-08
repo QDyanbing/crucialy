@@ -11,7 +11,7 @@
 
 import type { Config } from 'stylelint';
 
-export const atRuleRules: Config['rules'] = {
+const atRuleRules: Config['rules'] = {
   /**
    * @name at-rule-no-unknown
    * @description 禁止使用未知的 @规则；如果使用 Sass/Less 等预处理器，需要在 ignoreAtRules 中配置允许的 @规则
@@ -172,3 +172,5 @@ export const atRuleRules: Config['rules'] = {
    */
   'at-rule-descriptor-value-no-unknown': true,
 };
+
+export default atRuleRules;

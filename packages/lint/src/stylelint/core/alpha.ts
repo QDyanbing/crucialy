@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const alphaRules: Config['rules'] = {
+const alphaRules: Config['rules'] = {
   /**
    * @name alpha-value-notation
    * @description 指定透明度值的表示法；
@@ -26,3 +26,5 @@ export const alphaRules: Config['rules'] = {
    */
   'alpha-value-notation': 'number',
 };
+
+export default alphaRules;

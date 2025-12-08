@@ -12,7 +12,7 @@
 
 import type { Config } from 'stylelint';
 
-export const declarationRules: Config['rules'] = {
+const declarationRules: Config['rules'] = {
   /**
    * @name declaration-block-no-duplicate-custom-properties
    * @description 禁止声明块中出现重复的自定义属性；同一个规则块中不能定义相同的 CSS 变量两次，会导致代码混乱
@@ -227,3 +227,5 @@ export const declarationRules: Config['rules'] = {
    */
   'declaration-property-value-no-unknown': true,
 };
+
+export default declarationRules;

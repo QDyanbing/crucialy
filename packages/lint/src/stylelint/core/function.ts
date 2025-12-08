@@ -11,7 +11,7 @@
 
 import type { Config } from 'stylelint';
 
-export const functionRules: Config['rules'] = {
+const functionRules: Config['rules'] = {
   /**
    * @name function-calc-no-unspaced-operator
    * @description 要求 calc() 函数运算符周围有空格；提高可读性，避免解析歧义，是 CSS 规范要求
@@ -149,3 +149,5 @@ export const functionRules: Config['rules'] = {
    */
   'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hsla'],
 };
+
+export default functionRules;

@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const lengthRules: Config['rules'] = {
+const lengthRules: Config['rules'] = {
   /**
    * @name length-zero-no-unit
    * @description 禁止长度为零时使用单位；省略单位可以减少代码量，是 CSS 编码的最佳实践
@@ -26,3 +26,5 @@ export const lengthRules: Config['rules'] = {
    */
   'length-zero-no-unit': [true, { ignore: ['custom-properties'] }],
 };
+
+export default lengthRules;

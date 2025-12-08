@@ -8,7 +8,7 @@
 
 import type { Config } from 'stylelint';
 
-export const nestingRules: Config['rules'] = {
+const nestingRules: Config['rules'] = {
   /**
    * @name nesting-selector-no-missing-scoping-root
    * @description 禁止嵌套选择器缺少作用域根（& 符号）；& 选择器必须在某个规则块内，不能在文件顶层直接使用
@@ -43,3 +43,5 @@ export const nestingRules: Config['rules'] = {
    */
   'selector-nested-pattern': '^&',
 };
+
+export default nestingRules;

@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const gridRules: Config['rules'] = {
+const gridRules: Config['rules'] = {
   /**
    * @name named-grid-areas-no-invalid
    * @description 禁止使用无效的命名网格区域；grid-template-areas 必须形成完整的矩形，每行单元格数量相同，相同名称的单元格必须相邻
@@ -32,3 +32,5 @@ export const gridRules: Config['rules'] = {
    */
   'named-grid-areas-no-invalid': true,
 };
+
+export default gridRules;

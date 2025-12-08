@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const syntaxRules: Config['rules'] = {
+const syntaxRules: Config['rules'] = {
   /**
    * @name syntax-string-no-invalid
    * @description 禁止使用无效的语法字符串；检查 CSS 语法字符串是否合法，主要检查 \@supports 等 at-rule 中的条件语法，确保括号匹配和语法正确
@@ -24,3 +24,5 @@ export const syntaxRules: Config['rules'] = {
    */
   'syntax-string-no-invalid': true,
 };
+
+export default syntaxRules;

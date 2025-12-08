@@ -10,7 +10,7 @@
 
 import type { Config } from 'stylelint';
 
-export const mediaRules: Config['rules'] = {
+const mediaRules: Config['rules'] = {
   /**
    * @name media-feature-name-no-unknown
    * @description 禁止使用未知的 media feature 名称；检查 media query 中的 feature 是否为标准 feature，拼写错误会导致查询失效
@@ -144,3 +144,5 @@ export const mediaRules: Config['rules'] = {
    */
   'media-type-no-deprecated': true,
 };
+
+export default mediaRules;

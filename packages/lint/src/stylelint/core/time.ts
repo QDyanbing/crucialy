@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const timeRules: Config['rules'] = {
+const timeRules: Config['rules'] = {
   /**
    * @name time-min-milliseconds
    * @description 指定时间值的最小毫秒数；Strict 模式限制为 100ms，防止过快的动画影响用户体验
@@ -22,3 +22,5 @@ export const timeRules: Config['rules'] = {
    */
   'time-min-milliseconds': 100,
 };
+
+export default timeRules;

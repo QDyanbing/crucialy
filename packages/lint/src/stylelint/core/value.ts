@@ -8,7 +8,7 @@
 
 import type { Config } from 'stylelint';
 
-export const valueRules: Config['rules'] = {
+const valueRules: Config['rules'] = {
   /**
    * @name value-keyword-case
    * @description 要求值关键字使用小写；CSS 值关键字应该使用小写字母，符合 CSS 编码规范
@@ -40,3 +40,5 @@ export const valueRules: Config['rules'] = {
    */
   'value-no-vendor-prefix': [true, { ignoreValues: ['box', 'inline-box'] }],
 };
+
+export default valueRules;

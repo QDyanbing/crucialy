@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const importRules: Config['rules'] = {
+const importRules: Config['rules'] = {
   /**
    * @name import-notation
    * @description 指定 @import 的表示法；Strict 模式统一使用字符串形式，更简洁
@@ -21,3 +21,5 @@ export const importRules: Config['rules'] = {
    */
   'import-notation': 'string',
 };
+
+export default importRules;

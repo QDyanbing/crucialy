@@ -10,7 +10,7 @@
 
 import type { Config } from 'stylelint';
 
-export const keyframeRules: Config['rules'] = {
+const keyframeRules: Config['rules'] = {
   /**
    * @name keyframe-selector-notation
    * @description 指定 \@keyframes 中选择器的表示法；避免混用百分比和关键字两种表示法
@@ -93,3 +93,5 @@ export const keyframeRules: Config['rules'] = {
     },
   ],
 };
+
+export default keyframeRules;

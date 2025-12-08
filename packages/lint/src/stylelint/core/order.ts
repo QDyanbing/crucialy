@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const orderRules: Config['rules'] = {
+const orderRules: Config['rules'] = {
   /**
    * @name order/order
    * @description 指定声明块内容的顺序；规范规则块中不同类型内容的顺序，提高代码可读性和可维护性
@@ -315,3 +315,5 @@ export const orderRules: Config['rules'] = {
    */
   'order/properties-alphabetical-order': null,
 };
+
+export default orderRules;

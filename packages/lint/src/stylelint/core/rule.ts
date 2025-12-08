@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const ruleRules: Config['rules'] = {
+const ruleRules: Config['rules'] = {
   /**
    * @name rule-empty-line-before
    * @description 要求规则前有空行；在规则前添加空行，提高可读性
@@ -70,3 +70,5 @@ export const ruleRules: Config['rules'] = {
    */
   'rule-selector-property-disallowed-list': null,
 };
+
+export default ruleRules;

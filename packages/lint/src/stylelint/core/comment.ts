@@ -11,7 +11,7 @@
 
 import type { Config } from 'stylelint';
 
-export const commentRules: Config['rules'] = {
+const commentRules: Config['rules'] = {
   /**
    * @name comment-empty-line-before
    * @description 要求注释前有空行，提高代码可读性，将注释与代码逻辑分隔开
@@ -91,3 +91,5 @@ export const commentRules: Config['rules'] = {
    */
   'comment-word-disallowed-list': null,
 };
+
+export default commentRules;

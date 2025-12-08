@@ -10,7 +10,7 @@
 
 import type { Config } from 'stylelint';
 
-export const fontRules: Config['rules'] = {
+const fontRules: Config['rules'] = {
   /**
    * @name font-family-name-quotes
    * @description 要求字体名称在必要时使用引号；包含空格的字体名必须加引号，通用字体族关键字不加引号
@@ -71,3 +71,5 @@ export const fontRules: Config['rules'] = {
    */
   'font-weight-notation': ['numeric', { ignore: ['relative'] }],
 };
+
+export default fontRules;

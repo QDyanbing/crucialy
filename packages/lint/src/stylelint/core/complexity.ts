@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const complexityRules: Config['rules'] = {
+const complexityRules: Config['rules'] = {
   /**
    * @name max-nesting-depth
    * @description 限制选择器的最大嵌套深度；Strict 模式限制为 3 层，防止选择器过于复杂
@@ -39,3 +39,5 @@ export const complexityRules: Config['rules'] = {
     },
   ],
 };
+
+export default complexityRules;

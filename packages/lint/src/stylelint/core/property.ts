@@ -9,7 +9,7 @@
 
 import type { Config } from 'stylelint';
 
-export const propertyRules: Config['rules'] = {
+const propertyRules: Config['rules'] = {
   /**
    * @name property-no-unknown
    * @description 禁止使用未知的 CSS 属性；检查属性名是否为标准的 CSS 属性，拼写错误或不存在的属性会导致样式失效
@@ -76,3 +76,5 @@ export const propertyRules: Config['rules'] = {
    */
   'property-disallowed-list': null,
 };
+
+export default propertyRules;

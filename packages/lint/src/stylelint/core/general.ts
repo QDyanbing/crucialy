@@ -12,7 +12,7 @@
 
 import type { Config } from 'stylelint';
 
-export const generalRules: Config['rules'] = {
+const generalRules: Config['rules'] = {
   /**
    * @name no-empty-source
    * @description 允许或禁止空源文件；Base 配置允许空文件，某些构建场景可能生成空文件或开发中的占位文件
@@ -171,3 +171,5 @@ export const generalRules: Config['rules'] = {
    */
   'no-invalid-position-declaration': true,
 };
+
+export default generalRules;

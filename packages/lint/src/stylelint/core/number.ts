@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const numberRules: Config['rules'] = {
+const numberRules: Config['rules'] = {
   /**
    * @name number-max-precision
    * @description 限制数字值的最大小数位数；过高的精度通常是不必要的，浏览器对精度的支持有限，限制精度可以减小文件大小
@@ -22,3 +22,5 @@ export const numberRules: Config['rules'] = {
    */
   'number-max-precision': 4,
 };
+
+export default numberRules;

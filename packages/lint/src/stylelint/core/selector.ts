@@ -11,7 +11,7 @@
 
 import type { Config } from 'stylelint';
 
-export const selectorRules: Config['rules'] = {
+const selectorRules: Config['rules'] = {
   /**
    * @name selector-attribute-quotes
    * @description 要求选择器属性值使用引号
@@ -405,3 +405,5 @@ export const selectorRules: Config['rules'] = {
    */
   'selector-anb-no-unmatchable': true,
 };
+
+export default selectorRules;

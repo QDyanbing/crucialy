@@ -7,7 +7,7 @@
 
 import type { Config } from 'stylelint';
 
-export const shorthandRules: Config['rules'] = {
+const shorthandRules: Config['rules'] = {
   /**
    * @name shorthand-property-no-redundant-values
    * @description 禁止简写属性使用冗余的值；CSS 简写属性可以根据值的数量自动推断，如果对边值相同可以省略后面的值，使用最简形式可以减少代码量
@@ -24,3 +24,5 @@ export const shorthandRules: Config['rules'] = {
    */
   'shorthand-property-no-redundant-values': true,
 };
+
+export default shorthandRules;
