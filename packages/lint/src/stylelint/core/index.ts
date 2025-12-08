@@ -1,12 +1,13 @@
 /**
- * Core Stylelint configuration
- * All core rules explicitly configured
- * Zero preset policy
+ * Core Stylelint 核心配置
+ * 所有核心规则显式配置
+ * 零预设策略
  *
- * This configuration merges base rules with strict rules:
- * - Base rules provide fundamental linting checks
- * - Strict rules add enhanced restrictions (BEM naming, complexity limits, etc.)
- * - When rules overlap, strict rules take precedence
+ * 这是统一的核心配置，结合了基础的代码检查规则和更严格的代码质量要求。
+ * 包含：
+ * - 基础 CSS 代码检查规则（验证、语法检查等）
+ * - 更严格的代码质量规则（BEM 命名规范、复杂度限制、格式化要求等）
+ * - 最佳实践和现代 CSS 特性支持
  */
 
 import type { Config } from 'stylelint';
@@ -44,10 +45,6 @@ import timeRules from './time';
 import unitRules from './unit';
 import valueRules from './value';
 
-/**
- * Core 配置
- * 合并所有规则分组
- */
 const core: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
