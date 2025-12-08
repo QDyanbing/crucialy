@@ -51,7 +51,7 @@ export const scss: Config = {
     // SCSS 有嵌套语法，关闭一些与嵌套冲突的规则检查
     'no-descending-specificity': null, // SCSS 嵌套可能导致误报
 
-    // 按照官方文档分类顺序合并所有 SCSS 规则
+    // 按照 import 顺序合并所有 SCSS 规则
     ...scssAtEachRules,
     ...scssAtElseRules,
     ...scssAtExtendRules,
@@ -61,21 +61,21 @@ export const scss: Config = {
     ...scssAtMixinRules,
     ...scssAtRuleRules,
     ...scssAtUseRules,
-    ...scssDollarVariableRules,
-    ...scssPercentPlaceholderRules,
-    ...scssDoubleSlashCommentRules,
     ...scssBlockRules,
     ...scssCommentRules,
     ...scssDeclarationRules,
     ...scssDimensionRules,
+    ...scssDollarVariableRules,
+    ...scssDoubleSlashCommentRules,
     ...scssFunctionRules,
+    ...scssGeneralRules,
+    ...scssLoadRules,
     ...scssMapRules,
     ...scssMediaFeatureRules,
     ...scssOperatorRules,
     ...scssPartialRules,
+    ...scssPercentPlaceholderRules,
     ...scssPropertyRules,
     ...scssSelectorRules,
-    ...scssLoadRules,
-    ...scssGeneralRules,
   },
 };
