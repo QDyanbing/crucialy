@@ -5,7 +5,7 @@
 
 export { angular } from './angular';
 export { astro } from './astro';
-export { base } from './base';
+export { base } from './core';
 export { cssInJs } from './css-in-js';
 export { html } from './html';
 export { less } from './less';

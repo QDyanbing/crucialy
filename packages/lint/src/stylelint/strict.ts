@@ -11,7 +11,7 @@
  */
 
 import type { Config } from 'stylelint';
-import { base } from './base';
+import { base } from './core';
 
 // 导入 Strict 规则分组（与 base-rules 结构对应）
 import { complexityRules } from './strict-rules/complexity';

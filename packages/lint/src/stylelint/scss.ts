@@ -6,7 +6,7 @@
  */
 
 import type { Config } from 'stylelint';
-import { base } from './base';
+import { base } from './core';
 
 import { scssAtEachRules } from './scss-rules/at-each';
 import { scssAtElseRules } from './scss-rules/at-else';
