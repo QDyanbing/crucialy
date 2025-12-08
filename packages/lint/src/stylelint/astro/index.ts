@@ -5,8 +5,10 @@
 
 import type { Config } from 'stylelint';
 
-export const astro: Config = {
+const astro: Config = {
   rules: {
     // TODO: M12 - Implement Astro rules
   },
 };
+
+export default astro;

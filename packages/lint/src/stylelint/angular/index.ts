@@ -5,8 +5,10 @@
 
 import type { Config } from 'stylelint';
 
-export const angular: Config = {
+const angular: Config = {
   rules: {
     // TODO: M13 - Implement Angular rules
   },
 };
+
+export default angular;

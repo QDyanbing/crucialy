@@ -5,9 +5,11 @@
 
 import type { Config } from 'stylelint';
 
-export const less: Config = {
+const less: Config = {
   customSyntax: 'postcss-less',
   rules: {
     // TODO: M6 - Implement Less rules
   },
 };
+
+export default less;

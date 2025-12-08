@@ -3,14 +3,14 @@
  * Zero preset, all rules explicitly configured
  */
 
-export { angular } from './angular';
-export { astro } from './astro';
+export { default as angular } from './angular';
+export { default as astro } from './astro';
 export { default as core } from './core';
-export { cssInJs } from './css-in-js';
-export { html } from './html';
-export { less } from './less';
-export { modules } from './modules';
+export { default as cssInJs } from './css-in-js';
+export { default as html } from './html';
+export { default as less } from './less';
+export { default as modules } from './modules';
 export { default as scss } from './scss';
-export { stylus } from './stylus';
-export { svelte } from './svelte';
-export { vue } from './vue';
+export { default as stylus } from './stylus';
+export { default as svelte } from './svelte';
+export { default as vue } from './vue';

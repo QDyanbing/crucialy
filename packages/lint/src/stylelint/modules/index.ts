@@ -5,8 +5,10 @@
 
 import type { Config } from 'stylelint';
 
-export const modules: Config = {
+const modules: Config = {
   rules: {
     // TODO: M8 - Implement CSS Modules rules
   },
 };
+
+export default modules;

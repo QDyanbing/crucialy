@@ -5,9 +5,11 @@
 
 import type { Config } from 'stylelint';
 
-export const svelte: Config = {
+const svelte: Config = {
   customSyntax: 'postcss-html',
   rules: {
     // TODO: M11 - Implement Svelte rules
   },
 };
+
+export default svelte;

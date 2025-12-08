@@ -4,8 +4,10 @@
 
 import type { Config } from 'stylelint';
 
-export const stylus: Config = {
+const stylus: Config = {
   rules: {
     // TODO: M7 - Implement Stylus rules
   },
 };
+
+export default stylus;

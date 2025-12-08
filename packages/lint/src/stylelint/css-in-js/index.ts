@@ -5,9 +5,11 @@
 
 import type { Config } from 'stylelint';
 
-export const cssInJs: Config = {
+const cssInJs: Config = {
   customSyntax: '@stylelint/postcss-css-in-js',
   rules: {
     // TODO: M14 - Implement CSS-in-JS rules
   },
 };
+
+export default cssInJs;

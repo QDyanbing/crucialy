@@ -5,9 +5,11 @@
 
 import type { Config } from 'stylelint';
 
-export const vue: Config = {
+const vue: Config = {
   customSyntax: 'postcss-html',
   rules: {
     // TODO: M10 - Implement Vue rules
   },
 };
+
+export default vue;
