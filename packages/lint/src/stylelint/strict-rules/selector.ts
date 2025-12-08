@@ -66,13 +66,14 @@ export const selectorRules: Config['rules'] = {
   /**
    * @name selector-max-specificity
    * @description 选择器最大特异性；Strict 模式限制选择器特异性，防止过度嵌套
-   * @value string - 特异性字符串（Strict 配置为 '0,3,0'，覆盖 Base 的 null）
+   * @value string - 特异性字符串（Strict 配置为 '0,3,1'，覆盖 Base 的 null）
    * @example ✅ 正确示例：
    *  - .a.b.c {}
+   *  - .a.b.c:hover {}
    * @example ❌ 错误示例：
-   *  - .a.b.c.d {}                              (特异性超过 0,3,0)
+   *  - .a.b.c.d {}                              (特异性超过 0,3,1)
    */
-  'selector-max-specificity': '0,3,0',
+  'selector-max-specificity': '0,3,1',
 
   /**
    * @name selector-max-compound-selectors

@@ -12,7 +12,7 @@ export const complexityRules: Config['rules'] = {
    * @name max-nesting-depth
    * @description 限制选择器的最大嵌套深度；Strict 模式限制为 3 层，防止选择器过于复杂
    * @value number - 最大嵌套层数（Strict 配置为 3，覆盖 Base 的 null）
-   * @secondary ignore: ['blockless-at-rules', 'pseudo-classes'] - 忽略无块级 @规则和伪类选择器
+   * @secondary ignore: ['blockless-at-rules'] - 忽略无块级 @规则（如 @media）
    * @example ✅ 正确示例：
    *  - .a {
    *      .b {
@@ -35,7 +35,7 @@ export const complexityRules: Config['rules'] = {
   'max-nesting-depth': [
     3,
     {
-      ignore: ['blockless-at-rules', 'pseudo-classes'],
+      ignore: ['blockless-at-rules'],
     },
   ],
 };
