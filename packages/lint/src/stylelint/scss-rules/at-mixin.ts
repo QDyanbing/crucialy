@@ -74,4 +74,3 @@ export const scssAtMixinRules: Config['rules'] = {
    */
   'scss/at-mixin-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
-

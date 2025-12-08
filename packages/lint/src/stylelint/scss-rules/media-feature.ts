@@ -21,4 +21,3 @@ export const scssMediaFeatureRules: Config['rules'] = {
    */
   'scss/media-feature-value-dollar-variable': null,
 };
-

@@ -45,4 +45,3 @@ export const scssAtIfRules: Config['rules'] = {
    */
   'scss/at-if-no-null': true,
 };
-

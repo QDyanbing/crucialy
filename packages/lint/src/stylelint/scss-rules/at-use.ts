@@ -34,4 +34,3 @@ export const scssAtUseRules: Config['rules'] = {
    */
   'scss/at-use-no-unnamespaced': true,
 };
-

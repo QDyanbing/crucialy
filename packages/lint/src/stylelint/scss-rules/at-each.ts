@@ -20,4 +20,3 @@ export const scssAtEachRules: Config['rules'] = {
    */
   'scss/at-each-key-value-single-line': true,
 };
-

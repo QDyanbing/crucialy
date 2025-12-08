@@ -2,8 +2,8 @@
 // DO NOT EDIT MANUALLY.
 
 export const lessRules = [
-  "less/color-hex-case",
-  "less/color-no-hex",
-  "less/color-no-invalid-hex",
-  "less/no-duplicate-variables"
+  'less/color-hex-case',
+  'less/color-no-hex',
+  'less/color-no-invalid-hex',
+  'less/no-duplicate-variables',
 ];

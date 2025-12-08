@@ -19,4 +19,3 @@ export const scssPartialRules: Config['rules'] = {
    */
   'scss/partial-no-import': null,
 };
-

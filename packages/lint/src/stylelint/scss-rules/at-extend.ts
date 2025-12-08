@@ -20,4 +20,3 @@ export const scssAtExtendRules: Config['rules'] = {
    */
   'scss/at-extend-no-missing-placeholder': null,
 };
-

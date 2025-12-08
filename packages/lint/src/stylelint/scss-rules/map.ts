@@ -19,4 +19,3 @@ export const scssMapRules: Config['rules'] = {
    */
   'scss/map-keys-quotes': 'always',
 };
-

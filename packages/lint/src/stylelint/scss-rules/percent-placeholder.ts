@@ -20,4 +20,3 @@ export const scssPercentPlaceholderRules: Config['rules'] = {
    */
   'scss/percent-placeholder-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
-

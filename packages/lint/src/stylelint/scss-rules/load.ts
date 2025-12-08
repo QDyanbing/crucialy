@@ -34,4 +34,3 @@ export const scssLoadRules: Config['rules'] = {
    */
   'scss/load-partial-extension': null,
 };
-

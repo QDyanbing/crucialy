@@ -20,4 +20,3 @@ export const scssDimensionRules: Config['rules'] = {
    */
   'scss/dimension-no-non-numeric-values': true,
 };
-

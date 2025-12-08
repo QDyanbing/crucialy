@@ -20,4 +20,3 @@ export const scssPropertyRules: Config['rules'] = {
    */
   'scss/property-no-unknown': true,
 };
-

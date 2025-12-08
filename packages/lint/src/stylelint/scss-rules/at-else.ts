@@ -59,4 +59,3 @@ export const scssAtElseRules: Config['rules'] = {
    */
   'scss/at-else-if-parentheses-space-before': 'always',
 };
-

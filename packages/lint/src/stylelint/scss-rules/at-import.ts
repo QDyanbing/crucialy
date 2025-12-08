@@ -81,4 +81,3 @@ export const scssAtImportRules: Config['rules'] = {
    */
   'scss/at-import-partial-extension-whitelist': null,
 };
-
