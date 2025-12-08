@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssMapRules: Config['rules'] = {
+const scssMapRules: Config['rules'] = {
   /**
    * @name scss/map-keys-quotes
    * @description Map 键是否使用引号
@@ -19,3 +19,5 @@ export const scssMapRules: Config['rules'] = {
    */
   'scss/map-keys-quotes': 'always',
 };
+
+export default scssMapRules;

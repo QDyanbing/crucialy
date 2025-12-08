@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssGeneralRules: Config['rules'] = {
+const scssGeneralRules: Config['rules'] = {
   /**
    * @name scss/no-dollar-variables
    * @description 禁止使用 $变量
@@ -82,3 +82,5 @@ export const scssGeneralRules: Config['rules'] = {
    */
   'scss/no-unused-private-members': true,
 };
+
+export default scssGeneralRules;

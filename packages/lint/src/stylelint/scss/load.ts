@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssLoadRules: Config['rules'] = {
+const scssLoadRules: Config['rules'] = {
   /**
    * @name scss/load-no-partial-leading-underscore
    * @description 禁止 @import/@use/@forward/@load-css 部分文件前导下划线
@@ -34,3 +34,5 @@ export const scssLoadRules: Config['rules'] = {
    */
   'scss/load-partial-extension': null,
 };
+
+export default scssLoadRules;

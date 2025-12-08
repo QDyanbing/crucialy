@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssFunctionRules: Config['rules'] = {
+const scssFunctionRules: Config['rules'] = {
   /**
    * @name scss/function-calculation-no-interpolation
    * @description 禁止计算函数中使用插值
@@ -95,3 +95,5 @@ export const scssFunctionRules: Config['rules'] = {
    */
   'scss/function-unquote-no-unquoted-strings-inside': true,
 };
+
+export default scssFunctionRules;

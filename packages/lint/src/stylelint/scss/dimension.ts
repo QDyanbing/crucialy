@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssDimensionRules: Config['rules'] = {
+const scssDimensionRules: Config['rules'] = {
   /**
    * @name scss/dimension-no-non-numeric-values
    * @description 禁止维度值使用非数字值
@@ -20,3 +20,5 @@ export const scssDimensionRules: Config['rules'] = {
    */
   'scss/dimension-no-non-numeric-values': true,
 };
+
+export default scssDimensionRules;

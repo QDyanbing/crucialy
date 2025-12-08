@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssPercentPlaceholderRules: Config['rules'] = {
+const scssPercentPlaceholderRules: Config['rules'] = {
   /**
    * @name scss/percent-placeholder-pattern
    * @description 占位符命名模式；强制使用 kebab-case
@@ -20,3 +20,5 @@ export const scssPercentPlaceholderRules: Config['rules'] = {
    */
   'scss/percent-placeholder-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
+
+export default scssPercentPlaceholderRules;

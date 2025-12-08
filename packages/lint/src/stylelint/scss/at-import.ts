@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtImportRules: Config['rules'] = {
+const scssAtImportRules: Config['rules'] = {
   /**
    * @name scss/at-import-no-partial-leading-underscore
    * @description @import 禁止部分文件前导下划线（已弃用，使用 load-no-partial-leading-underscore）
@@ -81,3 +81,5 @@ export const scssAtImportRules: Config['rules'] = {
    */
   'scss/at-import-partial-extension-whitelist': null,
 };
+
+export default scssAtImportRules;

@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtFunctionRules: Config['rules'] = {
+const scssAtFunctionRules: Config['rules'] = {
   /**
    * @name scss/at-function-named-arguments
    * @description @function 调用是否使用命名参数
@@ -46,3 +46,5 @@ export const scssAtFunctionRules: Config['rules'] = {
    */
   'scss/at-function-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
+
+export default scssAtFunctionRules;

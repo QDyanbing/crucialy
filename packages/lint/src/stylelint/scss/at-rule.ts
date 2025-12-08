@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtRuleRules: Config['rules'] = {
+const scssAtRuleRules: Config['rules'] = {
   /**
    * @name scss/at-rule-conditional-no-parentheses
    * @description 禁止条件 @规则使用括号
@@ -47,3 +47,5 @@ export const scssAtRuleRules: Config['rules'] = {
    */
   'scss/at-root-no-redundant': true,
 };
+
+export default scssAtRuleRules;

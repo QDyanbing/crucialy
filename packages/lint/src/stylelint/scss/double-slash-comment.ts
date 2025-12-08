@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssDoubleSlashCommentRules: Config['rules'] = {
+const scssDoubleSlashCommentRules: Config['rules'] = {
   /**
    * @name scss/double-slash-comment-empty-line-before
    * @description 双斜杠注释前是否需要空行
@@ -52,3 +52,5 @@ export const scssDoubleSlashCommentRules: Config['rules'] = {
    */
   'scss/double-slash-comment-whitespace-inside': 'always',
 };
+
+export default scssDoubleSlashCommentRules;

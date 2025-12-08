@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssPartialRules: Config['rules'] = {
+const scssPartialRules: Config['rules'] = {
   /**
    * @name scss/partial-no-import
    * @description 禁止在部分文件中使用 @import
@@ -19,3 +19,5 @@ export const scssPartialRules: Config['rules'] = {
    */
   'scss/partial-no-import': null,
 };
+
+export default scssPartialRules;

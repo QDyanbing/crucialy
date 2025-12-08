@@ -10,7 +10,7 @@ export { cssInJs } from './css-in-js';
 export { html } from './html';
 export { less } from './less';
 export { modules } from './modules';
-export { scss } from './scss';
+export { default as scss } from './scss';
 export { stylus } from './stylus';
 export { svelte } from './svelte';
 export { vue } from './vue';

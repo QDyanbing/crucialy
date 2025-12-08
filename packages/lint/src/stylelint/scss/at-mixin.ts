@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtMixinRules: Config['rules'] = {
+const scssAtMixinRules: Config['rules'] = {
   /**
    * @name scss/at-mixin-argumentless-call-parentheses
    * @description 无参数 @mixin 调用是否使用括号
@@ -74,3 +74,5 @@ export const scssAtMixinRules: Config['rules'] = {
    */
   'scss/at-mixin-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
+
+export default scssAtMixinRules;

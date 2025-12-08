@@ -6,38 +6,38 @@
  */
 
 import type { Config } from 'stylelint';
-import core from './core';
+import core from '../core';
 
-import { scssAtEachRules } from './scss-rules/at-each';
-import { scssAtElseRules } from './scss-rules/at-else';
-import { scssAtExtendRules } from './scss-rules/at-extend';
-import { scssAtFunctionRules } from './scss-rules/at-function';
-import { scssAtIfRules } from './scss-rules/at-if';
-import { scssAtImportRules } from './scss-rules/at-import';
-import { scssAtMixinRules } from './scss-rules/at-mixin';
-import { scssAtRuleRules } from './scss-rules/at-rule';
-import { scssAtUseRules } from './scss-rules/at-use';
-import { scssBlockRules } from './scss-rules/block';
-import { scssCommentRules } from './scss-rules/comment';
-import { scssDeclarationRules } from './scss-rules/declaration';
-import { scssDimensionRules } from './scss-rules/dimension';
-import { scssDollarVariableRules } from './scss-rules/dollar-variable';
-import { scssDoubleSlashCommentRules } from './scss-rules/double-slash-comment';
-import { scssFunctionRules } from './scss-rules/function';
-import { scssGeneralRules } from './scss-rules/general';
-import { scssLoadRules } from './scss-rules/load';
-import { scssMapRules } from './scss-rules/map';
-import { scssMediaFeatureRules } from './scss-rules/media-feature';
-import { scssOperatorRules } from './scss-rules/operator';
-import { scssPartialRules } from './scss-rules/partial';
-import { scssPercentPlaceholderRules } from './scss-rules/percent-placeholder';
-import { scssPropertyRules } from './scss-rules/property';
-import { scssSelectorRules } from './scss-rules/selector';
+import scssAtEachRules from './at-each';
+import scssAtElseRules from './at-else';
+import scssAtExtendRules from './at-extend';
+import scssAtFunctionRules from './at-function';
+import scssAtIfRules from './at-if';
+import scssAtImportRules from './at-import';
+import scssAtMixinRules from './at-mixin';
+import scssAtRuleRules from './at-rule';
+import scssAtUseRules from './at-use';
+import scssBlockRules from './block';
+import scssCommentRules from './comment';
+import scssDeclarationRules from './declaration';
+import scssDimensionRules from './dimension';
+import scssDollarVariableRules from './dollar-variable';
+import scssDoubleSlashCommentRules from './double-slash-comment';
+import scssFunctionRules from './function';
+import scssGeneralRules from './general';
+import scssLoadRules from './load';
+import scssMapRules from './map';
+import scssMediaFeatureRules from './media-feature';
+import scssOperatorRules from './operator';
+import scssPartialRules from './partial';
+import scssPercentPlaceholderRules from './percent-placeholder';
+import scssPropertyRules from './property';
+import scssSelectorRules from './selector';
 
 /**
  * SCSS 配置 = Core 配置 + SCSS 规则 + 关闭冲突规则
  */
-export const scss: Config = {
+const scss: Config = {
   ...core,
   customSyntax: 'postcss-scss',
   plugins: [...(core.plugins as string[]), 'stylelint-scss'],
@@ -94,3 +94,5 @@ export const scss: Config = {
     ...scssSelectorRules,
   },
 };
+
+export default scss;

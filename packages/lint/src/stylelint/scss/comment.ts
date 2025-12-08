@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssCommentRules: Config['rules'] = {
+const scssCommentRules: Config['rules'] = {
   /**
    * @name scss/comment-no-empty
    * @description 禁止空注释
@@ -34,3 +34,5 @@ export const scssCommentRules: Config['rules'] = {
    */
   'scss/comment-no-loud': null,
 };
+
+export default scssCommentRules;

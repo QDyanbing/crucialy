@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtUseRules: Config['rules'] = {
+const scssAtUseRules: Config['rules'] = {
   /**
    * @name scss/at-use-no-redundant-alias
    * @description 禁止 @use 冗余别名
@@ -34,3 +34,5 @@ export const scssAtUseRules: Config['rules'] = {
    */
   'scss/at-use-no-unnamespaced': true,
 };
+
+export default scssAtUseRules;

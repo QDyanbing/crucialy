@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtExtendRules: Config['rules'] = {
+const scssAtExtendRules: Config['rules'] = {
   /**
    * @name scss/at-extend-no-missing-placeholder
    * @description @extend 是否必须使用占位符
@@ -20,3 +20,5 @@ export const scssAtExtendRules: Config['rules'] = {
    */
   'scss/at-extend-no-missing-placeholder': null,
 };
+
+export default scssAtExtendRules;

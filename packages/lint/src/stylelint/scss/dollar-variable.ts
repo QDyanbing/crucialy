@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssDollarVariableRules: Config['rules'] = {
+const scssDollarVariableRules: Config['rules'] = {
   /**
    * @name scss/dollar-variable-colon-newline-after
    * @description $变量冒号后是否换行
@@ -156,3 +156,5 @@ export const scssDollarVariableRules: Config['rules'] = {
    */
   'scss/dollar-variable-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*$',
 };
+
+export default scssDollarVariableRules;

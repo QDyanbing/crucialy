@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssPropertyRules: Config['rules'] = {
+const scssPropertyRules: Config['rules'] = {
   /**
    * @name scss/property-no-unknown
    * @description 禁止未知的 SCSS 属性
@@ -20,3 +20,5 @@ export const scssPropertyRules: Config['rules'] = {
    */
   'scss/property-no-unknown': true,
 };
+
+export default scssPropertyRules;

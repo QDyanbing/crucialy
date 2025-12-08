@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssMediaFeatureRules: Config['rules'] = {
+const scssMediaFeatureRules: Config['rules'] = {
   /**
    * @name scss/media-feature-value-dollar-variable
    * @description Media feature 值是否使用 $变量
@@ -21,3 +21,5 @@ export const scssMediaFeatureRules: Config['rules'] = {
    */
   'scss/media-feature-value-dollar-variable': null,
 };
+
+export default scssMediaFeatureRules;

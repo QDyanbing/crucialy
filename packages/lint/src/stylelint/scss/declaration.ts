@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssDeclarationRules: Config['rules'] = {
+const scssDeclarationRules: Config['rules'] = {
   /**
    * @name scss/declaration-nested-properties
    * @description 嵌套属性格式要求
@@ -61,3 +61,5 @@ export const scssDeclarationRules: Config['rules'] = {
    */
   'scss/declaration-property-value-no-unknown': true,
 };
+
+export default scssDeclarationRules;

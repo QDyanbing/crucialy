@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssBlockRules: Config['rules'] = {
+const scssBlockRules: Config['rules'] = {
   /**
    * @name scss/block-no-redundant-nesting
    * @description 禁止冗余的块嵌套
@@ -25,3 +25,5 @@ export const scssBlockRules: Config['rules'] = {
    */
   'scss/block-no-redundant-nesting': true,
 };
+
+export default scssBlockRules;

@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtEachRules: Config['rules'] = {
+const scssAtEachRules: Config['rules'] = {
   /**
    * @name scss/at-each-key-value-single-line
    * @description 要求 @each 的键值对在同一行
@@ -20,3 +20,5 @@ export const scssAtEachRules: Config['rules'] = {
    */
   'scss/at-each-key-value-single-line': true,
 };
+
+export default scssAtEachRules;

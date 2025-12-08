@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtIfRules: Config['rules'] = {
+const scssAtIfRules: Config['rules'] = {
   /**
    * @name scss/at-if-closing-brace-newline-after
    * @description @if 右大括号后是否换行
@@ -45,3 +45,5 @@ export const scssAtIfRules: Config['rules'] = {
    */
   'scss/at-if-no-null': true,
 };
+
+export default scssAtIfRules;

@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssOperatorRules: Config['rules'] = {
+const scssOperatorRules: Config['rules'] = {
   /**
    * @name scss/operator-no-newline-after
    * @description 禁止运算符后换行
@@ -51,3 +51,5 @@ export const scssOperatorRules: Config['rules'] = {
    */
   'scss/operator-no-unspaced': true,
 };
+
+export default scssOperatorRules;

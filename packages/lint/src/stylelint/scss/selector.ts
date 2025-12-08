@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssSelectorRules: Config['rules'] = {
+const scssSelectorRules: Config['rules'] = {
   /**
    * @name scss/selector-nest-combinators
    * @description 选择器嵌套组合器规范
@@ -53,3 +53,5 @@ export const scssSelectorRules: Config['rules'] = {
    */
   'scss/selector-no-union-class-name': true,
 };
+
+export default scssSelectorRules;

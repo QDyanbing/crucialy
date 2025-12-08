@@ -6,7 +6,7 @@
 
 import type { Config } from 'stylelint';
 
-export const scssAtElseRules: Config['rules'] = {
+const scssAtElseRules: Config['rules'] = {
   /**
    * @name scss/at-else-closing-brace-newline-after
    * @description @else 右大括号后是否换行
@@ -59,3 +59,5 @@ export const scssAtElseRules: Config['rules'] = {
    */
   'scss/at-else-if-parentheses-space-before': 'always',
 };
+
+export default scssAtElseRules;
