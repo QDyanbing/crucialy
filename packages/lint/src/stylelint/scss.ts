@@ -6,7 +6,7 @@
  */
 
 import type { Config } from 'stylelint';
-import { base } from './core';
+import core from './core';
 
 import { scssAtEachRules } from './scss-rules/at-each';
 import { scssAtElseRules } from './scss-rules/at-else';
@@ -35,33 +35,33 @@ import { scssPropertyRules } from './scss-rules/property';
 import { scssSelectorRules } from './scss-rules/selector';
 
 /**
- * SCSS 配置 = Base 配置 + SCSS 规则 + 关闭冲突规则
+ * SCSS 配置 = Core 配置 + SCSS 规则 + 关闭冲突规则
  */
 export const scss: Config = {
-  ...base,
+  ...core,
   customSyntax: 'postcss-scss',
-  plugins: [...(base.plugins as string[]), 'stylelint-scss'],
+  plugins: [...(core.plugins as string[]), 'stylelint-scss'],
   rules: {
-    ...base.rules,
+    ...core.rules,
 
     // 关闭与 SCSS 语法冲突的 core 规则
 
-    // base 配置中 at-rule-no-unknown: true，但会与 SCSS 预处理器语法冲突
+    // core 配置中 at-rule-no-unknown: true，但会与 SCSS 预处理器语法冲突
     // SCSS 包含 @mixin、@include、@use、@forward、@function、@if、@else 等专用 @规则
     // core 规则会将这些 SCSS 语法误报为未知规则，需要关闭 core 规则，改用 scss/at-rule-no-unknown 来检查
     'at-rule-no-unknown': null,
 
-    // base 配置中 function-disallowed-list: null，但会与 SCSS 预处理器语法冲突
+    // core 配置中 function-disallowed-list: null，但会与 SCSS 预处理器语法冲突
     // SCSS 包含大量内置函数，core 规则可能无法正确处理 SCSS 的函数语法
     // 需要关闭 core 规则，改用 scss/function-disallowed-list 来检查
     'function-disallowed-list': null,
 
-    // base 配置中 function-no-unknown: true，但会与 SCSS 预处理器语法冲突
+    // core 配置中 function-no-unknown: true，但会与 SCSS 预处理器语法冲突
     // SCSS 包含大量内置函数（如 darken()、lighten()、percentage()、unit()、map-get() 等）
     // core 规则会将这些 SCSS 内置函数误报为未知函数，需要关闭 core 规则，改用 scss/function-no-unknown 来检查
     'function-no-unknown': null,
 
-    // base 配置中 property-no-unknown: true，但会与 SCSS 预处理器语法冲突
+    // core 配置中 property-no-unknown: true，但会与 SCSS 预处理器语法冲突
     // SCSS 支持嵌套属性（如 border: { width: 1px; }）等 SCSS 特有的属性语法
     // core 规则会将这些 SCSS 语法误报为未知属性，需要关闭 core 规则，改用 scss/property-no-unknown 来检查
     'property-no-unknown': null,

@@ -48,7 +48,7 @@ import valueRules from './value';
  * Core 配置
  * 合并所有规则分组
  */
-export const core: Config = {
+const core: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
     ...alphaRules,
@@ -84,3 +84,5 @@ export const core: Config = {
     ...valueRules,
   },
 };
+
+export default core;

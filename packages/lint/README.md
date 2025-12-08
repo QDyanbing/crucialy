@@ -80,37 +80,34 @@ module.exports = require('@crucialy/lint/dist/eslint/vue.js');
 项目处于开发阶段，正在按照以下里程碑推进：
 
 - ✅ **M1**: 项目初始化 + TypeScript 基础设施
-- ⏳ **M2**: 收集完整规则清单
-- ⏳ **M3**: 实现 base.ts（核心规则）
+- ✅ **M2**: 收集完整规则清单
+- ✅ **M3**: 实现 core（核心规则，合并 base 和 strict）
 - ⏳ **M4-M15**: 其他配置文件
 
 ### 使用方法
 
-项目完成后可以这样使用：
-
 ```js
 // .stylelintrc.js
 module.exports = {
-  extends: ['@crucialy/lint/dist/stylelint/base'],
+  extends: ['@crucialy/lint/dist/stylelint/core'],
 };
 ```
 
 ### 支持的配置
 
-| 配置      | 说明                       | 状态      |
-| --------- | -------------------------- | --------- |
-| `base`    | 基础配置，包含所有核心规则 | 🚧 开发中 |
-| `strict`  | 严格模式（BEM 命名等）     | 🚧 开发中 |
-| `scss`    | SCSS 支持                  | 🚧 开发中 |
-| `less`    | Less 支持                  | 🚧 开发中 |
-| `stylus`  | Stylus 支持                | 🚧 开发中 |
-| `modules` | CSS Modules 支持           | 🚧 开发中 |
-| `html`    | HTML `<style>` 支持        | 🚧 开发中 |
-| `vue`     | Vue SFC 支持               | 🚧 开发中 |
-| `svelte`  | Svelte 组件支持            | 🚧 开发中 |
-| `astro`   | Astro 组件支持             | 🚧 开发中 |
-| `angular` | Angular 组件支持           | 🚧 开发中 |
-| `cssInJs` | CSS-in-JS 支持             | 🚧 开发中 |
+| 配置      | 说明                                          | 状态      |
+| --------- | --------------------------------------------- | --------- |
+| `core`    | 核心配置，包含所有规则（合并 base 和 strict） | ✅ 已完成 |
+| `scss`    | SCSS 支持                                     | 🚧 开发中 |
+| `less`    | Less 支持                                     | 🚧 开发中 |
+| `stylus`  | Stylus 支持                                   | 🚧 开发中 |
+| `modules` | CSS Modules 支持                              | 🚧 开发中 |
+| `html`    | HTML `<style>` 支持                           | 🚧 开发中 |
+| `vue`     | Vue SFC 支持                                  | 🚧 开发中 |
+| `svelte`  | Svelte 组件支持                               | 🚧 开发中 |
+| `astro`   | Astro 组件支持                                | 🚧 开发中 |
+| `angular` | Angular 组件支持                              | 🚧 开发中 |
+| `cssInJs` | CSS-in-JS 支持                                | 🚧 开发中 |
 
 ## 设计原则
 
@@ -120,7 +117,7 @@ module.exports = {
 4. **插件只提供规则** - 不使用插件的 preset
 5. **全面支持 multi-syntax** - 支持各种 customSyntax
 6. **未来 CSS 友好** - 支持 nesting 等新特性
-7. **提供 strict 模式** - 更严格的代码规范
+7. **严格的代码规范** - 默认启用严格规则（BEM 命名、复杂度限制等）
 8. **支持所有现代框架** - 多框架覆盖
 
 ## 开发
@@ -147,8 +144,9 @@ packages/lint/
 │   ├── stylelint/           # Stylelint 配置目录 (TypeScript)
 │   │   ├── index.ts         # 导出所有配置
 │   │   ├── types.ts         # TypeScript 类型定义
-│   │   ├── base.ts          # 基础配置
-│   │   ├── strict.ts        # 严格模式
+│   │   ├── core/            # 核心配置目录
+│   │   │   ├── index.ts     # 核心配置（合并 base 和 strict）
+│   │   │   └── *.ts         # 各规则分组文件
 │   │   ├── scss.ts          # SCSS 配置
 │   │   ├── less.ts          # Less 配置
 │   │   ├── stylus.ts        # Stylus 配置
