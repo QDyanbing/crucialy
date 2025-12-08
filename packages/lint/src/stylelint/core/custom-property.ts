@@ -2,7 +2,7 @@
  * Custom Property 相关规则
  *
  * 包含 CSS 自定义属性（CSS 变量）相关规则（3条）
- * - 命名模式
+ * - 命名模式（Strict 模式强制 kebab-case）
  * - 空行要求
  * - 必须用 var() 包裹
  */
@@ -12,16 +12,22 @@ import type { Config } from 'stylelint';
 export const customPropertyRules: Config['rules'] = {
   /**
    * @name custom-property-pattern
-   * @description 指定自定义属性（CSS 变量）的命名模式；规范 CSS 自定义属性的命名风格
-   * @value null - 不限制命名
-   * @value regex - 正则表达式字符串（如：'^[a-z]+(-[a-z]+)*$' 强制 kebab-case）
-   * @example ✅ 正确示例（null 时）：
-   *  - --myColor: red;
+   * @description 指定自定义属性（CSS 变量）的命名模式；Strict 模式强制使用 --kebab-case 命名规范
+   * @value regex - 正则表达式字符串（Strict 配置为 --kebab-case，覆盖 Base 的 null）
+   * @secondary message: 'Expected custom property to be kebab-case' - 自定义错误提示信息
+   * @example ✅ 正确示例：
    *  - --my-color: red;
-   * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
-   *  - --myColor: red;                        (应使用 kebab-case：--my-color)
+   *  - --primary-color: #000;
+   * @example ❌ 错误示例：
+   *  - --myColor: red;                        (应为 kebab-case：--my-color)
+   *  - --PrimaryColor: #000;                  (应为小写 kebab-case)
    */
-  'custom-property-pattern': null,
+  'custom-property-pattern': [
+    '^--[a-z0-9]+(?:-[a-z0-9]+)*$',
+    {
+      message: 'Expected custom property to be kebab-case',
+    },
+  ],
 
   /**
    * @name custom-property-empty-line-before

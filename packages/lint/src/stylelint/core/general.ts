@@ -54,17 +54,21 @@ export const generalRules: Config['rules'] = {
 
   /**
    * @name no-descending-specificity
-   * @description 禁止低特异性选择器覆盖高特异性选择器；Base 配置不检查，因为在大型项目中可能产生大量警告
+   * @description 禁止低特异性选择器覆盖高特异性选择器；Strict 模式强制检查，防止样式覆盖错误
+   * @value true - 检查并报错（Strict 配置，覆盖 Base 的 null）
    * @value null - 不检查
-   * @value true - 检查并报错
-   * @example ✅ 正确示例（null 时）：
-   *  - #id { color: red; }
+   * @example ✅ 正确示例：
+   *  - #id .class { color: red; }
    *    .class { color: blue; }
-   * @example ❌ 错误示例（假设配置为 true）：
+   *  - .a .b { color: red; }
+   *    .a { color: blue; }
+   * @example ❌ 错误示例：
    *  - #id .class { color: red; }
    *    .class { color: blue; }                (特异性降低：1-1-0 -> 0-1-0)
+   *  - .a.b { color: red; }
+   *    .a { color: blue; }                    (特异性降低：0-2-0 -> 0-1-0)
    */
-  'no-descending-specificity': null,
+  'no-descending-specificity': true,
 
   /**
    * @name no-duplicate-at-import-rules
@@ -124,15 +128,17 @@ export const generalRules: Config['rules'] = {
 
   /**
    * @name no-unknown-custom-properties
-   * @description 检查是否使用了未定义的自定义属性（CSS 变量）；Base 配置不检查，因为变量可能在其他文件定义或来自继承
+   * @description 检查是否使用了未定义的自定义属性（CSS 变量）；Strict 模式强制检查，避免拼写错误和运行时问题
+   * @value true - 检查并报错（Strict 配置，覆盖 Base 的 null）
    * @value null - 不检查
-   * @value true - 检查并报错
-   * @example ✅ 正确示例（null 时）：
-   *  - a { color: var(--primary); }           (即使未定义也不报错)
-   * @example ❌ 错误示例（假设配置为 true）：
-   *  - a { color: var(--undefined); }         (未定义的变量)
+   * @example ✅ 正确示例：
+   *  - :root { --primary-color: #ff0000; }
+   *    .button { color: var(--primary-color); }
+   * @example ❌ 错误示例：
+   *  - .button { color: var(--primary-colour); }  (拼写错误：colour 应该是 color)
+   *  - .button { color: var(--undefined-var); }   (未定义的变量)
    */
-  'no-unknown-custom-properties': null,
+  'no-unknown-custom-properties': true,
 
   /**
    * @name no-invalid-position-at-import-rule

@@ -103,15 +103,16 @@ export const mediaRules: Config['rules'] = {
 
   /**
    * @name media-feature-range-notation
-   * @description 指定 media feature range 的表示法；Base 配置使用 context，允许使用简洁的现代语法，也兼容传统语法
-   * @value 'context' - 根据上下文自动选择（支持现代和传统语法）
-   * @value 'prefix' - 强制使用传统语法（min-width: 600px）
-   * @example ✅ 正确示例（context）：
-   *  - \@media (width >= 600px) { }
-   *  - \@media (min-width: 600px) { }
-   *  - \@media (400px <= width <= 800px) { }
-   * @example ❌ 错误示例（假设配置为 'prefix'）：
-   *  - \@media (width >= 600px) { }           (应使用传统语法 min-width: 600px)
+   * @description 指定 media feature range 的表示法；Strict 模式统一使用现代范围上下文语法
+   * @value 'context' - 使用范围上下文语法（Strict 配置，覆盖 Base 的 null）
+   * @value 'prefix' - 使用前缀语法（min-/max-）
+   * @example ✅ 正确示例：
+   *  - @media (width >= 768px) { }
+   *  - @media (width <= 1024px) { }
+   *  - @media (width > 600px) and (width < 1200px) { }
+   * @example ❌ 错误示例：
+   *  - @media (min-width: 768px) { }         (应使用 width >= 768px)
+   *  - @media (max-width: 1024px) { }        (应使用 width <= 1024px)
    */
   'media-feature-range-notation': 'context',
 

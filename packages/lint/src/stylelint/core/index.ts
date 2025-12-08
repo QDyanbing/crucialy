@@ -1,7 +1,12 @@
 /**
- * Base Stylelint configuration
+ * Core Stylelint configuration
  * All core rules explicitly configured
  * Zero preset policy
+ *
+ * This configuration merges base rules with strict rules:
+ * - Base rules provide fundamental linting checks
+ * - Strict rules add enhanced restrictions (BEM naming, complexity limits, etc.)
+ * - When rules overlap, strict rules take precedence
  */
 
 import type { Config } from 'stylelint';
@@ -40,10 +45,10 @@ import { unitRules } from './unit';
 import { valueRules } from './value';
 
 /**
- * Base 配置
+ * Core 配置
  * 合并所有规则分组
  */
-export const base: Config = {
+export const core: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
     ...alphaRules,

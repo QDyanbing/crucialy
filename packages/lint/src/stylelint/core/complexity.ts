@@ -10,12 +10,10 @@ import type { Config } from 'stylelint';
 export const complexityRules: Config['rules'] = {
   /**
    * @name max-nesting-depth
-   * @description 限制选择器的最大嵌套深度；过深的嵌套会导致 CSS 特异性过高、代码可读性差、选择器性能下降
-   * @value null - 不限制嵌套深度
-   * @value number - 最大嵌套层数（如：3 表示最多 3 层）
-   * @example ✅ 正确示例（null 时）：
-   *  - .a { .b { .c { .d { color: red; } } } }
-   * @example ✅ 正确示例（假设配置为 3）：
+   * @description 限制选择器的最大嵌套深度；Strict 模式限制为 3 层，防止选择器过于复杂
+   * @value number - 最大嵌套层数（Strict 配置为 3，覆盖 Base 的 null）
+   * @secondary ignore: ['blockless-at-rules'] - 忽略无块级 @规则（如 @media）
+   * @example ✅ 正确示例：
    *  - .a {
    *      .b {
    *        .c {
@@ -23,7 +21,7 @@ export const complexityRules: Config['rules'] = {
    *        }
    *      }
    *    }
-   * @example ❌ 错误示例（假设配置为 3）：
+   * @example ❌ 错误示例：
    *  - .a {
    *      .b {
    *        .c {
@@ -34,5 +32,10 @@ export const complexityRules: Config['rules'] = {
    *      }
    *    }                                      (第4层，超过限制)
    */
-  'max-nesting-depth': null,
+  'max-nesting-depth': [
+    3,
+    {
+      ignore: ['blockless-at-rules'],
+    },
+  ],
 };

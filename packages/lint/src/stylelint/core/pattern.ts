@@ -2,49 +2,70 @@
  * Naming Pattern 命名模式规则
  *
  * 包含各种命名模式规则（3条）
- * - container 名称模式（CSS Container Queries）
- * - 自定义 media 名称模式
- * - CSS layer 名称模式
+ * - @layer 名称使用 kebab-case（Strict 模式）
+ * - container 名称使用 kebab-case（Strict 模式）
+ * - 自定义媒体查询名称使用 kebab-case（Strict 模式）
  */
 
 import type { Config } from 'stylelint';
 
 export const patternRules: Config['rules'] = {
   /**
-   * @name container-name-pattern
-   * @description 指定容器名称的命名模式（CSS Container Queries）；规范 CSS Container Queries 中容器名称的命名风格
-   * @value null - 不限制命名
-   * @value regex - 正则表达式字符串（如：'^[a-z]+(-[a-z]+)*$' 强制 kebab-case）
-   * @example ✅ 正确示例（null 时）：
-   *  - \@container sidebar (width > 400px) { }
-   * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
-   *  - \@container cardWrapper (width > 300px) { }  (不是 kebab-case，应使用 card-wrapper)
+   * @name layer-name-pattern
+   * @description 指定 @layer 的命名模式；Strict 模式强制使用 kebab-case 命名规范
+   * @value regex - 正则表达式字符串（Strict 配置为 kebab-case，覆盖 Base 的 null）
+   * @secondary message: '@layer 名称请使用 kebab-case' - 自定义错误提示信息
+   * @example ✅ 正确示例：
+   *  - \@layer base, components, utilities;
+   *  - \@layer base-reset { }
+   *  - \@layer component-styles { }
+   * @example ❌ 错误示例：
+   *  - \@layer baseReset { }                     (不是 kebab-case，应使用 base-reset)
+   *  - \@layer ComponentStyles { }               (不是 kebab-case，应为小写)
    */
-  'container-name-pattern': null,
+  'layer-name-pattern': [
+    '^[a-z0-9]+(?:-[a-z0-9]+)*$',
+    {
+      message: '@layer 名称请使用 kebab-case',
+    },
+  ],
+
+  /**
+   * @name container-name-pattern
+   * @description 指定 container 的命名模式；Strict 模式强制使用 kebab-case 命名规范
+   * @value regex - 正则表达式字符串（Strict 配置为 kebab-case，覆盖 Base 的 null）
+   * @secondary message: 'container-name 请使用 kebab-case' - 自定义错误提示信息
+   * @example ✅ 正确示例：
+   *  - \@container sidebar (width > 400px) { }
+   *  - \@container card-wrapper (width > 300px) { }
+   * @example ❌ 错误示例：
+   *  - \@container cardWrapper (width > 300px) { }  (不是 kebab-case，应使用 card-wrapper)
+   *  - \@container Sidebar (width > 400px) { }      (不是 kebab-case，应为小写)
+   */
+  'container-name-pattern': [
+    '^[a-z0-9]+(?:-[a-z0-9]+)*$',
+    {
+      message: 'container-name 请使用 kebab-case',
+    },
+  ],
 
   /**
    * @name custom-media-pattern
-   * @description 指定自定义 media query 的命名模式；规范自定义媒体查询名称的命名风格
-   * @value null - 不限制命名
-   * @value regex - 正则表达式字符串（如：'^--[a-z]+(-[a-z]+)*$' 强制 --kebab-case）
-   * @example ✅ 正确示例（null 时）：
-   *  - \@custom-media --small (width < 768px);
-   *    \@media (--small) { }
-   * @example ❌ 错误示例（假设配置为 '^--[a-z]+(-[a-z]+)*$'）：
+   * @description 指定自定义 media query 的命名模式；Strict 模式强制使用 --kebab-case 命名规范
+   * @value regex - 正则表达式字符串（Strict 配置为 --kebab-case，覆盖 Base 的 null）
+   * @secondary message: 'Expected custom media query name to be kebab-case' - 自定义错误提示信息
+   * @example ✅ 正确示例：
+   *  - \@custom-media --small-screen (width < 768px);
+   *    \@media (--small-screen) { }
+   *  - \@custom-media --large-viewport (width > 1200px);
+   * @example ❌ 错误示例：
    *  - \@custom-media --mobileScreen (width < 480px);  (不是 kebab-case，应使用 --mobile-screen)
+   *  - \@custom-media --LargeViewport (width > 1200px);  (不是 kebab-case，应为小写)
    */
-  'custom-media-pattern': null,
-
-  /**
-   * @name layer-name-pattern
-   * @description 指定 CSS layer 的命名模式；规范 CSS \@layer 层级名称的命名风格，CSS layer 用于控制样式的层叠优先级
-   * @value null - 不限制命名
-   * @value regex - 正则表达式字符串（如：'^[a-z]+(-[a-z]+)*$' 强制 kebab-case）
-   * @example ✅ 正确示例（null 时）：
-   *  - \@layer base, components, utilities;
-   *    \@layer components { ... }
-   * @example ❌ 错误示例（假设配置为 '^[a-z]+(-[a-z]+)*$'）：
-   *  - \@layer baseReset, componentStyles;   (不是 kebab-case，应使用 base-reset, component-styles)
-   */
-  'layer-name-pattern': null,
+  'custom-media-pattern': [
+    '^--[a-z0-9]+(?:-[a-z0-9]+)*$',
+    {
+      message: 'Expected custom media query name to be kebab-case',
+    },
+  ],
 };

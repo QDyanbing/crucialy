@@ -136,13 +136,16 @@ export const functionRules: Config['rules'] = {
 
   /**
    * @name function-disallowed-list
-   * @description 指定禁止使用的函数黑名单；禁止项目中使用特定的函数
-   * @value null - 不限制，不禁止任何函数
-   * @value array - 字符串数组，禁止列表中的函数（如：['rgb', 'rgba', 'hsl', 'hsla']）
-   * @example ✅ 正确示例（null 时）：
-   *  - color: rgb(255, 0, 0);
-   * @example ❌ 错误示例（假设配置为 ['rgb', 'rgba']）：
-   *  - color: rgb(255, 0, 0);                 (rgb 在黑名单中)
+   * @description 指定禁止使用的函数黑名单；Strict 模式禁止使用颜色函数（rgb, rgba, hsl, hsla），只允许使用 hex 表示颜色
+   * @value array - 字符串数组，禁止列表中的函数（Strict 配置，覆盖 Base 的 null）
+   * @example ✅ 正确示例：
+   *  - color: #ff0000;
+   *  - color: #000;
+   *  - background: var(--primary-color);
+   * @example ❌ 错误示例：
+   *  - color: rgb(255, 0, 0);                 (rgb 在黑名单中，应使用 #ff0000)
+   *  - color: rgba(0, 0, 0, 0.5);            (rgba 在黑名单中，应使用 hex + opacity)
+   *  - color: hsl(0, 100%, 50%);             (hsl 在黑名单中)
    */
-  'function-disallowed-list': null,
+  'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hsla'],
 };

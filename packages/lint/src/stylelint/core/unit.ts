@@ -40,13 +40,16 @@ export const unitRules: Config['rules'] = {
 
   /**
    * @name unit-disallowed-list
-   * @description 指定禁止使用的单位黑名单；禁止项目中使用特定的单位，Base 配置不限制
-   * @value null - 不限制，不禁止任何单位
-   * @value array - 字符串数组，禁止的单位列表（如：['pt', 'cm', 'mm']）
-   * @example ✅ 正确示例（null 时）：
-   *  - font-size: 12pt;
-   * @example ❌ 错误示例（假设配置为 ['pt']）：
-   *  - font-size: 12pt;                       (pt 在黑名单中，Web 开发中不推荐使用)
+   * @description 指定禁止使用的单位；Strict 模式禁用印刷单位，这些单位在 Web 开发中基本不会用到
+   * @value array - 字符串数组，禁止的单位列表（Strict 配置，覆盖 Base 的 null）
+   * @example ✅ 正确示例：
+   *  - width: 100px;
+   *  - font-size: 16px;
+   *  - margin: 1em;
+   * @example ❌ 错误示例：
+   *  - width: 10cm;                           (cm 在禁用列表中)
+   *  - font-size: 12pt;                       (pt 在禁用列表中)
+   *  - margin: 1in;                           (in 在禁用列表中)
    */
-  'unit-disallowed-list': null,
+  'unit-disallowed-list': ['cm', 'mm', 'in', 'pt', 'pc'],
 };
