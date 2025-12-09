@@ -51,15 +51,27 @@ const scssFunctionRules: Config['rules'] = {
 
   /**
    * @name scss/function-disallowed-list
-   * @description 函数黑名单
-   * @value null - 无黑名单（Base 配置）
+   * @description 函数黑名单；禁止使用 CSS 颜色函数，强制使用 16 进制颜色表示法（SCSS 颜色函数允许使用）
    * @value array - 禁止的函数名数组
-   * @example ✅ 正确示例（null 时）：
-   *  - color: darken($base, 10%);
-   * @example ❌ 错误示例（假设配置为 ['darken']）：
-   *  - color: darken($base, 10%);                (函数在黑名单中)
+   * @example ✅ 正确示例：
+   *  - color: #ff0000;
+   *  - color: #000;
+   *  - color: darken($base, 10%);               (SCSS 函数允许)
+   *  - color: lighten($base, 10%);              (SCSS 函数允许)
+   *  - background: var(--primary-color);
+   * @example ❌ 错误示例：
+   *  - color: rgb(255, 0, 0);                   (rgb 在黑名单中，应使用 #ff0000)
+   *  - color: rgba(0, 0, 0, 0.5);               (rgba 在黑名单中，应使用 hex + opacity)
+   *  - color: hsl(0, 100%, 50%);                (hsl 在黑名单中)
+   *  - color: hsla(0, 100%, 50%, 0.5);         (hsla 在黑名单中)
    */
-  'scss/function-disallowed-list': null,
+  'scss/function-disallowed-list': [
+    // CSS 颜色函数（禁止）
+    'rgb',
+    'rgba',
+    'hsl',
+    'hsla',
+  ],
 
   /**
    * @name scss/function-no-unknown
