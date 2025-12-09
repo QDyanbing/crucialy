@@ -44,12 +44,37 @@ const scss: Config = {
   rules: {
     ...core.rules,
 
-    // 关闭与 SCSS 语法冲突的 core 规则
+    // 调整与 SCSS 语法相关的 core 规则
 
     // core 配置中 at-rule-no-unknown: true，但会与 SCSS 预处理器语法冲突
     // SCSS 包含 @mixin、@include、@use、@forward、@function、@if、@else 等专用 @规则
     // core 规则会将这些 SCSS 语法误报为未知规则，需要关闭 core 规则，改用 scss/at-rule-no-unknown 来检查
     'at-rule-no-unknown': null,
+
+    // core 配置中 at-rule-prelude-no-invalid: true，但 SCSS 的 @规则前导部分可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'at-rule-prelude-no-invalid': null,
+
+    // core 配置中 at-rule-descriptor-no-unknown: true，但 SCSS 的 @规则描述符可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'at-rule-descriptor-no-unknown': null,
+
+    // core 配置中 at-rule-descriptor-value-no-unknown: true，但 SCSS 的 @规则描述符值可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'at-rule-descriptor-value-no-unknown': null,
+
+    // core 配置中 annotation-no-unknown: true，但 SCSS 有专用的注解（如 !default、!global）
+    // 需要忽略 SCSS 专用的注解，避免误报
+    'annotation-no-unknown': [
+      true,
+      {
+        ignoreAnnotations: ['default', 'global'],
+      },
+    ],
+
+    // core 配置中 declaration-property-value-no-unknown: true，但 SCSS 的属性值可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'declaration-property-value-no-unknown': null,
 
     // core 配置中 function-disallowed-list: ['rgb', 'rgba', 'hsl', 'hsla']，但会与 SCSS 预处理器语法冲突
     // SCSS 包含大量内置函数，core 规则可能无法正确处理 SCSS 的函数语法（如 darken()、lighten() 等）
@@ -60,6 +85,14 @@ const scss: Config = {
     // SCSS 包含大量内置函数（如 darken()、lighten()、percentage()、unit()、map-get() 等）
     // core 规则会将这些 SCSS 内置函数误报为未知函数，需要关闭 core 规则，改用 scss/function-no-unknown 来检查
     'function-no-unknown': null,
+
+    // core 配置中 media-query-no-invalid: true，但 SCSS 的媒体查询可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'media-query-no-invalid': null,
+
+    // core 配置中 media-feature-name-value-no-unknown: true，但 SCSS 的媒体特性值可能无法被 core 规则正确识别
+    // SCSS 的语法特性（如变量插值、函数调用等）可能导致误报，关闭此规则
+    'media-feature-name-value-no-unknown': null,
 
     // core 配置中 property-no-unknown: true，但会与 SCSS 预处理器语法冲突
     // SCSS 支持嵌套属性（如 border: { width: 1px; }）等 SCSS 特有的属性语法
