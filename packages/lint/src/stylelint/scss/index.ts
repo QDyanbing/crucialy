@@ -51,9 +51,9 @@ const scss: Config = {
     // core 规则会将这些 SCSS 语法误报为未知规则，需要关闭 core 规则，改用 scss/at-rule-no-unknown 来检查
     'at-rule-no-unknown': null,
 
-    // core 配置中 function-disallowed-list: null，但会与 SCSS 预处理器语法冲突
-    // SCSS 包含大量内置函数，core 规则可能无法正确处理 SCSS 的函数语法
-    // 需要关闭 core 规则，改用 scss/function-disallowed-list 来检查
+    // core 配置中 function-disallowed-list: ['rgb', 'rgba', 'hsl', 'hsla']，但会与 SCSS 预处理器语法冲突
+    // SCSS 包含大量内置函数，core 规则可能无法正确处理 SCSS 的函数语法（如 darken()、lighten() 等）
+    // 需要关闭 core 规则，改用 scss/function-disallowed-list 来检查（已配置为禁止 CSS 颜色函数，允许 SCSS 颜色函数）
     'function-disallowed-list': null,
 
     // core 配置中 function-no-unknown: true，但会与 SCSS 预处理器语法冲突
