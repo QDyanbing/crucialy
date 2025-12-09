@@ -12,14 +12,15 @@ const scssAtImportRules: Config['rules'] = {
   /**
    * @name scss/at-import-no-partial-leading-underscore
    * @description @import 禁止部分文件前导下划线（已弃用，使用 load-no-partial-leading-underscore）
-   * @value true - 启用，禁止前导下划线（Base 配置）
-   * @value false - 禁用此规则
+   * @value null - 已弃用，改用 scss/load-no-partial-leading-underscore
+   * @value true - 启用，禁止前导下划线（已弃用）
+   * @value false - 禁用此规则（已弃用）
    * @example ✅ 正确示例：
    *  - \@import 'variables';
    * @example ❌ 错误示例：
    *  - \@import '_variables';                   (不应有前导下划线)
    */
-  'scss/at-import-no-partial-leading-underscore': true,
+  'scss/at-import-no-partial-leading-underscore': null,
 
   /**
    * @name scss/at-import-partial-extension
