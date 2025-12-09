@@ -2,6 +2,9 @@
  * SCSS Declaration 相关规则
  *
  * 包含声明相关规则（3条）
+ * - 嵌套属性格式要求
+ * - 嵌套属性分组规范
+ * - 属性值有效性验证
  */
 
 import type { Config } from 'stylelint';

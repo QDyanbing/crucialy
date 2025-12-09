@@ -1,7 +1,8 @@
 /**
  * SCSS Dimension 相关规则
  *
- * 包含维度相关规则（1条）
+ * 包含维度值相关规则（1条）
+ * - 维度值必须为数字类型的验证
  */
 
 import type { Config } from 'stylelint';

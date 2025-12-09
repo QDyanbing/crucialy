@@ -1,7 +1,8 @@
 /**
  * SCSS @-each 相关规则
  *
- * 包含 @each 相关规则（1条）
+ * 包含 @each 循环语句相关规则（1条）
+ * - @each 键值对的格式要求
  */
 
 import type { Config } from 'stylelint';

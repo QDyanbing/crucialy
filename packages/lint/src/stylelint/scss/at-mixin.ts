@@ -1,7 +1,10 @@
 /**
  * SCSS @-mixin 相关规则
  *
- * 包含 @mixin 相关规则（5条）
+ * 包含 @mixin 指令相关规则（5条）
+ * - @mixin 声明和调用格式规范（括号、命名参数）
+ * - @mixin 命名规范（kebab-case）
+ * - @mixin 嵌套选择器安全性检查
  */
 
 import type { Config } from 'stylelint';

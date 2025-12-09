@@ -1,7 +1,9 @@
 /**
  * SCSS @-use 相关规则
  *
- * 包含 @use 相关规则（2条）
+ * 包含 @use 模块系统相关规则（2条）
+ * - @use 别名使用规范
+ * - @use 命名空间使用规范
  */
 
 import type { Config } from 'stylelint';

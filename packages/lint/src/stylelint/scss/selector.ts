@@ -2,6 +2,9 @@
  * SCSS Selector 相关规则
  *
  * 包含选择器相关规则（3条）
+ * - 选择器嵌套组合器使用规范
+ * - 冗余嵌套选择器检查
+ * - 并集选择器类型规范
  */
 
 import type { Config } from 'stylelint';

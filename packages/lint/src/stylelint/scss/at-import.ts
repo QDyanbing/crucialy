@@ -1,7 +1,9 @@
 /**
  * SCSS @-import 相关规则
  *
- * 包含 @import 相关规则（6条，含已弃用）
+ * 包含 @import 指令相关规则（6条，含已弃用）
+ * - 部分文件命名和扩展名规范
+ * - 扩展名白名单/黑名单配置（部分规则已弃用，推荐使用 load-* 规则）
  */
 
 import type { Config } from 'stylelint';

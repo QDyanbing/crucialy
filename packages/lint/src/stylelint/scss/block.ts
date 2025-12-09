@@ -1,7 +1,8 @@
 /**
  * SCSS Block 相关规则
  *
- * 包含块相关规则（1条）
+ * 包含代码块相关规则（1条）
+ * - 禁止冗余的块嵌套
  */
 
 import type { Config } from 'stylelint';

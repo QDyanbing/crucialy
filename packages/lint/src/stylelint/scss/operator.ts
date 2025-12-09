@@ -2,6 +2,8 @@
  * SCSS Operator 相关规则
  *
  * 包含运算符相关规则（3条）
+ * - 运算符前后换行规范
+ * - 运算符空格使用规范
  */
 
 import type { Config } from 'stylelint';

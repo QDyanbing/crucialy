@@ -1,7 +1,8 @@
 /**
  * SCSS Partial 相关规则
  *
- * 包含部分文件相关规则（1条）
+ * 包含部分文件（_partial.scss）相关规则（1条）
+ * - 部分文件中 @import 的使用限制
  */
 
 import type { Config } from 'stylelint';

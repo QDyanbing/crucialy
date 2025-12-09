@@ -1,7 +1,9 @@
 /**
  * SCSS Load 相关规则
  *
- * 包含加载相关规则（2条）
+ * 包含文件加载相关规则（2条）
+ * - @import/@use/@forward/@load-css 部分文件命名规范
+ * - 部分文件扩展名使用规范
  */
 
 import type { Config } from 'stylelint';

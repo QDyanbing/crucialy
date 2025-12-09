@@ -2,6 +2,8 @@
  * SCSS Comment 相关规则
  *
  * 包含注释相关规则（2条）
+ * - 禁止空注释
+ * - 注释类型使用规范（单行注释 vs 多行注释）
  */
 
 import type { Config } from 'stylelint';

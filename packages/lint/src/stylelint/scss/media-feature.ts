@@ -1,7 +1,8 @@
 /**
  * SCSS Media feature 相关规则
  *
- * 包含媒体特性相关规则（1条）
+ * 包含媒体查询特性相关规则（1条）
+ * - Media feature 值使用 $变量的规范
  */
 
 import type { Config } from 'stylelint';

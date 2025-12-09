@@ -1,7 +1,8 @@
 /**
  * SCSS @-extend 相关规则
  *
- * 包含 @extend 相关规则（1条）
+ * 包含 @extend 指令相关规则（1条）
+ * - @extend 使用占位符的规范
  */
 
 import type { Config } from 'stylelint';

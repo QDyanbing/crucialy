@@ -1,7 +1,10 @@
 /**
  * SCSS @-else 相关规则
  *
- * 包含 @else 相关规则（4条）
+ * 包含 @else 条件语句相关规则（4条）
+ * - @else 大括号后换行和空格规范
+ * - @else 前空行规范
+ * - @else if 括号前空格规范
  */
 
 import type { Config } from 'stylelint';

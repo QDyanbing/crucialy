@@ -2,6 +2,7 @@
  * SCSS %-placeholder 相关规则
  *
  * 包含占位符相关规则（1条）
+ * - 占位符命名格式规范（kebab-case）
  */
 
 import type { Config } from 'stylelint';

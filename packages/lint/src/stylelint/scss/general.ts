@@ -2,6 +2,9 @@
  * SCSS General / Sheet 相关规则
  *
  * 包含通用/样式表相关规则（6条）
+ * - 变量、mixin、函数等重复定义检查
+ * - 全局函数使用规范
+ * - 私有成员使用检查
  */
 
 import type { Config } from 'stylelint';

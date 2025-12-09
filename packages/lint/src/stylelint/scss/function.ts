@@ -2,6 +2,9 @@
  * SCSS Function 相关规则
  *
  * 包含函数相关规则（7条）
+ * - 函数使用规范（未知函数、黑名单）
+ * - 计算函数和颜色函数使用规范
+ * - 字符串函数（quote/unquote）使用规范
  */
 
 import type { Config } from 'stylelint';

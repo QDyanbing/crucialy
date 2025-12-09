@@ -1,7 +1,10 @@
 /**
  * SCSS @-function 相关规则
  *
- * 包含 @function 相关规则（3条）
+ * 包含 @function 指令相关规则（3条）
+ * - @function 声明格式规范（括号、空格）
+ * - @function 命名规范（kebab-case）
+ * - @function 调用参数格式规范（命名参数）
  */
 
 import type { Config } from 'stylelint';

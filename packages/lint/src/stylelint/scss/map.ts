@@ -1,7 +1,8 @@
 /**
  * SCSS Map 相关规则
  *
- * 包含 Map 相关规则（1条）
+ * 包含 Map 数据结构相关规则（1条）
+ * - Map 键的引号使用规范
  */
 
 import type { Config } from 'stylelint';

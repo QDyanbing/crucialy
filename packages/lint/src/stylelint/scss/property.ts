@@ -1,7 +1,8 @@
 /**
  * SCSS Property 相关规则
  *
- * 包含属性相关规则（1条）
+ * 包含 SCSS 属性验证相关规则（1条）
+ * - 禁止未知的 SCSS 属性
  */
 
 import type { Config } from 'stylelint';

@@ -1,7 +1,9 @@
 /**
  * SCSS @-if 相关规则
  *
- * 包含 @if 相关规则（3条）
+ * 包含 @if 条件语句相关规则（3条）
+ * - @if 大括号后换行和空格规范
+ * - @if 条件表达式规范（禁止使用 null）
  */
 
 import type { Config } from 'stylelint';

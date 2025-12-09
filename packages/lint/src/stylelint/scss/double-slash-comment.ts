@@ -2,6 +2,9 @@
  * SCSS //-comment 相关规则
  *
  * 包含双斜杠注释相关规则（3条）
+ * - 注释前后空行规范
+ * - 行内注释使用规范
+ * - 注释内部空格规范
  */
 
 import type { Config } from 'stylelint';
