@@ -86,10 +86,91 @@ module.exports = require('@crucialy/lint/dist/eslint/vue.js');
 
 ### 使用方法
 
+#### 基础 CSS
+
 ```js
 // .stylelintrc.js
 module.exports = {
   extends: ['@crucialy/lint/dist/stylelint/core'],
+};
+```
+
+#### SCSS
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: ['@crucialy/lint/dist/stylelint/scss'],
+};
+```
+
+#### Less
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: ['@crucialy/lint/dist/stylelint/less'],
+};
+```
+
+#### Stylus
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: ['@crucialy/lint/dist/stylelint/stylus'],
+};
+```
+
+#### CSS Modules
+
+CSS Modules 配置需要配合基础配置或预处理器配置使用，通过 `overrides` 来针对 `.module.css`、`.module.scss`、`.module.less` 等文件应用。
+
+##### CSS Modules（\*.module.css）
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/core'],
+  overrides: [
+    {
+      files: ['**/*.module.css'],
+      extends: ['@crucialy/lint/dist/stylelint/modules'],
+    },
+  ],
+};
+```
+
+##### SCSS Modules（\*.module.scss）
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/scss'],
+  overrides: [
+    {
+      files: ['**/*.module.scss'],
+      extends: ['@crucialy/lint/dist/stylelint/modules'],
+    },
+  ],
+};
+```
+
+##### Less Modules（\*.module.less）
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/less'],
+  overrides: [
+    {
+      files: ['**/*.module.less'],
+      extends: ['@crucialy/lint/dist/stylelint/modules'],
+    },
+  ],
 };
 ```
 
@@ -98,10 +179,10 @@ module.exports = {
 | 配置      | 说明                                          | 状态      |
 | --------- | --------------------------------------------- | --------- |
 | `core`    | 核心配置，包含所有规则（合并 base 和 strict） | ✅ 已完成 |
-| `scss`    | SCSS 支持                                     | 🚧 开发中 |
-| `less`    | Less 支持                                     | 🚧 开发中 |
-| `stylus`  | Stylus 支持                                   | 🚧 开发中 |
-| `modules` | CSS Modules 支持                              | 🚧 开发中 |
+| `scss`    | SCSS 支持                                     | ✅ 已完成 |
+| `less`    | Less 支持                                     | ✅ 已完成 |
+| `stylus`  | Stylus 支持                                   | ✅ 已完成 |
+| `modules` | CSS Modules 支持                              | ✅ 已完成 |
 | `html`    | HTML `<style>` 支持                           | 🚧 开发中 |
 | `vue`     | Vue SFC 支持                                  | 🚧 开发中 |
 | `svelte`  | Svelte 组件支持                               | 🚧 开发中 |
