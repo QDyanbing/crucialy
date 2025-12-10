@@ -98,11 +98,11 @@ const stylusGeneralRules: Config['rules'] = {
   /**
    * @name stylus/index
    * @description Index 规则（Stylus 特有）；可能用于检查 index() 函数的使用格式
-   * @value null - 不限制（当前未启用，规则作用不明确）
    * @value true - 启用检查
+   * @value null - 不限制
    * @note 此规则的具体作用在 stylelint-stylus 文档中未明确说明，可能与 Stylus 的 index() 函数相关
    */
-  'stylus/index': null,
+  'stylus/index': true,
 };
 
 export default stylusGeneralRules;
