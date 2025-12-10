@@ -288,6 +288,46 @@ export default {
 };
 ```
 
+#### Angular
+
+Angular 配置只负责组件样式适配层，处理 Angular 特有的 `:host` 和 `:host-context` 伪类。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+
+Angular 配置只对 `*.component.css`、`*.component.scss`、`*.component.less` 文件生效。
+
+##### Angular + 纯 CSS
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/angular'],
+};
+```
+
+##### Angular + SCSS
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/scss', '@crucialy/lint/dist/stylelint/angular'],
+};
+```
+
+##### Angular + SCSS + CSS Modules
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: [
+    '@crucialy/lint/dist/stylelint/scss',
+    '@crucialy/lint/dist/stylelint/modules',
+    '@crucialy/lint/dist/stylelint/angular',
+  ],
+};
+```
+
 ### 支持的配置
 
 | 配置      | 说明                                          | 状态      |
@@ -301,7 +341,7 @@ export default {
 | `vue`     | Vue SFC 支持                                  | ✅ 已完成 |
 | `svelte`  | Svelte 组件支持                               | ✅ 已完成 |
 | `astro`   | Astro 组件支持                                | ✅ 已完成 |
-| `angular` | Angular 组件支持                              | 🚧 开发中 |
+| `angular` | Angular 组件支持                              | ✅ 已完成 |
 | `cssInJs` | CSS-in-JS 支持                                | 🚧 开发中 |
 
 ## 设计原则
