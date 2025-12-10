@@ -16,6 +16,12 @@ const stylusSelectorRules: Config['rules'] = {
    * @value 'always' - 要求使用逗号
    * @value 'never' - 禁止使用逗号
    * @value null - 不限制
+   * @example ✅ 正确示例（always 时）：
+   *  - .class1, .class2
+   *      color: red
+   * @example ❌ 错误示例（always 时）：
+   *  - .class1 .class2  (缺少逗号，应为 .class1, .class2)
+   *      color: red
    */
   'stylus/selector-list-comma': null,
 
@@ -26,6 +32,13 @@ const stylusSelectorRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行时总是需要换行
    * @value 'never-multi-line' - 多行时禁止换行
    * @value null - 不限制
+   * @example ✅ 正确示例（always-multi-line 时）：
+   *  - .class1,
+   *    .class2
+   *      color: red
+   * @example ❌ 错误示例（always-multi-line 时）：
+   *  - .class1, .class2  (多行时逗号后应换行)
+   *      color: red
    */
   'stylus/selector-list-comma-newline-after': null,
 
@@ -36,6 +49,13 @@ const stylusSelectorRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行时总是需要换行
    * @value 'never-multi-line' - 多行时禁止换行
    * @value null - 不限制
+   * @example ✅ 正确示例（always-multi-line 时）：
+   *  - .class1
+   *    , .class2
+   *      color: red
+   * @example ❌ 错误示例（always-multi-line 时）：
+   *  - .class1, .class2  (多行时逗号前应换行)
+   *      color: red
    */
   'stylus/selector-list-comma-newline-before': null,
 
