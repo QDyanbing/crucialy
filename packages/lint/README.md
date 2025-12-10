@@ -174,6 +174,44 @@ export default {
 };
 ```
 
+#### Vue SFC
+
+Vue 配置只负责容器解析层，处理 Vue 特有的伪类和伪元素（`:deep`, `:global`, `:slotted`, `::v-deep` 等）。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+
+##### Vue + 纯 CSS
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/vue'],
+};
+```
+
+##### Vue + SCSS
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/scss', '@crucialy/lint/dist/stylelint/vue'],
+};
+```
+
+##### Vue + SCSS + CSS Modules
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: [
+    '@crucialy/lint/dist/stylelint/scss',
+    '@crucialy/lint/dist/stylelint/modules',
+    '@crucialy/lint/dist/stylelint/vue',
+  ],
+};
+```
+
 ### 支持的配置
 
 | 配置      | 说明                                          | 状态      |
@@ -183,8 +221,8 @@ export default {
 | `less`    | Less 支持                                     | ✅ 已完成 |
 | `stylus`  | Stylus 支持                                   | ✅ 已完成 |
 | `modules` | CSS Modules 支持                              | ✅ 已完成 |
-| `html`    | HTML `<style>` 支持                           | 🚧 开发中 |
-| `vue`     | Vue SFC 支持                                  | 🚧 开发中 |
+| `html`    | HTML `<style>` 支持                           | ✅ 已完成 |
+| `vue`     | Vue SFC 支持                                  | ✅ 已完成 |
 | `svelte`  | Svelte 组件支持                               | 🚧 开发中 |
 | `astro`   | Astro 组件支持                                | 🚧 开发中 |
 | `angular` | Angular 组件支持                              | 🚧 开发中 |
