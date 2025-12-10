@@ -4,4 +4,3 @@
   "**/*.{css,scss,less}": ["stylelint --fix", "prettier --write"],
   "**/*.{json,md,yaml,yml}": ["prettier --write"]
 }
-

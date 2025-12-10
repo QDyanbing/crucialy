@@ -10,15 +10,15 @@ import type { Config } from 'stylelint';
 const stylusSemicolonRules: Config['rules'] = {
   /**
    * @name stylus/semicolon
-   * @description 指定分号的使用要求
-   * @value null - 不限制
-   * @value true - 启用检查
+   * @description 指定分号的使用要求；统一代码风格，要求使用分号
+   * @value 'always' - 要求使用分号
+   * @value 'never' - 禁止使用分号
    * @example ✅ 正确示例：
    *  - color: red;
    * @example ❌ 错误示例：
    *  - color: red  (缺少分号)
    */
-  'stylus/semicolon': null,
+  'stylus/semicolon': 'always',
 };
 
 export default stylusSemicolonRules;
