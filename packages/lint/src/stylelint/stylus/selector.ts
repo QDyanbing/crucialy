@@ -12,52 +12,53 @@ import type { Config } from 'stylelint';
 const stylusSelectorRules: Config['rules'] = {
   /**
    * @name stylus/selector-list-comma
-   * @description 选择器列表逗号格式
+   * @description 选择器列表逗号格式；统一代码风格，要求使用逗号
    * @value 'always' - 要求使用逗号
    * @value 'never' - 禁止使用逗号
    * @value null - 不限制
-   * @example ✅ 正确示例（always 时）：
+   * @example ✅ 正确示例：
    *  - .class1, .class2
    *      color: red
-   * @example ❌ 错误示例（always 时）：
+   * @example ❌ 错误示例：
    *  - .class1 .class2  (缺少逗号，应为 .class1, .class2)
    *      color: red
    */
-  'stylus/selector-list-comma': null,
+  'stylus/selector-list-comma': 'always',
 
   /**
    * @name stylus/selector-list-comma-newline-after
-   * @description 选择器列表逗号后换行要求
+   * @description 选择器列表逗号后换行要求；统一代码风格，多行时要求换行
    * @value 'always' - 总是需要换行
    * @value 'always-multi-line' - 多行时总是需要换行
    * @value 'never-multi-line' - 多行时禁止换行
    * @value null - 不限制
-   * @example ✅ 正确示例（always-multi-line 时）：
+   * @example ✅ 正确示例：
    *  - .class1,
    *    .class2
    *      color: red
-   * @example ❌ 错误示例（always-multi-line 时）：
+   * @example ❌ 错误示例：
    *  - .class1, .class2  (多行时逗号后应换行)
    *      color: red
    */
-  'stylus/selector-list-comma-newline-after': null,
+  'stylus/selector-list-comma-newline-after': 'always-multi-line',
 
   /**
    * @name stylus/selector-list-comma-newline-before
-   * @description 选择器列表逗号前换行要求
+   * @description 选择器列表逗号前换行要求；统一代码风格，多行时禁止逗号前换行（与 selector-list-comma-newline-after 配合）
    * @value 'always' - 总是需要换行
    * @value 'always-multi-line' - 多行时总是需要换行
    * @value 'never-multi-line' - 多行时禁止换行
    * @value null - 不限制
-   * @example ✅ 正确示例（always-multi-line 时）：
-   *  - .class1
-   *    , .class2
+   * @example ✅ 正确示例：
+   *  - .class1,
+   *    .class2
    *      color: red
-   * @example ❌ 错误示例（always-multi-line 时）：
-   *  - .class1, .class2  (多行时逗号前应换行)
+   * @example ❌ 错误示例：
+   *  - .class1
+   *    , .class2  (多行时逗号前不应换行，逗号应在行尾)
    *      color: red
    */
-  'stylus/selector-list-comma-newline-before': null,
+  'stylus/selector-list-comma-newline-before': 'never-multi-line',
 
   /**
    * @name stylus/selector-list-comma-space-after
