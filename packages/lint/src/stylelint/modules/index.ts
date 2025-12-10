@@ -63,7 +63,7 @@ const modules: Config = {
       {
         resolveNestedSelectors: true,
         message:
-          'CSS Modules 中 class 建议使用 BEM（block__element--modifier）或 camelCase（fooBar）命名',
+          'CSS/SCSS/Less Modules 中 class 建议使用 BEM（block__element--modifier）或 camelCase（fooBar）命名',
       },
     ],
 
@@ -80,14 +80,16 @@ const modules: Config = {
       },
     ],
 
-    // core 配置中 property-no-unknown: true，但 CSS Modules 有专用的属性
+    // core 配置中 property-no-unknown: true，但 CSS Modules 有专用的属性和选择器
     // composes - 组合其他类的样式，用于复用样式
     // compose-with - 组合其他类的样式（composes 的别名）
+    // :export 和 :import 选择器中使用的属性也需要被识别
     // 这些属性不是标准 CSS 属性，需要在 property-no-unknown 中忽略，避免误报
     'property-no-unknown': [
       true,
       {
         ignoreProperties: ['composes', 'compose-with'],
+        ignoreSelectors: [':export', ':import'],
       },
     ],
 
