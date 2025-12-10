@@ -176,7 +176,7 @@ export default {
 
 #### Vue SFC
 
-Vue 配置只负责容器解析层，处理 Vue 特有的伪类和伪元素（`:deep`, `:global`, `:slotted`, `::v-deep` 等）。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+Vue 配置默认继承 core 配置，并添加 Vue 特有的容器解析层，处理 Vue 特有的伪类和伪元素（`:deep`, `:global`, `:slotted`, `::v-deep` 等）。
 
 ##### Vue + 纯 CSS
 
@@ -184,7 +184,7 @@ Vue 配置只负责容器解析层，处理 Vue 特有的伪类和伪元素（`:
 // stylelint.config.mjs
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/vue'],
+  extends: ['@crucialy/lint/dist/stylelint/vue'],
 };
 ```
 
