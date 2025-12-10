@@ -214,7 +214,7 @@ export default {
 
 #### Svelte
 
-Svelte 配置只负责容器解析层，处理 Svelte 特有的 `:global()` 伪类。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+Svelte 配置默认继承 core 配置，并添加 Svelte 特有的容器解析层，处理 Svelte 特有的 `:global()` 伪类。
 
 ##### Svelte + 纯 CSS
 
@@ -222,7 +222,7 @@ Svelte 配置只负责容器解析层，处理 Svelte 特有的 `:global()` 伪�
 // stylelint.config.mjs
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/svelte'],
+  extends: ['@crucialy/lint/dist/stylelint/svelte'],
 };
 ```
 
@@ -252,7 +252,7 @@ export default {
 
 #### Astro
 
-Astro 配置只负责容器解析层，处理 Astro 特有的 `:global()` 伪类。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+Astro 配置默认继承 core 配置，并添加 Astro 特有的容器解析层，处理 Astro 特有的 `:global()` 伪类。
 
 ##### Astro + 纯 CSS
 
@@ -260,7 +260,7 @@ Astro 配置只负责容器解析层，处理 Astro 特有的 `:global()` 伪类
 // stylelint.config.mjs
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/astro'],
+  extends: ['@crucialy/lint/dist/stylelint/astro'],
 };
 ```
 
@@ -290,7 +290,7 @@ export default {
 
 #### Angular
 
-Angular 配置只负责组件样式适配层，处理 Angular 特有的 `:host` 和 `:host-context` 伪类。CSS/SCSS/Less/Modules 规则需要配合其他配置使用。
+Angular 配置默认继承 core 配置，并添加 Angular 特有的组件样式适配层，处理 Angular 特有的 `:host` 和 `:host-context` 伪类。
 
 Angular 配置只对 `*.component.css`、`*.component.scss`、`*.component.less` 文件生效。
 
@@ -300,7 +300,7 @@ Angular 配置只对 `*.component.css`、`*.component.scss`、`*.component.less`
 // stylelint.config.mjs
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@crucialy/lint/dist/stylelint/core', '@crucialy/lint/dist/stylelint/angular'],
+  extends: ['@crucialy/lint/dist/stylelint/angular'],
 };
 ```
 
