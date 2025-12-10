@@ -18,7 +18,7 @@ const stylusGeneralRules: Config['rules'] = {
    * @description Hash 对象属性逗号要求；统一代码风格，要求使用逗号
    * @value 'always' - 要求使用逗号
    * @value 'never' - 禁止使用逗号
-   * @note secondary 选项：trailing: ["always", "never"] - 控制最后一个属性后的逗号
+   * @secondary trailing: ["always", "never"] - 控制最后一个属性后的逗号
    * @example ✅ 正确示例：
    *  - $hash = {
    *      key1: value1,
@@ -38,7 +38,11 @@ const stylusGeneralRules: Config['rules'] = {
    * @value <number> - 使用指定数量的空格缩进（如 2, 4）
    * @value 'tab' - 使用 Tab 缩进
    * @value null - 不限制
-   * @note secondary 选项：baseIndentLevel, except, ignore, indentInsideParens, indentClosingBrace
+   * @secondary baseIndentLevel: <number> | "auto" - 基础缩进级别
+   * @secondary except: ["block", "value", "param"] - 排除的情况
+   * @secondary ignore: ["value", "param", "inside-parens"] - 忽略的情况
+   * @secondary indentInsideParens: "twice" | "once-at-root-twice-in-block" - 括号内缩进
+   * @secondary indentClosingBrace: <boolean> - 闭合大括号缩进
    * @example ✅ 正确示例：
    *  - .class
    *      color: red
@@ -55,7 +59,7 @@ const stylusGeneralRules: Config['rules'] = {
    * @value 'never' - 禁止使用 Pythonic 风格（必须使用大括号）
    * @value 'always' - 强制使用 Pythonic 风格（不使用大括号）
    * @value null - 不限制
-   * @note secondary 选项：atblock: ["always", "never"] - 控制 @规则块的 Pythonic 风格
+   * @secondary atblock: ["always", "never"] - 控制 @规则块的 Pythonic 风格
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;
@@ -83,7 +87,7 @@ const stylusGeneralRules: Config['rules'] = {
    * @description 禁止行尾空白
    * @value true - 启用，禁止行尾空白
    * @value false - 禁用此规则
-   * @note secondary 选项：ignore: ["empty-lines"] - 忽略空行的行尾空白
+   * @secondary ignore: ["empty-lines"] - 忽略空行的行尾空白
    * @example ✅ 正确示例：
    *  - color: red;
    * @example ❌ 错误示例（注意行尾有空格，用 · 表示）：

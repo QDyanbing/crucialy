@@ -18,6 +18,7 @@ const stylusBlockRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行块时总是需要空行
    * @value 'never' - 禁止空行
    * @value null - 不限制
+   * @secondary except: ["after-closing-brace"] - 闭合大括号后例外
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;
@@ -39,6 +40,7 @@ const stylusBlockRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行块时总是需要换行
    * @value 'never-multi-line' - 多行块时禁止换行
    * @value null - 不限制
+   * @secondary ignoreAtRules: ["<AtRules[]>"] - 忽略指定的 @规则
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;
@@ -115,6 +117,7 @@ const stylusBlockRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行块时总是需要换行
    * @value 'never-multi-line' - 多行块时禁止换行
    * @value null - 不限制
+   * @secondary ignore: ["rules"] - 忽略规则块
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;
@@ -134,6 +137,7 @@ const stylusBlockRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行块时总是需要空格
    * @value 'never-multi-line' - 多行块时禁止空格
    * @value null - 不限制
+   * @secondary ignore: ["at-rules"] - 忽略 @规则
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;
@@ -153,6 +157,8 @@ const stylusBlockRules: Config['rules'] = {
    * @value 'always-multi-line' - 多行块时总是需要空格
    * @value 'never-multi-line' - 多行块时禁止空格
    * @value null - 不限制
+   * @secondary ignoreAtRules: ["<string|RegExp>[]"] - 忽略指定的 @规则
+   * @secondary ignoreSelectors: ["<string|RegExp>[]"] - 忽略指定的选择器
    * @example ✅ 正确示例：
    *  - .class {
    *      color: red;

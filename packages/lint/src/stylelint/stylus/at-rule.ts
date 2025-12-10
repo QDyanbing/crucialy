@@ -26,9 +26,10 @@ const stylusAtRuleRules: Config['rules'] = {
   /**
    * @name stylus/at-rule-empty-line-before
    * @description @规则前空行要求；统一代码风格，提高可读性（与 stylelint-stylus/standard 配置一致）
-   * @value ['always', { except: ['blockless-after-same-name-blockless', 'first-nested'], ignore: ['after-comment'] }] - 标准配置
    * @value 'always' - 要求 @规则前有空行
    * @value 'never' - 禁止 @规则前有空行
+   * @secondary except: ['blockless-after-same-name-blockless', 'first-nested'] - 连续的同名无块 @规则 和 作为第一个嵌套规则时不需要空行
+   * @secondary ignore: ['after-comment'] - 忽略注释后的 @规则
    * @example ✅ 正确示例：
    *  - .class
    *      color: red
@@ -73,7 +74,7 @@ const stylusAtRuleRules: Config['rules'] = {
    * @description 禁止未知的 @规则
    * @value true - 启用，禁止未知 @规则
    * @value false - 禁用此规则
-   * @note secondary 选项：ignoreAtRules: ["<string[]>"] - 忽略指定的 @规则
+   * @secondary ignoreAtRules: ["<string[]>"] - 忽略指定的 @规则
    * @example ✅ 正确示例：
    *  - @media (min-width: 768px) { }
    * @example ❌ 错误示例：

@@ -91,7 +91,9 @@ const stylusSelectorRules: Config['rules'] = {
    * @description 禁止未知的选择器类型
    * @value true - 启用，禁止未知选择器类型
    * @value false - 禁用此规则
-   * @note secondary 选项：ignore, ignoreNamespaces, ignoreTypes - 忽略指定的选择器类型
+   * @secondary ignore: ["custom-elements", "default-namespace"] - 忽略的选择器类型
+   * @secondary ignoreNamespaces: ["<string|RegExp>[]"] - 忽略的命名空间
+   * @secondary ignoreTypes: ["<string|RegExp>[]"] - 忽略的类型
    * @example ✅ 正确示例：
    *  - div { }
    * @example ❌ 错误示例：
