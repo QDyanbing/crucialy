@@ -14,7 +14,7 @@ import type { Config } from 'stylelint';
 const stylusBlockRules: Config['rules'] = {
   /**
    * @name stylus/block-closing-brace-empty-line-before
-   * @description 块闭合大括号前空行要求
+   * @description 块闭合大括号前空行要求；统一代码风格，禁止空行
    * @value 'always-multi-line' - 多行块时总是需要空行
    * @value 'never' - 禁止空行
    * @value null - 不限制
@@ -27,9 +27,9 @@ const stylusBlockRules: Config['rules'] = {
    *  - .class {
    *      color: red;
    *
-   *    }  (如果启用规则，多行块时缺少空行)
+   *    }  (多行块时不应有空行)
    */
-  'stylus/block-closing-brace-empty-line-before': null,
+  'stylus/block-closing-brace-empty-line-before': 'never',
 
   /**
    * @name stylus/block-closing-brace-newline-after
