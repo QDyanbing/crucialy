@@ -1,0 +1,22 @@
+/* naming-bem-valid.css - BEM 命名规范有效示例 */
+
+.block {}
+.block__element {}
+.block--modifier {}
+.block__element--modifier {}
+.block--modifier-1--modifier-2 {}
+
+.button {}
+.button__icon {}
+.button--primary {}
+.button--large {}
+.button__icon--active {}
+.button__text--bold {}
+
+.card {}
+.card__header {}
+.card__body {}
+.card__footer {}
+.card--shadow {}
+.card--shadow--rounded {}
+

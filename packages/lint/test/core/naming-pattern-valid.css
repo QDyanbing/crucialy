@@ -1,0 +1,21 @@
+/* naming-pattern-valid.css - 其他命名模式有效示例 */
+
+/* @layer 使用 kebab-case */
+@layer base, components, utilities;
+@layer base-reset { }
+@layer component-styles { }
+
+/* container 使用 kebab-case */
+@container sidebar (width > 400px) { }
+@container card-wrapper (width > 300px) { }
+
+/* 自定义 media query 使用 --kebab-case */
+@custom-media --small-screen (width < 768px);
+@media (--small-screen) {
+  .container {
+    padding: 16px;
+  }
+}
+
+@custom-media --large-viewport (width > 1200px);
+

@@ -1,0 +1,18 @@
+/* basic-invalid.css - 基础无效的 CSS 示例（应触发错误） */
+
+/* 空规则块 -> 应该触发 block-no-empty */
+.empty-block {}
+
+.button {
+  color: #fff;; /* 多余分号 -> 应触发 stylistic/semicolon-double-space 或类似规则 */
+  unknown-prop: 1; /* 未知属性 -> 应触发 property-no-unknown */
+  dislay: block; /* 拼写错误 -> 应触发 property-no-unknown */
+}
+
+/* 冗余嵌套 -> 应触发 block-no-redundant-nested-style-rules */
+.redundant {
+  & {
+    color: red;
+  }
+}
+

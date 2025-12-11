@@ -1,0 +1,21 @@
+/* basic-valid.css - 基础有效的 CSS 示例 */
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+

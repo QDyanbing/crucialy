@@ -1,0 +1,27 @@
+/* nesting-depth-valid.css - 嵌套深度有效示例（最多 3 层） */
+
+.level1 {
+  color: red;
+  
+  .level2 {
+    color: blue;
+    
+    .level3 {
+      color: green;
+    }
+  }
+}
+
+/* @media 不计算在嵌套深度中 */
+.button {
+  color: red;
+  
+  @media (max-width: 768px) {
+    color: blue;
+    
+    .nested {
+      color: green;
+    }
+  }
+}
+
