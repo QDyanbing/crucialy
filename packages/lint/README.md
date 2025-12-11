@@ -82,7 +82,9 @@ module.exports = require('@crucialy/lint/dist/eslint/vue.js');
 - ✅ **M1**: 项目初始化 + TypeScript 基础设施
 - ✅ **M2**: 收集完整规则清单
 - ✅ **M3**: 实现 core（核心规则，合并 base 和 strict）
-- ⏳ **M4-M15**: 其他配置文件
+- ✅ **M5-M14**: SCSS / Less / Stylus / Modules / HTML / Vue / Svelte / Astro / Angular / CSS-in-JS
+- ✅ **M15**: index.ts 导出全部配置
+- ⏳ **M16**: 测试与 CI
 
 ### 使用方法
 
@@ -328,6 +330,32 @@ export default {
 };
 ```
 
+#### CSS-in-JS
+
+CSS-in-JS 配置默认继承 core 配置，并添加 CSS-in-JS 特有的解析层。此配置会匹配所有 `**/*.{js,jsx,ts,tsx}` 文件，并针对模板字符串中的变量插值进行了优化，避免误报。
+
+支持 styled-components、emotion、styled-jsx 等主流 CSS-in-JS 库。
+
+##### CSS-in-JS（styled-components / emotion）
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/css-in-js'],
+};
+```
+
+##### CSS-in-JS + CSS Modules
+
+```js
+// stylelint.config.mjs
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['@crucialy/lint/dist/stylelint/css-in-js', '@crucialy/lint/dist/stylelint/modules'],
+};
+```
+
 ### 支持的配置
 
 | 配置      | 说明                                          | 状态      |
@@ -342,7 +370,7 @@ export default {
 | `svelte`  | Svelte 组件支持                               | ✅ 已完成 |
 | `astro`   | Astro 组件支持                                | ✅ 已完成 |
 | `angular` | Angular 组件支持                              | ✅ 已完成 |
-| `cssInJs` | CSS-in-JS 支持                                | 🚧 开发中 |
+| `cssInJs` | CSS-in-JS 支持                                | ✅ 已完成 |
 
 ## 设计原则
 
