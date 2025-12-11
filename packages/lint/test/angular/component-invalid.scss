@@ -1,0 +1,10 @@
+/* component-invalid.scss - Angular 组件样式无效示例（应触发错误） */
+
+:host {
+  unknown-prop: 1; /* 未知属性 -> 应触发 property-no-unknown */
+}
+
+.Title {
+  color: red; /* 大写开头 -> 应触发 selector-class-pattern */
+}
+

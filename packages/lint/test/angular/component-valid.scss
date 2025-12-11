@@ -1,0 +1,27 @@
+/* component-valid.scss - Angular 组件样式有效示例 */
+
+/* Angular 特有的 :host 伪类 */
+:host {
+  display: block;
+  padding: 16px;
+}
+
+/* Angular 特有的 :host-context 伪类 */
+:host-context(.dark) .title {
+  color: #fff;
+}
+
+:host-context(.light) .title {
+  color: #000;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
