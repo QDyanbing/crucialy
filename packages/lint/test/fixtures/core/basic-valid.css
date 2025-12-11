@@ -1,0 +1,8 @@
+/* 应该通过的基础用例 - 使用符合 BEM 规范的类名 */
+
+.block {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #000;
+}

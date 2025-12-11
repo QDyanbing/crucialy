@@ -1,0 +1,23 @@
+/* nesting-valid.scss - SCSS 嵌套有效示例 */
+
+.block {
+  display: inline-block;
+  padding: 8px 16px;
+
+  &__element {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--modifier {
+    background-color: #0366d6;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4px 8px;
+  }
+}
+

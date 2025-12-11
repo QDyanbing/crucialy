@@ -1,0 +1,27 @@
+---
+// basic-valid.astro - Astro 组件中的样式有效示例
+const title = 'Hello';
+---
+
+<html>
+  <body>
+    <h1 class="block">{title}</h1>
+  </body>
+</html>
+
+<style>
+  .block {
+    font-size: 24px;
+    color: red;
+  }
+
+  /* Astro 全局选择器 */
+  :global(body) {
+    margin: 0;
+  }
+
+  :global(.global-class) {
+    padding: 16px;
+  }
+</style>
+
