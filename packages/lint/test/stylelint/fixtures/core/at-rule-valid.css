@@ -1,0 +1,24 @@
+/* at-rule-valid.css - 使用标准 @规则（正确） */
+
+@font-face {
+  font-family: MyFont;
+  font-display: swap;
+  src: url('font.woff2') format('woff2');
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (width >= 768px) {
+  .element {
+    margin: 8px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,17 @@
+/* at-rule-invalid-unknown.css - 使用未知 @规则（错误） */
+
+.element {
+  color: #f00;
+}
+
+@unknown-rule {
+  color: #00f;
+}
+
+@mixin button {
+  padding: 8px;
+}
+
+@custom-rule {
+  margin: 8px;
+}
