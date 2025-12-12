@@ -1,0 +1,27 @@
+/* at-rule-prelude-no-invalid-invalid.css - 使用无效的 @规则 prelude（错误） */
+
+.element {
+  color: #f00;
+}
+
+@media (width >>> 600px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@keyframes 123invalid {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media not(min-width: 300px) {
+  .element {
+    padding: 8px;
+  }
+}
