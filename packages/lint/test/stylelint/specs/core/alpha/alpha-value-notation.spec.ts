@@ -1,5 +1,5 @@
+import core from '@/stylelint/core';
 import { describe, expect, it } from 'vitest';
-import core from '../../../../../src/stylelint/core';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('alpha-value-notation', () => {
