@@ -1,0 +1,21 @@
+/* color-hex-length.css - 使用短格式 hex 颜色（正确） */
+
+.element {
+  color: #fff;
+}
+
+.another-element {
+  background-color: #000;
+}
+
+.third-element {
+  border-color: #f00;
+}
+
+.fourth-element {
+  color: #f5f5f5;
+}
+
+.fifth-element {
+  background-color: #abc;
+}
