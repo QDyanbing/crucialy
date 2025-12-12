@@ -1,0 +1,13 @@
+/* at-rule-descriptor-value-no-unknown-invalid.css - 使用无效的 descriptor 值（错误） */
+
+@font-face {
+  font-family: MyFont;
+  font-display: unknown;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: AnotherFont;
+  font-display: invalid-value;
+  src: url('font.woff2') format('woff2');
+}

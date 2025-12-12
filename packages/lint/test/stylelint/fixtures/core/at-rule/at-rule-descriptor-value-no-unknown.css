@@ -1,0 +1,31 @@
+/* at-rule-descriptor-value-no-unknown.css - 使用有效的 descriptor 值（正确） */
+
+@font-face {
+  font-family: MyFont;
+  font-display: swap;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: AnotherFont;
+  font-display: auto;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: ThirdFont;
+  font-display: block;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FourthFont;
+  font-display: fallback;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: FifthFont;
+  font-display: optional;
+  src: url('font.woff2') format('woff2');
+}
