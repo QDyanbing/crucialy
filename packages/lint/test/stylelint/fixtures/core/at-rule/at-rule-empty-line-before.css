@@ -1,0 +1,41 @@
+/* at-rule-empty-line-before.css - @规则前有空行（正确） */
+
+@media (width >= 768px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (width >= 1024px) {
+  .element {
+    font-size: 16px;
+  }
+}
+
+/* 注释后的 @规则不需要空行 */
+@media (width >= 1200px) {
+  .element {
+    padding: 8px;
+  }
+}
+
+/* 第一个嵌套的 @规则不需要空行 */
+.nested {
+  @media (width >= 768px) {
+    margin: 8px;
+  }
+
+  & .child {
+    margin: 8px;
+  }
+}
