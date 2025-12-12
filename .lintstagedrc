@@ -1,6 +1,6 @@
 {
   "**/*.{js,ts,jsx,tsx}": ["eslint --fix --quiet", "prettier --write"],
-  "**/*.vue": ["eslint --fix --quiet", "stylelint --fix", "prettier --write"],
-  "**/*.{css,scss,less}": ["stylelint --fix", "prettier --write"],
+  "**/*.vue": ["eslint --fix --quiet", "prettier --write"],
+  "**/*.{css,scss,less}": ["prettier --write"],
   "**/*.{json,md,yaml,yml}": ["prettier --write"]
 }

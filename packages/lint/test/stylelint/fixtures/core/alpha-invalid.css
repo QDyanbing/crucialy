@@ -1,0 +1,18 @@
+/* alpha-invalid.css - 使用百分比形式的 alpha 值（错误） */
+
+/* opacity 属性 - 应使用数字形式，不应使用百分比 */
+.element {
+  opacity: 50%;
+}
+
+.another-element {
+  opacity: 0%;
+}
+
+.third-element {
+  opacity: 100%;
+}
+
+.fourth-element {
+  opacity: 80%;
+}

@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import stylelint from 'stylelint';
 import type { Config } from 'stylelint';
+import stylelint from 'stylelint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,4 +29,3 @@ export async function runStylelintWithConfig(options: {
 
   return result;
 }
-
