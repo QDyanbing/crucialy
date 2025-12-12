@@ -1,7 +1,0 @@
-/* classname-invalid.css - CSS Modules 类名无效示例（应触发错误） */
-
-.Button {} /* 大写开头（如果规则要求） */
-.button__Icon {} /* Element 部分有大写 */
-.button--Primary {} /* Modifier 有大写 */
-.component_Name {} /* 下划线不在正确位置 */
-

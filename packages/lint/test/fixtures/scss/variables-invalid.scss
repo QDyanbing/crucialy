@@ -1,9 +1,0 @@
-/* variables-invalid.scss - SCSS 变量无效示例（应触发错误） */
-
-/* 假设有变量命名规范，这里只是示例可能的错误场景 */
-$PrimaryColor: #000; /* 大写开头，如果规则要求小写开头 */
-
-.button {
-  color: $undefined-var; /* 未定义的变量，如果规则要求变量必须先定义 */
-}
-

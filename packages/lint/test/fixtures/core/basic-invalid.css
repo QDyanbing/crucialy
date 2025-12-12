@@ -1,8 +1,0 @@
-/* 应该触发多个规则的用例 */
-
-.empty-block {}
-
-.button {
-  color: #fff;;
-  unknown-prop: 1;
-}
