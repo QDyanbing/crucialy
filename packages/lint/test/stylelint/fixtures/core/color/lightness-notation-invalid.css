@@ -1,0 +1,13 @@
+/* lightness-notation-invalid.css - 使用数字形式的亮度（错误） */
+
+.element {
+  color: oklch(0.5 0.2 180deg);
+}
+
+.another-element {
+  background-color: oklch(1 0.1 0deg);
+}
+
+.third-element {
+  border-color: lch(0.5 30 120deg);
+}

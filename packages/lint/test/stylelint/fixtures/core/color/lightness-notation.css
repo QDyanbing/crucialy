@@ -1,0 +1,17 @@
+/* lightness-notation.css - 使用百分比形式的亮度（正确） */
+
+.element {
+  color: oklch(50% 0.2 180deg);
+}
+
+.another-element {
+  background-color: oklch(100% 0.1 0deg);
+}
+
+.third-element {
+  border-color: oklch(0% 0.2 120deg);
+}
+
+.fourth-element {
+  color: lch(50% 30 240deg);
+}
