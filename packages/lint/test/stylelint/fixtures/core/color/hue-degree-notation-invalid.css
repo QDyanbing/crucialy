@@ -1,0 +1,13 @@
+/* hue-degree-notation-invalid.css - 使用纯数字的色相值（错误） */
+
+.element {
+  color: hwb(180 30% 40%);
+}
+
+.another-element {
+  background-color: hwb(0 30% 40%);
+}
+
+.third-element {
+  border-color: hwb(120 50% 50%);
+}
