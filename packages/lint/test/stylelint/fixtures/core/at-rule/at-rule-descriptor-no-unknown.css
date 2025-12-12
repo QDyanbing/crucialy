@@ -1,0 +1,14 @@
+/* at-rule-descriptor-no-unknown.css - 使用有效的 @规则 descriptor（正确） */
+
+@font-face {
+  font-family: MyFont;
+  font-display: swap;
+  src: url('font.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: AnotherFont;
+  font-weight: 400;
+  font-style: normal;
+  src: url('font.woff2') format('woff2');
+}
