@@ -1,0 +1,17 @@
+/* color-no-invalid-hex-invalid.css - 使用无效的 hex 颜色（错误） */
+
+.element {
+  color: #fffffffff;
+}
+
+.another-element {
+  background-color: #gggggg;
+}
+
+.third-element {
+  border-color: #12345;
+}
+
+.fourth-element {
+  color: #1234567;
+}
