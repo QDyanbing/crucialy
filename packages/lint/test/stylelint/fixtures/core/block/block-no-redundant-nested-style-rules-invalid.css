@@ -1,0 +1,15 @@
+/* block-no-redundant-nested-style-rules-invalid.css - 使用冗余嵌套（错误） */
+
+.element {
+  & {
+    color: #f00;
+  }
+}
+
+.another-element {
+  margin: 8px;
+
+  & {
+    padding: 8px;
+  }
+}
