@@ -1,0 +1,18 @@
+/* annotation-valid.css - 不使用注解（正确） */
+
+/* 不使用任何注解，只使用同一分组的属性避免空行冲突 */
+.element {
+  color: #f00;
+  font-size: 16px;
+}
+
+.another-element {
+  margin: 8px;
+  padding: 8px;
+}
+
+.mixed-element {
+  background-color: #00f;
+  border-width: 1px;
+  border-color: #f00;
+}

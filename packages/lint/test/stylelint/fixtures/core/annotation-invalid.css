@@ -1,0 +1,21 @@
+/* annotation-invalid.css - 使用未知注解（错误） */
+
+/* 使用未知注解 !unknown */
+.element {
+  color: #f00 !unknown;
+}
+
+/* 使用 Sass 注解 !default（在纯 CSS 中是未知的） */
+.variable {
+  color: #f00 !default;
+}
+
+/* 使用 Sass 注解 !global（在纯 CSS 中是未知的） */
+.another-element {
+  color: #00f !global;
+}
+
+/* 使用其他未知注解 */
+.third-element {
+  background-color: #080 !optional;
+}
