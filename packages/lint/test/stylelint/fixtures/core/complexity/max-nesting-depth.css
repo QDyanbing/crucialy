@@ -1,0 +1,13 @@
+/* max-nesting-depth.css - 嵌套深度在限制内（正确） */
+
+.element {
+  margin: 8px;
+
+  & .child {
+    padding: 8px;
+
+    & .grandchild {
+      color: #f00;
+    }
+  }
+}

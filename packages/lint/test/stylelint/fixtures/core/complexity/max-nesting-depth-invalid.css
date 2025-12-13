@@ -1,0 +1,21 @@
+/* max-nesting-depth-invalid.css - 嵌套深度超过限制（错误） */
+
+.element {
+  margin: 8px;
+
+  & .child {
+    padding: 8px;
+
+    & .grandchild {
+      color: #f00;
+
+      & .great-grandchild {
+        background-color: #00f;
+
+        & .too-deep {
+          border-color: #0f0;
+        }
+      }
+    }
+  }
+}
