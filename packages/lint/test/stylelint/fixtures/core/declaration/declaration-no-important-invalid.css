@@ -1,0 +1,10 @@
+/* declaration-no-important-invalid.css - 使用 !important（错误） */
+
+.element {
+  color: #f00 !important;
+  margin: 8px !important;
+}
+
+.another-element {
+  background-color: #00f !important;
+}
