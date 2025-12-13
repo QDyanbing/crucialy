@@ -1,0 +1,12 @@
+/* declaration-empty-line-before.css - 声明前没有空行（正确） */
+
+.element {
+  margin: 8px;
+  padding: 8px;
+  color: #f00;
+}
+
+.another-element {
+  background-color: #00f;
+  border: 1px solid #000;
+}
