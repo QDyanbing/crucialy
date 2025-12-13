@@ -1,0 +1,13 @@
+/* media-feature-range-notation-invalid.css - 使用非 context 表示法（错误） */
+
+@media (min-width: 768px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .another-element {
+    padding: 8px;
+  }
+}

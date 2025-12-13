@@ -1,0 +1,25 @@
+/* media-feature-range-notation.css - 使用 context 表示法（正确） */
+
+@media (width >= 768px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (width <= 1024px) {
+  .another-element {
+    padding: 8px;
+  }
+}
+
+@media (width > 600px) {
+  .third-element {
+    color: #f00;
+  }
+}
+
+@media (width < 1200px) {
+  .fourth-element {
+    background-color: #00f;
+  }
+}
