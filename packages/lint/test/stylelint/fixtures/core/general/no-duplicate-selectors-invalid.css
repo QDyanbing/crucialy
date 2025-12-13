@@ -1,0 +1,13 @@
+/* no-duplicate-selectors-invalid.css - 有重复的选择器（错误） */
+
+.element {
+  color: #f00;
+}
+
+.another-element {
+  margin: 8px;
+}
+
+.element {
+  background-color: #00f;
+}
