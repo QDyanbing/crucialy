@@ -1,0 +1,11 @@
+/* function-name-case-invalid.css - 函数名使用大写（错误） */
+
+.element {
+  width: CALC(100% - 20px);
+  color: VAR(--primary);
+  background: URL('image.png');
+}
+
+.another-element {
+  margin: MIN(10px, 20px);
+}
