@@ -1,0 +1,11 @@
+/* no-invalid-double-slash-comments-invalid.css - 使用双斜杠注释（错误） */
+
+// 这是双斜杠注释
+.element {
+  color: #f00;
+}
+
+// 另一个双斜杠注释
+.another-element {
+  margin: 8px;
+}

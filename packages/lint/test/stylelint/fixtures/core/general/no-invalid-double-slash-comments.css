@@ -1,0 +1,11 @@
+/* no-invalid-double-slash-comments.css - 使用块注释（正确） */
+
+/* 这是块注释 */
+.element {
+  color: #f00;
+}
+
+/* 另一个注释 */
+.another-element {
+  margin: 8px;
+}
