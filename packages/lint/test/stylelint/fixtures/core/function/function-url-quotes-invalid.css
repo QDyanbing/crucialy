@@ -1,0 +1,10 @@
+/* function-url-quotes-invalid.css - url() 函数缺少引号（错误） */
+
+.element {
+  background: url(image.png);
+  background-image: url(https://example.com/bg.jpg);
+}
+
+.another-element {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==);
+}
