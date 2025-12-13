@@ -1,0 +1,13 @@
+/* declaration-block-no-shorthand-property-overrides.css - 简写属性在 longhand 之前（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.another-element {
+  border: 1px solid #000;
+}
+
+.third-element {
+  padding: 4px;
+}

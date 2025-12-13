@@ -1,0 +1,11 @@
+/* declaration-block-no-shorthand-property-overrides-invalid.css - 简写属性覆盖 longhand（错误） */
+
+.element {
+  margin-top: 8px;
+  margin: 16px;
+}
+
+.another-element {
+  border-width: 1px;
+  border: 2px solid #000;
+}
