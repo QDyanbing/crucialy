@@ -1,0 +1,13 @@
+/* function-linear-gradient-no-nonstandard-direction.css - 使用标准方向语法（正确） */
+
+.element {
+  background: linear-gradient(to right, #fff, #000);
+}
+
+.another-element {
+  background: linear-gradient(to bottom, #f00, #00f);
+}
+
+.third-element {
+  background: linear-gradient(45deg, #fff, #000);
+}
