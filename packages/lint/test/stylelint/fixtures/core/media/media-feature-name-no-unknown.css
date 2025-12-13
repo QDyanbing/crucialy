@@ -1,0 +1,19 @@
+/* media-feature-name-no-unknown.css - 使用已知的 media feature（正确） */
+
+@media (width >= 768px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (orientation: landscape) {
+  .another-element {
+    padding: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .third-element {
+    color: #f00;
+  }
+}

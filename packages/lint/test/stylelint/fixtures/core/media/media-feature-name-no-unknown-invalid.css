@@ -1,0 +1,13 @@
+/* media-feature-name-no-unknown-invalid.css - 使用未知的 media feature（错误） */
+
+@media (unknown-feature: value) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (widht >= 768px) {
+  .another-element {
+    padding: 8px;
+  }
+}
