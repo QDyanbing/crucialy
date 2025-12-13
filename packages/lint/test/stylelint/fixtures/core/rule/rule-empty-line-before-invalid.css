@@ -1,0 +1,12 @@
+/* rule-empty-line-before-invalid.css - 多行规则前缺少空行（错误） */
+
+.element {
+  color: #f00;
+}
+.another-element {
+  margin: 8px;
+  padding: 8px;
+}
+.third-element {
+  background-color: #00f;
+}

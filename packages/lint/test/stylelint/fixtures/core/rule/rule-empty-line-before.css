@@ -1,0 +1,18 @@
+/* rule-empty-line-before.css - 多行规则前有空行（正确） */
+
+.element {
+  color: #f00;
+}
+
+.another-element {
+  margin: 8px;
+  padding: 8px;
+}
+
+.third-element {
+  background-color: #00f;
+}
+
+.element .child {
+  color: #0f0;
+}
