@@ -1,0 +1,20 @@
+/* comment-whitespace-inside-invalid.css - 注释内部缺少空格（错误） */
+
+.element {
+  margin: 8px;
+}
+
+/*缺少开头空格*/
+.another-element {
+  padding: 8px;
+}
+
+.third-element {
+  /*缺少结尾空格 */
+  color: #f00;
+}
+
+.fourth-element {
+  /*缺少开头和结尾空格*/
+  background-color: #00f;
+}
