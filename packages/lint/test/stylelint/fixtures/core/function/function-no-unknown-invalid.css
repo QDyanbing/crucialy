@@ -1,0 +1,10 @@
+/* function-no-unknown-invalid.css - 使用未知函数（错误） */
+
+.element {
+  width: unknown-function(100px);
+  color: rgbaa(255, 0, 0, 0.5);
+}
+
+.another-element {
+  margin: invalid-func(10px);
+}
