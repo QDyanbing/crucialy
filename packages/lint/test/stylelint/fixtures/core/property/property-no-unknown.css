@@ -1,0 +1,12 @@
+/* property-no-unknown.css - 使用已知属性（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+  padding: 8px;
+}
+
+.another-element {
+  background-color: #00f;
+  border: 1px solid #000;
+}
