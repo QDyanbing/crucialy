@@ -1,0 +1,24 @@
+/* comment-empty-line-before.css - 注释前有空行（正确） */
+
+.element {
+  margin: 8px;
+}
+
+/* 这是一个注释 */
+.another-element {
+  padding: 8px;
+}
+
+.third-element {
+  /* 第一个嵌套元素的注释不需要空行 */
+  color: #f00;
+}
+
+.fourth-element {
+  margin: 8px;
+}
+
+/* stylelint-disable-next-line */
+.fifth-element {
+  color: #00f;
+}
