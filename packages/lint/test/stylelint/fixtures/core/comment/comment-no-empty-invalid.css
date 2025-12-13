@@ -1,0 +1,15 @@
+/* comment-no-empty-invalid.css - 使用空注释（错误） */
+
+.element {
+  margin: 8px;
+}
+
+/**/
+.another-element {
+  padding: 8px;
+}
+
+.third-element {
+  /* */
+  color: #f00;
+}

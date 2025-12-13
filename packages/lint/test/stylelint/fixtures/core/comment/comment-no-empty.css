@@ -1,0 +1,15 @@
+/* comment-no-empty.css - 使用有内容的注释（正确） */
+
+.element {
+  margin: 8px;
+}
+
+/* 这是一个有内容的注释 */
+.another-element {
+  padding: 8px;
+}
+
+.third-element {
+  /* 另一个注释 */
+  color: #f00;
+}
