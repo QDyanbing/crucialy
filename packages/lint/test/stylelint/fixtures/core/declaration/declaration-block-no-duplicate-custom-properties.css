@@ -1,0 +1,12 @@
+/* declaration-block-no-duplicate-custom-properties.css - 没有重复的自定义属性（正确） */
+
+:root {
+  --color: #f00;
+  --size: 16px;
+  --radius: 8px;
+}
+
+.element {
+  --primary: #000;
+  --secondary: #fff;
+}
