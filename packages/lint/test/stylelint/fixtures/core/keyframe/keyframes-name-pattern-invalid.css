@@ -1,0 +1,21 @@
+/* keyframes-name-pattern-invalid.css - 使用非 kebab-case 命名（错误） */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes SlideLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100px);
+  }
+}
