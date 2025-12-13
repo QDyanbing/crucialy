@@ -1,0 +1,5 @@
+/* no-empty-source.css - 非空源文件（正确） */
+
+.element {
+  color: #f00;
+}
