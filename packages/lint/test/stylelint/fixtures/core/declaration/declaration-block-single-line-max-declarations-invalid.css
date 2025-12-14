@@ -1,0 +1,11 @@
+/* declaration-block-single-line-max-declarations-invalid.css - 单行有多个声明（错误） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
+
+.another-element {
+  padding: 8px;
+  background-color: #00f;
+}
