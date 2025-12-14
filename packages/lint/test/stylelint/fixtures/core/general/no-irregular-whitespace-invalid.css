@@ -1,0 +1,11 @@
+/* no-irregular-whitespace-invalid.css - 有不规则空白字符（错误） */
+
+.element {
+  color: ​ #f00;
+  margin: 8px;
+}
+
+.another-element {
+  padding: 8px;
+  background-color: #00f;
+}
