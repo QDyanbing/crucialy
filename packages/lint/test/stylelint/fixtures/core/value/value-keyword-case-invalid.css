@@ -1,0 +1,11 @@
+/* value-keyword-case-invalid.css - 值关键字使用大写（错误） */
+
+.element {
+  display: BLOCK;
+  text-transform: UPPERCASE;
+  position: ABSOLUTE;
+}
+
+.another-element {
+  overflow: HIDDEN;
+}

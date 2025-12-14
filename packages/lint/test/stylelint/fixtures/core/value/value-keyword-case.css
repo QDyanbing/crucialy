@@ -1,0 +1,12 @@
+/* value-keyword-case.css - 值关键字使用小写（正确） */
+
+.element {
+  display: block;
+  text-transform: uppercase;
+  position: absolute;
+}
+
+.another-element {
+  overflow: hidden;
+  text-align: center;
+}
