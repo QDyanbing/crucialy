@@ -25,11 +25,10 @@ describe('selector-attribute-quotes', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
 
+    expect(errored).toBe(true);
     expect(ruleNames).toContain('selector-attribute-quotes');
   });
 });
