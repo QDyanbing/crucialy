@@ -1,0 +1,10 @@
+/* declaration-property-value-no-unknown-invalid.css - 使用未知属性值（错误） */
+
+.element {
+  display: unknown-value;
+  position: center;
+}
+
+.another-element {
+  overflow: invalid-value;
+}

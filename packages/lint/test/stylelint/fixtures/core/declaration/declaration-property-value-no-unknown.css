@@ -1,0 +1,11 @@
+/* declaration-property-value-no-unknown.css - 使用已知属性值（正确） */
+
+.element {
+  display: block;
+  position: absolute;
+}
+
+.another-element {
+  overflow: hidden;
+  text-align: center;
+}
