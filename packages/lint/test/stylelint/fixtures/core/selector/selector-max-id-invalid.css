@@ -1,0 +1,13 @@
+/* selector-max-id-invalid.css - 使用 ID 选择器（错误） */
+
+#my-id {
+  margin: 8px;
+}
+
+#primary-button {
+  padding: 8px;
+}
+
+.element #nested-id {
+  color: #f00;
+}

@@ -1,0 +1,13 @@
+/* selector-max-id.css - 不使用 ID 选择器（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.another-element {
+  padding: 8px;
+}
+
+[data-id='123'] {
+  color: #f00;
+}
