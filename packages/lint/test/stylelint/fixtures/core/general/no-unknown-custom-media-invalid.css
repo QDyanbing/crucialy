@@ -1,0 +1,13 @@
+/* no-unknown-custom-media-invalid.css - 使用未定义的自定义 media（错误） */
+
+@media (--unknown) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (--small-screen) {
+  .another-element {
+    padding: 8px;
+  }
+}

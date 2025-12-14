@@ -1,0 +1,16 @@
+/* no-unknown-custom-media.css - 使用已定义的自定义 media（正确） */
+
+@custom-media --small (width < 768px);
+@custom-media --large (width >= 1024px);
+
+@media (--small) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (--large) {
+  .another-element {
+    padding: 16px;
+  }
+}
