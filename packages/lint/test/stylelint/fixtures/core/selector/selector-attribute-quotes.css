@@ -1,0 +1,13 @@
+/* selector-attribute-quotes.css - 属性值使用引号（正确） */
+
+[type='text'] {
+  margin: 8px;
+}
+
+[data-id='123'] {
+  padding: 8px;
+}
+
+[class='button'] {
+  color: #f00;
+}
