@@ -1,0 +1,14 @@
+/* no-unknown-custom-properties.css - 使用已定义的自定义属性（正确） */
+
+:root {
+  --primary-color: #ff0000;
+  --font-size: 16px;
+}
+
+.element {
+  color: var(--primary-color);
+}
+
+.another-element {
+  font-size: var(--font-size);
+}

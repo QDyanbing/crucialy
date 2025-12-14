@@ -1,0 +1,13 @@
+/* no-unknown-custom-properties-invalid.css - 使用未定义的自定义属性（错误） */
+
+.element {
+  color: var(--primary-colour);
+}
+
+.another-element {
+  font-size: var(--undefined-var);
+}
+
+.third-element {
+  margin: var(--unknown-spacing);
+}
