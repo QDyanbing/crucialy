@@ -1,0 +1,9 @@
+/* selector-max-attribute.css - 属性选择器数量在限制内（正确） */
+
+[type='text'] {
+  margin: 8px;
+}
+
+[data-id='123'][required] {
+  padding: 8px;
+}
