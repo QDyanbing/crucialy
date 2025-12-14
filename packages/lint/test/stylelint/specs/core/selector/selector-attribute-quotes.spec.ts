@@ -26,6 +26,13 @@ describe('selector-attribute-quotes', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
+    if (warnings.length > 0) {
+      console.log(
+        '警告:',
+        warnings.map(w => ({ rule: w.rule, line: w.line, text: w.text })),
+      );
+    }
+
     const ruleNames = warnings.map(w => w.rule);
 
     expect(errored).toBe(true);
