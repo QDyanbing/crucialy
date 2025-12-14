@@ -1,0 +1,13 @@
+/* no-unknown-animations-invalid.css - 使用未定义的动画（错误） */
+
+.element {
+  animation: slideIn 1s;
+}
+
+.another-element {
+  animation: fadeOut 2s;
+}
+
+.third-element {
+  animation: unknown-animation 1s;
+}

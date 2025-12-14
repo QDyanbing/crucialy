@@ -1,0 +1,29 @@
+/* no-unknown-animations.css - 使用已定义的动画（正确） */
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.element {
+  animation: slide 1s;
+}
+
+.another-element {
+  animation: fade 2s;
+}
