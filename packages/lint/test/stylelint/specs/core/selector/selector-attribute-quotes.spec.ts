@@ -25,17 +25,11 @@ describe('selector-attribute-quotes', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    if (warnings.length > 0) {
-      console.log(
-        '警告:',
-        warnings.map(w => ({ rule: w.rule, line: w.line, text: w.text })),
-      );
-    }
+    expect(errored).toBe(true);
 
+    const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
 
-    expect(errored).toBe(true);
     expect(ruleNames).toContain('selector-attribute-quotes');
   });
 });

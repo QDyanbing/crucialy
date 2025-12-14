@@ -35,20 +35,11 @@ describe('declaration-block-single-line-max-declarations', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    if (warnings.length > 0) {
-      console.log(
-        '警告:',
-        warnings.map(w => ({ rule: w.rule, line: w.line, text: w.text })),
-      );
-    }
-
     expect(errored).toBe(true);
 
+    const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
 
-    // 这个规则可能不会触发，因为其他规则（如 order/properties-order）可能先捕获
-    // 我们检查是否有相关的警告
-    expect(warnings.length).toBeGreaterThan(0);
+    expect(ruleNames).toContain('declaration-block-single-line-max-declarations');
   });
 });
