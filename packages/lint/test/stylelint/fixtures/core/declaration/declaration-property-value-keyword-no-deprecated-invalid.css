@@ -1,10 +1,9 @@
 /* declaration-property-value-keyword-no-deprecated-invalid.css - 使用已弃用的属性值（错误） */
 
 .element {
-  overflow: -moz-scrollbars-none;
-  display: -webkit-box;
+  clip: rect(0, 0, 0, 0);
 }
 
 .another-element {
-  display: -ms-flexbox;
+  zoom: 1;
 }
