@@ -1,0 +1,11 @@
+/* declaration-property-value-keyword-no-deprecated.css - 使用未弃用的属性值（正确） */
+
+.element {
+  overflow: auto;
+  text-decoration: underline;
+}
+
+.another-element {
+  display: flex;
+  position: absolute;
+}
