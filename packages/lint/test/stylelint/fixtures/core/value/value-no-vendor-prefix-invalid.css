@@ -1,0 +1,10 @@
+/* value-no-vendor-prefix-invalid.css - 值使用厂商前缀（错误） */
+
+.element {
+  background: -webkit-linear-gradient(to right, #fff, #000);
+  appearance: -moz-none;
+}
+
+.another-element {
+  display: -ms-flexbox;
+}
