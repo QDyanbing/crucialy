@@ -1,0 +1,13 @@
+/* selector-class-pattern-invalid.css - 使用非 BEM 命名（错误） */
+
+.blockElement {
+  margin: 8px;
+}
+
+.Block {
+  padding: 8px;
+}
+
+.block_element {
+  color: #f00;
+}

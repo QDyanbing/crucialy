@@ -1,0 +1,17 @@
+/* selector-class-pattern.css - 使用 BEM 命名（正确） */
+
+.block {
+  margin: 8px;
+}
+
+.block__element {
+  padding: 8px;
+}
+
+.block--modifier {
+  color: #f00;
+}
+
+.block__element--modifier {
+  background-color: #00f;
+}
