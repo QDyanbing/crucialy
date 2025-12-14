@@ -1,0 +1,9 @@
+/* no-duplicate-at-import-rules.css - 没有重复的 @import（正确） */
+
+@import 'reset.css';
+@import 'base.css';
+@import 'components.css';
+
+.element {
+  color: #f00;
+}
