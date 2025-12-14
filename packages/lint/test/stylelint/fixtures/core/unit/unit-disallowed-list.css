@@ -1,0 +1,12 @@
+/* unit-disallowed-list.css - 不使用禁用单位（正确） */
+
+.element {
+  width: 100px;
+  font-size: 16px;
+  margin: 1em;
+}
+
+.another-element {
+  padding: 1rem;
+  height: 50vh;
+}

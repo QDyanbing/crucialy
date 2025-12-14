@@ -1,0 +1,11 @@
+/* unit-disallowed-list-invalid.css - 使用禁用单位（错误） */
+
+.element {
+  width: 10cm;
+  font-size: 12pt;
+}
+
+.another-element {
+  margin: 1in;
+  padding: 5mm;
+}
