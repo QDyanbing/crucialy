@@ -1,0 +1,11 @@
+/* property-no-vendor-prefix.css - 不使用厂商前缀（正确） */
+
+.element {
+  transform: scale(1);
+  user-select: none;
+}
+
+.another-element {
+  appearance: none;
+  box-sizing: border-box;
+}
