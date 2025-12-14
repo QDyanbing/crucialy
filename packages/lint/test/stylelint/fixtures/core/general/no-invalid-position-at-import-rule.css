@@ -1,0 +1,12 @@
+/* no-invalid-position-at-import-rule.css - @import 在文件开头（正确） */
+
+@import 'reset.css';
+@import 'base.css';
+
+.element {
+  color: #f00;
+}
+
+.another-element {
+  margin: 8px;
+}
