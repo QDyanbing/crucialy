@@ -1,0 +1,10 @@
+/* unit-no-unknown-invalid.css - 使用未知单位（错误） */
+
+.element {
+  width: 100unknown;
+  margin: 10pixels;
+}
+
+.another-element {
+  font-size: 16invalid;
+}
