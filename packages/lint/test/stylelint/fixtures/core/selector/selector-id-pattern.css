@@ -1,0 +1,13 @@
+/* selector-id-pattern.css - 使用 kebab-case 命名（正确） */
+
+#my-id {
+  margin: 8px;
+}
+
+#primary-button {
+  padding: 8px;
+}
+
+#header-nav {
+  color: #f00;
+}

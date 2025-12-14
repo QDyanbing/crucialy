@@ -1,0 +1,13 @@
+/* selector-id-pattern-invalid.css - 使用非 kebab-case 命名（错误） */
+
+#myId {
+  margin: 8px;
+}
+
+#MyId {
+  padding: 8px;
+}
+
+#my_id {
+  color: #f00;
+}
