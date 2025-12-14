@@ -1,0 +1,13 @@
+/* media-feature-name-no-vendor-prefix-invalid.css - 使用厂商前缀（错误） */
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (-moz-min-device-pixel-ratio: 2) {
+  .another-element {
+    padding: 8px;
+  }
+}

@@ -1,0 +1,13 @@
+/* media-feature-name-no-vendor-prefix.css - 不使用厂商前缀（正确） */
+
+@media (min-width: 600px) {
+  .element {
+    margin: 8px;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .another-element {
+    padding: 8px;
+  }
+}
