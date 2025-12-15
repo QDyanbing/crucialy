@@ -1,0 +1,9 @@
+/* selector-max-pseudo-class-invalid.css - 伪类数量超过限制（错误） */
+
+.element:hover:focus:active:visited {
+  margin: 8px;
+}
+
+.a:hover:focus:active:visited:first-child {
+  padding: 8px;
+}
