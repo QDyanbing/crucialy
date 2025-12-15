@@ -79,9 +79,9 @@
     "clean": "rm -rf dist",
     "generate:stylelint-rule-sets": "node scripts/generate-stylelint-rule-sets.js",
     "lint": "tsc --noEmit",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
     "test": "vitest",
-    "test:stylelint": "vitest run",
-    "prepublishOnly": "pnpm run clean && pnpm run build"
+    "test:stylelint": "vitest run"
   },
   "devDependencies": {
     "@stylistic/stylelint-plugin": "^3.0.0",

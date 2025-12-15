@@ -18,7 +18,11 @@ describe('selector-pseudo-element-no-unknown', () => {
   });
 
   it('应该报告使用未知伪元素的错误', async () => {
-    const file = resolveFixture('core', 'selector', 'selector-pseudo-element-no-unknown-invalid.css');
+    const file = resolveFixture(
+      'core',
+      'selector',
+      'selector-pseudo-element-no-unknown-invalid.css',
+    );
 
     const { errored, results } = await runStylelintWithConfig({
       config: core,
