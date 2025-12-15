@@ -11,7 +11,3 @@
 .element.child.third {
   color: #f00;
 }
-
-.element.child.third:hover {
-  background-color: #00f;
-}
