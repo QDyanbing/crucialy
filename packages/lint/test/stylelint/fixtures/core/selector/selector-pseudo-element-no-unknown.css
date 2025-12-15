@@ -1,0 +1,17 @@
+/* selector-pseudo-element-no-unknown.css - 使用已知伪元素（正确） */
+
+.element::before {
+  content: '';
+}
+
+.element::after {
+  content: '';
+}
+
+.element::first-line {
+  color: #f00;
+}
+
+.element::first-letter {
+  font-size: 2em;
+}

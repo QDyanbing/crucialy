@@ -1,0 +1,13 @@
+/* selector-pseudo-element-colon-notation-invalid.css - 使用单冒号伪元素（错误） */
+
+.element:before {
+  content: '';
+}
+
+.element:after {
+  content: '';
+}
+
+.element:first-line {
+  color: #f00;
+}

@@ -1,0 +1,9 @@
+/* selector-pseudo-element-no-unknown-invalid.css - 使用未知伪元素（错误） */
+
+.element::unknown {
+  content: '';
+}
+
+.element::notreal {
+  color: #f00;
+}

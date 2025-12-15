@@ -1,0 +1,17 @@
+/* selector-pseudo-element-colon-notation.css - 使用双冒号伪元素（正确） */
+
+.element::before {
+  content: '';
+}
+
+.element::after {
+  content: '';
+}
+
+.element::first-line {
+  color: #f00;
+}
+
+.element::first-letter {
+  font-size: 2em;
+}
