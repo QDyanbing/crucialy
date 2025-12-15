@@ -1,0 +1,9 @@
+/* selector-max-combinators-invalid.css - 组合器数量超过限制（错误） */
+
+.element > .child + .sibling ~ .another {
+  margin: 8px;
+}
+
+.a > .b + .c ~ .d > .e {
+  padding: 8px;
+}

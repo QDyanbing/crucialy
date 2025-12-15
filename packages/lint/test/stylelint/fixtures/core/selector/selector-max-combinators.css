@@ -1,0 +1,17 @@
+/* selector-max-combinators.css - 组合器数量在限制内（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.element > .child {
+  padding: 8px;
+}
+
+.element > .child + .sibling {
+  color: #f00;
+}
+
+.element > .child + .sibling ~ .another {
+  background-color: #00f;
+}
