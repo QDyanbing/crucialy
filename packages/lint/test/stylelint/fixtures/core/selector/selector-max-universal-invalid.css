@@ -1,0 +1,9 @@
+/* selector-max-universal-invalid.css - 使用通配符选择器（错误） */
+
+* {
+  margin: 8px;
+}
+
+.element * {
+  padding: 8px;
+}

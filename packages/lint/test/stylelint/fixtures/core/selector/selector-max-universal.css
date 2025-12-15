@@ -1,0 +1,13 @@
+/* selector-max-universal.css - 不使用通配符选择器（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.class {
+  padding: 8px;
+}
+
+#id {
+  color: #f00;
+}
