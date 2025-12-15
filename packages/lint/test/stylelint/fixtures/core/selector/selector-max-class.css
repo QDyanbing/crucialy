@@ -1,0 +1,9 @@
+/* selector-max-class.css - 类选择器数量在限制内（正确） */
+
+.a {
+  margin: 8px;
+}
+
+.a.b.c.d {
+  padding: 8px;
+}

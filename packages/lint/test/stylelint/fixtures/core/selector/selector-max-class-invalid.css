@@ -1,0 +1,9 @@
+/* selector-max-class-invalid.css - 类选择器数量超过限制（错误） */
+
+.a.b.c.d.e {
+  margin: 8px;
+}
+
+.block__element--modifier.another-class.third-class.fourth-class.fifth-class {
+  padding: 8px;
+}
