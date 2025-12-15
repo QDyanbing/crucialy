@@ -1,0 +1,11 @@
+/* no-invalid-position-declaration-invalid.css - 声明在无效位置（错误） */
+
+@import 'styles.css';
+
+color: #f00;
+
+@media (min-width: 600px) {
+  .element {
+    color: #00f;
+  }
+}
