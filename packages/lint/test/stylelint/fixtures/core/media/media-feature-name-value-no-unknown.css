@@ -1,0 +1,19 @@
+/* media-feature-name-value-no-unknown.css - 使用已知媒体特性值（正确） */
+
+@media (orientation: portrait) {
+  .element {
+    color: #f00;
+  }
+}
+
+@media (orientation: landscape) {
+  .element {
+    color: #00f;
+  }
+}
+
+@media (width: 600px) {
+  .element {
+    padding: 8px;
+  }
+}

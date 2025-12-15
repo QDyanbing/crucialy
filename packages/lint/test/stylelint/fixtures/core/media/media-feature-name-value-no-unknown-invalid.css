@@ -1,0 +1,13 @@
+/* media-feature-name-value-no-unknown-invalid.css - 使用未知媒体特性值（错误） */
+
+@media (orientation: vertical) {
+  .element {
+    color: #f00;
+  }
+}
+
+@media (width: invalid-value) {
+  .element {
+    padding: 8px;
+  }
+}
