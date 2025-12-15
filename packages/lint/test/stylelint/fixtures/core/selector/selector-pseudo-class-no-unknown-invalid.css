@@ -1,0 +1,9 @@
+/* selector-pseudo-class-no-unknown-invalid.css - 使用未知伪类（错误） */
+
+.element:unknown {
+  margin: 8px;
+}
+
+.element:notreal {
+  padding: 8px;
+}

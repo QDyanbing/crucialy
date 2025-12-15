@@ -1,9 +1,9 @@
 /* selector-max-type-invalid.css - 类型选择器数量超过限制（错误） */
 
-div span p {
+div span p article {
   margin: 8px;
 }
 
-section article header {
+section article header nav {
   padding: 8px;
 }

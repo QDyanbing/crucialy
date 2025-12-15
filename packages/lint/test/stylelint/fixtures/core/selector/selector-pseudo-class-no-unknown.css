@@ -1,0 +1,17 @@
+/* selector-pseudo-class-no-unknown.css - 使用已知伪类（正确） */
+
+.element:hover {
+  margin: 8px;
+}
+
+.element:focus {
+  padding: 8px;
+}
+
+.element:active {
+  color: #f00;
+}
+
+.element:first-child {
+  background-color: #00f;
+}
