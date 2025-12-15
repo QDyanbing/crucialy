@@ -1,0 +1,17 @@
+/* no-descending-specificity-invalid.css - 特异性降低（错误） */
+
+#id .class {
+  color: #f00;
+}
+
+.class {
+  color: #00f;
+}
+
+.a.b {
+  color: #0f0;
+}
+
+.a {
+  color: #ff0;
+}

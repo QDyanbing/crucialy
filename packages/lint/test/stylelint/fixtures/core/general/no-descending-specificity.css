@@ -1,0 +1,17 @@
+/* no-descending-specificity.css - 特异性不降低（正确） */
+
+.element {
+  color: #f00;
+}
+
+.element.child {
+  color: #00f;
+}
+
+#id .class {
+  color: #0f0;
+}
+
+#id .class.another {
+  color: #ff0;
+}
