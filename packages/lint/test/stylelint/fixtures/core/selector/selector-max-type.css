@@ -1,0 +1,13 @@
+/* selector-max-type.css - 类型选择器数量在限制内（正确） */
+
+.element {
+  margin: 8px;
+}
+
+div > span {
+  padding: 8px;
+}
+
+div span {
+  color: #f00;
+}
