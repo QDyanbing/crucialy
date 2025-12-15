@@ -1,0 +1,17 @@
+/* selector-max-specificity.css - 特异性在限制内（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.element.child {
+  padding: 8px;
+}
+
+.element.child.third {
+  color: #f00;
+}
+
+.element.child.third:hover {
+  background-color: #00f;
+}
