@@ -1,0 +1,9 @@
+/* selector-max-attribute-invalid.css - 属性选择器数量超过限制（错误） */
+
+[type='text'][required][disabled] {
+  margin: 8px;
+}
+
+[data-id='123'][class='button'][type='submit'] {
+  padding: 8px;
+}
