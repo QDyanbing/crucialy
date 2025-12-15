@@ -1,0 +1,13 @@
+/* selector-max-compound-selectors.css - 复合选择器数量在限制内（正确） */
+
+.element {
+  margin: 8px;
+}
+
+.element .child {
+  padding: 8px;
+}
+
+.element .child .grandchild {
+  color: #f00;
+}

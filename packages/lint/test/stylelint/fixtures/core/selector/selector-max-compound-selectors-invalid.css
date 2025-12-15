@@ -1,0 +1,9 @@
+/* selector-max-compound-selectors-invalid.css - 复合选择器数量超过限制（错误） */
+
+.element .child .grandchild .great-grandchild {
+  margin: 8px;
+}
+
+.a .b .c .d .e {
+  padding: 8px;
+}
