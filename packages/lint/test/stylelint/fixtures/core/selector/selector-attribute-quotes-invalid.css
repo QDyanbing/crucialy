@@ -1,13 +1,13 @@
 /* selector-attribute-quotes-invalid.css - 属性值缺少引号（错误） */
 
-[type='text'] {
+[type=text] {
   margin: 8px;
 }
 
-[data-id='123'] {
+[data-id=123] {
   padding: 8px;
 }
 
-[class='button'] {
+[class=button] {
   color: #f00;
 }

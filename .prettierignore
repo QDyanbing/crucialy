@@ -12,3 +12,8 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
+# 测试用例中的 invalid 文件（需要保持错误格式以触发规则）
+**/*invalid*.css
+**/*invalid*.scss
+**/*invalid*.less
+
