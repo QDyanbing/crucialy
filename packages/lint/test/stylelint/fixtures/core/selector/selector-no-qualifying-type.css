@@ -1,0 +1,13 @@
+/* selector-no-qualifying-type.css - 不使用类型选择器限定类或ID（正确） */
+
+.class {
+  margin: 8px;
+}
+
+#id {
+  padding: 8px;
+}
+
+[type='text'].class {
+  color: #f00;
+}

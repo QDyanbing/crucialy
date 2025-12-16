@@ -1,0 +1,13 @@
+/* selector-no-qualifying-type-invalid.css - 使用类型选择器限定类或ID（错误） */
+
+div.class {
+  margin: 8px;
+}
+
+div#id {
+  padding: 8px;
+}
+
+span.class {
+  color: #f00;
+}
