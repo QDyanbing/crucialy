@@ -1,0 +1,10 @@
+/* string-no-newline.css - 字符串值不包含换行符（正确） */
+
+.element {
+  content: 'hello world';
+  --text: 'single line';
+}
+
+.element::before {
+  content: 'hello\Aworld';
+}

@@ -1,0 +1,8 @@
+/* string-no-newline-invalid.css - 字符串值包含换行符（错误） */
+
+.element {
+  content: 'hello
+world';
+  --text: 'multi
+line';
+}
