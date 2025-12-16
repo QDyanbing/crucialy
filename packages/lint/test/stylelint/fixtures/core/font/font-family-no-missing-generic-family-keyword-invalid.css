@@ -1,0 +1,6 @@
+/* font-family-no-missing-generic-family-keyword-invalid.css - 缺少通用字体族关键字（错误） */
+
+.element {
+  font-family: Arial, Helvetica;
+  font-family: 'My Custom Font';
+}

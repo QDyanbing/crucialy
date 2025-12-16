@@ -1,0 +1,9 @@
+/* import-notation-invalid.css - 使用 url() 形式的 @import（错误） */
+
+@import url('styles.css');
+
+@import url('reset.css');
+
+.element {
+  color: #f00;
+}

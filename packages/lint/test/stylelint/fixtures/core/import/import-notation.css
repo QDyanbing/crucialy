@@ -1,0 +1,9 @@
+/* import-notation.css - 使用字符串形式的 @import（正确） */
+
+@import 'styles.css';
+
+@import 'reset.css';
+
+.element {
+  color: #f00;
+}
