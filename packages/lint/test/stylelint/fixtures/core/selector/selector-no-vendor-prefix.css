@@ -1,0 +1,9 @@
+/* selector-no-vendor-prefix.css - 不使用厂商前缀选择器（正确） */
+
+.element::placeholder {
+  color: #999;
+}
+
+.element::selection {
+  background-color: #00f;
+}
