@@ -1,0 +1,11 @@
+/* nesting-selector-no-missing-scoping-root.css - 嵌套选择器有作用域根（正确） */
+
+.parent {
+  & .child {
+    color: #f00;
+  }
+
+  &:hover {
+    color: #00f;
+  }
+}

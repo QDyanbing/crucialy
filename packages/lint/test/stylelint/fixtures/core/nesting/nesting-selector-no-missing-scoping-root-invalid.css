@@ -1,0 +1,9 @@
+/* nesting-selector-no-missing-scoping-root-invalid.css - 嵌套选择器缺少作用域根（错误） */
+
+& .child {
+  color: #f00;
+}
+
+&:hover {
+  color: #00f;
+}
