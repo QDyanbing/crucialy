@@ -1,0 +1,13 @@
+/* selector-type-no-unknown.css - 使用已知类型选择器（正确） */
+
+div {
+  margin: 8px;
+}
+
+span {
+  padding: 8px;
+}
+
+p {
+  color: #f00;
+}

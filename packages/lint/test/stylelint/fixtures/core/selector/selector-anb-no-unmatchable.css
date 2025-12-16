@@ -1,0 +1,13 @@
+/* selector-anb-no-unmatchable.css - 使用可匹配的 :nth-child() 表达式（正确） */
+
+.element:nth-child(2n + 1) {
+  margin: 8px;
+}
+
+.element:nth-child(odd) {
+  padding: 8px;
+}
+
+.element:nth-child(3) {
+  color: #f00;
+}

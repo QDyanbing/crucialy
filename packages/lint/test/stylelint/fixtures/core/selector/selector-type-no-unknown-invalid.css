@@ -1,0 +1,9 @@
+/* selector-type-no-unknown-invalid.css - 使用未知类型选择器（错误） */
+
+unknown-element {
+  margin: 8px;
+}
+
+notreal-tag {
+  padding: 8px;
+}

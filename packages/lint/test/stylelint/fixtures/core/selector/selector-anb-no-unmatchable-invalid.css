@@ -1,0 +1,13 @@
+/* selector-anb-no-unmatchable-invalid.css - 使用不可匹配的 :nth-child() 表达式（错误） */
+
+.element:nth-child(0n+0) {
+  margin: 8px;
+}
+
+.element:nth-child(5n+2) {
+  padding: 8px;
+}
+
+.element:nth-child(0) {
+  color: #f00;
+}
