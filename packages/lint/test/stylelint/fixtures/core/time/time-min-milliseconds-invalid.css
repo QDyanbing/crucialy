@@ -1,0 +1,7 @@
+/* time-min-milliseconds-invalid.css - 时间值小于最小值（错误） */
+
+.element {
+  transition-duration: 50ms;
+  animation-duration: 0.05s;
+  transition-delay: 80ms;
+}

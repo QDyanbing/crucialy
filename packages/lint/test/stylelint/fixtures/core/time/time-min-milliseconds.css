@@ -1,0 +1,7 @@
+/* time-min-milliseconds.css - 时间值大于等于最小值（正确） */
+
+.element {
+  transition-duration: 100ms;
+  animation-duration: 0.3s;
+  transition-delay: 200ms;
+}
