@@ -1,0 +1,10 @@
+/* custom-property-no-missing-var-function.css - 使用 var() 包裹自定义属性（正确） */
+
+:root {
+  --primary: #000;
+}
+
+.button {
+  color: var(--primary);
+  background: var(--primary, #fff);
+}

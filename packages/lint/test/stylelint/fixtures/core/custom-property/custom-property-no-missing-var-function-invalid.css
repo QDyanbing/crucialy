@@ -1,0 +1,10 @@
+/* custom-property-no-missing-var-function-invalid.css - 直接使用自定义属性（错误） */
+
+:root {
+  --primary: #000;
+}
+
+.button {
+  color: --primary;
+  background: --bg-color;
+}
