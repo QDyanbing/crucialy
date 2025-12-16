@@ -1,0 +1,7 @@
+/* custom-property-pattern-invalid.css - 自定义属性不使用 kebab-case（错误） */
+
+:root {
+  --myColor: #f00;
+  --PrimaryColor: #00f;
+  --fontSize: 16px;
+}

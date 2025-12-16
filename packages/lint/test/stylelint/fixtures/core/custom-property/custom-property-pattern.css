@@ -1,0 +1,7 @@
+/* custom-property-pattern.css - 自定义属性使用 kebab-case（正确） */
+
+:root {
+  --my-color: #f00;
+  --primary-color: #00f;
+  --font-size: 16px;
+}
