@@ -1,0 +1,7 @@
+/* number-max-precision-invalid.css - 数字小数位数超过限制（错误） */
+
+.element {
+  width: 1.23456%;
+  opacity: 0.123456;
+  transform: rotate(3.14159deg);
+}

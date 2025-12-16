@@ -1,0 +1,7 @@
+/* number-max-precision.css - 数字小数位数在限制内（正确） */
+
+.element {
+  width: 1.2345%;
+  opacity: 0.5;
+  transform: rotate(3.14deg);
+}
