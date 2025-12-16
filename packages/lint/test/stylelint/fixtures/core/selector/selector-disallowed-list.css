@@ -1,0 +1,13 @@
+/* selector-disallowed-list.css - 不使用黑名单中的选择器（正确） */
+
+.element {
+  margin: 8px;
+}
+
+#id {
+  padding: 8px;
+}
+
+.class {
+  color: #f00;
+}

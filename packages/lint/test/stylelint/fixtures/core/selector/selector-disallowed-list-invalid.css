@@ -1,0 +1,9 @@
+/* selector-disallowed-list-invalid.css - 使用黑名单中的选择器（错误） */
+
+* {
+  margin: 8px;
+}
+
+* .class {
+  padding: 8px;
+}
