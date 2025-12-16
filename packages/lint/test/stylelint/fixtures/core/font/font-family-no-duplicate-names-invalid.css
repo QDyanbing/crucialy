@@ -1,0 +1,6 @@
+/* font-family-no-duplicate-names-invalid.css - 字体名称重复（错误） */
+
+.element {
+  font-family: Arial, Arial, sans-serif;
+  font-family: 'PingFang SC', 'PingFang SC', sans-serif;
+}
