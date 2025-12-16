@@ -1,0 +1,7 @@
+/* font-weight-notation.css - 使用数字形式的 font-weight（正确） */
+
+.element {
+  font-weight: 400;
+  font-weight: 700;
+  font-weight: bolder;
+}

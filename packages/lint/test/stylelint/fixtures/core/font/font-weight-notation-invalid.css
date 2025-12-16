@@ -1,0 +1,6 @@
+/* font-weight-notation-invalid.css - 使用命名形式的 font-weight（错误） */
+
+.element {
+  font-weight: bold;
+  font-weight: normal;
+}
