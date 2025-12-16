@@ -1,0 +1,11 @@
+/* selector-nested-pattern-invalid.css - 嵌套选择器不以 & 开头（错误） */
+
+.parent {
+  .child {
+    color: #f00;
+  }
+
+  :hover {
+    color: #00f;
+  }
+}

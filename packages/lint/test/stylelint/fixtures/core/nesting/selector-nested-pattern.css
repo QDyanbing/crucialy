@@ -1,0 +1,15 @@
+/* selector-nested-pattern.css - 嵌套选择器以 & 开头（正确） */
+
+.parent {
+  & .child {
+    color: #f00;
+  }
+
+  &:hover {
+    color: #00f;
+  }
+
+  &::before {
+    content: '';
+  }
+}
