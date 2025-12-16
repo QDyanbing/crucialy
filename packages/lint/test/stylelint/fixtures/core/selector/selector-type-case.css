@@ -1,0 +1,13 @@
+/* selector-type-case.css - 类型选择器使用小写（正确） */
+
+div {
+  margin: 8px;
+}
+
+span {
+  padding: 8px;
+}
+
+section {
+  color: #f00;
+}

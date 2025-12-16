@@ -1,0 +1,13 @@
+/* selector-type-case-invalid.css - 类型选择器使用大写（错误） */
+
+DIV {
+  margin: 8px;
+}
+
+SPAN {
+  padding: 8px;
+}
+
+SECTION {
+  color: #f00;
+}
