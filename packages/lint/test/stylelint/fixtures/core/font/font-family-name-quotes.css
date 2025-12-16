@@ -1,0 +1,7 @@
+/* font-family-name-quotes.css - 字体名称在必要时使用引号（正确） */
+
+.element {
+  font-family: 'Times New Roman', serif;
+  font-family: Arial, sans-serif;
+  font-family: '微软雅黑', sans-serif;
+}

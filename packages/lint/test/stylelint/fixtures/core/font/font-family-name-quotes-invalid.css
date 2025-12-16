@@ -1,0 +1,6 @@
+/* font-family-name-quotes-invalid.css - 字体名称缺少引号（错误） */
+
+.element {
+  font-family: Times New Roman, serif;
+  font-family: 微软雅黑, sans-serif;
+}
