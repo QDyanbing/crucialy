@@ -1,0 +1,9 @@
+/* selector-not-notation.css - 使用复杂形式的 :not()（正确） */
+
+.element:not(.a, .b) {
+  margin: 8px;
+}
+
+.element:not(.disabled, .hidden) {
+  padding: 8px;
+}

@@ -1,0 +1,9 @@
+/* selector-not-notation-invalid.css - 使用简单形式的 :not()（错误） */
+
+.element:not(.a):not(.b) {
+  margin: 8px;
+}
+
+.element:not(.disabled):not(.hidden) {
+  padding: 8px;
+}
