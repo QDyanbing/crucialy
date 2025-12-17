@@ -1,0 +1,7 @@
+/* @stylistic/color-hex-case.css - hex 颜色使用小写（正确） */
+
+.element {
+  color: #fff;
+  background-color: #f5f5f5;
+  border-color: #000;
+}
