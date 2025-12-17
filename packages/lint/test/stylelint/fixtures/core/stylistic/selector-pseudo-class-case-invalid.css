@@ -1,0 +1,13 @@
+/* @stylistic/selector-pseudo-class-case-invalid.css - 伪类使用大写（错误） */
+
+.element:HOVER {
+  color: #f00;
+}
+
+.element:FOCUS {
+  color: #00f;
+}
+
+.element:ACTIVE {
+  color: #0f0;
+}

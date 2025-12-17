@@ -1,0 +1,13 @@
+/* @stylistic/selector-pseudo-class-case.css - 伪类使用小写（正确） */
+
+.element:hover {
+  color: #f00;
+}
+
+.element:focus {
+  color: #00f;
+}
+
+.element:active {
+  color: #0f0;
+}
