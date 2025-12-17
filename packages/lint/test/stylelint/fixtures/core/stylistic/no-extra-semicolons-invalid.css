@@ -1,0 +1,10 @@
+/* @stylistic/no-extra-semicolons-invalid.css - 有多余的分号（错误） */
+
+.element {
+  color: #f00;;
+  margin: 8px;;
+}
+
+.another-element {
+  padding: 8px;;
+}
