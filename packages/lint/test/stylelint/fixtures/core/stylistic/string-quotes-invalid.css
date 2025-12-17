@@ -1,0 +1,10 @@
+/* @stylistic/string-quotes-invalid.css - 字符串使用双引号（错误） */
+
+.element {
+  content: "x";
+  font-family: "Arial", sans-serif;
+}
+
+.element::before {
+  content: "hello";
+}

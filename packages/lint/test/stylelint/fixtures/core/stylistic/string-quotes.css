@@ -1,0 +1,10 @@
+/* @stylistic/string-quotes.css - 字符串使用单引号（正确） */
+
+.element {
+  content: 'x';
+  font-family: 'Arial', sans-serif;
+}
+
+.element::before {
+  content: 'hello';
+}
