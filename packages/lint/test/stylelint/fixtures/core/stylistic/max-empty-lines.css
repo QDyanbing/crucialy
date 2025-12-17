@@ -1,0 +1,9 @@
+/* @stylistic/max-empty-lines.css - 连续空行在限制内（正确） */
+
+.element {
+  color: #f00;
+}
+
+.another-element {
+  padding: 8px;
+}

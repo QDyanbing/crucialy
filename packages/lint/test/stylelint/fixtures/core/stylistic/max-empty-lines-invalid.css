@@ -1,0 +1,10 @@
+/* @stylistic/max-empty-lines-invalid.css - 连续空行超过限制（错误） */
+
+.element {
+  color: #f00;
+}
+
+
+.another-element {
+  padding: 8px;
+}
