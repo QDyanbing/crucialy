@@ -1,0 +1,13 @@
+/* @stylistic/selector-pseudo-element-case-invalid.css - 伪元素使用大写（错误） */
+
+.element::BEFORE {
+  content: '';
+}
+
+.element::AFTER {
+  content: '';
+}
+
+.element::FIRST-LINE {
+  color: #f00;
+}
