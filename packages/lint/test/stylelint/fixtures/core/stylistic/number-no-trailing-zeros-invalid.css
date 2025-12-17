@@ -1,0 +1,7 @@
+/* @stylistic/number-no-trailing-zeros-invalid.css - 数字有尾随零（错误） */
+
+.element {
+  opacity: 0.50;
+  transform: scale(1.50);
+  line-height: 1.20;
+}
