@@ -1,0 +1,13 @@
+/* layer-name-pattern-invalid.css - @layer 名称不使用 kebab-case（错误） */
+
+@layer baseReset {
+  .element {
+    margin: 0;
+  }
+}
+
+@layer ComponentStyles {
+  .button {
+    padding: 8px;
+  }
+}

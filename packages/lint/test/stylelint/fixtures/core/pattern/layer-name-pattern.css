@@ -1,0 +1,15 @@
+/* layer-name-pattern.css - @layer 名称使用 kebab-case（正确） */
+
+@layer base, components, utilities;
+
+@layer base-reset {
+  .element {
+    margin: 0;
+  }
+}
+
+@layer component-styles {
+  .button {
+    padding: 8px;
+  }
+}
