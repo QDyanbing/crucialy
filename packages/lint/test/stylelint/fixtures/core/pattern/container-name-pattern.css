@@ -1,0 +1,13 @@
+/* container-name-pattern.css - container 名称使用 kebab-case（正确） */
+
+@container sidebar (width > 400px) {
+  .element {
+    color: #f00;
+  }
+}
+
+@container card-wrapper (width > 300px) {
+  .button {
+    padding: 8px;
+  }
+}

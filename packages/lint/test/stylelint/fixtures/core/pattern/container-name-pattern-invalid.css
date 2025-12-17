@@ -1,0 +1,13 @@
+/* container-name-pattern-invalid.css - container 名称不使用 kebab-case（错误） */
+
+@container cardWrapper (width > 300px) {
+  .element {
+    color: #f00;
+  }
+}
+
+@container Sidebar (width > 400px) {
+  .button {
+    padding: 8px;
+  }
+}
