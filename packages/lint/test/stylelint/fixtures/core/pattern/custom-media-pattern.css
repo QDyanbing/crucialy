@@ -1,0 +1,11 @@
+/* custom-media-pattern.css - 自定义媒体查询名称使用 kebab-case（正确） */
+
+@custom-media --small-screen (width < 768px);
+
+@custom-media --large-viewport (width > 1200px);
+
+@media (--small-screen) {
+  .element {
+    color: #f00;
+  }
+}

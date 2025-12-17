@@ -1,0 +1,11 @@
+/* custom-media-pattern-invalid.css - 自定义媒体查询名称不使用 kebab-case（错误） */
+
+@custom-media --mobileScreen (width < 480px);
+
+@custom-media --LargeViewport (width > 1200px);
+
+@media (--mobileScreen) {
+  .element {
+    color: #f00;
+  }
+}
