@@ -1,0 +1,6 @@
+/* @stylistic/no-eol-whitespace.css - 行尾没有空格（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
