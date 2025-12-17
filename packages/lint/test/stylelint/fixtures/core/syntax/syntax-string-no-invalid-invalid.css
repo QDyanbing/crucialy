@@ -1,0 +1,19 @@
+/* syntax-string-no-invalid-invalid.css - 使用无效的语法字符串（错误） */
+
+@supports (display: grid {
+  .element {
+    color: #f00;
+  }
+}
+
+@supports (display) {
+  .element {
+    padding: 8px;
+  }
+}
+
+@supports display: grid {
+  .element {
+    margin: 8px;
+  }
+}

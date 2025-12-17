@@ -1,0 +1,19 @@
+/* syntax-string-no-invalid.css - 使用有效的语法字符串（正确） */
+
+@media (display: grid) {
+  .element {
+    color: #f00;
+  }
+}
+
+@supports (display: flex) and (flex-wrap: wrap) {
+  .element {
+    padding: 8px;
+  }
+}
+
+@supports not (display: grid) {
+  .element {
+    margin: 8px;
+  }
+}
