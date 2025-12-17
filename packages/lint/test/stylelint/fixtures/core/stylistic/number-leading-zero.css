@@ -1,0 +1,7 @@
+/* @stylistic/number-leading-zero.css - 数字有前导零（正确） */
+
+.element {
+  opacity: 0.5;
+  transform: scale(0.8);
+  line-height: 1.5;
+}

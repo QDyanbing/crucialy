@@ -1,0 +1,7 @@
+/* @stylistic/number-leading-zero-invalid.css - 数字缺少前导零（错误） */
+
+.element {
+  opacity: .5;
+  transform: scale(.8);
+  line-height: 1.5;
+}
