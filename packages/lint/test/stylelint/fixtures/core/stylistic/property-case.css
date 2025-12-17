@@ -1,0 +1,7 @@
+/* @stylistic/property-case.css - 属性名使用小写（正确） */
+
+.element {
+  color: #f00;
+  background-color: #00f;
+  font-size: 16px;
+}

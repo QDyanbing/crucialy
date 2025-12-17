@@ -1,0 +1,7 @@
+/* @stylistic/property-case-invalid.css - 属性名使用大写（错误） */
+
+.element {
+  COLOR: #f00;
+  Background-Color: #00f;
+  Font-Size: 16px;
+}
