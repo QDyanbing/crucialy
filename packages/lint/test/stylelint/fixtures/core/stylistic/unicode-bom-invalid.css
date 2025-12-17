@@ -1,0 +1,6 @@
+/* @stylistic/unicode-bom-invalid.css - 文件开头有 BOM（错误） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}

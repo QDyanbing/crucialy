@@ -1,0 +1,6 @@
+/* @stylistic/unicode-bom.css - 文件开头没有 BOM（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
