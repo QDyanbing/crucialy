@@ -1,0 +1,13 @@
+/* named-grid-areas-no-invalid-invalid.css - 使用无效的命名网格区域（错误） */
+
+.container {
+  grid-template-areas:
+    'header header'
+    'sidebar';
+}
+
+.another-container {
+  grid-template-areas:
+    'header sidebar header'
+    'content content content';
+}
