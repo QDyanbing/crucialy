@@ -1,0 +1,8 @@
+/* @stylistic/unit-case-invalid.css - 单位使用大写（错误） */
+
+.element {
+  width: 100PX;
+  height: 50EM;
+  font-size: 16PX;
+  margin: 10REM;
+}

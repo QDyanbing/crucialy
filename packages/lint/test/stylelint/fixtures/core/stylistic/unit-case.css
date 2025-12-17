@@ -1,0 +1,8 @@
+/* @stylistic/unit-case.css - 单位使用小写（正确） */
+
+.element {
+  width: 100px;
+  height: 50em;
+  font-size: 16px;
+  margin: 10rem;
+}
