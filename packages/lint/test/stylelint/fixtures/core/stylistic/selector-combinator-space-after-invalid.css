@@ -1,0 +1,13 @@
+/* @stylistic/selector-combinator-space-after-invalid.css - 选择器组合器后缺少空格（错误） */
+
+.element >.child {
+  color: #f00;
+}
+
+.element +.sibling {
+  margin: 8px;
+}
+
+.element ~.general {
+  padding: 8px;
+}
