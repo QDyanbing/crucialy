@@ -1,0 +1,10 @@
+/* @stylistic/block-opening-brace-newline-after.css - 多行块开括号后有换行（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
+
+.single-line {
+  color: #00f;
+}
