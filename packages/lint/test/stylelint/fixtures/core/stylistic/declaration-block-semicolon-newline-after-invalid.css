@@ -1,0 +1,10 @@
+/* @stylistic/declaration-block-semicolon-newline-after-invalid.css - 多行声明块分号后缺少换行（错误） */
+
+.element {
+  color: #f00; margin: 8px;
+}
+
+.single-line {
+  color: #00f;
+  padding: 8px;
+}
