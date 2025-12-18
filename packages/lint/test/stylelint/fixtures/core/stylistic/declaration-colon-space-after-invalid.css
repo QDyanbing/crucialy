@@ -1,0 +1,6 @@
+/* @stylistic/declaration-colon-space-after-invalid.css - 冒号后缺少空格（错误） */
+
+.element {
+  color:#f00;
+  margin:8px;
+}
