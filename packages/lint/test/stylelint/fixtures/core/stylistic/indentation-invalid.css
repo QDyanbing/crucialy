@@ -1,0 +1,6 @@
+/* @stylistic/indentation-invalid.css - 使用错误的缩进（错误） */
+
+.element {
+color: #f00;
+  margin: 8px;
+}
