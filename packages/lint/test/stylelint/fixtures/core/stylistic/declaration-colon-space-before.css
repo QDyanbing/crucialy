@@ -1,0 +1,6 @@
+/* @stylistic/declaration-colon-space-before.css - 冒号前没有空格（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
