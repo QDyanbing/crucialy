@@ -1,0 +1,6 @@
+/* @stylistic/function-parentheses-space-inside-invalid.css - 函数括号内有空格（错误） */
+
+.element {
+  background: calc( 100% - 20px );
+  margin: rgb( 0, 0, 0 );
+}
