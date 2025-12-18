@@ -1,0 +1,15 @@
+/* @stylistic/at-rule-name-space-after-invalid.css - @规则名称后缺少空格（错误） */
+
+@media(width > 600px) {
+  .element {
+    color: #f00;
+  }
+}
+
+@import'styles.css';
+
+@supports(display: flex) {
+  .element {
+    margin: 8px;
+  }
+}

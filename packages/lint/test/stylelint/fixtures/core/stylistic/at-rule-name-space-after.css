@@ -1,0 +1,15 @@
+/* @stylistic/at-rule-name-space-after.css - @规则名称后有空格（正确） */
+
+@media (width > 600px) {
+  .element {
+    color: #f00;
+  }
+}
+
+@import 'styles.css';
+
+@supports (display: flex) {
+  .element {
+    margin: 8px;
+  }
+}
