@@ -1,0 +1,7 @@
+/* @stylistic/selector-list-comma-newline-after.css - 选择器列表逗号后有换行（正确） */
+
+.element,
+.another-element,
+.third-element {
+  color: #f00;
+}
