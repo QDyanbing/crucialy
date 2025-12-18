@@ -1,0 +1,9 @@
+/* @stylistic/block-closing-brace-newline-before-invalid.css - 多行块闭括号前缺少换行（错误） */
+
+.element {
+  color: #f00;
+  margin: 8px;}
+
+.single-line {
+  color: #00f;
+}
