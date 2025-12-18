@@ -1,0 +1,5 @@
+/* @stylistic/no-missing-end-of-source-newline-invalid.css - 文件末尾缺少换行符（错误） */
+
+.element {
+  color: #f00;
+}
