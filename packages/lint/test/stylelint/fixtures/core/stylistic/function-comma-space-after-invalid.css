@@ -1,0 +1,6 @@
+/* @stylistic/function-comma-space-after-invalid.css - 函数逗号后缺少空格（错误） */
+
+.element {
+  background: rgb(0,0, 0);
+  margin: calc(100% - 20px);
+}

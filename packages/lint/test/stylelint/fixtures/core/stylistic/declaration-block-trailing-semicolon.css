@@ -1,0 +1,6 @@
+/* @stylistic/declaration-block-trailing-semicolon.css - 声明块末尾有分号（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
