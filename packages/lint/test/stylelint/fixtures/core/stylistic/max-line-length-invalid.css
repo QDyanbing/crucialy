@@ -1,0 +1,3 @@
+/* @stylistic/max-line-length-invalid.css - 行长度超过限制（错误） */
+
+.element { color: red; background: blue; border: 1px solid black; padding: 10px 20px 30px 40px; margin: 5px 10px 15px 20px; }

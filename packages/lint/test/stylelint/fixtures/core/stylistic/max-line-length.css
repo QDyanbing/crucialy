@@ -1,0 +1,6 @@
+/* @stylistic/max-line-length.css - 行长度在限制内（正确） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
