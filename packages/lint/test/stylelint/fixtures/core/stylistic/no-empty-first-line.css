@@ -1,0 +1,5 @@
+/* @stylistic/no-empty-first-line.css - 首行不为空（正确） */
+
+.element {
+  color: #f00;
+}

@@ -1,0 +1,6 @@
+
+/* @stylistic/no-empty-first-line-invalid.css - 首行为空（错误） */
+
+.element {
+  color: #f00;
+}
