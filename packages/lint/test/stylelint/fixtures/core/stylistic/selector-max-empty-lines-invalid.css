@@ -1,0 +1,13 @@
+/* @stylistic/selector-max-empty-lines-invalid.css - 选择器中有空行（错误） */
+
+.element
+
+.child {
+  color: #f00;
+}
+
+.class
+
+:hover {
+  margin: 8px;
+}
