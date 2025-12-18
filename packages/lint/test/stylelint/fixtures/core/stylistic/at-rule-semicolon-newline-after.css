@@ -1,0 +1,13 @@
+/* @stylistic/at-rule-semicolon-newline-after.css - @规则分号后有换行（正确） */
+
+@import 'styles.css';
+
+.element {
+  color: #f00;
+}
+
+@charset 'utf-8';
+
+.another-element {
+  margin: 8px;
+}

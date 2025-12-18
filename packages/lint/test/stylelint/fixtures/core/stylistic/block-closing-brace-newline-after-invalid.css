@@ -1,0 +1,7 @@
+/* @stylistic/block-closing-brace-newline-after-invalid.css - 块闭括号后缺少换行（错误） */
+
+.element {
+  color: #f00;
+} .another-element {
+  margin: 8px;
+}

@@ -1,0 +1,9 @@
+/* @stylistic/block-closing-brace-newline-after.css - 块闭括号后有换行（正确） */
+
+.element {
+  color: #f00;
+}
+
+.another-element {
+  margin: 8px;
+}

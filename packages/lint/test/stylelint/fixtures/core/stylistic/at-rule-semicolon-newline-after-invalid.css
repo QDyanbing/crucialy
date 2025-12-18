@@ -1,0 +1,9 @@
+/* @stylistic/at-rule-semicolon-newline-after-invalid.css - @规则分号后缺少换行（错误） */
+
+@import 'styles.css'; .element {
+  color: #f00;
+}
+
+@charset 'utf-8'; .another-element {
+  margin: 8px;
+}
