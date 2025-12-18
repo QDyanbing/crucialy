@@ -1,0 +1,6 @@
+/* @stylistic/value-list-comma-space-before.css - 值列表逗号前没有空格（正确） */
+
+.element {
+  margin: 10px, 20px, 30px;
+  font-family: Arial, sans-serif;
+}
