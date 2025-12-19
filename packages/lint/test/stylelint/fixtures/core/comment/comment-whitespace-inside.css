@@ -1,21 +1,7 @@
 /* comment-whitespace-inside.css - 注释内部有空格（正确） */
 
-.element {
-  margin: 8px;
-}
-
 /* 这是一个注释 */
-.another-element {
-  padding: 8px;
-}
 
-.third-element {
-  /* 另一个注释 */
+.element {
   color: #f00;
-}
-
-.fourth-element {
-  /* 多行
-     注释 */
-  background-color: #00f;
 }

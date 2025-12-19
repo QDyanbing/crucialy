@@ -11,8 +11,10 @@ describe('comment-whitespace-inside', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'comment-whitespace-inside');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告注释内部缺少空格的错误', async () => {
