@@ -1,17 +1,9 @@
 /* comment-empty-line-before-invalid.css - 注释前缺少空行（错误） */
 
 .element {
-  margin: 8px;
-}
-/* 缺少空行的注释 */
-.another-element {
-  padding: 8px;
-}
-
-.third-element {
   color: #f00;
 }
-/* 另一个缺少空行的注释 */
-.fourth-element {
+/* 这是一个注释 */
+.another-element {
   margin: 8px;
 }
