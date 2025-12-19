@@ -1,0 +1,6 @@
+/* @stylistic/linebreaks-invalid.css - 使用 Windows 换行符（错误） */
+
+.element {
+  color: #f00;
+  margin: 8px;
+}
