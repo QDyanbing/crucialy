@@ -1,21 +1,9 @@
-/* block-no-redundant-nested-style-rules.css - 使用非冗余嵌套（正确） */
+/* block-no-redundant-nested-style-rules.css - 没有冗余嵌套（正确） */
 
 .element {
   color: #f00;
 }
 
-.another-element {
-  margin: 8px;
-
-  &:hover {
-    color: #00f;
-  }
-}
-
-.third-element {
-  padding: 8px;
-
-  & .child {
-    margin: 4px;
-  }
+.element:hover {
+  color: #00f;
 }

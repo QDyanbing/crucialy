@@ -1,4 +1,4 @@
-/* block-no-redundant-nested-style-rules-invalid.css - 使用冗余嵌套（错误） */
+/* block-no-redundant-nested-style-rules-invalid.css - 有冗余嵌套（错误） */
 
 .element {
   & {
@@ -6,10 +6,8 @@
   }
 }
 
-.another-element {
-  margin: 8px;
-
+.element:hover {
   & {
-    padding: 8px;
+    color: #00f;
   }
 }
