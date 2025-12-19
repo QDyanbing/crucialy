@@ -1,12 +1,7 @@
 /* declaration-block-no-duplicate-custom-properties-invalid.css - 有重复的自定义属性（错误） */
 
-:root {
-  --color: #f00;
-  --color: #00f;
-  --size: 16px;
-}
-
 .element {
-  --primary: #000;
-  --primary: #fff;
+  --color: #f00;
+  --size: 10px;
+  --color: #00f;
 }

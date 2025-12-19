@@ -16,11 +16,11 @@ describe('declaration-block-no-duplicate-custom-properties', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    // 过滤掉 custom-property-pattern 的警告（配置问题）
-    const filteredWarnings = warnings.filter(w => w.rule !== 'custom-property-pattern');
+    const ruleWarnings = warnings.filter(
+      w => w.rule === 'declaration-block-no-duplicate-custom-properties',
+    );
 
-    // 由于 custom-property-pattern 配置问题，errored 可能是 true，但我们要检查的是其他规则
-    expect(filteredWarnings.length).toBe(0);
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告重复自定义属性的错误', async () => {
