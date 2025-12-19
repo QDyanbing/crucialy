@@ -1,0 +1,8 @@
+/* @stylistic/value-list-max-empty-lines-invalid.css - 值列表中有空行（错误） */
+
+.element {
+  margin: 10px,
+    20px;
+  font-family: Arial,
+    sans-serif;
+}
