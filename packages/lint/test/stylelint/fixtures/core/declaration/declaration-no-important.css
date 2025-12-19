@@ -1,11 +1,6 @@
-/* declaration-no-important.css - 不使用 !important（正确） */
+/* declaration-no-important.css - 没有使用 !important（正确） */
 
 .element {
   color: #f00;
   margin: 8px;
-}
-
-.another-element {
-  background-color: #00f;
-  padding: 8px;
 }
