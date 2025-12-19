@@ -1,0 +1,8 @@
+/* @stylistic/function-max-empty-lines-invalid.css - 函数中有空行（错误） */
+
+.element {
+  background: rgb(0,
+    0, 0);
+  margin: calc(100% -
+    20px);
+}
