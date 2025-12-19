@@ -1,21 +1,7 @@
-/* at-rule-no-deprecated-invalid.css - 使用已弃用的 @规则（错误） */
+/* at-rule-no-deprecated-invalid.css - 使用了已弃用的 @规则（错误） */
 
-.element {
-  color: #f00;
-}
-
-@viewport {
-  width: device-width;
-  initial-scale: 1;
-}
-
-.another-element {
-  margin: 8px;
-}
-
-@document url('http://example.com/')
-{
+@document url(http://example.com/) {
   .element {
-    color: #00f;
+    color: #f00;
   }
 }
