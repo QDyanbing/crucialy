@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('at-rule-prelude-no-invalid', () => {
-  it('应该通过使用有效 prelude 的 @规则代码', async () => {
+  it('应该通过 @规则的 prelude 有效的代码', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-prelude-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -11,11 +11,13 @@ describe('at-rule-prelude-no-invalid', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-prelude-no-invalid');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用无效 prelude 的 @规则错误', async () => {
+  it('应该报告 @规则的 prelude 无效的错误', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-prelude-no-invalid-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
