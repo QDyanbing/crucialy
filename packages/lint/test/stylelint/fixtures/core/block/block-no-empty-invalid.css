@@ -1,11 +1,7 @@
-/* block-no-empty-invalid.css - 使用空代码块（错误） */
+/* block-no-empty-invalid.css - 空代码块（错误） */
 
 .element {
-  color: #f00;
 }
 
 .empty-class {
-}
-
-.another-empty {
 }

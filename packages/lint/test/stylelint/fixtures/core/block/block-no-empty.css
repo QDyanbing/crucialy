@@ -1,4 +1,4 @@
-/* block-no-empty.css - 使用非空代码块（正确） */
+/* block-no-empty.css - 代码块不为空（正确） */
 
 .element {
   color: #f00;
@@ -7,8 +7,4 @@
 .another-element {
   margin: 8px;
   padding: 8px;
-}
-
-.third-element {
-  display: block;
 }

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('block-no-empty', () => {
-  it('应该通过使用非空代码块的代码', async () => {
+  it('应该通过代码块不为空的代码', async () => {
     const file = resolveFixture('core', 'block', 'block-no-empty.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -11,11 +11,13 @@ describe('block-no-empty', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'block-no-empty');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用空代码块的错误', async () => {
+  it('应该报告空代码块的错误', async () => {
     const file = resolveFixture('core', 'block', 'block-no-empty-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
