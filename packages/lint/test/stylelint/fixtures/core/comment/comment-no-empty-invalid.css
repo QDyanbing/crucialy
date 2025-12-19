@@ -1,15 +1,13 @@
-/* comment-no-empty-invalid.css - 使用空注释（错误） */
-
-.element {
-  margin: 8px;
-}
+/* comment-no-empty-invalid.css - 空注释（错误） */
 
 /**/
-.another-element {
-  padding: 8px;
+
+.element {
+  color: #f00;
 }
 
-.third-element {
-  /* */
-  color: #f00;
+/*    */
+
+.another-element {
+  margin: 8px;
 }

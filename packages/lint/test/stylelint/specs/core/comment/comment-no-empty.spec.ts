@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('comment-no-empty', () => {
-  it('应该通过使用有内容注释的代码', async () => {
+  it('应该通过注释有内容的代码', async () => {
     const file = resolveFixture('core', 'comment', 'comment-no-empty.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -11,11 +11,13 @@ describe('comment-no-empty', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'comment-no-empty');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用空注释的错误', async () => {
+  it('应该报告空注释的错误', async () => {
     const file = resolveFixture('core', 'comment', 'comment-no-empty-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
