@@ -1,23 +1,19 @@
-/* at-rule-invalid-vendor.css - 使用厂商前缀 @规则（错误） */
-
-.element {
-  color: #f00;
-}
+/* at-rule-no-vendor-prefix-invalid.css - @规则使用了厂商前缀（错误） */
 
 @-webkit-keyframes slideIn {
   from {
-    transform: translateX(-100%);
+    opacity: 0;
   }
   to {
-    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-@-moz-keyframes slideOut {
+@-moz-keyframes slideIn {
   from {
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    opacity: 0;
+    opacity: 1;
   }
 }
