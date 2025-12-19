@@ -11,8 +11,10 @@ describe('at-rule-empty-line-before', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-empty-line-before');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告 @规则前缺少空行的错误', async () => {

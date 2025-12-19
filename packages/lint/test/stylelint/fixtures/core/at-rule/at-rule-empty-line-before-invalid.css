@@ -1,13 +1,10 @@
 /* at-rule-empty-line-before-invalid.css - @规则前缺少空行（错误） */
 
-@media (width >= 768px) {
-  .element {
-    color: #f00;
-    margin: 8px;
-  }
+.element {
+  color: #f00;
 }
-@media (width >= 1024px) {
+@media (width > 600px) {
   .element {
-    padding: 8px;
+    margin: 8px;
   }
 }
