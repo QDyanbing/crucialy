@@ -2,10 +2,6 @@
 
 .element {
   width: CALC(100% - 20px);
-  color: VAR(--primary);
-  background: URL('image.png');
-}
-
-.another-element {
-  margin: MIN(10px, 20px);
+  color: RGBA(0, 0, 0, 0.5);
+  background: RGB(255, 0, 0);
 }
