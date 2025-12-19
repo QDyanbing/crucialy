@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('declaration-block-no-redundant-longhand-properties', () => {
-  it('应该通过使用简写属性的代码', async () => {
+  it('应该通过没有冗余 longhand 属性的代码', async () => {
     const file = resolveFixture(
       'core',
       'declaration',
@@ -23,7 +23,7 @@ describe('declaration-block-no-redundant-longhand-properties', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用冗余 longhand 属性的错误', async () => {
+  it('应该报告冗余 longhand 属性的错误', async () => {
     const file = resolveFixture(
       'core',
       'declaration',

@@ -1,13 +1,6 @@
-/* declaration-block-no-redundant-longhand-properties.css - 使用简写属性（正确） */
+/* declaration-block-no-redundant-longhand-properties.css - 没有冗余的 longhand 属性（正确） */
 
 .element {
-  margin: 8px 16px;
-}
-
-.another-element {
-  padding: 4px;
-}
-
-.third-element {
-  border: 1px solid #000;
+  margin: 10px 20px;
+  padding: 5px;
 }

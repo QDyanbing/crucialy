@@ -1,15 +1,8 @@
-/* declaration-block-no-redundant-longhand-properties-invalid.css - 使用冗余的 longhand 属性（错误） */
+/* declaration-block-no-redundant-longhand-properties-invalid.css - 有冗余的 longhand 属性（错误） */
 
 .element {
-  margin-top: 8px;
-  margin-right: 16px;
-  margin-bottom: 8px;
-  margin-left: 16px;
-}
-
-.another-element {
-  padding-top: 4px;
-  padding-right: 4px;
-  padding-bottom: 4px;
-  padding-left: 4px;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
