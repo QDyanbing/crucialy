@@ -1,0 +1,8 @@
+/* function-disallowed-list-invalid.css - 使用了黑名单中的函数（错误） */
+
+.element {
+  color: rgb(255, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: hsl(0, 100%, 50%);
+  color: hsla(0, 100%, 50%, 0.5);
+}

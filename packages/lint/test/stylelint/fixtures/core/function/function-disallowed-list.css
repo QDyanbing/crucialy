@@ -1,0 +1,7 @@
+/* function-disallowed-list.css - 没有使用黑名单中的函数（正确） */
+
+.element {
+  color: #ff0000;
+  background: var(--primary-color);
+  width: calc(100% - 20px);
+}
