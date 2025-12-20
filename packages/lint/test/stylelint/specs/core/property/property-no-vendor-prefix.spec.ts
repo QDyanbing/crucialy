@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('property-no-vendor-prefix', () => {
-  it('应该通过不使用厂商前缀的代码', async () => {
+  it('应该通过属性没有使用厂商前缀的代码', async () => {
     const file = resolveFixture('core', 'property', 'property-no-vendor-prefix.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -17,7 +17,7 @@ describe('property-no-vendor-prefix', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用厂商前缀的错误', async () => {
+  it('应该报告属性使用厂商前缀的错误', async () => {
     const file = resolveFixture('core', 'property', 'property-no-vendor-prefix-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({

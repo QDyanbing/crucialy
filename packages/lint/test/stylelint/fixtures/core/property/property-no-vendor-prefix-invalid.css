@@ -1,11 +1,6 @@
-/* property-no-vendor-prefix-invalid.css - 使用厂商前缀（错误） */
+/* property-no-vendor-prefix-invalid.css - 属性使用了厂商前缀（错误） */
 
 .element {
   -webkit-transform: scale(1);
   -moz-user-select: none;
-}
-
-.another-element {
-  -ms-appearance: none;
-  -webkit-box-sizing: border-box;
 }
