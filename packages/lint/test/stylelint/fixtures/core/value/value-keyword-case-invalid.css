@@ -3,9 +3,4 @@
 .element {
   display: BLOCK;
   text-transform: UPPERCASE;
-  position: ABSOLUTE;
-}
-
-.another-element {
-  overflow: HIDDEN;
 }

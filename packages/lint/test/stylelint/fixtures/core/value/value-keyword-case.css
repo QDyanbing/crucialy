@@ -3,10 +3,8 @@
 .element {
   display: block;
   text-transform: uppercase;
-  position: absolute;
 }
 
-.another-element {
-  overflow: hidden;
-  text-align: center;
+svg {
+  preserveaspectratio: xMidYMid;
 }
