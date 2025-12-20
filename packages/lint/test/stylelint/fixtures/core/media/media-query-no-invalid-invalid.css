@@ -1,0 +1,13 @@
+/* media-query-no-invalid-invalid.css - 媒体查询无效（错误） */
+
+@media (width >> 600px) {
+  .element {
+    color: #f00;
+  }
+}
+
+@media (width > 600px {
+  .element {
+    margin: 8px;
+  }
+}
