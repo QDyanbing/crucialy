@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('unit-no-unknown', () => {
-  it('应该通过使用已知单位的代码', async () => {
+  it('应该通过没有使用未知单位的代码', async () => {
     const file = resolveFixture('core', 'unit', 'unit-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
