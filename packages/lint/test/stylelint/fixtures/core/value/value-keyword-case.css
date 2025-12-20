@@ -3,6 +3,7 @@
 .element {
   display: block;
   text-transform: uppercase;
+  position: absolute;
 }
 
 svg {
