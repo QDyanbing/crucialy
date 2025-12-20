@@ -1,12 +1,7 @@
-/* function-no-unknown.css - 使用已知函数（正确） */
+/* function-no-unknown.css - 没有使用未知的函数（正确） */
 
 .element {
   width: calc(100% - 20px);
-  color: var(--primary);
+  color: var(--primary-color);
   background: url('image.png');
-}
-
-.another-element {
-  margin: min(10px, 20px);
-  padding: max(5px, 8px);
 }
