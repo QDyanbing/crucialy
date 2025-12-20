@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('property-no-deprecated', () => {
-  it('应该通过不使用已弃用属性的代码', async () => {
+  it('应该通过没有使用已弃用属性的代码', async () => {
     const file = resolveFixture('core', 'property', 'property-no-deprecated.css');
 
     const { errored, results } = await runStylelintWithConfig({

@@ -1,11 +1,6 @@
-/* property-no-deprecated.css - 不使用已弃用的属性（正确） */
+/* property-no-deprecated.css - 没有使用已弃用的属性（正确） */
 
 .element {
   overflow: hidden;
   user-select: none;
-}
-
-.another-element {
-  clip-path: inset(0);
-  appearance: none;
 }

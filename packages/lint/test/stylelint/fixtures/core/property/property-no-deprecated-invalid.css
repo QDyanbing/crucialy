@@ -1,9 +1,6 @@
-/* property-no-deprecated-invalid.css - 使用已弃用的属性（错误） */
+/* property-no-deprecated-invalid.css - 使用了已弃用的属性（错误） */
 
 .element {
-  clip: rect(0, 0, 0, 0);
-}
-
-.another-element {
   overflow-x: -moz-hidden-unscrollable;
+  clip: rect(0, 0, 0, 0);
 }
