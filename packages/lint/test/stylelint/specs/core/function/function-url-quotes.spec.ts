@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('function-url-quotes', () => {
-  it('应该通过 url() 函数使用引号的代码', async () => {
+  it('应该通过 url() 函数中 URL 使用引号的代码', async () => {
     const file = resolveFixture('core', 'function', 'function-url-quotes.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -17,7 +17,7 @@ describe('function-url-quotes', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告 url() 函数缺少引号的错误', async () => {
+  it('应该报告 url() 函数中 URL 缺少引号的错误', async () => {
     const file = resolveFixture('core', 'function', 'function-url-quotes-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
