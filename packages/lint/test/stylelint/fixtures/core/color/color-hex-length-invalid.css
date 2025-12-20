@@ -1,17 +1,7 @@
-/* color-hex-length-invalid.css - 使用长格式 hex 颜色（错误） */
+/* color-hex-length-invalid.css - hex 颜色使用长格式（错误） */
 
 .element {
   color: #ffffff;
-}
-
-.another-element {
-  background-color: #000000;
-}
-
-.third-element {
+  background: #000000;
   border-color: #ff0000;
-}
-
-.fourth-element {
-  color: #abcabc;
 }
