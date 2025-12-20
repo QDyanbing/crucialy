@@ -5,8 +5,3 @@
   margin: calc(10px + 5px);
   height: calc(100vh - 50px);
 }
-
-.another-element {
-  padding: calc(8px * 2);
-  font-size: calc(16px / 2);
-}
