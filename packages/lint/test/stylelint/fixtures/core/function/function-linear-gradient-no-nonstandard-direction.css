@@ -2,12 +2,6 @@
 
 .element {
   background: linear-gradient(to right, #fff, #000);
-}
-
-.another-element {
-  background: linear-gradient(to bottom, #f00, #00f);
-}
-
-.third-element {
+  background: linear-gradient(to bottom, red, blue);
   background: linear-gradient(45deg, #fff, #000);
 }
