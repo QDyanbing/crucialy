@@ -1,10 +1,7 @@
-/* value-no-vendor-prefix.css - 值不使用厂商前缀（正确） */
+/* value-no-vendor-prefix.css - 值没有使用厂商前缀（正确） */
 
 .element {
   display: flex;
-  display: box;
-}
-
-.another-element {
-  display: inline-box;
+  display: -webkit-box;
+  appearance: none;
 }

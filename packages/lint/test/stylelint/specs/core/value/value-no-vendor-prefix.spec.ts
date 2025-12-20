@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('value-no-vendor-prefix', () => {
-  it('应该通过值不使用厂商前缀的代码', async () => {
+  it('应该通过值没有使用厂商前缀的代码', async () => {
     const file = resolveFixture('core', 'value', 'value-no-vendor-prefix.css');
 
     const { errored, results } = await runStylelintWithConfig({
