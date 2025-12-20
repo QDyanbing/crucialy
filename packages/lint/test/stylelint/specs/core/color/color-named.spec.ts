@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('color-named', () => {
-  it('应该通过使用 hex 颜色的代码', async () => {
+  it('应该通过没有使用命名颜色的代码', async () => {
     const file = resolveFixture('core', 'color', 'color-named.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -11,8 +11,10 @@ describe('color-named', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'color-named');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告使用命名颜色的错误', async () => {

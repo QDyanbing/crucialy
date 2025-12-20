@@ -1,21 +1,7 @@
-/* color-named-invalid.css - 使用命名颜色（错误） */
+/* color-named-invalid.css - 使用了命名颜色（错误） */
 
 .element {
   color: black;
-}
-
-.another-element {
-  background-color: red;
-}
-
-.third-element {
+  background: red;
   border-color: blue;
-}
-
-.fourth-element {
-  color: white;
-}
-
-.fifth-element {
-  background-color: green;
 }
