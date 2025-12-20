@@ -1,12 +1,7 @@
-/* length-zero-no-unit-invalid.css - 零值带单位（错误） */
+/* length-zero-no-unit-invalid.css - 零值有单位（错误） */
 
 .element {
   margin: 0px;
   padding: 0em;
   border-width: 0rem;
-}
-
-.another-element {
-  width: 0px;
-  height: 0px;
 }
