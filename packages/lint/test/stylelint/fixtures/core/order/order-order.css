@@ -1,0 +1,12 @@
+/* order/order.css - 声明块内容顺序正确（正确） */
+
+.element {
+  --color: #f00;
+  color: var(--color);
+}
+
+@media (width > 600px) {
+  .element {
+    margin: 8px;
+  }
+}
