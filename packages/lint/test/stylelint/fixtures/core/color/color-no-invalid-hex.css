@@ -1,21 +1,7 @@
-/* color-no-invalid-hex.css - 使用有效的 hex 颜色（正确） */
+/* color-no-invalid-hex.css - 没有使用无效的 hex 颜色（正确） */
 
 .element {
   color: #fff;
-}
-
-.another-element {
-  background-color: #f5f5f5;
-}
-
-.third-element {
+  background: #f5f5f5;
   border-color: #fff8;
-}
-
-.fourth-element {
-  color: #000;
-}
-
-.fifth-element {
-  background-color: #abc;
 }
