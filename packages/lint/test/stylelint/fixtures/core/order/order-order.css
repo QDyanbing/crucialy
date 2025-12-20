@@ -5,8 +5,7 @@
   color: var(--color);
 }
 
-@media (width > 600px) {
-  .element {
-    margin: 8px;
-  }
+.another-element {
+  margin: 8px;
+  padding: 8px;
 }
