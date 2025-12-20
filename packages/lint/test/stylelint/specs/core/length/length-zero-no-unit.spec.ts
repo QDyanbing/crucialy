@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('length-zero-no-unit', () => {
-  it('应该通过零值不带单位的代码', async () => {
+  it('应该通过零值没有单位的代码', async () => {
     const file = resolveFixture('core', 'length', 'length-zero-no-unit.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -17,7 +17,7 @@ describe('length-zero-no-unit', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告零值带单位的错误', async () => {
+  it('应该报告零值有单位的错误', async () => {
     const file = resolveFixture('core', 'length', 'length-zero-no-unit-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({

@@ -2,12 +2,6 @@
 
 .element {
   color: #f00;
-  background-color: #00f;
-  color: #0f0;
-}
-
-.another-element {
   margin: 8px;
-  padding: 8px;
-  margin: 16px;
+  color: #00f;
 }

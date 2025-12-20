@@ -16,7 +16,6 @@ describe('declaration-block-no-duplicate-properties', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    // 只检查当前规则相关的警告
     const ruleWarnings = warnings.filter(
       w => w.rule === 'declaration-block-no-duplicate-properties',
     );

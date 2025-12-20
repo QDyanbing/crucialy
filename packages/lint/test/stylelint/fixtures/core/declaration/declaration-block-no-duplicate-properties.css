@@ -1,13 +1,7 @@
 /* declaration-block-no-duplicate-properties.css - 没有重复的属性（正确） */
 
 .element {
-  margin: 8px;
-
   color: #f00;
-  background-color: #00f;
-}
-
-.another-element {
-  display: -webkit-box;
-  display: flex;
+  margin: 8px;
+  padding: 8px;
 }

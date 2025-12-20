@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('declaration-block-no-shorthand-property-overrides', () => {
-  it('应该通过简写属性在 longhand 之前的代码', async () => {
+  it('应该通过简写属性没有覆盖 longhand 的代码', async () => {
     const file = resolveFixture(
       'core',
       'declaration',

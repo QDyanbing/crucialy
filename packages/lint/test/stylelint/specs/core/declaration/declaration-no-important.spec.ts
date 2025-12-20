@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('declaration-no-important', () => {
-  it('应该通过不使用 !important 的代码', async () => {
+  it('应该通过没有使用 !important 的代码', async () => {
     const file = resolveFixture('core', 'declaration', 'declaration-no-important.css');
 
     const { errored, results } = await runStylelintWithConfig({
