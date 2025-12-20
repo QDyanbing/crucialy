@@ -1,0 +1,6 @@
+/* color-hex-alpha.css - hex 颜色 alpha 通道格式（正确，null配置不限制） */
+
+.element {
+  color: #fff;
+  background: #ffffff80;
+}
