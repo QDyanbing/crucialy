@@ -1,0 +1,13 @@
+/* media-type-no-deprecated.css - 没有使用已弃用的 media type（正确） */
+
+@media screen {
+  .element {
+    color: #f00;
+  }
+}
+
+@media print {
+  .element {
+    margin: 8px;
+  }
+}

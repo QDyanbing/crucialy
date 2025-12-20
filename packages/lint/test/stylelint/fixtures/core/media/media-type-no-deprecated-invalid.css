@@ -1,0 +1,13 @@
+/* media-type-no-deprecated-invalid.css - 使用了已弃用的 media type（错误） */
+
+@media aural {
+  .element {
+    color: #f00;
+  }
+}
+
+@media handheld {
+  .element {
+    margin: 8px;
+  }
+}
