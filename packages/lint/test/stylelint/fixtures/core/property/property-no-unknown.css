@@ -1,12 +1,7 @@
-/* property-no-unknown.css - 使用已知属性（正确） */
+/* property-no-unknown.css - 没有使用未知的属性（正确） */
 
 .element {
+  display: flex;
+  transform: rotate(45deg);
   color: #f00;
-  margin: 8px;
-  padding: 8px;
-}
-
-.another-element {
-  background-color: #00f;
-  border: 1px solid #000;
 }

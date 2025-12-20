@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('property-no-unknown', () => {
-  it('应该通过使用已知属性的代码', async () => {
+  it('应该通过没有使用未知属性的代码', async () => {
     const file = resolveFixture('core', 'property', 'property-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({

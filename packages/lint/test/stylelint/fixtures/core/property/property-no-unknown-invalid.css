@@ -1,10 +1,6 @@
-/* property-no-unknown-invalid.css - 使用未知属性（错误） */
+/* property-no-unknown-invalid.css - 使用了未知的属性（错误） */
 
 .element {
-  unknown-property: value;
-  colr: #f00;
-}
-
-.another-element {
-  margin-top-invalid: 8px;
+  unknown-prop: value;
+  dislay: block;
 }
