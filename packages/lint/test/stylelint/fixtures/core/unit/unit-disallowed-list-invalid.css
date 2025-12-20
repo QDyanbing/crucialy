@@ -1,11 +1,8 @@
-/* unit-disallowed-list-invalid.css - 使用禁用单位（错误） */
+/* unit-disallowed-list-invalid.css - 使用了黑名单中的单位（错误） */
 
 .element {
-  width: 10cm;
-  font-size: 12pt;
-}
-
-.another-element {
-  margin: 1in;
-  padding: 5mm;
+  width: 100cm;
+  height: 50mm;
+  font-size: 16pt;
+  margin: 10in;
 }

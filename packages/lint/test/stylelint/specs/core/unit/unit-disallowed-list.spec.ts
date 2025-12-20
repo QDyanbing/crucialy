@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('unit-disallowed-list', () => {
-  it('应该通过不使用禁用单位的代码', async () => {
+  it('应该通过没有使用黑名单中单位的代码', async () => {
     const file = resolveFixture('core', 'unit', 'unit-disallowed-list.css');
 
     const { errored, results } = await runStylelintWithConfig({
@@ -17,7 +17,7 @@ describe('unit-disallowed-list', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告使用禁用单位的错误', async () => {
+  it('应该报告使用黑名单中单位的错误', async () => {
     const file = resolveFixture('core', 'unit', 'unit-disallowed-list-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
