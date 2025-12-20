@@ -1,0 +1,8 @@
+/* order/properties-order-invalid.css - 属性顺序不符合功能分组（错误） */
+
+.element {
+  color: #000;
+  position: relative;
+  background: #fff;
+  display: flex;
+}
