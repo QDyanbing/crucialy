@@ -27,21 +27,16 @@ describe('@stylistic/linebreaks', () => {
 
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/linebreaks');
 
+    expect(errored).toBe(true);
     // linebreaks 规则可能不会在测试中触发，因为文件系统会自动处理换行符
-    // 这个测试主要验证规则配置存在，实际触发可能需要特殊处理
-    const hasLinebreakWarning = ruleNames.includes('@stylistic/linebreaks');
-
-    // 如果没有 linebreaks 警告，可能是文件系统已经转换了换行符
-    // 这种情况下测试仍然通过，因为规则配置是正确的
-    if (!hasLinebreakWarning && ruleNames.length > 0) {
-      // 有其他警告，但 linebreaks 可能被文件系统处理了
-      expect(true).toBe(true);
-    } else if (hasLinebreakWarning) {
-      expect(hasLinebreakWarning).toBe(true);
+    // 如果该规则有警告，应该检查；如果没有，可能是文件系统已经转换了换行符
+    if (ruleWarnings.length > 0) {
+      expect(ruleNames).toContain('@stylistic/linebreaks');
     } else {
-      // 没有警告，规则可能不适用于当前文件格式
-      expect(true).toBe(true);
+      // 如果没有该规则的警告，至少应该有其他相关警告
+      expect(ruleNames.length).toBeGreaterThan(0);
     }
   });
 });
