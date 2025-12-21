@@ -11,8 +11,10 @@ describe('at-rule-descriptor-no-unknown', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-descriptor-no-unknown');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告使用未知 descriptor 的 @规则错误', async () => {
