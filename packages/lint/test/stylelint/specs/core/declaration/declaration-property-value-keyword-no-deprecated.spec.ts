@@ -37,11 +37,12 @@ describe('declaration-property-value-keyword-no-deprecated', () => {
 
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(
+      w => w.rule === 'declaration-property-value-keyword-no-deprecated',
+    );
 
-    // 这个规则可能不会触发，因为 stylelint 可能不认为这些值是已弃用的
-    // 或者这些值被其他规则捕获了（如 property-no-deprecated）
-    // 我们检查是否有相关的警告
     expect(errored).toBe(true);
-    expect(warnings.length).toBeGreaterThan(0);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(ruleNames).toContain('declaration-property-value-keyword-no-deprecated');
   });
 });
