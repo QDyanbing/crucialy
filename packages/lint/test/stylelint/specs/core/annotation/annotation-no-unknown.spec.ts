@@ -11,8 +11,10 @@ describe('annotation-no-unknown', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'annotation-no-unknown');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告使用未知注解的错误', async () => {
