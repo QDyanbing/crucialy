@@ -25,11 +25,12 @@ describe('block-no-empty', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'block-no-empty');
 
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('block-no-empty');
   });
 });
