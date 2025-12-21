@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
 describe('declaration-block-single-line-max-declarations', () => {
-  it('应该通过单行只有一个声明的代码', async () => {
+  it('应该通过单行声明块声明数量符合限制的代码', async () => {
     const file = resolveFixture(
       'core',
       'declaration',
@@ -23,7 +23,7 @@ describe('declaration-block-single-line-max-declarations', () => {
     expect(ruleWarnings.length).toBe(0);
   });
 
-  it('应该报告单行有多个声明的错误', async () => {
+  it('应该报告单行声明块声明数量超过限制的错误', async () => {
     const file = resolveFixture(
       'core',
       'declaration',

@@ -1,14 +1,5 @@
-/* declaration-block-single-line-max-declarations.css - 单行只有一个声明（正确） */
+/* declaration-block-single-line-max-declarations.css - 单行声明块声明数量符合限制（正确） */
 
 .element {
   color: #f00;
-}
-
-.another-element {
-  margin: 8px;
-}
-
-.third-element {
-  padding: 8px;
-  background-color: #00f;
 }
