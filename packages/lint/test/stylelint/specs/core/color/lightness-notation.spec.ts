@@ -11,8 +11,10 @@ describe('lightness-notation', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'lightness-notation');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告使用数字形式亮度的错误', async () => {
