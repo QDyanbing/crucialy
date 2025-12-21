@@ -39,7 +39,11 @@ describe('declaration-block-single-line-max-declarations', () => {
 
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(
+      w => w.rule === 'declaration-block-single-line-max-declarations',
+    );
 
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('declaration-block-single-line-max-declarations');
   });
 });
