@@ -26,15 +26,11 @@ describe('selector-max-type', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
+    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'selector-max-type');
 
-    // 由于配置忽略了后代选择器，这个规则可能不会触发
-    // 但如果有其他错误，测试应该通过
-    if (ruleWarnings.length > 0) {
-      expect(ruleWarnings.length).toBeGreaterThan(0);
-    } else {
-      // 如果没有触发此规则，至少应该有一些警告
-      expect(warnings.length).toBeGreaterThan(0);
-    }
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(ruleNames).toContain('selector-max-type');
   });
 });
