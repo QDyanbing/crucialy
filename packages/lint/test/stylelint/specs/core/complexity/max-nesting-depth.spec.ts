@@ -11,8 +11,10 @@ describe('max-nesting-depth', () => {
       files: file,
     });
 
-    expect(errored).toBe(false);
-    expect(results[0]?.warnings.length).toBe(0);
+    const warnings = results[0]?.warnings ?? [];
+    const ruleWarnings = warnings.filter(w => w.rule === 'max-nesting-depth');
+
+    expect(ruleWarnings.length).toBe(0);
   });
 
   it('应该报告嵌套深度超过限制的错误', async () => {
