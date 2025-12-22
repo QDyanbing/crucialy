@@ -25,11 +25,12 @@ describe('media-feature-name-no-vendor-prefix', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'media-feature-name-no-vendor-prefix');
 
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('media-feature-name-no-vendor-prefix');
   });
 });
