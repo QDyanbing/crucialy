@@ -25,11 +25,12 @@ describe('selector-nested-pattern', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'selector-nested-pattern');
 
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('selector-nested-pattern');
   });
 });
