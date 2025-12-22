@@ -29,11 +29,12 @@ describe('keyframe-block-no-duplicate-selectors', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'keyframe-block-no-duplicate-selectors');
 
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('keyframe-block-no-duplicate-selectors');
   });
 });
