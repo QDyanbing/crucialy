@@ -25,11 +25,12 @@ describe('font-family-name-quotes', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'font-family-name-quotes');
 
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(ruleNames).toContain('font-family-name-quotes');
   });
 });
