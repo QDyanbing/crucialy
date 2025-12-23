@@ -14,7 +14,7 @@ describe('color-hex-alpha', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'color-hex-alpha');
 
-    // 此规则配置为null，不限制，所以不应该有警告
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 });
