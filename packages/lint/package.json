@@ -80,7 +80,7 @@
     "generate:stylelint-rule-sets": "node scripts/generate-stylelint-rule-sets.js",
     "lint": "tsc --noEmit",
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "test": "vitest",
+    "test": "vitest run",
     "test:stylelint": "vitest run"
   },
   "devDependencies": {
