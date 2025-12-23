@@ -14,7 +14,9 @@ describe('alpha-value-notation', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'alpha-value-notation');
 
+    expect(errored).toBe(false);
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用百分比形式的 alpha 值错误', async () => {
@@ -26,11 +28,21 @@ describe('alpha-value-notation', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'alpha-value-notation');
 
     expect(errored).toBe(true);
-    expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('alpha-value-notation');
+    expect(ruleWarnings.length).toBe(4);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查每个错误的具体信息
+    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    expect(errorLines).toEqual([5, 9, 13, 17]);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('alpha-value-notation');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/alpha|percentage|number/i);
+    });
   });
 });
