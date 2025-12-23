@@ -15,6 +15,7 @@ describe('block-no-empty', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'block-no-empty');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告空代码块的错误', async () => {
@@ -26,11 +27,21 @@ describe('block-no-empty', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'block-no-empty');
 
     expect(errored).toBe(true);
-    expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('block-no-empty');
+    expect(ruleWarnings.length).toBe(2);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查每个错误的具体信息
+    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    expect(errorLines).toEqual([3, 6]);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('block-no-empty');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/empty|block/i);
+    });
   });
 });
