@@ -15,6 +15,7 @@ describe('at-rule-no-unknown', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-no-unknown');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用未知 @规则的错误', async () => {
@@ -25,11 +26,22 @@ describe('at-rule-no-unknown', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-no-unknown');
 
-    expect(ruleNames).toContain('at-rule-no-unknown');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBe(3);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查每个错误的具体信息
+    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    expect(errorLines).toEqual([7, 11, 15]);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('at-rule-no-unknown');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/unknown|at-rule/i);
+    });
   });
 });
