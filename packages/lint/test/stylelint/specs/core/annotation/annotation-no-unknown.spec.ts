@@ -14,7 +14,9 @@ describe('annotation-no-unknown', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'annotation-no-unknown');
 
+    expect(errored).toBe(false);
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用未知注解的错误', async () => {
@@ -25,11 +27,22 @@ describe('annotation-no-unknown', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'annotation-no-unknown');
 
-    expect(ruleNames).toContain('annotation-no-unknown');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBe(4);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查每个错误的具体信息
+    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    expect(errorLines).toEqual([5, 10, 15, 20]);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('annotation-no-unknown');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/annotation|unknown/i);
+    });
   });
 });
