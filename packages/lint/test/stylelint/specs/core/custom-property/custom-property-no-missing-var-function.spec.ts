@@ -19,6 +19,7 @@ describe('custom-property-no-missing-var-function', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'custom-property-no-missing-var-function');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告直接使用自定义属性的错误', async () => {
@@ -33,11 +34,18 @@ describe('custom-property-no-missing-var-function', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'custom-property-no-missing-var-function');
 
-    expect(ruleNames).toContain('custom-property-no-missing-var-function');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('custom-property-no-missing-var-function');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/var|function/i);
+    });
   });
 });
