@@ -21,6 +21,7 @@ describe('declaration-block-single-line-max-declarations', () => {
     );
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告单行声明块声明数量超过限制的错误', async () => {
@@ -35,15 +36,20 @@ describe('declaration-block-single-line-max-declarations', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(
       w => w.rule === 'declaration-block-single-line-max-declarations',
     );
 
+    expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('declaration-block-single-line-max-declarations');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('declaration-block-single-line-max-declarations');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/max.*declarations|single.*line/i);
+    });
   });
 });
