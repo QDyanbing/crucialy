@@ -15,6 +15,7 @@ describe('font-family-name-quotes', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'font-family-name-quotes');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告字体名称缺少引号的错误', async () => {
@@ -26,11 +27,17 @@ describe('font-family-name-quotes', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'font-family-name-quotes');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('font-family-name-quotes');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('font-family-name-quotes');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/quotes|font-family/i);
+    });
   });
 });
