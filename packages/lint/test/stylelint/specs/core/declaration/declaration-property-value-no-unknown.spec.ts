@@ -15,6 +15,7 @@ describe('declaration-property-value-no-unknown', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'declaration-property-value-no-unknown');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用未知属性值的错误', async () => {
@@ -30,11 +31,17 @@ describe('declaration-property-value-no-unknown', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'declaration-property-value-no-unknown');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('declaration-property-value-no-unknown');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('declaration-property-value-no-unknown');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/unknown|value/i);
+    });
   });
 });
