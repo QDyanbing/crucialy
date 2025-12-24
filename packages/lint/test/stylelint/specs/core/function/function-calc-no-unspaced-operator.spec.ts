@@ -15,6 +15,7 @@ describe('function-calc-no-unspaced-operator', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'function-calc-no-unspaced-operator');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告 calc() 运算符周围缺少空格的错误', async () => {
@@ -29,11 +30,18 @@ describe('function-calc-no-unspaced-operator', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'function-calc-no-unspaced-operator');
 
-    expect(ruleNames).toContain('function-calc-no-unspaced-operator');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('function-calc-no-unspaced-operator');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/calc|operator|unspaced/i);
+    });
   });
 });
