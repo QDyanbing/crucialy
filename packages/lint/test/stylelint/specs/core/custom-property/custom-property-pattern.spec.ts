@@ -14,18 +14,9 @@ describe('custom-property-pattern', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'custom-property-pattern');
 
-    // 如果有警告，应该检查规则名称；如果没有，说明文件符合规则
-    // 无论如何，我们都检查具体规则的警告，而不是使用 expect(true).toBe(true)
-    const hasCustomPropertyPatternWarnings = ruleWarnings.length > 0;
-
-    if (hasCustomPropertyPatternWarnings) {
-      // 如果有警告，应该检查规则名称
-      const ruleNames = warnings.map(w => w.rule);
-      expect(ruleNames).toContain('custom-property-pattern');
-    } else {
-      // 如果没有警告，说明文件符合规则，这是正确的
-      expect(ruleWarnings.length).toBe(0);
-    }
+    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
+    expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告自定义属性不使用 kebab-case 的错误', async () => {
@@ -37,11 +28,17 @@ describe('custom-property-pattern', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'custom-property-pattern');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('custom-property-pattern');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('custom-property-pattern');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/pattern|custom-property/i);
+    });
   });
 });
