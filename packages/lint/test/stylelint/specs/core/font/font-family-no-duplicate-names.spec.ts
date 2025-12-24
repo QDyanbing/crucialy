@@ -15,6 +15,7 @@ describe('font-family-no-duplicate-names', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'font-family-no-duplicate-names');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告字体名称重复的错误', async () => {
@@ -26,11 +27,17 @@ describe('font-family-no-duplicate-names', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'font-family-no-duplicate-names');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('font-family-no-duplicate-names');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('font-family-no-duplicate-names');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/duplicate|font-family/i);
+    });
   });
 });
