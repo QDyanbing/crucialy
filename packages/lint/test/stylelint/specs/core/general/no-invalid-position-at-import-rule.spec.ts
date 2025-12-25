@@ -15,6 +15,7 @@ describe('no-invalid-position-at-import-rule', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'no-invalid-position-at-import-rule');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告 @import 不在文件开头的错误', async () => {
@@ -29,11 +30,18 @@ describe('no-invalid-position-at-import-rule', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'no-invalid-position-at-import-rule');
 
-    expect(ruleNames).toContain('no-invalid-position-at-import-rule');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('no-invalid-position-at-import-rule');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/position|import/i);
+    });
   });
 });
