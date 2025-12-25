@@ -15,6 +15,7 @@ describe('no-unknown-animations', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'no-unknown-animations');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用未定义动画的错误', async () => {
@@ -25,11 +26,18 @@ describe('no-unknown-animations', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'no-unknown-animations');
 
-    expect(ruleNames).toContain('no-unknown-animations');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('no-unknown-animations');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/unknown|animation/i);
+    });
   });
 });
