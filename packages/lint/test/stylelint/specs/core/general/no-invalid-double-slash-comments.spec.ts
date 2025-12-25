@@ -15,6 +15,7 @@ describe('no-invalid-double-slash-comments', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'no-invalid-double-slash-comments');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用双斜杠注释的错误', async () => {
@@ -25,11 +26,18 @@ describe('no-invalid-double-slash-comments', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'no-invalid-double-slash-comments');
 
-    expect(ruleNames).toContain('no-invalid-double-slash-comments');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('no-invalid-double-slash-comments');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/double.*slash|comment/i);
+    });
   });
 });
