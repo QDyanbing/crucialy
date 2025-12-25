@@ -15,6 +15,7 @@ describe('function-name-case', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'function-name-case');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告函数名使用大写的错误', async () => {
@@ -25,11 +26,18 @@ describe('function-name-case', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'function-name-case');
 
-    expect(ruleNames).toContain('function-name-case');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('function-name-case');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/function|name|case/i);
+    });
   });
 });
