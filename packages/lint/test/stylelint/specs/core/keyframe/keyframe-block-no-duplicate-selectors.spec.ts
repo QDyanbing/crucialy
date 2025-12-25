@@ -15,6 +15,7 @@ describe('keyframe-block-no-duplicate-selectors', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'keyframe-block-no-duplicate-selectors');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告重复选择器的错误', async () => {
@@ -30,11 +31,17 @@ describe('keyframe-block-no-duplicate-selectors', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'keyframe-block-no-duplicate-selectors');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('keyframe-block-no-duplicate-selectors');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('keyframe-block-no-duplicate-selectors');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/duplicate|selector|keyframe/i);
+    });
   });
 });
