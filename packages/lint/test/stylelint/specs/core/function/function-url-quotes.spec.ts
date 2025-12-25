@@ -15,6 +15,7 @@ describe('function-url-quotes', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'function-url-quotes');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告 url() 函数中 URL 缺少引号的错误', async () => {
@@ -25,11 +26,18 @@ describe('function-url-quotes', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === 'function-url-quotes');
 
-    expect(ruleNames).toContain('function-url-quotes');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('function-url-quotes');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/url|quotes/i);
+    });
   });
 });
