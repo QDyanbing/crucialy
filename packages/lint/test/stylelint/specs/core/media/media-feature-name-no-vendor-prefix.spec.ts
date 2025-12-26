@@ -15,6 +15,7 @@ describe('media-feature-name-no-vendor-prefix', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'media-feature-name-no-vendor-prefix');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用厂商前缀的错误', async () => {
@@ -26,11 +27,17 @@ describe('media-feature-name-no-vendor-prefix', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'media-feature-name-no-vendor-prefix');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('media-feature-name-no-vendor-prefix');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('media-feature-name-no-vendor-prefix');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/vendor|prefix|media/i);
+    });
   });
 });
