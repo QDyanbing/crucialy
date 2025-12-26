@@ -15,6 +15,7 @@ describe('keyframes-name-pattern', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'keyframes-name-pattern');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告使用非 kebab-case 命名的错误', async () => {
@@ -26,11 +27,17 @@ describe('keyframes-name-pattern', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'keyframes-name-pattern');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('keyframes-name-pattern');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('keyframes-name-pattern');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/keyframes|name|pattern/i);
+    });
   });
 });
