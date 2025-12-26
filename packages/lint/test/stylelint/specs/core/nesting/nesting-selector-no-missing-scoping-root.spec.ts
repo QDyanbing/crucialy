@@ -17,6 +17,7 @@ describe('nesting-selector-no-missing-scoping-root', () => {
     );
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告嵌套选择器缺少作用域根的错误', async () => {
@@ -32,13 +33,19 @@ describe('nesting-selector-no-missing-scoping-root', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(
       w => w.rule === 'nesting-selector-no-missing-scoping-root',
     );
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('nesting-selector-no-missing-scoping-root');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('nesting-selector-no-missing-scoping-root');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/nesting|scoping|root/i);
+    });
   });
 });
