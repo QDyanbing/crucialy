@@ -15,6 +15,7 @@ describe('selector-nested-pattern', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'selector-nested-pattern');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告嵌套选择器不以 & 开头的错误', async () => {
@@ -26,11 +27,17 @@ describe('selector-nested-pattern', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'selector-nested-pattern');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('selector-nested-pattern');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('selector-nested-pattern');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/nested|pattern|selector/i);
+    });
   });
 });
