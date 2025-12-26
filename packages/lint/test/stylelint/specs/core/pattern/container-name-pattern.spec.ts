@@ -15,6 +15,7 @@ describe('container-name-pattern', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'container-name-pattern');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告 container 名称不使用 kebab-case 的错误', async () => {
@@ -26,11 +27,17 @@ describe('container-name-pattern', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'container-name-pattern');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('container-name-pattern');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('container-name-pattern');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/container|name|pattern/i);
+    });
   });
 });
