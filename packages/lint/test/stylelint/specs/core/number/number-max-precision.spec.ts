@@ -15,6 +15,7 @@ describe('number-max-precision', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'number-max-precision');
 
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告数字小数位数超过限制的错误', async () => {
@@ -26,11 +27,17 @@ describe('number-max-precision', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === 'number-max-precision');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(ruleNames).toContain('number-max-precision');
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('number-max-precision');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/precision|number/i);
+    });
   });
 });
