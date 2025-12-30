@@ -14,7 +14,9 @@ describe('@stylistic/value-list-comma-space-after', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/value-list-comma-space-after');
 
+    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告值列表逗号后缺少空格的错误', async () => {
@@ -28,8 +30,17 @@ describe('@stylistic/value-list-comma-space-after', () => {
     expect(errored).toBe(true);
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
+    const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/value-list-comma-space-after');
 
-    expect(ruleNames).toContain('@stylistic/value-list-comma-space-after');
+    expect(errored).toBe(true);
+    expect(ruleWarnings.length).toBeGreaterThan(0);
+    expect(results[0]?.source).toBe(file);
+
+    // 检查错误信息包含相关关键词
+    ruleWarnings.forEach(warning => {
+      expect(warning.rule).toBe('@stylistic/value-list-comma-space-after');
+      expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/value|comma|space/i);
+    });
   });
 });
