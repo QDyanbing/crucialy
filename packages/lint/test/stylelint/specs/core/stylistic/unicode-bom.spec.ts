@@ -14,7 +14,9 @@ describe('@stylistic/unicode-bom', () => {
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/unicode-bom');
 
+    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(results[0]?.source).toBe(file);
   });
 
   it('应该报告文件开头有 BOM 的错误', async () => {
@@ -26,17 +28,21 @@ describe('@stylistic/unicode-bom', () => {
     });
 
     const warnings = results[0]?.warnings ?? [];
-    const ruleNames = warnings.map(w => w.rule);
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/unicode-bom');
 
     expect(errored).toBe(true);
-    // BOM 检测可能需要特殊处理，因为文件系统可能会自动处理 BOM
-    // 如果该规则有警告，应该检查；如果没有，可能是文件系统已经处理了 BOM
+    expect(results[0]?.source).toBe(file);
+
+    // 特殊规则可能需要特殊处理
     if (ruleWarnings.length > 0) {
-      expect(ruleNames).toContain('@stylistic/unicode-bom');
+      ruleWarnings.forEach(warning => {
+        expect(warning.rule).toBe('@stylistic/unicode-bom');
+        expect(warning.severity).toBe('error');
+        expect(warning.text).toMatch(/unicode|bom/i);
+      });
     } else {
-      // 如果没有该规则的警告，至少应该有其他相关警告
-      expect(ruleNames.length).toBeGreaterThan(0);
+      // 如果没有该规则的警告，至少应该有一些警告
+      expect(warnings.length).toBeGreaterThan(0);
     }
   });
 });
