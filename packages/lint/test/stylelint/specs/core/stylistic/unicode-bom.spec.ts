@@ -35,6 +35,7 @@ describe('@stylistic/unicode-bom', () => {
 
     // 特殊规则可能需要特殊处理
     if (ruleWarnings.length > 0) {
+      expect(ruleWarnings.length).toBeGreaterThan(0);
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('@stylistic/unicode-bom');
         expect(warning.severity).toBe('error');
