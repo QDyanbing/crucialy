@@ -36,6 +36,7 @@ describe('@stylistic/linebreaks', () => {
     // linebreaks 规则可能不会在测试中触发，因为文件系统会自动处理换行符
     // 如果该规则有警告，应该检查；如果没有，可能是文件系统已经转换了换行符
     if (ruleWarnings.length > 0) {
+      expect(ruleWarnings.length).toBeGreaterThan(0);
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('@stylistic/linebreaks');
         expect(warning.severity).toBe('error');
