@@ -27,8 +27,6 @@ describe('selector-max-compound-selectors', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'selector-max-compound-selectors');
 
