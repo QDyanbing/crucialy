@@ -36,6 +36,7 @@ describe('selector-max-type', () => {
     // 由于配置可能忽略了某些情况，规则可能不会触发
     // 但如果触发了，应该检查具体的规则信息
     if (ruleWarnings.length > 0) {
+      expect(ruleWarnings.length).toBeGreaterThan(0);
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('selector-max-type');
         expect(warning.severity).toBe('error');
