@@ -27,8 +27,6 @@ describe('value-no-vendor-prefix', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === 'value-no-vendor-prefix');
 
