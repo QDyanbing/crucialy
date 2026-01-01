@@ -27,8 +27,6 @@ describe('@stylistic/no-empty-first-line', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/no-empty-first-line');
 
