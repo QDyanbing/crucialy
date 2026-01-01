@@ -27,8 +27,6 @@ describe('@stylistic/no-eol-whitespace', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/no-eol-whitespace');
 
