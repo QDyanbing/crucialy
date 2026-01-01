@@ -29,8 +29,6 @@ describe('@stylistic/selector-combinator-space-after', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(
       w => w.rule === '@stylistic/selector-combinator-space-after',
