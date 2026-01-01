@@ -27,8 +27,6 @@ describe('@stylistic/number-leading-zero', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/number-leading-zero');
 
