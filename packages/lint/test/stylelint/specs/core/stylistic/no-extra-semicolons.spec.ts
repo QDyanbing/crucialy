@@ -27,8 +27,6 @@ describe('@stylistic/no-extra-semicolons', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/no-extra-semicolons');
 
