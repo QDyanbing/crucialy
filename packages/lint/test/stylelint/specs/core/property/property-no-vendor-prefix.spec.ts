@@ -47,6 +47,7 @@ describe('property-no-vendor-prefix', () => {
     ruleWarnings.forEach(warning => {
       expect(warning.rule).toBe('property-no-vendor-prefix');
       expect(warning.severity).toBe('error');
+      expect(warning.text).toMatch(/vendor|prefix/i);
     });
   });
 });
