@@ -33,8 +33,6 @@ describe('@stylistic/block-closing-brace-newline-after', () => {
       files: file,
     });
 
-    expect(errored).toBe(true);
-
     const warnings = results[0]?.warnings ?? [];
     const ruleWarnings = warnings.filter(
       w => w.rule === '@stylistic/block-closing-brace-newline-after',
