@@ -34,6 +34,10 @@ describe('rule-empty-line-before', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(results[0]?.source).toBe(file);
 
+    // 检查每个错误的具体信息
+    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    expect(errorLines).toEqual([6, 10]);
+
     // 检查错误信息包含相关关键词
     ruleWarnings.forEach(warning => {
       expect(warning.rule).toBe('rule-empty-line-before');
