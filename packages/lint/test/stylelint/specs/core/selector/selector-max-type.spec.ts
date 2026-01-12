@@ -37,6 +37,11 @@ describe('selector-max-type', () => {
     // 但如果触发了，应该检查具体的规则信息
     if (ruleWarnings.length > 0) {
       expect(ruleWarnings.length).toBeGreaterThan(0);
+
+      // 检查每个错误的具体信息
+      const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+      expect(errorLines.length).toBeGreaterThan(0);
+
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('selector-max-type');
         expect(warning.severity).toBe('error');
