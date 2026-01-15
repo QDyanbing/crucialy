@@ -48,7 +48,7 @@ describe('font-family-no-missing-generic-family-keyword', () => {
 
     // 检查每个错误的具体信息
     const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
-    expect(errorLines.length).toBeGreaterThan(0);
+    expect(errorLines).toEqual([4, 5]);
 
     // 检查错误信息包含相关关键词
     ruleWarnings.forEach(warning => {
