@@ -37,6 +37,8 @@ describe('no-descending-specificity', () => {
     // 检查每个错误的具体信息
     const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
     expect(errorLines.length).toBeGreaterThan(0);
+    // 特异性规则可能报告多个错误，先验证包含关键行
+    expect(errorLines).toContain(7);
 
     // 检查错误信息包含相关关键词
     ruleWarnings.forEach(warning => {
