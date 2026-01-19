@@ -38,7 +38,7 @@ describe('@stylistic/unicode-bom', () => {
       expect(ruleWarnings.length).toBeGreaterThan(0);
       // 检查每个错误的具体信息
       const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
-      expect(errorLines.length).toBeGreaterThan(0);
+      expect(errorLines).toEqual([1]);
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('@stylistic/unicode-bom');
         expect(warning.severity).toBe('error');
