@@ -38,8 +38,8 @@ describe('@stylistic/linebreaks', () => {
     if (ruleWarnings.length > 0) {
       expect(ruleWarnings.length).toBeGreaterThan(0);
       // 检查每个错误的具体信息
-      const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
-      expect(errorLines.length).toBeGreaterThan(0);
+      const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
+      expect(errorLines).toEqual([1, 2, 3]);
       ruleWarnings.forEach(warning => {
         expect(warning.rule).toBe('@stylistic/linebreaks');
         expect(warning.severity).toBe('error');
