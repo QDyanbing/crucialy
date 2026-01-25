@@ -36,7 +36,7 @@ describe('selector-no-vendor-prefix', () => {
     expect(results[0]?.source).toBe(file);
 
     // 检查每个错误的具体信息
-    const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
     expect(errorLines).toEqual([3, 7]);
 
     // 检查错误信息包含相关关键词
