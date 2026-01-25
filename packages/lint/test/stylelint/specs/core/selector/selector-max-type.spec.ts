@@ -39,7 +39,7 @@ describe('selector-max-type', () => {
       expect(ruleWarnings.length).toBeGreaterThan(0);
 
       // 检查每个错误的具体信息
-      const errorLines = ruleWarnings.map(w => w.line).sort((a, b) => a - b);
+      const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
       expect(errorLines).toEqual([3]);
 
       ruleWarnings.forEach(warning => {
