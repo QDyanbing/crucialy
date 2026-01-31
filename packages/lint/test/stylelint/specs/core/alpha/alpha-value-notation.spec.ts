@@ -15,8 +15,8 @@ describe('alpha-value-notation', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'alpha-value-notation');
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
-    expect(errored).toBe(false);
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
