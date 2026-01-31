@@ -15,8 +15,8 @@ describe('annotation-no-unknown', () => {
     const ruleWarnings = warnings.filter(w => w.rule === 'annotation-no-unknown');
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
-    expect(errored).toBe(false);
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
