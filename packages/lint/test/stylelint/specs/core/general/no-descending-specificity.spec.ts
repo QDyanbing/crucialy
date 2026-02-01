@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('no-descending-specificity', () => {
     const file = resolveFixture('core', 'general', 'no-descending-specificity.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: generalRules },
       files: file,
     });
 
@@ -16,6 +17,7 @@ describe('no-descending-specificity', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
