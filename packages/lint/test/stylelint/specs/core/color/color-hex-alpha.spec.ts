@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import colorRules from '@/stylelint/core/color';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,7 @@ describe('color-hex-alpha', () => {
     const file = resolveFixture('core', 'color', 'color-hex-alpha.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: colorRules },
       files: file,
     });
 
@@ -16,6 +16,7 @@ describe('color-hex-alpha', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 });
