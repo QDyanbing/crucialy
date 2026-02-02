@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import importRules from '@/stylelint/core/import';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,7 @@ describe('import-notation', () => {
     const file = resolveFixture('core', 'import', 'import-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: importRules },
       files: file,
     });
 
@@ -16,6 +16,7 @@ describe('import-notation', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +24,7 @@ describe('import-notation', () => {
     const file = resolveFixture('core', 'import', 'import-notation-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: importRules },
       files: file,
     });
 
