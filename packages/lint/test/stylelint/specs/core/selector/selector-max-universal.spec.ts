@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('selector-max-universal', () => {
     const file = resolveFixture('core', 'selector', 'selector-max-universal.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-max-universal': selectorRules['selector-max-universal'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('selector-max-universal', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('selector-max-universal', () => {
     const file = resolveFixture('core', 'selector', 'selector-max-universal-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: selectorRules },
       files: file,
     });
 
