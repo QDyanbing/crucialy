@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import timeRules from '@/stylelint/core/time';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('time-min-milliseconds', () => {
     const file = resolveFixture('core', 'time', 'time-min-milliseconds.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'time-min-milliseconds': timeRules['time-min-milliseconds'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('time-min-milliseconds', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('time-min-milliseconds', () => {
     const file = resolveFixture('core', 'time', 'time-min-milliseconds-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: timeRules },
       files: file,
     });
 
