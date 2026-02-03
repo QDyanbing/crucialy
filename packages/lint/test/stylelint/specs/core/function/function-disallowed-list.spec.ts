@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import functionRules from '@/stylelint/core/function';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('function-disallowed-list', () => {
     const file = resolveFixture('core', 'function', 'function-disallowed-list.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'function-disallowed-list': functionRules['function-disallowed-list'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('function-disallowed-list', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('function-disallowed-list', () => {
     const file = resolveFixture('core', 'function', 'function-disallowed-list-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: functionRules },
       files: file,
     });
 
