@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import atRuleRules from '@/stylelint/core/at-rule';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('at-rule-empty-line-before', () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-empty-line-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'at-rule-empty-line-before': atRuleRules['at-rule-empty-line-before'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('at-rule-empty-line-before', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('at-rule-empty-line-before', () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-empty-line-before-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: atRuleRules },
       files: file,
     });
 
