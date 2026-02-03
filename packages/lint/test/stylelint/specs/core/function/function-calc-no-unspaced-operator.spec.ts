@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import functionRules from '@/stylelint/core/function';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,11 @@ describe('function-calc-no-unspaced-operator', () => {
     const file = resolveFixture('core', 'function', 'function-calc-no-unspaced-operator.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'function-calc-no-unspaced-operator': functionRules['function-calc-no-unspaced-operator'],
+        },
+      },
       files: file,
     });
 
@@ -16,6 +20,7 @@ describe('function-calc-no-unspaced-operator', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -27,7 +32,7 @@ describe('function-calc-no-unspaced-operator', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: functionRules },
       files: file,
     });
 
