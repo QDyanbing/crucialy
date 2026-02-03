@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import numberRules from '@/stylelint/core/number';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('number-max-precision', () => {
     const file = resolveFixture('core', 'number', 'number-max-precision.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'number-max-precision': numberRules['number-max-precision'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('number-max-precision', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('number-max-precision', () => {
     const file = resolveFixture('core', 'number', 'number-max-precision-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: numberRules },
       files: file,
     });
 
