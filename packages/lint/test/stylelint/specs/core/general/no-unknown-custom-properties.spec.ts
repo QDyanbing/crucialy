@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,11 @@ describe('no-unknown-custom-properties', () => {
     const file = resolveFixture('core', 'general', 'no-unknown-custom-properties.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'no-unknown-custom-properties': generalRules['no-unknown-custom-properties'],
+        },
+      },
       files: file,
     });
 
@@ -16,6 +20,7 @@ describe('no-unknown-custom-properties', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +28,7 @@ describe('no-unknown-custom-properties', () => {
     const file = resolveFixture('core', 'general', 'no-unknown-custom-properties-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: generalRules },
       files: file,
     });
 
