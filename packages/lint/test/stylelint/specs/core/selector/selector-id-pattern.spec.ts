@@ -1,4 +1,4 @@
-import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +7,9 @@ describe('selector-id-pattern', () => {
     const file = resolveFixture('core', 'selector', 'selector-id-pattern.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-id-pattern': selectorRules['selector-id-pattern'] },
+      },
       files: file,
     });
 
@@ -16,6 +18,7 @@ describe('selector-id-pattern', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +26,7 @@ describe('selector-id-pattern', () => {
     const file = resolveFixture('core', 'selector', 'selector-id-pattern-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: selectorRules },
       files: file,
     });
 
