@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/no-eol-whitespace', () => {
   it('应该通过行尾没有空格的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'no-eol-whitespace.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -16,6 +21,7 @@ describe('@stylistic/no-eol-whitespace', () => {
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(results[0]?.source).toBe(file);
   });
 
@@ -23,7 +29,7 @@ describe('@stylistic/no-eol-whitespace', () => {
     const file = resolveFixture('core', 'stylistic', 'no-eol-whitespace-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
