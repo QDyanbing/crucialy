@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import declarationRules from '@/stylelint/core/declaration';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -11,7 +12,12 @@ describe('declaration-block-single-line-max-declarations', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'declaration-block-single-line-max-declarations':
+            declarationRules['declaration-block-single-line-max-declarations'],
+        },
+      },
       files: file,
     });
 
