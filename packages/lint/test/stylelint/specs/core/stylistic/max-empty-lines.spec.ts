@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/max-empty-lines', () => {
   it('应该通过连续空行在限制内的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'max-empty-lines.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -24,7 +29,7 @@ describe('@stylistic/max-empty-lines', () => {
     const file = resolveFixture('core', 'stylistic', 'max-empty-lines-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
