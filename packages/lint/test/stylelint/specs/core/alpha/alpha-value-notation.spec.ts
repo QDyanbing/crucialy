@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import alphaRules from '@/stylelint/core/alpha';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('alpha-value-notation', () => {
     const file = resolveFixture('core', 'alpha', 'alpha-value-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: alphaRules },
       files: file,
     });
 
