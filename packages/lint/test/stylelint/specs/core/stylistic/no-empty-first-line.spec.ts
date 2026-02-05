@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/no-empty-first-line', () => {
   it('应该通过首行不为空的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'no-empty-first-line.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -24,7 +29,7 @@ describe('@stylistic/no-empty-first-line', () => {
     const file = resolveFixture('core', 'stylistic', 'no-empty-first-line-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
