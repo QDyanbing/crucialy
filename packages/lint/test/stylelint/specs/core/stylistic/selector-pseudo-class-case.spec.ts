@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/selector-pseudo-class-case', () => {
   it('应该通过伪类使用小写的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'selector-pseudo-class-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -24,7 +29,7 @@ describe('@stylistic/selector-pseudo-class-case', () => {
     const file = resolveFixture('core', 'stylistic', 'selector-pseudo-class-case-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
