@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/no-missing-end-of-source-newline', () => {
   it('应该通过文件末尾有换行符的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'no-missing-end-of-source-newline.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -30,7 +35,7 @@ describe('@stylistic/no-missing-end-of-source-newline', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
