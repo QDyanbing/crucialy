@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import annotationRules from '@/stylelint/core/annotation';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('annotation-no-unknown', () => {
     const file = resolveFixture('core', 'annotation', 'annotation-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: annotationRules },
       files: file,
     });
 
