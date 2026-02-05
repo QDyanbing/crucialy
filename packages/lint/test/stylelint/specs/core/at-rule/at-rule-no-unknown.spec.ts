@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import atRuleRules from '@/stylelint/core/at-rule';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('at-rule-no-unknown', () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: { 'at-rule-no-unknown': atRuleRules['at-rule-no-unknown'] } },
       files: file,
     });
 
