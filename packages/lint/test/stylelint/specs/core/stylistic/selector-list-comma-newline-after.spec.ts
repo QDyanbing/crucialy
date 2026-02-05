@@ -1,13 +1,18 @@
-import core from '@/stylelint/core';
+import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+
+const stylisticConfig = {
+  plugins: ['@stylistic/stylelint-plugin'],
+  rules: stylisticRules,
+};
 
 describe('@stylistic/selector-list-comma-newline-after', () => {
   it('应该通过选择器列表逗号后有换行的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'selector-list-comma-newline-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
@@ -30,7 +35,7 @@ describe('@stylistic/selector-list-comma-newline-after', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: stylisticConfig,
       files: file,
     });
 
