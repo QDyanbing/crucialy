@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('selector-not-notation', () => {
     const file = resolveFixture('core', 'selector', 'selector-not-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-not-notation': selectorRules['selector-not-notation'] },
+      },
       files: file,
     });
 
