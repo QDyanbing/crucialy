@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('selector-no-vendor-prefix', () => {
     const file = resolveFixture('core', 'selector', 'selector-no-vendor-prefix.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-no-vendor-prefix': selectorRules['selector-no-vendor-prefix'] },
+      },
       files: file,
     });
 
