@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import ruleRules from '@/stylelint/core/rule';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('rule-empty-line-before', () => {
     const file = resolveFixture('core', 'rule', 'rule-empty-line-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: { 'rule-empty-line-before': ruleRules['rule-empty-line-before'] } },
       files: file,
     });
 
