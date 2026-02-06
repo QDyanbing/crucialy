@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('selector-type-no-unknown', () => {
     const file = resolveFixture('core', 'selector', 'selector-type-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-type-no-unknown': selectorRules['selector-type-no-unknown'] },
+      },
       files: file,
     });
 
