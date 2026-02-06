@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import blockRules from '@/stylelint/core/block';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('block-no-empty', () => {
     const file = resolveFixture('core', 'block', 'block-no-empty.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: { 'block-no-empty': blockRules['block-no-empty'] } },
       files: file,
     });
 
