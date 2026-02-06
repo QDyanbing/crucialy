@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('selector-max-type', () => {
     const file = resolveFixture('core', 'selector', 'selector-max-type.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: { 'selector-max-type': selectorRules['selector-max-type'] } },
       files: file,
     });
 
