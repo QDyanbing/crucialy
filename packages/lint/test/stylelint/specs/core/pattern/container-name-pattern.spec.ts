@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import patternRules from '@/stylelint/core/pattern';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('container-name-pattern', () => {
     const file = resolveFixture('core', 'pattern', 'container-name-pattern.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'container-name-pattern': patternRules['container-name-pattern'] },
+      },
       files: file,
     });
 
