@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import blockRules from '@/stylelint/core/block';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,12 @@ describe('block-no-redundant-nested-style-rules', () => {
     const file = resolveFixture('core', 'block', 'block-no-redundant-nested-style-rules.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'block-no-redundant-nested-style-rules':
+            blockRules['block-no-redundant-nested-style-rules'],
+        },
+      },
       files: file,
     });
 
