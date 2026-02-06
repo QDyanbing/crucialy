@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,12 @@ describe('selector-pseudo-element-colon-notation', () => {
     const file = resolveFixture('core', 'selector', 'selector-pseudo-element-colon-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'selector-pseudo-element-colon-notation':
+            selectorRules['selector-pseudo-element-colon-notation'],
+        },
+      },
       files: file,
     });
 
