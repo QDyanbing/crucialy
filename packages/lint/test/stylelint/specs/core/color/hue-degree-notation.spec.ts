@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import colorRules from '@/stylelint/core/color';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('hue-degree-notation', () => {
     const file = resolveFixture('core', 'color', 'hue-degree-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'hue-degree-notation': colorRules['hue-degree-notation'] },
+      },
       files: file,
     });
 
