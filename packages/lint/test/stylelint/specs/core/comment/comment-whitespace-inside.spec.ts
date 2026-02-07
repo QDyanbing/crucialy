@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import commentRules from '@/stylelint/core/comment';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('comment-whitespace-inside', () => {
     const file = resolveFixture('core', 'comment', 'comment-whitespace-inside.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'comment-whitespace-inside': commentRules['comment-whitespace-inside'] },
+      },
       files: file,
     });
 
