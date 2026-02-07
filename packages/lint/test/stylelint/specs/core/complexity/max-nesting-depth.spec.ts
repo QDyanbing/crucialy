@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import complexityRules from '@/stylelint/core/complexity';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('max-nesting-depth', () => {
     const file = resolveFixture('core', 'complexity', 'max-nesting-depth.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'max-nesting-depth': complexityRules['max-nesting-depth'] },
+      },
       files: file,
     });
 
