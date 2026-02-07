@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import commentRules from '@/stylelint/core/comment';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,7 @@ describe('comment-no-empty', () => {
     const file = resolveFixture('core', 'comment', 'comment-no-empty.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: { rules: { 'comment-no-empty': commentRules['comment-no-empty'] } },
       files: file,
     });
 
