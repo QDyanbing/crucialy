@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import fontRules from '@/stylelint/core/font';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -11,7 +12,12 @@ describe('font-family-no-missing-generic-family-keyword', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'font-family-no-missing-generic-family-keyword':
+            fontRules['font-family-no-missing-generic-family-keyword'],
+        },
+      },
       files: file,
     });
 
