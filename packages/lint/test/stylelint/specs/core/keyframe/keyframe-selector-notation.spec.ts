@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import keyframeRules from '@/stylelint/core/keyframe';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('keyframe-selector-notation', () => {
     const file = resolveFixture('core', 'keyframe', 'keyframe-selector-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'keyframe-selector-notation': keyframeRules['keyframe-selector-notation'] },
+      },
       files: file,
     });
 
