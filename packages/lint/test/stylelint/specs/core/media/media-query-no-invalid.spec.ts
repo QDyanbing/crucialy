@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import mediaRules from '@/stylelint/core/media';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('media-query-no-invalid', () => {
     const file = resolveFixture('core', 'media', 'media-query-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'media-query-no-invalid': mediaRules['media-query-no-invalid'] },
+      },
       files: file,
     });
 
