@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import fontRules from '@/stylelint/core/font';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('font-family-no-duplicate-names', () => {
     const file = resolveFixture('core', 'font', 'font-family-no-duplicate-names.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'font-family-no-duplicate-names': fontRules['font-family-no-duplicate-names'],
+        },
+      },
       files: file,
     });
 
