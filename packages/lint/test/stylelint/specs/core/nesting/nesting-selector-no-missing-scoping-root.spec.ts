@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import nestingRules from '@/stylelint/core/nesting';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,12 @@ describe('nesting-selector-no-missing-scoping-root', () => {
     const file = resolveFixture('core', 'nesting', 'nesting-selector-no-missing-scoping-root.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'nesting-selector-no-missing-scoping-root':
+            nestingRules['nesting-selector-no-missing-scoping-root'],
+        },
+      },
       files: file,
     });
 
