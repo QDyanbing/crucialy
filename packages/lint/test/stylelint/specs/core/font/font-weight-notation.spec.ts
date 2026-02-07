@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import fontRules from '@/stylelint/core/font';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('font-weight-notation', () => {
     const file = resolveFixture('core', 'font', 'font-weight-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'font-weight-notation': fontRules['font-weight-notation'] },
+      },
       files: file,
     });
 
