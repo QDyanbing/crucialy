@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import mediaRules from '@/stylelint/core/media';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('media-feature-range-notation', () => {
     const file = resolveFixture('core', 'media', 'media-feature-range-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'media-feature-range-notation': mediaRules['media-feature-range-notation'],
+        },
+      },
       files: file,
     });
 
