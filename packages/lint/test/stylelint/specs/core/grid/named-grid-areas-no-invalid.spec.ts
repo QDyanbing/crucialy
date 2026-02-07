@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import gridRules from '@/stylelint/core/grid';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('named-grid-areas-no-invalid', () => {
     const file = resolveFixture('core', 'grid', 'named-grid-areas-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'named-grid-areas-no-invalid': gridRules['named-grid-areas-no-invalid'],
+        },
+      },
       files: file,
     });
 
