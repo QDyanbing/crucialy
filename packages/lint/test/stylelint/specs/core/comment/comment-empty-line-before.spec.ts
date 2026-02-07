@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import commentRules from '@/stylelint/core/comment';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('comment-empty-line-before', () => {
     const file = resolveFixture('core', 'comment', 'comment-empty-line-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'comment-empty-line-before': commentRules['comment-empty-line-before'] },
+      },
       files: file,
     });
 
