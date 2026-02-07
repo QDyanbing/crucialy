@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import nestingRules from '@/stylelint/core/nesting';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('selector-nested-pattern', () => {
     const file = resolveFixture('core', 'nesting', 'selector-nested-pattern.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'selector-nested-pattern': nestingRules['selector-nested-pattern'] },
+      },
       files: file,
     });
 
