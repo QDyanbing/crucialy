@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import keyframeRules from '@/stylelint/core/keyframe';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('keyframe-declaration-no-important', () => {
     const file = resolveFixture('core', 'keyframe', 'keyframe-declaration-no-important.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'keyframe-declaration-no-important': keyframeRules['keyframe-declaration-no-important'],
+        },
+      },
       files: file,
     });
 
