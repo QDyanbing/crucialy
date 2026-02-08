@@ -11,7 +11,12 @@ describe('declaration-property-value-keyword-no-deprecated', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: {
+        rules: {
+          'declaration-property-value-keyword-no-deprecated':
+            declarationRules['declaration-property-value-keyword-no-deprecated'],
+        },
+      },
       files: file,
     });
 
