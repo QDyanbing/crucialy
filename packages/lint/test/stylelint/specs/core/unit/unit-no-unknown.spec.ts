@@ -8,7 +8,9 @@ describe('unit-no-unknown', () => {
     const file = resolveFixture('core', 'unit', 'unit-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: unitRules },
+      config: {
+        rules: { 'unit-no-unknown': unitRules['unit-no-unknown'] },
+      },
       files: file,
     });
 
