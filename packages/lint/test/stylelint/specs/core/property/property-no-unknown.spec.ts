@@ -8,7 +8,9 @@ describe('property-no-unknown', () => {
     const file = resolveFixture('core', 'property', 'property-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: propertyRules },
+      config: {
+        rules: { 'property-no-unknown': propertyRules['property-no-unknown'] },
+      },
       files: file,
     });
 
