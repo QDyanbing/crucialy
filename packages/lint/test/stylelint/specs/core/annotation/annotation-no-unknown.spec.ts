@@ -8,7 +8,9 @@ describe('annotation-no-unknown', () => {
     const file = resolveFixture('core', 'annotation', 'annotation-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: annotationRules },
+      config: {
+        rules: { 'annotation-no-unknown': annotationRules['annotation-no-unknown'] },
+      },
       files: file,
     });
 
