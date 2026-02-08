@@ -11,7 +11,12 @@ describe('declaration-block-no-duplicate-custom-properties', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: {
+        rules: {
+          'declaration-block-no-duplicate-custom-properties':
+            declarationRules['declaration-block-no-duplicate-custom-properties'],
+        },
+      },
       files: file,
     });
 
