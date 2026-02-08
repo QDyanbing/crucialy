@@ -7,7 +7,12 @@ describe('declaration-property-value-no-unknown', () => {
     const file = resolveFixture('core', 'declaration', 'declaration-property-value-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: {
+        rules: {
+          'declaration-property-value-no-unknown':
+            declarationRules['declaration-property-value-no-unknown'],
+        },
+      },
       files: file,
     });
 
