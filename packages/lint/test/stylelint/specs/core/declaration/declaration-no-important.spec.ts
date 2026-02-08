@@ -7,7 +7,9 @@ describe('declaration-no-important', () => {
     const file = resolveFixture('core', 'declaration', 'declaration-no-important.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: {
+        rules: { 'declaration-no-important': declarationRules['declaration-no-important'] },
+      },
       files: file,
     });
 
