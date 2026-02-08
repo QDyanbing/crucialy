@@ -8,7 +8,11 @@ describe('no-invalid-position-declaration', () => {
     const file = resolveFixture('core', 'general', 'no-invalid-position-declaration.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: generalRules },
+      config: {
+        rules: {
+          'no-invalid-position-declaration': generalRules['no-invalid-position-declaration'],
+        },
+      },
       files: file,
     });
 
