@@ -8,7 +8,9 @@ describe('unit-disallowed-list', () => {
     const file = resolveFixture('core', 'unit', 'unit-disallowed-list.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: unitRules },
+      config: {
+        rules: { 'unit-disallowed-list': unitRules['unit-disallowed-list'] },
+      },
       files: file,
     });
 
