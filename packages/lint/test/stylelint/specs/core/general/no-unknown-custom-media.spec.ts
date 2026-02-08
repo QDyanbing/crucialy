@@ -8,7 +8,11 @@ describe('no-unknown-custom-media', () => {
     const file = resolveFixture('core', 'general', 'no-unknown-custom-media.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: generalRules },
+      config: {
+        rules: {
+          'no-unknown-custom-media': generalRules['no-unknown-custom-media'],
+        },
+      },
       files: file,
     });
 
