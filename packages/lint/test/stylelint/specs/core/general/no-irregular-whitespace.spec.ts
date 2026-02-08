@@ -8,7 +8,11 @@ describe('no-irregular-whitespace', () => {
     const file = resolveFixture('core', 'general', 'no-irregular-whitespace.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: generalRules },
+      config: {
+        rules: {
+          'no-irregular-whitespace': generalRules['no-irregular-whitespace'],
+        },
+      },
       files: file,
     });
 
