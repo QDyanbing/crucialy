@@ -8,7 +8,9 @@ describe('color-no-invalid-hex', () => {
     const file = resolveFixture('core', 'color', 'color-no-invalid-hex.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: colorRules },
+      config: {
+        rules: { 'color-no-invalid-hex': colorRules['color-no-invalid-hex'] },
+      },
       files: file,
     });
 
