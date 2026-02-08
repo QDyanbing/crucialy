@@ -7,7 +7,9 @@ describe('import-notation', () => {
     const file = resolveFixture('core', 'import', 'import-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: importRules },
+      config: {
+        rules: { 'import-notation': importRules['import-notation'] },
+      },
       files: file,
     });
 
