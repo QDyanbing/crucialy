@@ -7,7 +7,9 @@ describe('color-hex-alpha', () => {
     const file = resolveFixture('core', 'color', 'color-hex-alpha.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: colorRules },
+      config: {
+        rules: { 'color-hex-alpha': colorRules['color-hex-alpha'] },
+      },
       files: file,
     });
 
