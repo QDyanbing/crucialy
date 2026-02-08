@@ -8,7 +8,11 @@ describe('no-descending-specificity', () => {
     const file = resolveFixture('core', 'general', 'no-descending-specificity.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: generalRules },
+      config: {
+        rules: {
+          'no-descending-specificity': generalRules['no-descending-specificity'],
+        },
+      },
       files: file,
     });
 
