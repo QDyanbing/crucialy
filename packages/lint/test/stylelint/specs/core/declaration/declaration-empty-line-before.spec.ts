@@ -7,7 +7,11 @@ describe('declaration-empty-line-before', () => {
     const file = resolveFixture('core', 'declaration', 'declaration-empty-line-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: {
+        rules: {
+          'declaration-empty-line-before': declarationRules['declaration-empty-line-before'],
+        },
+      },
       files: file,
     });
 
