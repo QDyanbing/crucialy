@@ -7,7 +7,9 @@ describe('string-no-newline', () => {
     const file = resolveFixture('core', 'string', 'string-no-newline.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: stringRules },
+      config: {
+        rules: { 'string-no-newline': stringRules['string-no-newline'] },
+      },
       files: file,
     });
 
