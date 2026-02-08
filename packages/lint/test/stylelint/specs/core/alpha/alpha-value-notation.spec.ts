@@ -8,7 +8,9 @@ describe('alpha-value-notation', () => {
     const file = resolveFixture('core', 'alpha', 'alpha-value-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: alphaRules },
+      config: {
+        rules: { 'alpha-value-notation': alphaRules['alpha-value-notation'] },
+      },
       files: file,
     });
 
