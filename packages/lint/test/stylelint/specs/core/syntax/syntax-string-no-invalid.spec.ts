@@ -8,7 +8,11 @@ describe('syntax-string-no-invalid', () => {
     const file = resolveFixture('core', 'syntax', 'syntax-string-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: syntaxRules },
+      config: {
+        rules: {
+          'syntax-string-no-invalid': syntaxRules['syntax-string-no-invalid'],
+        },
+      },
       files: file,
     });
 
