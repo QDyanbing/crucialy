@@ -8,7 +8,9 @@ describe('color-named', () => {
     const file = resolveFixture('core', 'color', 'color-named.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: colorRules },
+      config: {
+        rules: { 'color-named': colorRules['color-named'] },
+      },
       files: file,
     });
 
