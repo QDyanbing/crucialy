@@ -12,7 +12,12 @@ describe('@stylistic/no-empty-first-line', () => {
     const file = resolveFixture('core', 'stylistic', 'no-empty-first-line.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/no-empty-first-line': stylisticRules['@stylistic/no-empty-first-line'],
+        },
+      },
       files: file,
     });
 
