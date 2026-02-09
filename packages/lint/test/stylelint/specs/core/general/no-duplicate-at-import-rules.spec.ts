@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('no-duplicate-at-import-rules', () => {
     const file = resolveFixture('core', 'general', 'no-duplicate-at-import-rules.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'no-duplicate-at-import-rules': generalRules['no-duplicate-at-import-rules'],
+        },
+      },
       files: file,
     });
 
