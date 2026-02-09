@@ -12,7 +12,13 @@ describe('@stylistic/selector-list-comma-newline-after', () => {
     const file = resolveFixture('core', 'stylistic', 'selector-list-comma-newline-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/selector-list-comma-newline-after':
+            stylisticRules['@stylistic/selector-list-comma-newline-after'],
+        },
+      },
       files: file,
     });
 
