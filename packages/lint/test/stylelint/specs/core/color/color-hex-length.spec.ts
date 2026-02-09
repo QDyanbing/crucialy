@@ -8,7 +8,9 @@ describe('color-hex-length', () => {
     const file = resolveFixture('core', 'color', 'color-hex-length.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: colorRules },
+      config: {
+        rules: { 'color-hex-length': colorRules['color-hex-length'] },
+      },
       files: file,
     });
 
