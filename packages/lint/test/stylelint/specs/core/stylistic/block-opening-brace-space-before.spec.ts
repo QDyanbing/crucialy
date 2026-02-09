@@ -12,7 +12,13 @@ describe('@stylistic/block-opening-brace-space-before', () => {
     const file = resolveFixture('core', 'stylistic', 'block-opening-brace-space-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/block-opening-brace-space-before':
+            stylisticRules['@stylistic/block-opening-brace-space-before'],
+        },
+      },
       files: file,
     });
 
