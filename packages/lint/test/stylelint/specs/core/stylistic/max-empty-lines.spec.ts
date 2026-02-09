@@ -12,7 +12,10 @@ describe('@stylistic/max-empty-lines', () => {
     const file = resolveFixture('core', 'stylistic', 'max-empty-lines.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/max-empty-lines': stylisticRules['@stylistic/max-empty-lines'] },
+      },
       files: file,
     });
 
