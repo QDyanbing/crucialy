@@ -8,7 +8,12 @@ describe('shorthand-property-no-redundant-values', () => {
     const file = resolveFixture('core', 'shorthand', 'shorthand-property-no-redundant-values.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: shorthandRules },
+      config: {
+        rules: {
+          'shorthand-property-no-redundant-values':
+            shorthandRules['shorthand-property-no-redundant-values'],
+        },
+      },
       files: file,
     });
 
