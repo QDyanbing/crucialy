@@ -10,7 +10,7 @@ describe('order/properties-order', () => {
     const { errored, results } = await runStylelintWithConfig({
       config: {
         plugins: ['stylelint-order'],
-        rules: orderRules,
+        rules: { 'order/properties-order': orderRules['order/properties-order'] },
       },
       files: file,
     });
