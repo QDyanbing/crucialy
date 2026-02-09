@@ -8,7 +8,9 @@ describe('value-no-vendor-prefix', () => {
     const file = resolveFixture('core', 'value', 'value-no-vendor-prefix.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: valueRules },
+      config: {
+        rules: { 'value-no-vendor-prefix': valueRules['value-no-vendor-prefix'] },
+      },
       files: file,
     });
 
