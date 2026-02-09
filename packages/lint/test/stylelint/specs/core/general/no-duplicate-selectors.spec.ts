@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('no-duplicate-selectors', () => {
     const file = resolveFixture('core', 'general', 'no-duplicate-selectors.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'no-duplicate-selectors': generalRules['no-duplicate-selectors'] },
+      },
       files: file,
     });
 
