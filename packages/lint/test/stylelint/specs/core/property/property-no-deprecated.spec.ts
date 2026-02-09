@@ -8,7 +8,9 @@ describe('property-no-deprecated', () => {
     const file = resolveFixture('core', 'property', 'property-no-deprecated.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: propertyRules },
+      config: {
+        rules: { 'property-no-deprecated': propertyRules['property-no-deprecated'] },
+      },
       files: file,
     });
 
