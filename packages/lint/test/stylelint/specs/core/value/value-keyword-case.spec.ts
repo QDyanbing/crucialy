@@ -8,7 +8,9 @@ describe('value-keyword-case', () => {
     const file = resolveFixture('core', 'value', 'value-keyword-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: valueRules },
+      config: {
+        rules: { 'value-keyword-case': valueRules['value-keyword-case'] },
+      },
       files: file,
     });
 
