@@ -12,7 +12,13 @@ describe('@stylistic/selector-pseudo-element-case', () => {
     const file = resolveFixture('core', 'stylistic', 'selector-pseudo-element-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/selector-pseudo-element-case':
+            stylisticRules['@stylistic/selector-pseudo-element-case'],
+        },
+      },
       files: file,
     });
 
