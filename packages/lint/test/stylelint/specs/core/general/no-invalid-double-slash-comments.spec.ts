@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,11 @@ describe('no-invalid-double-slash-comments', () => {
     const file = resolveFixture('core', 'general', 'no-invalid-double-slash-comments.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: {
+          'no-invalid-double-slash-comments': generalRules['no-invalid-double-slash-comments'],
+        },
+      },
       files: file,
     });
 
