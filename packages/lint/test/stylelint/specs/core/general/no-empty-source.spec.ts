@@ -1,4 +1,5 @@
 import core from '@/stylelint/core';
+import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
 
@@ -7,7 +8,9 @@ describe('no-empty-source', () => {
     const file = resolveFixture('core', 'general', 'no-empty-source.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: core,
+      config: {
+        rules: { 'no-empty-source': generalRules['no-empty-source'] },
+      },
       files: file,
     });
 
