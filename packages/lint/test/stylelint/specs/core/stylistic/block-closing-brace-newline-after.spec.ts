@@ -12,7 +12,13 @@ describe('@stylistic/block-closing-brace-newline-after', () => {
     const file = resolveFixture('core', 'stylistic', 'block-closing-brace-newline-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/block-closing-brace-newline-after':
+            stylisticRules['@stylistic/block-closing-brace-newline-after'],
+        },
+      },
       files: file,
     });
 
