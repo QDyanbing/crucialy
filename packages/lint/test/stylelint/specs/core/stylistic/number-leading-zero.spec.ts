@@ -12,7 +12,12 @@ describe('@stylistic/number-leading-zero', () => {
     const file = resolveFixture('core', 'stylistic', 'number-leading-zero.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/number-leading-zero': stylisticRules['@stylistic/number-leading-zero'],
+        },
+      },
       files: file,
     });
 
