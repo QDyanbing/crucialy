@@ -12,7 +12,13 @@ describe('@stylistic/selector-combinator-space-before', () => {
     const file = resolveFixture('core', 'stylistic', 'selector-combinator-space-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/selector-combinator-space-before':
+            stylisticRules['@stylistic/selector-combinator-space-before'],
+        },
+      },
       files: file,
     });
 
