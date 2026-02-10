@@ -12,7 +12,13 @@ describe('@stylistic/declaration-block-trailing-semicolon', () => {
     const file = resolveFixture('core', 'stylistic', 'declaration-block-trailing-semicolon.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/declaration-block-trailing-semicolon':
+            stylisticRules['@stylistic/declaration-block-trailing-semicolon'],
+        },
+      },
       files: file,
     });
 
