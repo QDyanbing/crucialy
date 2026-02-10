@@ -12,7 +12,10 @@ describe('@stylistic/unit-case', () => {
     const file = resolveFixture('core', 'stylistic', 'unit-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/unit-case': stylisticRules['@stylistic/unit-case'] },
+      },
       files: file,
     });
 
