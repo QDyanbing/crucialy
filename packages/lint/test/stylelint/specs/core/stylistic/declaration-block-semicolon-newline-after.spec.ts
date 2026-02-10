@@ -16,7 +16,13 @@ describe('@stylistic/declaration-block-semicolon-newline-after', () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/declaration-block-semicolon-newline-after':
+            stylisticRules['@stylistic/declaration-block-semicolon-newline-after'],
+        },
+      },
       files: file,
     });
 
