@@ -12,7 +12,12 @@ describe('@stylistic/no-extra-semicolons', () => {
     const file = resolveFixture('core', 'stylistic', 'no-extra-semicolons.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/no-extra-semicolons': stylisticRules['@stylistic/no-extra-semicolons'],
+        },
+      },
       files: file,
     });
 
