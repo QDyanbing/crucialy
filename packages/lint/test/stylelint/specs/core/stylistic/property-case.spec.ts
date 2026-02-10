@@ -12,7 +12,10 @@ describe('@stylistic/property-case', () => {
     const file = resolveFixture('core', 'stylistic', 'property-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/property-case': stylisticRules['@stylistic/property-case'] },
+      },
       files: file,
     });
 
