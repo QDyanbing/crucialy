@@ -12,7 +12,13 @@ describe('@stylistic/value-list-comma-space-after', () => {
     const file = resolveFixture('core', 'stylistic', 'value-list-comma-space-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/value-list-comma-space-after':
+            stylisticRules['@stylistic/value-list-comma-space-after'],
+        },
+      },
       files: file,
     });
 
