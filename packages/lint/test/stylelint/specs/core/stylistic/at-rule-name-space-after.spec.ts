@@ -12,7 +12,13 @@ describe('@stylistic/at-rule-name-space-after', () => {
     const file = resolveFixture('core', 'stylistic', 'at-rule-name-space-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/at-rule-name-space-after':
+            stylisticRules['@stylistic/at-rule-name-space-after'],
+        },
+      },
       files: file,
     });
 
