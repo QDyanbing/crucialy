@@ -12,7 +12,13 @@ describe('@stylistic/at-rule-semicolon-newline-after', () => {
     const file = resolveFixture('core', 'stylistic', 'at-rule-semicolon-newline-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/at-rule-semicolon-newline-after':
+            stylisticRules['@stylistic/at-rule-semicolon-newline-after'],
+        },
+      },
       files: file,
     });
 
