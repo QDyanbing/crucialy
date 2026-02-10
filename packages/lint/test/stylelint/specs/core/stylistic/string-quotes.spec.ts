@@ -12,7 +12,10 @@ describe('@stylistic/string-quotes', () => {
     const file = resolveFixture('core', 'stylistic', 'string-quotes.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/string-quotes': stylisticRules['@stylistic/string-quotes'] },
+      },
       files: file,
     });
 
