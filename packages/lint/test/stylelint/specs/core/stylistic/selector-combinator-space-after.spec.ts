@@ -12,7 +12,13 @@ describe('@stylistic/selector-combinator-space-after', () => {
     const file = resolveFixture('core', 'stylistic', 'selector-combinator-space-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/selector-combinator-space-after':
+            stylisticRules['@stylistic/selector-combinator-space-after'],
+        },
+      },
       files: file,
     });
 
