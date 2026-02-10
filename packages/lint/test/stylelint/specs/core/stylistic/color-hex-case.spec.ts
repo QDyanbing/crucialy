@@ -12,7 +12,10 @@ describe('@stylistic/color-hex-case', () => {
     const file = resolveFixture('core', 'stylistic', 'color-hex-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/color-hex-case': stylisticRules['@stylistic/color-hex-case'] },
+      },
       files: file,
     });
 
