@@ -12,7 +12,10 @@ describe('@stylistic/indentation', () => {
     const file = resolveFixture('core', 'stylistic', 'indentation.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/indentation': stylisticRules['@stylistic/indentation'] },
+      },
       files: file,
     });
 
