@@ -12,7 +12,12 @@ describe('@stylistic/no-eol-whitespace', () => {
     const file = resolveFixture('core', 'stylistic', 'no-eol-whitespace.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/no-eol-whitespace': stylisticRules['@stylistic/no-eol-whitespace'],
+        },
+      },
       files: file,
     });
 
