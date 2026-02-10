@@ -12,7 +12,13 @@ describe('@stylistic/no-missing-end-of-source-newline', () => {
     const file = resolveFixture('core', 'stylistic', 'no-missing-end-of-source-newline.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/no-missing-end-of-source-newline':
+            stylisticRules['@stylistic/no-missing-end-of-source-newline'],
+        },
+      },
       files: file,
     });
 
