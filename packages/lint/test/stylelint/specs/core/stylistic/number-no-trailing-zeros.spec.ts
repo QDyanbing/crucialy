@@ -12,7 +12,13 @@ describe('@stylistic/number-no-trailing-zeros', () => {
     const file = resolveFixture('core', 'stylistic', 'number-no-trailing-zeros.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/number-no-trailing-zeros':
+            stylisticRules['@stylistic/number-no-trailing-zeros'],
+        },
+      },
       files: file,
     });
 
