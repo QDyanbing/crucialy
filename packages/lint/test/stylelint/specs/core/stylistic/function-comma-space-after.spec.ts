@@ -12,7 +12,13 @@ describe('@stylistic/function-comma-space-after', () => {
     const file = resolveFixture('core', 'stylistic', 'function-comma-space-after.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/function-comma-space-after':
+            stylisticRules['@stylistic/function-comma-space-after'],
+        },
+      },
       files: file,
     });
 
