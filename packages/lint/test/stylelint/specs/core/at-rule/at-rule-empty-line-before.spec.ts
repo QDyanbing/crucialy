@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import atRuleRules from '@/stylelint/core/at-rule';
 import { describe, expect, it } from 'vitest';
 import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
@@ -26,7 +27,7 @@ describe('at-rule-empty-line-before', () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-empty-line-before-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: atRuleRules },
+      config: core,
       files: file,
     });
 
