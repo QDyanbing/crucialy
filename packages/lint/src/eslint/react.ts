@@ -3,12 +3,9 @@
  * All rules defined in this package, no external config inheritance
  */
 
-interface ESLintConfig {
-  // TODO: Add proper ESLint config types
-  [key: string]: unknown;
-}
+import type { Linter } from 'eslint';
 
-const config: ESLintConfig = {
+const config: Linter.Config = {
   // React ESLint 配置
   // 所有规则由本包自行定义，不继承其他包的配置
 };
