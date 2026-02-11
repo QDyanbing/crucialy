@@ -5,6 +5,16 @@
 
 import type { Config } from 'prettier';
 
+// 基础插件列表
+const BASE_PLUGINS = [
+  'prettier-plugin-organize-imports', // 自动排序 import 语句
+  'prettier-plugin-packagejson', // 格式化和排序 package.json
+  'prettier-plugin-organize-attributes', // 自动排序 HTML/JSX 属性
+] as const;
+
+// 组件文件扩展名（需要 Tailwind CSS 插件）
+const COMPONENT_FILES = ['*.jsx', '*.tsx', '*.vue', '*.html', '*.svelte'] as const;
+
 const config: Config = {
   printWidth: 100, // 每行最大字符数
   tabWidth: 2, // 缩进空格数
@@ -20,20 +30,14 @@ const config: Config = {
   endOfLine: 'lf', // 行尾符：使用 LF（Unix 风格）
   proseWrap: 'never', // Markdown 文本换行：不自动换行，保持原始长度
   htmlWhitespaceSensitivity: 'ignore', // HTML 空白敏感性：忽略空白，允许更激进的格式化
-  plugins: [
-    'prettier-plugin-organize-imports', // 自动排序 import 语句
-    'prettier-plugin-packagejson', // 格式化和排序 package.json
-    'prettier-plugin-organize-attributes', // 自动排序 HTML/JSX 属性
-  ],
+  plugins: [...BASE_PLUGINS],
   // 针对特定文件类型启用 Tailwind CSS 插件（避免与 CommonJS 文件冲突）
   overrides: [
     {
-      files: ['*.jsx', '*.tsx', '*.vue', '*.html', '*.svelte'],
+      files: [...COMPONENT_FILES],
       options: {
         plugins: [
-          'prettier-plugin-organize-imports',
-          'prettier-plugin-packagejson',
-          'prettier-plugin-organize-attributes',
+          ...BASE_PLUGINS,
           'prettier-plugin-tailwindcss', // 仅在组件文件中启用
         ],
       },
