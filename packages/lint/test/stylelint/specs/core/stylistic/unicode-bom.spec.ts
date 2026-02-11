@@ -13,7 +13,10 @@ describe('@stylistic/unicode-bom', () => {
     const file = resolveFixture('core', 'stylistic', 'unicode-bom.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/unicode-bom': stylisticRules['@stylistic/unicode-bom'] },
+      },
       files: file,
     });
 
