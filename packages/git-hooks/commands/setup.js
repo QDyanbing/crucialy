@@ -8,6 +8,31 @@ const projectRoot = process.cwd();
 // 包根目录（setup.js 在 commands/ 目录下，需要向上一级）
 const gitHooksPackageRoot = path.join(__dirname, '..');
 
+// Hook 类型常量
+const HOOK_TYPES = {
+  PRE_COMMIT: 'pre-commit',
+  COMMIT_MSG: 'commit-msg',
+};
+
+/**
+ * 生成 hook 文件内容
+ * 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
+ * Husky 9.x 格式：不需要 husky.sh
+ * @param {string} hook - Hook 名称（'pre-commit' 或 'commit-msg'）
+ * @returns {string|null} Hook 文件内容，如果不支持的 hook 则返回 null
+ */
+/**
+ * Hook 内容模板映射
+ */
+const HOOK_CONTENT_MAP = {
+  [HOOK_TYPES.COMMIT_MSG]: `#!/usr/bin/env sh
+npx --no-install crucialy verify-commit "$1"
+`,
+  [HOOK_TYPES.PRE_COMMIT]: `#!/usr/bin/env sh
+npx --no-install lint-staged --quiet
+`,
+};
+
 /**
  * 生成 hook 文件内容
  * 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
@@ -16,19 +41,7 @@ const gitHooksPackageRoot = path.join(__dirname, '..');
  * @returns {string|null} Hook 文件内容，如果不支持的 hook 则返回 null
  */
 function generateHookContent(hook) {
-  if (hook === 'commit-msg') {
-    return `#!/usr/bin/env sh
-npx --no-install crucialy verify-commit "$1"
-`;
-  }
-
-  if (hook === 'pre-commit') {
-    return `#!/usr/bin/env sh
-npx --no-install lint-staged --quiet
-`;
-  }
-
-  return null;
+  return HOOK_CONTENT_MAP[hook] || null;
 }
 
 /**
@@ -94,15 +107,15 @@ function installHook(hookDir, hook) {
 }
 
 // 安装 husky hooks
-function installHuskyHooks() {
+function installHuskyHooks(options) {
   const huskyDir = path.join(projectRoot, '.husky');
   ensureDirectoryExists(huskyDir);
 
-  const { skipLint, skipCommitMsg } = parseOptions();
+  const { skipLint, skipCommitMsg } = options;
 
   const hooks = [];
-  if (!skipLint) hooks.push('pre-commit');
-  if (!skipCommitMsg) hooks.push('commit-msg');
+  if (!skipLint) hooks.push(HOOK_TYPES.PRE_COMMIT);
+  if (!skipCommitMsg) hooks.push(HOOK_TYPES.COMMIT_MSG);
 
   return hooks.some(hook => installHook(huskyDir, hook));
 }
@@ -144,14 +157,15 @@ function installConfigFiles() {
 function main() {
   console.log('Setting up @crucialy/git-hooks...\n');
 
-  const { skipLint, skipCommitMsg } = parseOptions();
+  const options = parseOptions();
+  const { skipLint, skipCommitMsg } = options;
 
   if (skipLint && skipCommitMsg) {
     console.log('⚠ All hooks are disabled. Nothing to setup.');
     return;
   }
 
-  const hooksChanged = installHuskyHooks();
+  const hooksChanged = installHuskyHooks(options);
   const configChanged = skipLint ? false : installConfigFiles();
 
   if (hooksChanged || configChanged) {
