@@ -12,6 +12,7 @@ const colors = {
 
 /**
  * 移除 commit message 中的注释行
+ * Git commit message 中 # 开头的行会被视为注释，需要移除
  * @param {string} msg - 原始 commit message
  * @returns {string} 移除注释后的 commit message
  */
@@ -84,6 +85,7 @@ const commitRE = new RegExp(
 
 /**
  * 输出错误信息和使用示例
+ * 当 commit message 格式不符合约定时调用
  */
 function printError() {
   console.log();

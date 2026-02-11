@@ -8,11 +8,14 @@ const projectRoot = process.cwd();
 // 包根目录（setup.js 在 commands/ 目录下，需要向上一级）
 const gitHooksPackageRoot = path.join(__dirname, '..');
 
-// 生成 hook 内容
+/**
+ * 生成 hook 文件内容
+ * 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
+ * Husky 9.x 格式：不需要 husky.sh
+ * @param {string} hook - Hook 名称（'pre-commit' 或 'commit-msg'）
+ * @returns {string|null} Hook 文件内容，如果不支持的 hook 则返回 null
+ */
 function generateHookContent(hook) {
-  // 使用 npx --no-install 保持通用性（支持 npm、pnpm、yarn）
-  // Husky 9.x 格式：不需要 husky.sh
-
   if (hook === 'commit-msg') {
     return `#!/usr/bin/env sh
 npx --no-install crucialy verify-commit "$1"
@@ -97,7 +100,11 @@ function installHuskyHooks() {
   return hooks.some(hook => installHook(huskyDir, hook));
 }
 
-// 安装配置文件
+/**
+ * 安装 lint-staged 配置文件
+ * 生成通用 .lintstagedrc 配置（支持 Vue 和 React）
+ * @returns {boolean} 是否成功安装配置文件
+ */
 function installConfigFiles() {
   const lintstagedrcPath = path.join(projectRoot, '.lintstagedrc');
 
@@ -107,7 +114,6 @@ function installConfigFiles() {
     return false;
   }
 
-  // 生成通用 .lintstagedrc 配置（支持 Vue 和 React）
   const lintstagedConfig = {
     '*.{js,ts,jsx,tsx}': ['eslint --max-warnings=0 --fix', 'prettier --write'],
     '*.vue': ['eslint --max-warnings=0 --fix', 'stylelint --fix', 'prettier --write'],
