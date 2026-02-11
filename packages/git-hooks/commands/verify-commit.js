@@ -74,12 +74,15 @@ const COMMIT_TYPES = [
 
 const SPECIAL_COMMITS = ['Merge', 'Revert', 'Version'];
 
+// 提交信息主题最大长度
+const SUBJECT_MAX_LENGTH = 50;
+
 /**
  * 构建 commit message 验证正则表达式
  * 支持常规格式和特殊提交（Merge, Revert, Version）
  */
 const commitRE = new RegExp(
-  `^((${COMMIT_TYPES.join('|')})(\\(.+\\))?:|${SPECIAL_COMMITS.join('|')}) .{1,50}`,
+  `^((${COMMIT_TYPES.join('|')})(\\(.+\\))?:|${SPECIAL_COMMITS.join('|')}) .{1,${SUBJECT_MAX_LENGTH}}`,
   'i',
 );
 
