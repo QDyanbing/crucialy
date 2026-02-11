@@ -35,9 +35,12 @@ if (!msgPath) {
  */
 let msg;
 try {
-  msg = removeComment(fs.readFileSync(msgPath, 'utf-8').trim());
+  const rawContent = fs.readFileSync(msgPath, 'utf-8');
+  msg = removeComment(rawContent.trim());
 } catch (error) {
+  const errorMessage = error instanceof Error ? error.message : String(error);
   console.error(colors.red(`Error reading commit message file: ${msgPath}`));
+  console.error(colors.red(`Details: ${errorMessage}`));
   process.exit(1);
 }
 
@@ -68,12 +71,14 @@ const COMMIT_TYPES = [
   'merge',
 ];
 
+const SPECIAL_COMMITS = ['Merge', 'Revert', 'Version'];
+
 /**
  * 构建 commit message 验证正则表达式
  * 支持常规格式和特殊提交（Merge, Revert, Version）
  */
 const commitRE = new RegExp(
-  `^((${COMMIT_TYPES.join('|')})(\\(.+\\))?:|(Merge|Revert|Version)) .{1,50}`,
+  `^((${COMMIT_TYPES.join('|')})(\\(.+\\))?:|${SPECIAL_COMMITS.join('|')}) .{1,50}`,
   'i',
 );
 
