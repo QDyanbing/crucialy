@@ -12,7 +12,13 @@ describe('@stylistic/declaration-colon-space-before', () => {
     const file = resolveFixture('core', 'stylistic', 'declaration-colon-space-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/declaration-colon-space-before':
+            stylisticRules['@stylistic/declaration-colon-space-before'],
+        },
+      },
       files: file,
     });
 
