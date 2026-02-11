@@ -12,7 +12,13 @@ describe('@stylistic/function-parentheses-space-inside', () => {
     const file = resolveFixture('core', 'stylistic', 'function-parentheses-space-inside.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/function-parentheses-space-inside':
+            stylisticRules['@stylistic/function-parentheses-space-inside'],
+        },
+      },
       files: file,
     });
 
