@@ -12,7 +12,13 @@ describe('@stylistic/function-comma-space-before', () => {
     const file = resolveFixture('core', 'stylistic', 'function-comma-space-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: {
+          '@stylistic/function-comma-space-before':
+            stylisticRules['@stylistic/function-comma-space-before'],
+        },
+      },
       files: file,
     });
 
