@@ -13,7 +13,10 @@ describe('@stylistic/linebreaks', () => {
     const file = resolveFixture('core', 'stylistic', 'linebreaks.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: {
+        plugins: ['@stylistic/stylelint-plugin'],
+        rules: { '@stylistic/linebreaks': stylisticRules['@stylistic/linebreaks'] },
+      },
       files: file,
     });
 
