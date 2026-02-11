@@ -1,31 +1,41 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
 const path = require('path');
+
+// 命令映射表
+const COMMANDS = {
+  setup: 'setup.js',
+  'verify-commit': 'verify-commit.js',
+};
 
 // 获取命令参数
 const command = process.argv[2];
 
-if (command === 'setup') {
-  // 执行 setup 命令
-  const setupScript = path.join(__dirname, 'commands', 'setup.js');
-  require(setupScript);
-} else if (command === 'verify-commit') {
-  // 执行 verify-commit 命令（兼容旧方式，推荐直接使用 crucialy-verify-commit）
-  const verifyScript = path.join(__dirname, 'commands', 'verify-commit.js');
-  // 修改 process.argv，让 verify-commit.js 能正确获取文件路径
-  process.argv = [process.argv[0], verifyScript, process.argv[3]];
-  require(verifyScript);
-} else if (command) {
-  console.error(`Unknown command: ${command}`);
-  console.error('\nAvailable commands:');
-  console.error('  setup         - Setup git hooks');
-  console.error('  verify-commit - Verify commit message format');
-  process.exit(1);
+// 显示帮助信息
+function showHelp(exitCode = 0) {
+  const prefix = exitCode === 0 ? 'Usage' : 'Available commands';
+  const output = exitCode === 0 ? console.log : console.error;
+
+  output(`${prefix}: crucialy <command>`);
+  output('\nAvailable commands:');
+  output('  setup         - Setup git hooks');
+  output('  verify-commit - Verify commit message format');
+  process.exit(exitCode);
+}
+
+// 执行命令
+if (!command) {
+  showHelp(0);
+} else if (command in COMMANDS) {
+  const scriptPath = path.join(__dirname, 'commands', COMMANDS[command]);
+
+  if (command === 'verify-commit') {
+    // 修改 process.argv，让 verify-commit.js 能正确获取文件路径
+    process.argv = [process.argv[0], scriptPath, process.argv[3]];
+  }
+
+  require(scriptPath);
 } else {
-  console.log('Usage: crucialy <command>');
-  console.log('\nAvailable commands:');
-  console.log('  setup         - Setup git hooks');
-  console.log('  verify-commit - Verify commit message format');
-  process.exit(0);
+  console.error(`Unknown command: ${command}`);
+  showHelp(1);
 }
