@@ -65,25 +65,32 @@ function installHook(hookDir, hook) {
   const expectedContent = generateHookContent(hook);
 
   if (!expectedContent) {
+    console.warn(`⚠ Unknown hook type: ${hook}`);
     return false;
   }
 
-  // 检查文件是否存在且内容是否匹配
-  if (fs.existsSync(target)) {
-    const existingContent = fs.readFileSync(target, 'utf-8');
-    if (existingContent === expectedContent) {
-      return false;
+  try {
+    // 检查文件是否存在且内容是否匹配
+    if (fs.existsSync(target)) {
+      const existingContent = fs.readFileSync(target, 'utf-8');
+      if (existingContent === expectedContent) {
+        return false;
+      }
     }
-  }
 
-  // 文件不存在或内容不匹配，需要更新
-  fs.writeFileSync(target, expectedContent);
-  // 设置执行权限
-  if (process.platform !== 'win32') {
-    fs.chmodSync(target, '755');
+    // 文件不存在或内容不匹配，需要更新
+    fs.writeFileSync(target, expectedContent, 'utf-8');
+    // 设置执行权限
+    if (process.platform !== 'win32') {
+      fs.chmodSync(target, '755');
+    }
+    console.log(`✓ Installed .husky/${hook}`);
+    return true;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`✗ Failed to install .husky/${hook}: ${errorMessage}`);
+    throw error;
   }
-  console.log(`✓ Installed .husky/${hook}`);
-  return true;
 }
 
 // 安装 husky hooks
@@ -114,16 +121,23 @@ function installConfigFiles() {
     return false;
   }
 
-  const lintstagedConfig = {
-    '*.{js,ts,jsx,tsx}': ['eslint --max-warnings=0 --fix', 'prettier --write'],
-    '*.vue': ['eslint --max-warnings=0 --fix', 'stylelint --fix', 'prettier --write'],
-    '*.{css,scss,less}': ['stylelint --fix', 'prettier --write'],
-    '*.{json,md,yaml,yml}': ['prettier --write'],
-  };
+  try {
+    const lintstagedConfig = {
+      '*.{js,ts,jsx,tsx}': ['eslint --max-warnings=0 --fix', 'prettier --write'],
+      '*.vue': ['eslint --max-warnings=0 --fix', 'stylelint --fix', 'prettier --write'],
+      '*.{css,scss,less}': ['stylelint --fix', 'prettier --write'],
+      '*.{json,md,yaml,yml}': ['prettier --write'],
+    };
 
-  fs.writeFileSync(lintstagedrcPath, JSON.stringify(lintstagedConfig, null, 2) + '\n');
-  console.log('✓ Installed .lintstagedrc');
-  return true;
+    const configContent = JSON.stringify(lintstagedConfig, null, 2) + '\n';
+    fs.writeFileSync(lintstagedrcPath, configContent, 'utf-8');
+    console.log('✓ Installed .lintstagedrc');
+    return true;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`✗ Failed to install .lintstagedrc: ${errorMessage}`);
+    throw error;
+  }
 }
 
 // 主函数
