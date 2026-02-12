@@ -50,36 +50,67 @@ import valueRules from './value';
 const core: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
+    // Alpha / Opacity 相关规则
     ...alphaRules,
+    // Annotation 相关规则
     ...annotationRules,
+    // At-rule 相关规则
     ...atRuleRules,
+    // Block 相关规则
     ...blockRules,
+    // Color 相关规则
     ...colorRules,
+    // Comment 相关规则
     ...commentRules,
+    // Complexity 复杂度规则
     ...complexityRules,
+    // Custom Property 相关规则
     ...customPropertyRules,
+    // Declaration 相关规则
     ...declarationRules,
+    // Font 相关规则
     ...fontRules,
+    // Function 相关规则
     ...functionRules,
+    // General 通用规则
     ...generalRules,
+    // Grid 相关规则
     ...gridRules,
+    // Import 相关规则
     ...importRules,
+    // Keyframe 相关规则
     ...keyframeRules,
+    // Length 相关规则
     ...lengthRules,
+    // Media 相关规则
     ...mediaRules,
+    // Nesting 相关规则
     ...nestingRules,
+    // Number 相关规则
     ...numberRules,
+    // Order 顺序规则
     ...orderRules,
+    // Pattern 命名模式规则
     ...patternRules,
+    // Property 相关规则
     ...propertyRules,
+    // Rule 相关规则
     ...ruleRules,
+    // Selector 相关规则
     ...selectorRules,
+    // Shorthand Property 相关规则
     ...shorthandRules,
+    // String 相关规则
     ...stringRules,
+    // Stylistic 格式化规则
     ...stylisticRules,
+    // Syntax 相关规则
     ...syntaxRules,
+    // Time 相关规则
     ...timeRules,
+    // Unit 相关规则
     ...unitRules,
+    // Value 相关规则
     ...valueRules,
   },
 };
