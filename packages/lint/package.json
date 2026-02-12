@@ -81,6 +81,7 @@
     "lint": "tsc --noEmit",
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:stylelint": "vitest run"
   },
   "devDependencies": {

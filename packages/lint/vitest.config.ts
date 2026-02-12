@@ -7,6 +7,18 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     passWithNoTests: true, // 没有测试文件时不报错
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      include: ['src/**/*.ts'],
+      exclude: ['src/**/*.d.ts', 'src/**/index.ts'],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 75,
+        statements: 80,
+      },
+    },
   },
   resolve: {
     alias: {
