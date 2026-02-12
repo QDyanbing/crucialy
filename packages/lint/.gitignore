@@ -23,3 +23,8 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+.nyc_output
+
