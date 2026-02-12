@@ -8,6 +8,8 @@
  * - 基础 CSS 代码检查规则（验证、语法检查等）
  * - 更严格的代码质量规则（BEM 命名规范、复杂度限制、格式化要求等）
  * - 最佳实践和现代 CSS 特性支持
+ *
+ * @module @crucialy/lint/stylelint/core
  */
 
 import type { Config } from 'stylelint';
