@@ -2,7 +2,7 @@
  * Syntax 相关规则
  *
  * 包含语法验证规则（1条）
- * - 禁止无效的语法字符串
+ * - 禁止无效的语法字符串：确保 @supports 等 at-rule 中的语法字符串正确
  */
 
 import type { Config } from 'stylelint';
