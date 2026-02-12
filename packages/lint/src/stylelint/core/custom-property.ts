@@ -2,9 +2,9 @@
  * Custom Property 相关规则
  *
  * 包含 CSS 自定义属性（CSS 变量）相关规则（3条）
- * - 命名模式（Strict 模式强制 kebab-case）
- * - 空行要求
- * - 必须用 var() 包裹
+ * - 命名模式：强制使用 kebab-case，保持命名一致性
+ * - 空行要求：提高代码可读性
+ * - 必须用 var() 包裹：确保正确使用 CSS 变量
  */
 
 import type { Config } from 'stylelint';

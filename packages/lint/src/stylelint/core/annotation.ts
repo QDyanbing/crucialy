@@ -2,7 +2,7 @@
  * Annotation 相关规则
  *
  * 包含注解相关规则（1条）
- * - 禁止未知注解（如 Sass 的 !default）
+ * - 禁止未知注解：确保只使用标准 CSS 注解，避免语法错误
  */
 
 import type { Config } from 'stylelint';
