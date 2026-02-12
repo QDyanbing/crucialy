@@ -2,7 +2,7 @@
  * Shorthand Property 相关规则
  *
  * 包含简写属性相关规则（1条）
- * - 禁止简写属性的冗余值
+ * - 禁止简写属性的冗余值：鼓励使用最简形式，减少代码量，提高可读性
  */
 
 import type { Config } from 'stylelint';

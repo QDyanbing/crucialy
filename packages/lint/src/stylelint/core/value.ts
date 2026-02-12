@@ -2,8 +2,8 @@
  * Value 相关规则
  *
  * 包含值格式相关规则（2条）
- * - 值关键字大小写
- * - vendor prefix
+ * - 值关键字大小写：统一使用小写，符合 CSS 编码规范
+ * - vendor prefix：禁止手动添加厂商前缀，应使用工具自动处理
  */
 
 import type { Config } from 'stylelint';

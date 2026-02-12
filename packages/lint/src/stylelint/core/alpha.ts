@@ -2,7 +2,7 @@
  * Alpha / Opacity 相关规则
  *
  * 包含透明度值表示法相关规则（1条）
- * - alpha 值在颜色函数和 opacity 属性中的表示法
+ * - alpha 值在颜色函数和 opacity 属性中的表示法：统一使用数字形式，提高一致性
  */
 
 import type { Config } from 'stylelint';
