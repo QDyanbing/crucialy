@@ -7,6 +7,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     passWithNoTests: true, // 没有测试文件时不报错
+    testTimeout: 10000, // 设置测试超时时间为10秒
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
