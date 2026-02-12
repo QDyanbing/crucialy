@@ -1,7 +1,13 @@
 import core from '@/stylelint/core';
 import atRuleRules from '@/stylelint/core/at-rule';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
 describe('at-rule-no-unknown', () => {
   it('应该通过使用标准 @规则的代码', async () => {
@@ -12,13 +18,17 @@ describe('at-rule-no-unknown', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-no-unknown');
+    const result = results[0];
+    if (!result) {
+      throw new Error('No result returned');
+    }
+
+    const ruleWarnings = getRuleWarnings(result, 'at-rule-no-unknown');
 
     // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告使用未知 @规则的错误', async () => {
@@ -29,22 +39,26 @@ describe('at-rule-no-unknown', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'at-rule-no-unknown');
+    const result = results[0];
+    if (!result) {
+      throw new Error('No result returned');
+    }
+
+    const ruleWarnings = getRuleWarnings(result, 'at-rule-no-unknown');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
     // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
+    const errorLines = getErrorLines(ruleWarnings);
     expect(errorLines).toEqual([7, 11, 15]);
 
     // 检查错误信息包含相关关键词
+    expect(validateWarningMessages(ruleWarnings, ['unknown', 'at-rule'])).toBe(true);
     ruleWarnings.forEach(warning => {
       expect(warning.rule).toBe('at-rule-no-unknown');
       expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/unknown|at-rule/i);
     });
   });
 });
