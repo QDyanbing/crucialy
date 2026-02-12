@@ -82,7 +82,8 @@
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:stylelint": "vitest run"
+    "test:stylelint": "vitest run",
+    "test:watch": "vitest watch"
   },
   "devDependencies": {
     "@stylistic/stylelint-plugin": "^3.0.0",
