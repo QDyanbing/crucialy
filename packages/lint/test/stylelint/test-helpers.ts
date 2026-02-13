@@ -18,7 +18,7 @@ export function validatePositiveCase(
   ruleName: string,
   file: string,
   errored: boolean,
-) {
+): void {
   const ruleWarnings = getRuleWarnings(result, ruleName);
   expect(ruleWarnings.length).toBe(0);
   expect(errored).toBe(false);
@@ -41,7 +41,7 @@ export function validateNegativeCase(
   errored: boolean,
   expectedLines: number[],
   keywords: string[],
-) {
+): void {
   const ruleWarnings = getRuleWarnings(result, ruleName);
   expect(errored).toBe(true);
   expect(ruleWarnings.length).toBeGreaterThan(0);
