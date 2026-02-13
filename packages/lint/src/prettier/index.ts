@@ -1,6 +1,8 @@
 /**
  * Prettier configuration
  * Opinionated code formatter config
+ *
+ * @module @crucialy/lint/prettier
  */
 
 import type { Config } from 'prettier';
