@@ -47,6 +47,10 @@ import timeRules from './time';
 import unitRules from './unit';
 import valueRules from './value';
 
+/**
+ * Core Stylelint 配置对象
+ * 包含所有核心规则的配置
+ */
 const core: Config = {
   plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
   rules: {
