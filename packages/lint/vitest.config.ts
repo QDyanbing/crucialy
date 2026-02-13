@@ -1,3 +1,8 @@
+/**
+ * Vitest 测试配置
+ * 配置测试环境、覆盖率、路径别名等
+ */
+
 import path from 'node:path';
 import { defineConfig } from 'vitest/config';
 
