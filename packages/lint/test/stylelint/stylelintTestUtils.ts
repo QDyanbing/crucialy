@@ -1,3 +1,10 @@
+/**
+ * Stylelint 测试工具函数
+ * 提供测试所需的辅助函数和工具方法
+ *
+ * @module test/stylelint/stylelintTestUtils
+ */
+
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Config, Result, Warning } from 'stylelint';
