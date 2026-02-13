@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Config, Result } from 'stylelint';
+import type { Config, Result, Warning } from 'stylelint';
 import stylelint from 'stylelint';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -41,7 +41,7 @@ export async function runStylelintWithConfig(options: {
  * @param ruleName - 规则名称
  * @returns 该规则的所有警告
  */
-export function getRuleWarnings(result: Result, ruleName: string) {
+export function getRuleWarnings(result: Result, ruleName: string): Warning[] {
   const warnings = result.warnings ?? [];
   return warnings.filter(w => w.rule === ruleName);
 }
@@ -51,7 +51,7 @@ export function getRuleWarnings(result: Result, ruleName: string) {
  * @param warnings - 警告数组
  * @returns 排序后的行号数组
  */
-export function getErrorLines(warnings: Result['warnings']) {
+export function getErrorLines(warnings: Warning[]): number[] {
   return [...new Set(warnings.map(w => w.line))].sort((a, b) => a - b);
 }
 
