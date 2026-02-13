@@ -2,9 +2,9 @@
  * Naming Pattern 命名模式规则
  *
  * 包含各种命名模式规则（3条）
- * - @layer 名称使用 kebab-case（Strict 模式）
- * - container 名称使用 kebab-case（Strict 模式）
- * - 自定义媒体查询名称使用 kebab-case（Strict 模式）
+ * - @layer 名称使用 kebab-case：统一层级命名
+ * - container 名称使用 kebab-case：统一容器命名
+ * - 自定义媒体查询名称使用 kebab-case：统一媒体查询命名
  */
 
 import type { Config } from 'stylelint';

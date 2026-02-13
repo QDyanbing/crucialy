@@ -2,9 +2,9 @@
  * Property 相关规则
  *
  * 包含 CSS 属性相关规则（5条）
- * - 禁止未知/已弃用属性
- * - vendor prefix
- * - 属性白名单/黑名单
+ * - 禁止未知/已弃用属性：确保使用标准属性
+ * - vendor prefix：禁止手动添加，应使用工具
+ * - 属性白名单/黑名单：控制允许的属性
  */
 
 import type { Config } from 'stylelint';

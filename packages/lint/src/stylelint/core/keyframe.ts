@@ -2,10 +2,10 @@
  * Keyframe 相关规则
  *
  * 包含 @keyframes 动画相关规则（4条）
- * - keyframe 选择器表示法（百分比/关键字）
- * - 禁止重复选择器
- * - 禁止 !important
- * - keyframes 命名模式
+ * - keyframe 选择器表示法：统一使用百分比或关键字
+ * - 禁止重复选择器：避免重复定义
+ * - 禁止 !important：keyframe 中不应使用
+ * - keyframes 命名模式：统一命名规范
  */
 
 import type { Config } from 'stylelint';

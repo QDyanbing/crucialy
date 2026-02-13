@@ -2,7 +2,7 @@
  * Import 相关规则
  *
  * 包含 @import 相关规则（1条）
- * - import 表示法（string/url）
+ * - import 表示法：统一使用 string 或 url 格式
  */
 
 import type { Config } from 'stylelint';

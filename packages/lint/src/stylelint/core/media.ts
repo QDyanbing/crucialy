@@ -2,10 +2,10 @@
  * Media 相关规则
  *
  * 包含媒体查询相关规则（10条）
- * - media feature 验证
- * - media feature 白名单/黑名单
- * - media feature range 表示法
- * - media type 验证
+ * - media feature 验证：确保特性名称正确
+ * - media feature 白名单/黑名单：控制允许的特性
+ * - media feature range 表示法：统一范围语法
+ * - media type 验证：确保媒体类型正确
  */
 
 import type { Config } from 'stylelint';

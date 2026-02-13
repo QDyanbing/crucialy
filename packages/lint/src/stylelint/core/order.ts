@@ -2,9 +2,9 @@
  * Order 顺序规则
  *
  * 来自 stylelint-order 插件（3条）
- * - 声明块内容顺序（custom-properties → declarations → rules）
- * - 属性顺序（Strict 模式按功能分组排序）
- * - 属性字母顺序
+ * - 声明块内容顺序：统一代码结构
+ * - 属性顺序：按功能分组，提高可读性
+ * - 属性字母顺序：便于查找和维护
  */
 
 import type { Config } from 'stylelint';
