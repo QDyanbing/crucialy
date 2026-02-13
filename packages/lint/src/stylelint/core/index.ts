@@ -120,3 +120,4 @@ const core: Config = {
 };
 
 export default core;
+export type { Config } from 'stylelint';
