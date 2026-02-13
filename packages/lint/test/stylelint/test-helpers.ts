@@ -1,6 +1,8 @@
 /**
  * 测试辅助函数
  * 提供通用的测试辅助方法
+ *
+ * @module test/stylelint/test-helpers
  */
 
 import type { Result } from 'stylelint';
