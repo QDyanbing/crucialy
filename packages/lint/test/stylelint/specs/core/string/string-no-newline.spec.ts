@@ -1,6 +1,12 @@
 import stringRules from '@/stylelint/core/string';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
 describe('string-no-newline', () => {
   it('应该通过字符串值不包含换行符的代码', async () => {
@@ -13,13 +19,13 @@ describe('string-no-newline', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'string-no-newline');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, 'string-no-newline');
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告字符串值包含换行符的错误', async () => {
@@ -30,22 +36,21 @@ describe('string-no-newline', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'string-no-newline');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, 'string-no-newline');
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
+    const errorLines = getErrorLines(ruleWarnings);
     expect(errorLines).toEqual([4, 6]);
 
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('string-no-newline');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/string|newline/i);
+    expect(validateWarningMessages(ruleWarnings, ['string', 'newline'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe('string-no-newline');
+      expect(w.severity).toBe('error');
     });
   });
 });
