@@ -1,28 +1,34 @@
 import core from '@/stylelint/core';
 import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('no-irregular-whitespace', () => {
+const ruleName = 'no-irregular-whitespace';
+
+describe(ruleName, () => {
   it('应该通过没有不规则空白字符的代码', async () => {
     const file = resolveFixture('core', 'general', 'no-irregular-whitespace.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: {
-          'no-irregular-whitespace': generalRules['no-irregular-whitespace'],
-        },
+        rules: { [ruleName]: generalRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'no-irregular-whitespace');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告不规则空白字符的错误', async () => {
@@ -33,22 +39,19 @@ describe('no-irregular-whitespace', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'no-irregular-whitespace');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([4]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('no-irregular-whitespace');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/irregular|whitespace/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([4]);
+    expect(validateWarningMessages(ruleWarnings, ['irregular', 'whitespace'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
