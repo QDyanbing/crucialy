@@ -1,7 +1,13 @@
 import core from '@/stylelint/core';
 import syntaxRules from '@/stylelint/core/syntax';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
 describe('syntax-string-no-invalid', () => {
   it('应该通过使用有效语法字符串的代码', async () => {
@@ -16,13 +22,13 @@ describe('syntax-string-no-invalid', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'syntax-string-no-invalid');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, 'syntax-string-no-invalid');
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告使用无效语法字符串的错误', async () => {
@@ -33,26 +39,24 @@ describe('syntax-string-no-invalid', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'syntax-string-no-invalid');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, 'syntax-string-no-invalid');
 
     expect(errored).toBe(true);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 特殊规则可能需要特殊处理
     if (ruleWarnings.length > 0) {
       expect(ruleWarnings.length).toBeGreaterThan(0);
-      // 检查每个错误的具体信息
-      const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
+      const errorLines = getErrorLines(ruleWarnings);
       expect(errorLines).toEqual([3, 15]);
-      ruleWarnings.forEach(warning => {
-        expect(warning.rule).toBe('syntax-string-no-invalid');
-        expect(warning.severity).toBe('error');
-        expect(warning.text).toMatch(/syntax|string|invalid/i);
+      expect(validateWarningMessages(ruleWarnings, ['syntax', 'string', 'invalid'])).toBe(true);
+      ruleWarnings.forEach(w => {
+        expect(w.rule).toBe('syntax-string-no-invalid');
+        expect(w.severity).toBe('error');
       });
     } else {
-      // 如果没有该规则的警告，至少应该有一些警告
-      expect(warnings.length).toBeGreaterThan(0);
+      expect(result.warnings?.length ?? 0).toBeGreaterThan(0);
     }
   });
 });
