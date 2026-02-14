@@ -397,6 +397,12 @@ pnpm run lint
 
 # 清理
 pnpm run clean
+
+# 运行测试
+pnpm run test
+
+# 测试覆盖率
+pnpm run test:coverage
 ```
 
 ## 项目结构
