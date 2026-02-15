@@ -1,26 +1,34 @@
 import core from '@/stylelint/core';
 import colorRules from '@/stylelint/core/color';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('color-hex-length', () => {
+const ruleName = 'color-hex-length';
+
+describe(ruleName, () => {
   it('应该通过 hex 颜色使用短格式的代码', async () => {
     const file = resolveFixture('core', 'color', 'color-hex-length.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'color-hex-length': colorRules['color-hex-length'] },
+        rules: { [ruleName]: colorRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'color-hex-length');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告 hex 颜色使用长格式的错误', async () => {
@@ -31,22 +39,19 @@ describe('color-hex-length', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'color-hex-length');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([4, 5, 6]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('color-hex-length');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/hex|length/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
+    expect(validateWarningMessages(ruleWarnings, ['hex', 'length'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
