@@ -1,26 +1,34 @@
 import core from '@/stylelint/core';
 import fontRules from '@/stylelint/core/font';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('font-family-name-quotes', () => {
+const ruleName = 'font-family-name-quotes';
+
+describe(ruleName, () => {
   it('应该通过字体名称在必要时使用引号的代码', async () => {
     const file = resolveFixture('core', 'font', 'font-family-name-quotes.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'font-family-name-quotes': fontRules['font-family-name-quotes'] },
+        rules: { [ruleName]: fontRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'font-family-name-quotes');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告字体名称缺少引号的错误', async () => {
@@ -31,22 +39,19 @@ describe('font-family-name-quotes', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'font-family-name-quotes');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([4, 5]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('font-family-name-quotes');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/quotes|font-family/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5]);
+    expect(validateWarningMessages(ruleWarnings, ['quotes', 'font-family'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
