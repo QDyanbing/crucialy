@@ -1,28 +1,34 @@
 import core from '@/stylelint/core';
 import keyframeRules from '@/stylelint/core/keyframe';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('keyframe-declaration-no-important', () => {
+const ruleName = 'keyframe-declaration-no-important';
+
+describe(ruleName, () => {
   it('应该通过不使用 !important 的 keyframes', async () => {
     const file = resolveFixture('core', 'keyframe', 'keyframe-declaration-no-important.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: {
-          'keyframe-declaration-no-important': keyframeRules['keyframe-declaration-no-important'],
-        },
+        rules: { [ruleName]: keyframeRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'keyframe-declaration-no-important');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告使用 !important 的错误', async () => {
@@ -37,22 +43,19 @@ describe('keyframe-declaration-no-important', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'keyframe-declaration-no-important');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([5, 9, 15, 19]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('keyframe-declaration-no-important');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/important|keyframe/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([5, 9, 15, 19]);
+    expect(validateWarningMessages(ruleWarnings, ['important', 'keyframe'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
