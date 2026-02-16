@@ -1,23 +1,31 @@
 import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('selector-type-case', () => {
+const ruleName = 'selector-type-case';
+
+describe(ruleName, () => {
   it('应该通过类型选择器使用小写的代码', async () => {
     const file = resolveFixture('core', 'selector', 'selector-type-case.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: { 'selector-type-case': selectorRules['selector-type-case'] } },
+      config: { rules: { [ruleName]: selectorRules[ruleName] } },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'selector-type-case');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告类型选择器使用大写的错误', async () => {
@@ -28,22 +36,19 @@ describe('selector-type-case', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'selector-type-case');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([3, 7, 11]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('selector-type-case');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/type|case/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([3, 7, 11]);
+    expect(validateWarningMessages(ruleWarnings, ['type', 'case'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
