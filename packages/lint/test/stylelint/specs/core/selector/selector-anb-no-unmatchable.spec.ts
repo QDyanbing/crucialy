@@ -1,26 +1,34 @@
 import core from '@/stylelint/core';
 import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('selector-anb-no-unmatchable', () => {
+const ruleName = 'selector-anb-no-unmatchable';
+
+describe(ruleName, () => {
   it('应该通过使用可匹配 :nth-child() 表达式的代码', async () => {
     const file = resolveFixture('core', 'selector', 'selector-anb-no-unmatchable.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'selector-anb-no-unmatchable': selectorRules['selector-anb-no-unmatchable'] },
+        rules: { [ruleName]: selectorRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'selector-anb-no-unmatchable');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告使用不可匹配 :nth-child() 表达式的错误', async () => {
@@ -31,22 +39,19 @@ describe('selector-anb-no-unmatchable', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'selector-anb-no-unmatchable');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([3, 11]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('selector-anb-no-unmatchable');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/unmatchable|nth-child/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([3, 11]);
+    expect(validateWarningMessages(ruleWarnings, ['unmatchable', 'nth-child'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
