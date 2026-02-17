@@ -5,6 +5,7 @@ import {
   getRuleWarnings,
   resolveFixture,
   runStylelintWithConfig,
+  validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
 describe('length-zero-no-unit', () => {
@@ -25,7 +26,6 @@ describe('length-zero-no-unit', () => {
 
     const ruleWarnings = getRuleWarnings(result, 'length-zero-no-unit');
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -50,15 +50,11 @@ describe('length-zero-no-unit', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 5, 6]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
+    expect(validateWarningMessages(ruleWarnings, ['zero', 'unit', 'length'])).toBe(true);
     ruleWarnings.forEach(warning => {
       expect(warning.rule).toBe('length-zero-no-unit');
       expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/zero|unit|length/i);
     });
   });
 });
