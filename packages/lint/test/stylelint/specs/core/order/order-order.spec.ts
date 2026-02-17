@@ -1,6 +1,14 @@
 import core from '@/stylelint/core';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
+
+const ruleName = 'order/order';
 
 describe('order/order', () => {
   it('应该通过声明块内容顺序正确的代码', async () => {
@@ -10,7 +18,7 @@ describe('order/order', () => {
       config: {
         plugins: ['stylelint-order'],
         rules: {
-          'order/order': [
+          [ruleName]: [
             'custom-properties',
             'dollar-variables',
             'declarations',
@@ -22,13 +30,13 @@ describe('order/order', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'order/order');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告声明块内容顺序错误的错误', async () => {
@@ -39,22 +47,19 @@ describe('order/order', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === 'order/order');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([5, 16]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('order/order');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/order/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([5, 16]);
+    expect(validateWarningMessages(ruleWarnings, ['order'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
