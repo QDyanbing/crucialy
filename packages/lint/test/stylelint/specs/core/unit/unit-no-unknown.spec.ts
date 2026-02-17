@@ -6,6 +6,7 @@ import {
   getRuleWarnings,
   resolveFixture,
   runStylelintWithConfig,
+  validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
 describe('unit-no-unknown', () => {
@@ -26,7 +27,6 @@ describe('unit-no-unknown', () => {
 
     const ruleWarnings = getRuleWarnings(result, 'unit-no-unknown');
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -51,15 +51,11 @@ describe('unit-no-unknown', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 5]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5]);
+    expect(validateWarningMessages(ruleWarnings, ['unit', 'unknown'])).toBe(true);
     ruleWarnings.forEach(warning => {
       expect(warning.rule).toBe('unit-no-unknown');
       expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/unit|unknown/i);
     });
   });
 });
