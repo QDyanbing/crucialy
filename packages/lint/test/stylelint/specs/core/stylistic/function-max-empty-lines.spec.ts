@@ -1,34 +1,39 @@
 import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
 const stylisticConfig = {
   plugins: ['@stylistic/stylelint-plugin'],
   rules: stylisticRules,
 };
 
-describe('@stylistic/function-max-empty-lines', () => {
+const ruleName = '@stylistic/function-max-empty-lines';
+
+describe(ruleName, () => {
   it('应该通过函数中没有空行的代码', async () => {
     const file = resolveFixture('core', 'stylistic', 'function-max-empty-lines.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
         plugins: ['@stylistic/stylelint-plugin'],
-        rules: {
-          '@stylistic/function-max-empty-lines':
-            stylisticRules['@stylistic/function-max-empty-lines'],
-        },
+        rules: { [ruleName]: stylisticRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/function-max-empty-lines');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告函数中有空行的错误', async () => {
@@ -39,22 +44,19 @@ describe('@stylistic/function-max-empty-lines', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(w => w.rule === '@stylistic/function-max-empty-lines');
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([4, 7]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('@stylistic/function-max-empty-lines');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/function|empty.*line/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 7]);
+    expect(validateWarningMessages(ruleWarnings, ['function', 'empty', 'line'])).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
