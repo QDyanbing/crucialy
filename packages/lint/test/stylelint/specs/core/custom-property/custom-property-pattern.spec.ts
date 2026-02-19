@@ -24,6 +24,7 @@ describe(ruleName, () => {
     const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
+    expect(errored).toBe(false);
     expect(result.source).toBe(file);
   });
 
