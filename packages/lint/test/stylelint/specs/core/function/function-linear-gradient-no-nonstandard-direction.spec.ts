@@ -1,8 +1,16 @@
 import functionRules from '@/stylelint/core/function';
 import { describe, expect, it } from 'vitest';
-import { resolveFixture, runStylelintWithConfig } from '../../../stylelintTestUtils';
+import {
+  getErrorLines,
+  getRuleWarnings,
+  resolveFixture,
+  runStylelintWithConfig,
+  validateWarningMessages,
+} from '../../../stylelintTestUtils';
 
-describe('function-linear-gradient-no-nonstandard-direction', () => {
+const ruleName = 'function-linear-gradient-no-nonstandard-direction';
+
+describe(ruleName, () => {
   it('应该通过使用标准方向语法的代码', async () => {
     const file = resolveFixture(
       'core',
@@ -12,23 +20,18 @@ describe('function-linear-gradient-no-nonstandard-direction', () => {
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: {
-          'function-linear-gradient-no-nonstandard-direction':
-            functionRules['function-linear-gradient-no-nonstandard-direction'],
-        },
+        rules: { [ruleName]: functionRules[ruleName] },
       },
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(
-      w => w.rule === 'function-linear-gradient-no-nonstandard-direction',
-    );
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
   });
 
   it('应该报告使用非标准方向语法的错误', async () => {
@@ -43,24 +46,21 @@ describe('function-linear-gradient-no-nonstandard-direction', () => {
       files: file,
     });
 
-    const warnings = results[0]?.warnings ?? [];
-    const ruleWarnings = warnings.filter(
-      w => w.rule === 'function-linear-gradient-no-nonstandard-direction',
-    );
+    const result = results[0];
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
-    expect(results[0]?.source).toBe(file);
+    expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = [...new Set(ruleWarnings.map(w => w.line))].sort((a, b) => a - b);
-    expect(errorLines).toEqual([4, 5]);
-
-    // 检查错误信息包含相关关键词
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('function-linear-gradient-no-nonstandard-direction');
-      expect(warning.severity).toBe('error');
-      expect(warning.text).toMatch(/linear-gradient|direction|nonstandard/i);
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5]);
+    expect(
+      validateWarningMessages(ruleWarnings, ['linear-gradient', 'direction', 'nonstandard']),
+    ).toBe(true);
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
