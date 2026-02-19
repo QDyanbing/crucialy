@@ -9,15 +9,16 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('shorthand-property-no-redundant-values', () => {
+const ruleName = 'shorthand-property-no-redundant-values';
+
+describe(ruleName, () => {
   it('应该通过简写属性不使用冗余值的代码', async () => {
     const file = resolveFixture('core', 'shorthand', 'shorthand-property-no-redundant-values.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
         rules: {
-          'shorthand-property-no-redundant-values':
-            shorthandRules['shorthand-property-no-redundant-values'],
+          [ruleName]: shorthandRules[ruleName],
         },
       },
       files: file,
@@ -25,7 +26,7 @@ describe('shorthand-property-no-redundant-values', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'shorthand-property-no-redundant-values');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -52,12 +53,10 @@ describe('shorthand-property-no-redundant-values', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 5, 6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
     expect(validateWarningMessages(ruleWarnings, ['shorthand', 'redundant'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('shorthand-property-no-redundant-values');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });

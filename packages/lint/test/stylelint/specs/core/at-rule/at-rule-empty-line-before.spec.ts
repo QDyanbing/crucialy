@@ -9,20 +9,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('at-rule-empty-line-before', () => {
+const ruleName = 'at-rule-empty-line-before';
+
+describe(ruleName, () => {
   it('应该通过 @规则前有空行的代码', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-empty-line-before.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'at-rule-empty-line-before': atRuleRules['at-rule-empty-line-before'] },
+        rules: { [ruleName]: atRuleRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-empty-line-before');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -45,12 +47,10 @@ describe('at-rule-empty-line-before', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([6]);
     expect(validateWarningMessages(ruleWarnings, ['empty', 'line', 'before'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('at-rule-empty-line-before');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });

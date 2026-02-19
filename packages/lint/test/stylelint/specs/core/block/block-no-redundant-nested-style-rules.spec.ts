@@ -9,15 +9,16 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('block-no-redundant-nested-style-rules', () => {
+const ruleName = 'block-no-redundant-nested-style-rules';
+
+describe(ruleName, () => {
   it('应该通过没有冗余嵌套的代码', async () => {
     const file = resolveFixture('core', 'block', 'block-no-redundant-nested-style-rules.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
         rules: {
-          'block-no-redundant-nested-style-rules':
-            blockRules['block-no-redundant-nested-style-rules'],
+          [ruleName]: blockRules[ruleName],
         },
       },
       files: file,
@@ -25,7 +26,7 @@ describe('block-no-redundant-nested-style-rules', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'block-no-redundant-nested-style-rules');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -52,12 +53,10 @@ describe('block-no-redundant-nested-style-rules', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 10]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 10]);
     expect(validateWarningMessages(ruleWarnings, ['redundant', 'nested'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('block-no-redundant-nested-style-rules');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });
