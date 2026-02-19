@@ -8,20 +8,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('number-max-precision', () => {
+const ruleName = 'number-max-precision';
+
+describe(ruleName, () => {
   it('应该通过数字小数位数在限制内的代码', async () => {
     const file = resolveFixture('core', 'number', 'number-max-precision.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'number-max-precision': numberRules['number-max-precision'] },
+        rules: { [ruleName]: numberRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'number-max-precision');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -44,12 +46,10 @@ describe('number-max-precision', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 5, 6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
     expect(validateWarningMessages(ruleWarnings, ['precision', 'number'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('number-max-precision');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });

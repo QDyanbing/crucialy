@@ -9,20 +9,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('at-rule-no-deprecated', () => {
+const ruleName = 'at-rule-no-deprecated';
+
+describe(ruleName, () => {
   it('应该通过没有使用已弃用 @规则的代码', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-no-deprecated.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'at-rule-no-deprecated': atRuleRules['at-rule-no-deprecated'] },
+        rules: { [ruleName]: atRuleRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-no-deprecated');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -45,12 +47,10 @@ describe('at-rule-no-deprecated', () => {
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([3]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([3]);
     expect(validateWarningMessages(ruleWarnings, ['deprecated'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('at-rule-no-deprecated');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });
