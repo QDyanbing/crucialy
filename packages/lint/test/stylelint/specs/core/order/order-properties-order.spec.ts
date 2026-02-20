@@ -11,7 +11,7 @@ import {
 
 const ruleName = 'order/properties-order';
 
-describe('order/properties-order', () => {
+describe(ruleName, () => {
   it('应该通过属性顺序符合功能分组的代码', async () => {
     const file = resolveFixture('core', 'order', 'order-properties-order.css');
 

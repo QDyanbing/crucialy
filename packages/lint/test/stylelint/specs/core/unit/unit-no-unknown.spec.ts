@@ -9,23 +9,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('unit-no-unknown', () => {
+const ruleName = 'unit-no-unknown';
+
+describe(ruleName, () => {
   it('应该通过没有使用未知单位的代码', async () => {
     const file = resolveFixture('core', 'unit', 'unit-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'unit-no-unknown': unitRules['unit-no-unknown'] },
+        rules: { [ruleName]: unitRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'unit-no-unknown');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -41,11 +40,8 @@ describe('unit-no-unknown', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'unit-no-unknown');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
@@ -53,9 +49,9 @@ describe('unit-no-unknown', () => {
 
     expect(getErrorLines(ruleWarnings)).toEqual([4, 5]);
     expect(validateWarningMessages(ruleWarnings, ['unit', 'unknown'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('unit-no-unknown');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
