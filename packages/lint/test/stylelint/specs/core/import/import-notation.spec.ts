@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import importRules from '@/stylelint/core/import';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'import', 'import-notation-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: importRules },
+      config: core,
       files: file,
     });
 
