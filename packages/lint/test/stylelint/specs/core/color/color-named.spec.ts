@@ -9,25 +9,23 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('color-named', () => {
+const ruleName = 'color-named';
+
+describe(ruleName, () => {
   it('应该通过没有使用命名颜色的代码', async () => {
     const file = resolveFixture('core', 'color', 'color-named.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'color-named': colorRules['color-named'] },
+        rules: { [ruleName]: colorRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    const ruleWarnings = getRuleWarnings(result, 'color-named');
-
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -42,25 +40,18 @@ describe('color-named', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'color-named');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 5, 6]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
     expect(validateWarningMessages(ruleWarnings, ['named', 'color'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('color-named');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });

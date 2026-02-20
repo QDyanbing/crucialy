@@ -9,25 +9,23 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('selector-class-pattern', () => {
+const ruleName = 'selector-class-pattern';
+
+describe(ruleName, () => {
   it('应该通过使用 BEM 命名的代码', async () => {
     const file = resolveFixture('core', 'selector', 'selector-class-pattern.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'selector-class-pattern': selectorRules['selector-class-pattern'] },
+        rules: { [ruleName]: selectorRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    const ruleWarnings = getRuleWarnings(result, 'selector-class-pattern');
-
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -42,25 +40,18 @@ describe('selector-class-pattern', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'selector-class-pattern');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([3, 7, 11]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([3, 7, 11]);
     expect(validateWarningMessages(ruleWarnings, ['pattern', 'class'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('selector-class-pattern');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });

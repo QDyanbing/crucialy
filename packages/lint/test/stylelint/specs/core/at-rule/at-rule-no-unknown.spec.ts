@@ -9,23 +9,21 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('at-rule-no-unknown', () => {
+const ruleName = 'at-rule-no-unknown';
+
+describe(ruleName, () => {
   it('应该通过使用标准 @规则的代码', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: { 'at-rule-no-unknown': atRuleRules['at-rule-no-unknown'] } },
+      config: { rules: { [ruleName]: atRuleRules[ruleName] } },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-no-unknown');
-
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -40,25 +38,18 @@ describe('at-rule-no-unknown', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-no-unknown');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([7, 11, 15]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([7, 11, 15]);
     expect(validateWarningMessages(ruleWarnings, ['unknown', 'at-rule'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('at-rule-no-unknown');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
