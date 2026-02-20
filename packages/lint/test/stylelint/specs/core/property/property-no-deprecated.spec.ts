@@ -9,25 +9,23 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('property-no-deprecated', () => {
+const ruleName = 'property-no-deprecated';
+
+describe(ruleName, () => {
   it('应该通过没有使用已弃用属性的代码', async () => {
     const file = resolveFixture('core', 'property', 'property-no-deprecated.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'property-no-deprecated': propertyRules['property-no-deprecated'] },
+        rules: { [ruleName]: propertyRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    const ruleWarnings = getRuleWarnings(result, 'property-no-deprecated');
-
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -42,25 +40,18 @@ describe('property-no-deprecated', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'property-no-deprecated');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([5]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([5]);
     expect(validateWarningMessages(ruleWarnings, ['deprecated', 'property'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('property-no-deprecated');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
