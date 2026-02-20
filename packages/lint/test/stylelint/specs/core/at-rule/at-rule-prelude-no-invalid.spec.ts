@@ -9,25 +9,23 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('at-rule-prelude-no-invalid', () => {
+const ruleName = 'at-rule-prelude-no-invalid';
+
+describe(ruleName, () => {
   it('应该通过 @规则的 prelude 有效的代码', async () => {
     const file = resolveFixture('core', 'at-rule', 'at-rule-prelude-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'at-rule-prelude-no-invalid': atRuleRules['at-rule-prelude-no-invalid'] },
+        rules: { [ruleName]: atRuleRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-prelude-no-invalid');
-
-    // 正向测试用例文件可能有其他规则的警告，但不应该有此规则的警告
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
     expect(result.source).toBe(file);
@@ -42,25 +40,18 @@ describe('at-rule-prelude-no-invalid', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'at-rule-prelude-no-invalid');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    // 检查每个错误的具体信息
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([9]);
-
-    // 检查错误信息包含相关关键词
+    expect(getErrorLines(ruleWarnings)).toEqual([9]);
     expect(validateWarningMessages(ruleWarnings, ['prelude', 'invalid'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('at-rule-prelude-no-invalid');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });
