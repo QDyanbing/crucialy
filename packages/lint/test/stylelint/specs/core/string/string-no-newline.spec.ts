@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import stringRules from '@/stylelint/core/string';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'string', 'string-no-newline-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: stringRules },
+      config: core,
       files: file,
     });
 

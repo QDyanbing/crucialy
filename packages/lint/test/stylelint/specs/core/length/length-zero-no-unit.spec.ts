@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import lengthRules from '@/stylelint/core/length';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'length', 'length-zero-no-unit-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: lengthRules },
+      config: core,
       files: file,
     });
 
