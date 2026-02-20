@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import numberRules from '@/stylelint/core/number';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,13 +35,13 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'number', 'number-max-precision-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: numberRules },
+      config: core,
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'number-max-precision');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
