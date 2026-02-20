@@ -8,20 +8,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('string-no-newline', () => {
+const ruleName = 'string-no-newline';
+
+describe(ruleName, () => {
   it('应该通过字符串值不包含换行符的代码', async () => {
     const file = resolveFixture('core', 'string', 'string-no-newline.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'string-no-newline': stringRules['string-no-newline'] },
+        rules: { [ruleName]: stringRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'string-no-newline');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -38,18 +40,16 @@ describe('string-no-newline', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'string-no-newline');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([4, 6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([4, 6]);
     expect(validateWarningMessages(ruleWarnings, ['string', 'newline'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('string-no-newline');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });

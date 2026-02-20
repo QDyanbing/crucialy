@@ -8,20 +8,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('import-notation', () => {
+const ruleName = 'import-notation';
+
+describe(ruleName, () => {
   it('应该通过使用字符串形式 @import 的代码', async () => {
     const file = resolveFixture('core', 'import', 'import-notation.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'import-notation': importRules['import-notation'] },
+        rules: { [ruleName]: importRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'import-notation');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -38,18 +40,16 @@ describe('import-notation', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'import-notation');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([3, 5]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([3, 5]);
     expect(validateWarningMessages(ruleWarnings, ['import', 'notation'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('import-notation');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });
