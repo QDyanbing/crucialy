@@ -9,20 +9,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('annotation-no-unknown', () => {
+const ruleName = 'annotation-no-unknown';
+
+describe(ruleName, () => {
   it('应该通过不使用注解的代码', async () => {
     const file = resolveFixture('core', 'annotation', 'annotation-no-unknown.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'annotation-no-unknown': annotationRules['annotation-no-unknown'] },
+        rules: { [ruleName]: annotationRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'annotation-no-unknown');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -39,18 +41,16 @@ describe('annotation-no-unknown', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'annotation-no-unknown');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([5, 10, 15, 20]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([5, 10, 15, 20]);
     expect(validateWarningMessages(ruleWarnings, ['annotation', 'unknown'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('annotation-no-unknown');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });

@@ -9,14 +9,16 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('named-grid-areas-no-invalid', () => {
+const ruleName = 'named-grid-areas-no-invalid';
+
+describe(ruleName, () => {
   it('应该通过使用有效命名网格区域的代码', async () => {
     const file = resolveFixture('core', 'grid', 'named-grid-areas-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
         rules: {
-          'named-grid-areas-no-invalid': gridRules['named-grid-areas-no-invalid'],
+          [ruleName]: gridRules[ruleName],
         },
       },
       files: file,
@@ -24,7 +26,7 @@ describe('named-grid-areas-no-invalid', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'named-grid-areas-no-invalid');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -41,18 +43,16 @@ describe('named-grid-areas-no-invalid', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'named-grid-areas-no-invalid');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([6]);
     expect(validateWarningMessages(ruleWarnings, ['grid', 'area', 'invalid'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('named-grid-areas-no-invalid');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });
