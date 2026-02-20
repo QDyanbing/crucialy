@@ -9,11 +9,6 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-const stylisticConfig = {
-  plugins: ['@stylistic/stylelint-plugin'],
-  rules: stylisticRules,
-};
-
 const ruleName = '@stylistic/unicode-bom';
 
 describe(ruleName, () => {
