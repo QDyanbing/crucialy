@@ -9,14 +9,16 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('syntax-string-no-invalid', () => {
+const ruleName = 'syntax-string-no-invalid';
+
+describe(ruleName, () => {
   it('应该通过使用有效语法字符串的代码', async () => {
     const file = resolveFixture('core', 'syntax', 'syntax-string-no-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
         rules: {
-          'syntax-string-no-invalid': syntaxRules['syntax-string-no-invalid'],
+          [ruleName]: syntaxRules[ruleName],
         },
       },
       files: file,
@@ -24,7 +26,7 @@ describe('syntax-string-no-invalid', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'syntax-string-no-invalid');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -41,18 +43,17 @@ describe('syntax-string-no-invalid', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'syntax-string-no-invalid');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(result.source).toBe(file);
 
     if (ruleWarnings.length > 0) {
       expect(ruleWarnings.length).toBeGreaterThan(0);
-      const errorLines = getErrorLines(ruleWarnings);
-      expect(errorLines).toEqual([3, 15]);
+      expect(getErrorLines(ruleWarnings)).toEqual([3, 15]);
       expect(validateWarningMessages(ruleWarnings, ['syntax', 'string', 'invalid'])).toBe(true);
       ruleWarnings.forEach(w => {
-        expect(w.rule).toBe('syntax-string-no-invalid');
+        expect(w.rule).toBe(ruleName);
         expect(w.severity).toBe('error');
       });
     } else {
