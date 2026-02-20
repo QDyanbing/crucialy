@@ -9,18 +9,20 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('block-no-empty', () => {
+const ruleName = 'block-no-empty';
+
+describe(ruleName, () => {
   it('应该通过代码块不为空的代码', async () => {
     const file = resolveFixture('core', 'block', 'block-no-empty.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: { 'block-no-empty': blockRules['block-no-empty'] } },
+      config: { rules: { [ruleName]: blockRules[ruleName] } },
       files: file,
     });
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'block-no-empty');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -37,18 +39,16 @@ describe('block-no-empty', () => {
 
     const result = results[0];
     if (!result) throw new Error('No result returned');
-    const ruleWarnings = getRuleWarnings(result, 'block-no-empty');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
     expect(result.source).toBe(file);
 
-    const errorLines = getErrorLines(ruleWarnings);
-    expect(errorLines).toEqual([3, 6]);
-
+    expect(getErrorLines(ruleWarnings)).toEqual([3, 6]);
     expect(validateWarningMessages(ruleWarnings, ['empty', 'block'])).toBe(true);
     ruleWarnings.forEach(w => {
-      expect(w.rule).toBe('block-no-empty');
+      expect(w.rule).toBe(ruleName);
       expect(w.severity).toBe('error');
     });
   });
