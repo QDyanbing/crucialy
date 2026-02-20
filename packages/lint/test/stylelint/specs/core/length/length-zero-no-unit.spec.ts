@@ -8,23 +8,22 @@ import {
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
 
-describe('length-zero-no-unit', () => {
+const ruleName = 'length-zero-no-unit';
+
+describe(ruleName, () => {
   it('应该通过零值没有单位的代码', async () => {
     const file = resolveFixture('core', 'length', 'length-zero-no-unit.css');
 
     const { errored, results } = await runStylelintWithConfig({
       config: {
-        rules: { 'length-zero-no-unit': lengthRules['length-zero-no-unit'] },
+        rules: { [ruleName]: lengthRules[ruleName] },
       },
       files: file,
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'length-zero-no-unit');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(ruleWarnings.length).toBe(0);
     expect(errored).toBe(false);
@@ -40,11 +39,8 @@ describe('length-zero-no-unit', () => {
     });
 
     const result = results[0];
-    if (!result) {
-      throw new Error('No result returned');
-    }
-
-    const ruleWarnings = getRuleWarnings(result, 'length-zero-no-unit');
+    if (!result) throw new Error('No result returned');
+    const ruleWarnings = getRuleWarnings(result, ruleName);
 
     expect(errored).toBe(true);
     expect(ruleWarnings.length).toBeGreaterThan(0);
@@ -52,9 +48,9 @@ describe('length-zero-no-unit', () => {
 
     expect(getErrorLines(ruleWarnings)).toEqual([4, 5, 6]);
     expect(validateWarningMessages(ruleWarnings, ['zero', 'unit', 'length'])).toBe(true);
-    ruleWarnings.forEach(warning => {
-      expect(warning.rule).toBe('length-zero-no-unit');
-      expect(warning.severity).toBe('error');
+    ruleWarnings.forEach(w => {
+      expect(w.rule).toBe(ruleName);
+      expect(w.severity).toBe('error');
     });
   });
 });

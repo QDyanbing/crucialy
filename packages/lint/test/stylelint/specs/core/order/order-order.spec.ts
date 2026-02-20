@@ -10,7 +10,7 @@ import {
 
 const ruleName = 'order/order';
 
-describe('order/order', () => {
+describe(ruleName, () => {
   it('应该通过声明块内容顺序正确的代码', async () => {
     const file = resolveFixture('core', 'order', 'order-order.css');
 
