@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import generalRules from '@/stylelint/core/general';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'general', 'no-unknown-custom-properties-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: generalRules },
+      config: core,
       files: file,
     });
 
