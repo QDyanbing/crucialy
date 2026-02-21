@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import declarationRules from '@/stylelint/core/declaration';
 import { describe, expect, it } from 'vitest';
 import {
@@ -38,7 +39,7 @@ describe(ruleName, () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: core,
       files: file,
     });
 
