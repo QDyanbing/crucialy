@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import selectorRules from '@/stylelint/core/selector';
 import { describe, expect, it } from 'vitest';
 import {
@@ -32,7 +33,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'selector', 'selector-type-case-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: selectorRules },
+      config: core,
       files: file,
     });
 
