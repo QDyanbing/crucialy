@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import declarationRules from '@/stylelint/core/declaration';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'declaration', 'declaration-empty-line-before-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: declarationRules },
+      config: core,
       files: file,
     });
 
