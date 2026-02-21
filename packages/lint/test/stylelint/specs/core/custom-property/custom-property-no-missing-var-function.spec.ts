@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import customPropertyRules from '@/stylelint/core/custom-property';
 import { describe, expect, it } from 'vitest';
 import {
@@ -42,7 +43,7 @@ describe(ruleName, () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: customPropertyRules },
+      config: core,
       files: file,
     });
 
