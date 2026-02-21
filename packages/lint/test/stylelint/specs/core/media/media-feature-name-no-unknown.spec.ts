@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import mediaRules from '@/stylelint/core/media';
 import { describe, expect, it } from 'vitest';
 import {
@@ -34,7 +35,7 @@ describe(ruleName, () => {
     const file = resolveFixture('core', 'media', 'media-feature-name-no-unknown-invalid.css');
 
     const { errored, results } = await runStylelintWithConfig({
-      config: { rules: mediaRules },
+      config: core,
       files: file,
     });
 
