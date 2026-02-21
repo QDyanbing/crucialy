@@ -25,7 +25,7 @@ export function resolveFixture(...paths: string[]) {
 /**
  * 直接用 src 里的 TS 配置，不依赖 dist。
  * 示例：
- *   import core from '../../src/stylelint/core';
+ *   import core from '@/stylelint/core';
  *   runStylelintWithConfig({ config: core, files: [...] })
  */
 export async function runStylelintWithConfig(options: {
