@@ -1,3 +1,4 @@
+import core from '@/stylelint/core';
 import stylisticRules from '@/stylelint/core/stylistic';
 import { describe, expect, it } from 'vitest';
 import {
@@ -7,11 +8,6 @@ import {
   runStylelintWithConfig,
   validateWarningMessages,
 } from '../../../stylelintTestUtils';
-
-const stylisticConfig = {
-  plugins: ['@stylistic/stylelint-plugin'],
-  rules: stylisticRules,
-};
 
 const ruleName = '@stylistic/block-closing-brace-newline-after';
 
@@ -44,7 +40,7 @@ describe(ruleName, () => {
     );
 
     const { errored, results } = await runStylelintWithConfig({
-      config: stylisticConfig,
+      config: core,
       files: file,
     });
 
