@@ -1,5 +1,6 @@
 /**
  * Block 相关规则
+ * @module @crucialy/lint/stylelint/core/block
  *
  * 包含代码块相关规则（2条）
  * - 禁止空块：提高代码质量，减少无用代码
