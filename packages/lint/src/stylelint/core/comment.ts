@@ -1,5 +1,6 @@
 /**
  * Comment 相关规则
+ * @module @crucialy/lint/stylelint/core/comment
  *
  * 包含注释格式相关规则（5条）
  * - 注释前空行：改善代码结构
