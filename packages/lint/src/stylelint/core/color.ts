@@ -1,5 +1,6 @@
 /**
  * Color 相关规则
+ * @module @crucialy/lint/stylelint/core/color
  *
  * 包含颜色表示法、格式、验证等规则（9条）
  * - 颜色函数表示法：统一使用 modern 或 legacy 格式
