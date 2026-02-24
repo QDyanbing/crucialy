@@ -1,5 +1,6 @@
 /**
  * Order 顺序规则
+ * @module @crucialy/lint/stylelint/core/order
  *
  * 来自 stylelint-order 插件（3条）
  * - 声明块内容顺序：统一代码结构
