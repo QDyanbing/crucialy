@@ -1,5 +1,6 @@
 /**
  * Nesting 相关规则
+ * @module @crucialy/lint/stylelint/core/nesting
  *
  * 包含 CSS 嵌套相关规则（2条）
  * - 嵌套选择器必须有作用域根：确保嵌套正确
