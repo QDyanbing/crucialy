@@ -1,5 +1,6 @@
 /**
  * Rule 相关规则
+ * @module @crucialy/lint/stylelint/core/rule
  *
  * 包含规则本身相关的规则（3条）
  * - 规则前空行：改善代码结构
