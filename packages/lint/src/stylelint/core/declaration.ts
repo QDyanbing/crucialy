@@ -1,5 +1,6 @@
 /**
  * Declaration 相关规则
+ * @module @crucialy/lint/stylelint/core/declaration
  *
  * 包含声明块和属性声明相关规则（13条）
  * - 禁止重复声明：避免冗余代码
