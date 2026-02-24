@@ -1,5 +1,6 @@
 /**
  * Keyframe 相关规则
+ * @module @crucialy/lint/stylelint/core/keyframe
  *
  * 包含 @keyframes 动画相关规则（4条）
  * - keyframe 选择器表示法：统一使用百分比或关键字
