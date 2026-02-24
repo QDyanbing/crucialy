@@ -1,5 +1,6 @@
 /**
  * Media 相关规则
+ * @module @crucialy/lint/stylelint/core/media
  *
  * 包含媒体查询相关规则（10条）
  * - media feature 验证：确保特性名称正确
