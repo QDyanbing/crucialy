@@ -1,5 +1,6 @@
 /**
  * Property 相关规则
+ * @module @crucialy/lint/stylelint/core/property
  *
  * 包含 CSS 属性相关规则（5条）
  * - 禁止未知/已弃用属性：确保使用标准属性
