@@ -1,5 +1,6 @@
 /**
  * Length 相关规则
+ * @module @crucialy/lint/stylelint/core/length
  *
  * 包含长度值相关规则（1条）
  * - 零值不带单位
