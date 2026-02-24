@@ -1,5 +1,6 @@
 /**
  * General 通用规则
+ * @module @crucialy/lint/stylelint/core/general
  *
  * 包含通用验证和检查规则（10条）
  * - 空源文件：禁止空文件
