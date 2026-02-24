@@ -1,5 +1,6 @@
 /**
  * Number 相关规则
+ * @module @crucialy/lint/stylelint/core/number
  *
  * 包含数字格式相关规则（1条）
  * - 数字小数点精度限制：提高代码可读性，减少不必要的精度
