@@ -1,5 +1,6 @@
 /**
  * Complexity 复杂度规则
+ * @module @crucialy/lint/stylelint/core/complexity
  *
  * 包含代码复杂度限制规则（1条）
  * - 最大嵌套深度限制：避免过度嵌套，提高可读性
