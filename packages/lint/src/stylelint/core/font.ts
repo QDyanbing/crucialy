@@ -1,5 +1,6 @@
 /**
  * Font 相关规则
+ * @module @crucialy/lint/stylelint/core/font
  *
  * 包含字体族、字重等规则（4条）
  * - 字体名称引号：确保字体名称正确引用
