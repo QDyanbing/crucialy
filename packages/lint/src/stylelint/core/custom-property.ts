@@ -1,5 +1,6 @@
 /**
  * Custom Property 相关规则
+ * @module @crucialy/lint/stylelint/core/custom-property
  *
  * 包含 CSS 自定义属性（CSS 变量）相关规则（3条）
  * - 命名模式：强制使用 kebab-case，保持命名一致性
