@@ -1,5 +1,6 @@
 /**
  * Naming Pattern 命名模式规则
+ * @module @crucialy/lint/stylelint/core/pattern
  *
  * 包含各种命名模式规则（3条）
  * - @layer 名称使用 kebab-case：统一层级命名
