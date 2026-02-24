@@ -1,5 +1,6 @@
 /**
  * Import 相关规则
+ * @module @crucialy/lint/stylelint/core/import
  *
  * 包含 @import 相关规则（1条）
  * - import 表示法：统一使用 string 或 url 格式
