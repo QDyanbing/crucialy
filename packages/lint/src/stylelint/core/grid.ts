@@ -1,5 +1,6 @@
 /**
  * Grid 相关规则
+ * @module @crucialy/lint/stylelint/core/grid
  *
  * 包含 CSS Grid 相关规则（1条）
  * - 禁止无效的命名网格区域：确保 grid-template-areas 语法正确，避免布局错误
