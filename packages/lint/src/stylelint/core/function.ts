@@ -1,5 +1,6 @@
 /**
  * Function 相关规则
+ * @module @crucialy/lint/stylelint/core/function
  *
  * 包含 CSS 函数相关规则（11条）
  * - calc() 运算符空格：提高可读性
