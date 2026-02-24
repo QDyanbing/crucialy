@@ -1,5 +1,6 @@
 /**
  * Selector 相关规则
+ * @module @crucialy/lint/stylelint/core/selector
  *
  * 包含选择器格式、复杂度限制等规则（28条）
  * - 选择器命名模式：统一命名规范（如 BEM）
