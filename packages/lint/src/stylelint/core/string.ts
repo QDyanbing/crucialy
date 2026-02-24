@@ -1,5 +1,6 @@
 /**
  * String 相关规则
+ * @module @crucialy/lint/stylelint/core/string
  *
  * 包含字符串格式相关规则（1条）
  * - 禁止字符串中包含换行符：确保 CSS 字符串值格式正确，避免解析错误
