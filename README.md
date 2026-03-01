@@ -7,7 +7,7 @@ Crucialy 包的 Monorepo 仓库。
 - [`@crucialy/lint`](./packages/lint) - ESLint、Stylelint 和 Prettier 的 lint 配置
 - [`@crucialy/git-hooks`](https://github.com/crucialy/crucialy-git-hooks) - Git hooks 配置（Husky、lint-staged、提交信息验证），独立仓库发布
 
-本仓库通过 `file:../crucialy-git-hooks` 引用。本地开发需将 crucialy-git-hooks 克隆到上级目录。发布与版本在独立仓库进行。
+本仓库通过 `file:../crucialy-git-hooks` 引用。本地开发需将 crucialy-git-hooks 克隆到上级目录。发布与版本在独立仓库进行。postinstall 会执行 crucialy setup 配置 hooks。
 
 ## 开发
 
