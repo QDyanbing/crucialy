@@ -19,7 +19,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.29.7",
-    "@crucialy/git-hooks": "workspace:^",
+    "@crucialy/git-hooks": "file:../crucialy-git-hooks",
     "@crucialy/lint": "workspace:^",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.48.1",
